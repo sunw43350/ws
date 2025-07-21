@@ -20,8 +20,9 @@ def on_open(ws):
 
 def on_message(ws, message):
 
-    print("📩 收到消息:", message)
+    # print("📩 收到消息:", message)
     data = json.loads(message)
+    print(data)
 
     # 示例字段说明（ticker 数据结构）：
     # 'bid'       : 买一价格（Best Bid）
@@ -31,10 +32,10 @@ def on_message(ws, message):
     # 'last'      : 最新成交价
     # 'symbol'    : 交易对名称（如 BTC/USD）
 
-    if data.get("channel") == "ticker" and "data" in data:
-        ticker = data["data"]
-        symbol = data.get("symbol", "unknown")
-        print(f"📊 {symbol} | 买一: {ticker['bid']} ({ticker['bidSize']}) | 卖一: {ticker['ask']} ({ticker['askSize']})")
+    # if data.get("channel") == "ticker" and "data" in data:
+    #     ticker = data["data"]
+    #     symbol = data.get("symbol", "unknown")
+    #     print(f"📊 {symbol} | 买一: {ticker['bid']} ({ticker['bidSize']}) | 卖一: {ticker['ask']} ({ticker['askSize']})")
 
 def on_error(ws, error):
     print("❌ 错误:", error)
