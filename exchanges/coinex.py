@@ -2,7 +2,7 @@ import websocket
 import json
 import gzip
 
-WS_URL = "wss://socket.coinex.com/"
+WS_URL = "wss://socket.coinex.com/v2/futures"
 SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "LTCUSDT"]
 
 def on_open(ws):
