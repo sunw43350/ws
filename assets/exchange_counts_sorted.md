@@ -1,7 +1,7 @@
 | exchange | symbol_count |
 | --- | --- |
 | mexc | 787 |
-| xt | 766 |
+| xt | 766 |b
 | phemex | 743 |a
 | gate | 602 |
 | gateio | 602 |a
