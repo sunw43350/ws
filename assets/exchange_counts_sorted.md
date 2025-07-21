@@ -30,7 +30,7 @@
 | coinbaseinternational | 174 |
 | coinbase | 170 |a
 | coinbaseadvanced | 170 |
-| bitmex | 131 |
+| bitmex | 131 |a
 | ascendex | 119 |
 | apex | 107 |
 | paradex | 102 |b
