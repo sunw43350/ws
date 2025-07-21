@@ -9,15 +9,22 @@ def on_open(ws):
     print("✅ 已连接 Hyperliquid WebSocket")
 
     for symbol in CONTRACTS:
+        # sub_msg = {
+        #     "type": "subscribe",
+        #     "channels": [
+        #         {
+        #             "type": "allMids",
+        #             "coin": symbol.split("-")[0]  # ✅ 提取 coin 名称，如 BTC
+        #         }
+        #     ]
+        # }
         sub_msg = {
             "type": "subscribe",
-            "channels": [
-                {
-                    "type": "allMids",
-                    "coin": symbol.split("-")[0]  # ✅ 提取 coin 名称，如 BTC
-                }
-            ]
+            "channel": "allMids"
         }
+        ws.send(json.dumps(sub_msg))
+
+
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: allMids → {symbol}")
         time.sleep(0.3)  # 控制订阅速率，避免触发限速
