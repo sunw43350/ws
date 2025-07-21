@@ -17,6 +17,12 @@ async def subscribe_bitmart():
             "action": "subscribe",
             "args": [f"futures/ticker:{symbol}" for symbol in SYMBOLS]
         }
+
+        {
+        "action":"subscribe",
+        "args":["futures/ticker:BTCUSDT"]
+        }
+        
         await ws.send(json.dumps(subscribe_msg))
         print("📨 已发送订阅请求:", subscribe_msg)
 
