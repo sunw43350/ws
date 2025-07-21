@@ -74,6 +74,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(data)
+
                     if "result" in data and isinstance(data["result"].get("data"), list):
                         for item in data["result"]["data"]:
                             symbol = item.get("i", "")
