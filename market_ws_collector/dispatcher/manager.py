@@ -1,11 +1,14 @@
+from connectors import ascendex, binance  # 添加你已实现的 Connector
+from config import DEFAULT_SYMBOLS
 import asyncio
-from connectors import binance  # 可扩展为动态导入
 
 class ExchangeManager:
-    def __init__(self):
+    def __init__(self, queue):
+        self.queue = queue
         self.connectors = [
-            binance.Connector()
-            # 添加其他 Connector 实例
+            ascendex.Connector(symbols=DEFAULT_SYMBOLS["ascendex"], queue=queue),
+            binance.Connector(symbols=DEFAULT_SYMBOLS["binance"], queue=queue),
+            # 后续添加更多交易所
         ]
 
     async def run_all(self):
