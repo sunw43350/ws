@@ -8,8 +8,8 @@
 | bybit | 598 |
 | bitget | 588 |
 | bitrue | 586 |
-| binance | 574 |
-| bingx | 539 |
+| binance | 574 |a
+| bingx | 539 |a
 | binanceusdm | 530 |
 | lbank | 510 |a
 | bitmart | 506 |a
