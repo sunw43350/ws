@@ -54,29 +54,11 @@ class Connector(BaseAsyncConnector):
                     data = json.loads(raw)
 
                     print("📩 收到消息:", data)
-                    if data.get("channel") == "ticker" and "product_id" in data:
-                        symbol = data["product_id"]
-                        bid1 = float(data.get("bid", 0.0))
-                        ask1 = float(data.get("ask", 0.0))
-                        bid_vol1 = float(data.get("bid_size", 0.0))
-                        ask_vol1 = float(data.get("ask_size", 0.0))
-                        total_volume = float(data.get("volume", 0.0))
+                    
+                    channel = data.get("channel")
+                    data = data.data[0] if isinstance(data, dict) and "data" in data else data
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=time.time()
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-
-                    if data.get("channel") == "ticker" and "symbol" in data:
+                    if channel == "ticker" and "symbol" in data.data[0]:
                         symbol = data["symbol"]
                         bid1 = float(data.get("bid", 0.0))
                         ask1 = float(data.get("ask", 0.0))
