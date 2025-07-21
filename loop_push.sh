@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 设置 PATH，确保 git 可用（适用于 cron/非登录环境）
-export PATH=/home/ec2-user/.local/bin:/home/ec2-user/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-
 # 获取 Git 仓库根目录
 REPO_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
 
