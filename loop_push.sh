@@ -22,7 +22,6 @@ echo "[`date '+%F %T'`] ▶️ 启动循环 git push ..." >> "$LOG_FILE"
 
 # 无限循环，每 5 秒执行一次
 while true; do
-  echo "[`date '+%F %T'`] 🔍 检查文件变更..." >> "$LOG_FILE"
 
   # 添加并提交
   git add . >> "$LOG_FILE" 2>&1
