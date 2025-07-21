@@ -8,7 +8,6 @@ WS_URL = "wss://openapi.digifinex.com/swap_ws/v2/"
 
 def decompress_message(message: bytes) -> str:
     """解压 gzip binary message"""
-    # decompress = zlib.decompressobj(-zlib.MAX_WBITS)  # raw gzip
     inflated = zlib.decompress(message) 
     return inflated.decode('utf-8')
 
