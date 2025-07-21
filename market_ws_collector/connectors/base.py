@@ -12,3 +12,6 @@ class BaseAsyncConnector(ABC):
 
     @abstractmethod
     def run_forever(self): pass
+
+    @abstractmethod
+    def format_symbol(self): pass
