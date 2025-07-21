@@ -23,7 +23,7 @@
 | coincatch | 261 |
 | htx | 243 |
 | huobi | 243 |a
-| coinex | 237 |
+| coinex | 237 |c 
 | cryptocom | 217 |a
 | whitebit | 209 |b
 | hyperliquid | 201 |
