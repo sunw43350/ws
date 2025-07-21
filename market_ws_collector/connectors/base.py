@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 class BaseAsyncConnector(ABC):
-    def __init__(self):
-        self.exchange_name = self.__class__.__name__.replace("Connector", "")
+    def __init__(self, exchange: str):
+        self.exchange_name = exchange
 
     @abstractmethod
     async def connect(self): pass
@@ -14,4 +14,4 @@ class BaseAsyncConnector(ABC):
     async def run(self): pass
 
     @abstractmethod
-    def format_symbol(self, generic_symbol: str) -> str: pass
+    def format_symbol(self, generic_symbol: str): pass

@@ -9,13 +9,12 @@ from models.base import SubscriptionRequest, MarketSnapshot
 from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
-    def __init__(self, symbols=None, ws_url=None, queue=None):
-        super().__init__()
-        self.exchange_name = "ascendex"
-        self.ws_url = ws_url or WS_ENDPOINTS.get(self.exchange_name)
+    def __init__(self, exchange="ascendex", symbols=None, ws_url=None, queue=None):
+        super().__init__(exchange)
         self.queue = queue
+        self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
-        generic_symbols = symbols or DEFAULT_SYMBOLS.get(self.exchange_name, [])
+        generic_symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
         self.subscriptions = [
             SubscriptionRequest(symbol=self.format_symbol(sym), channel="depth", depth_level=0)
             for sym in generic_symbols
@@ -38,8 +37,7 @@ class Connector(BaseAsyncConnector):
         print(f"✅ AscendEX WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self, request: SubscriptionRequest):
-        msg = self.build_sub_msg(request)
-        await self.ws.send(json.dumps(msg))
+        await self.ws.send(json.dumps(self.build_sub_msg(request)))
         print(f"📨 已订阅: {request.symbol}")
 
     async def run(self):
