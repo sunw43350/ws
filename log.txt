@@ -5166,3 +5166,12 @@ To https://github.com/sunw43350/ws
 [变动文件列表]:
  M log.txt
 ?? exchanges/bitmart.py
+[main 732f070] Auto commit: 2025-07-21 04:48:13
+ 2 files changed, 9 insertions(+)
+ create mode 100644 exchanges/bitmart.py
+To https://github.com/sunw43350/ws
+   41b8822..732f070  main -> main
+[2025-07-21 04:48:21] 🔍 检查文件变更...
+[2025-07-21 04:48:21] 🔄 检测到变更，执行 git push
+[变动文件列表]:
+ M log.txt
