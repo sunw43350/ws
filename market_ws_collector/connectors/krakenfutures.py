@@ -45,7 +45,8 @@ class Connector(BaseAsyncConnector):
     async def handle_message(self, raw: str):
         try:
             data = json.loads(raw)
-            
+
+            print(f"📩 收到 Kraken Futures 消息: {data}")
             if data.get("feed") == "ticker" and "product_id" in data:
                 symbol = data["product_id"]
                 bid1 = float(data.get("bid", 0.0))
