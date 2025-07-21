@@ -3,12 +3,10 @@ import pickle
 
 
 
-data = pickle.load(open('your_file.pk', 'rb')); 
+exchange_symbols = pickle.load(open('assets/exchange_symbols.pkl', 'rb'))
+
+symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 
 
 
-print(data)
-with open('your_file.pk', 'rb') as f:
-    data = pickle.load(f)
-
-print(data)
+print(exchange_symbols)
