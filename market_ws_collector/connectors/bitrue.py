@@ -70,6 +70,9 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(data)
+
+
                     if "channel" in data and "data" in data:
                         channel = data["channel"]
                         symbol = channel.replace("market_", "").replace("_depth_step0", "")
