@@ -36,4 +36,4 @@ print(separator)
 
 # 打印每行
 for symbol, count, row in sorted_data:
-    print("| " + symbol + " | " + str(count) + " | " + " | ".join(row) + "
+    print("| " + symbol + " | " + str(count) + " | " + " | ".join(row) + " |")
