@@ -6,7 +6,7 @@ class ExchangeManager:
     def __init__(self, queue):
         self.queue = queue
         self.connectors = [
-            ascendex.Connector(exchange="ascendex", queue=queue),
+            # ascendex.Connector(exchange="ascendex", queue=queue),
             krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
