@@ -83,7 +83,7 @@ class Connector(BaseAsyncConnector):
                             bid_vol1=float(data.get("bid_size", 0.0)),
                             ask_vol1=float(data.get("ask_size", 0.0)),
                             total_volume=float(data.get("volume", 0.0)),
-                            timestamp=time.time()
+                            timestamp=int(data.get("timestamp", 0)),  # ✅ 保留为毫秒整数
                         )
 
                         if self.queue:

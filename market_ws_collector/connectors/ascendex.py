@@ -79,7 +79,8 @@ class Connector(BaseAsyncConnector):
                             ask1=ask1,
                             bid_vol1=bid_vol1,
                             ask_vol1=ask_vol1,
-                            timestamp=time.time()
+                            timestamp=int(data.get("timestamp", 0)),  # ✅ 保留为毫秒整数
+
                         )
 
                         if self.queue:
