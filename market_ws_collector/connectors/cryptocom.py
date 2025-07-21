@@ -64,24 +64,19 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    print(f"📩 收到消息: {data} ")
+                    # print(f"📩 收到消息: {data} ")
+                    if data.get("method") == "subscribe" and "result" in data:
+                        result = data["result"]
+                        raw_symbol = result.get("instrument_name")
+                        symbol = result.get("data", [{}])[0].get("i", raw_symbol)
+                        tick = result.get("data", [{}])[0]
 
-                    if data.get("method") == "ticker.update" and "params" in data:
-                        tick = data["params"]
-                        channel = tick.get("channel", "")
-                        symbol = channel.replace("ticker.", "")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
-
-                        b = tick.get("data", {}).get("b", "0")     # bid price
-                        bs = tick.get("data", {}).get("bs", "0")  # bid size
-                        k = tick.get("data", {}).get("k", "0")     # ask price
-                        ks = tick.get("data", {}).get("ks", "0")  # ask size
-
-                        bid1 = float(b)
-                        bid_vol1 = float(bs)
-                        ask1 = float(k)
-                        ask_vol1 = float(ks)
-                        timestamp = int(time.time() * 1000)
+                        bid1 = float(tick.get("b", 0.0))
+                        bid_vol1 = float(tick.get("bs", 0.0))
+                        ask1 = float(tick.get("k", 0.0))
+                        ask_vol1 = float(tick.get("ks", 0.0))
+                        total_volume = float(tick.get("vv", tick.get("v", 0.0)))
+                        timestamp = int(tick.get("t", time.time() * 1000))
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
@@ -91,12 +86,13 @@ class Connector(BaseAsyncConnector):
                             ask1=ask1,
                             bid_vol1=bid_vol1,
                             ask_vol1=ask_vol1,
+                            total_volume=total_volume,
                             timestamp=timestamp
                         )
 
                         if self.queue:
                             await self.queue.put(snapshot)
-                            print(f"📥 {self.format_snapshot(snapshot)}")
+                            # print(f"📥 {self.format_snapshot(snapshot)}")
 
             except Exception as e:
                 print(f"❌ Crypto.com 异常: {e}")
