@@ -1,22 +1,30 @@
 import websocket
 import json
-import gzip
+import time
 
-WS_URL = "wss://ws.gate.io/v4/"
+WS_URL = "wss://api.gateio.ws/ws/v4/"
 SYMBOLS = ["BTC_USDT", "ETH_USDT", "SOL_USDT", "XRP_USDT", "LTC_USDT"]
 
 def on_open(ws):
     print("✅ 已连接 Gate.io WebSocket")
 
-    for i, symbol in enumerate(SYMBOLS):
+    for symbol in SYMBOLS:
         sub_msg = {
-            "time": int(__import__("time").time()),
+            "time": int(time.time()),
             "channel": "spot.order_book",
             "event": "subscribe",
             "payload": [symbol]
         }
+        sub_msg = {
+            "time": int(time.time()),
+            "channel": "spot.order_book",
+            "event": "subscribe",
+            "payload": [symbol, "1000ms", "20"]
+        }
+
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: spot.order_book → {symbol}")
+
 
 def on_message(ws, message):
     try:
