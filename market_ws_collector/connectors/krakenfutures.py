@@ -22,10 +22,12 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # 将 BTC-USDT → pi_xbtusd（Kraken Futures 合约格式）
+        # BTC-USDT → PI_XBTUSD
         symbol = generic_symbol.upper().replace("-", "")
-        symbol = re.sub(r"^BTC", "XBT", symbol)
-        return f"PI_{symbol.upper()}"
+        symbol = re.sub(r"USDT$", "USD", symbol)          # ✅ 替换结算币
+        symbol = re.sub(r"^BTC", "XBT", symbol)           # ✅ 替换 BTC → XBT
+        return f"PI_{symbol}"
+
 
     def build_sub_msg(self) -> dict:
         return {
