@@ -4,7 +4,7 @@
 | xt | 766 |
 | phemex | 743 |
 | gate | 602 |
-| gateio | 602 |
+| gateio | 602 |a
 | bybit | 598 |a
 | bitget | 588 |a
 | bitrue | 586 |a
