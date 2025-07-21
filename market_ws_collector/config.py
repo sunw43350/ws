@@ -65,3 +65,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "blofin": "wss://openapi.blofin.com/ws/public"
 })
+
+DEFAULT_SYMBOLS.update({
+    "bybit": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "LINK-USDT", "ADA-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "bybit": "wss://stream.bybit.com/v5/public/linear"
+})
