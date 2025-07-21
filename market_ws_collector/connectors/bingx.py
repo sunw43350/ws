@@ -19,7 +19,6 @@ class Connector(BaseAsyncConnector):
             for sym in generic_symbols
         ]
 
-        # ✅ 映射格式：BTC-USDT → BTC-USDT（直接使用）
         self.symbol_map = {
             self.format_symbol(sym): sym
             for sym in generic_symbols
@@ -28,11 +27,11 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        return generic_symbol.upper()  # BingX 保持原始币对格式（大写）
+        return generic_symbol.upper()
 
-    def build_sub_msg(self, request: SubscriptionRequest, i: int) -> dict:
+    def build_sub_msg(self, request: SubscriptionRequest, index: int) -> dict:
         return {
-            "id": f"depth-{i+1}",
+            "id": f"depth-{index+1}",
             "reqType": "sub",
             "dataType": f"{request.symbol}@depth20"
         }
@@ -41,23 +40,23 @@ class Connector(BaseAsyncConnector):
         self.ws = await websockets.connect(self.ws_url)
         print(f"✅ BingX WebSocket 已连接 → {self.ws_url}")
 
-    async def subscribe_all(self):
+    async def subscribe(self):
         for i, req in enumerate(self.subscriptions):
-            await self.ws.send(json.dumps(self.build_sub_msg(req, i)))
-            print(f"📨 已订阅: {req.symbol}@depth20")
+            sub_msg = self.build_sub_msg(req, i)
+            await self.ws.send(json.dumps(sub_msg))
+            print(f"📨 已订阅: {sub_msg['dataType']}")
             await asyncio.sleep(0.1)
 
     async def run(self):
         while True:
             try:
                 await self.connect()
-                await self.subscribe_all()
+                await self.subscribe()
 
                 while True:
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    # ✅ 数据格式参考 BingX depth20 文档
                     if "data" in data and "bids" in data["data"] and "asks" in data["data"]:
                         symbol_full = data.get("dataType", "").split("@")[0]
                         raw_symbol = self.symbol_map.get(symbol_full, symbol_full)
@@ -68,7 +67,7 @@ class Connector(BaseAsyncConnector):
                         bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
                         ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
 
-                        ts = data["data"].get("ts") or data["ts"] or int(time.time() * 1000)
+                        ts = data["data"].get("ts") or data.get("ts") or int(time.time() * 1000)
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
