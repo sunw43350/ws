@@ -22,7 +22,7 @@
 | okxus | 270 |
 | coincatch | 261 |
 | htx | 243 |
-| huobi | 243 |
+| huobi | 243 |a
 | coinex | 237 |
 | cryptocom | 217 |a
 | whitebit | 209 |b
