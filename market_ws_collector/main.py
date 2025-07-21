@@ -1,10 +1,20 @@
 import asyncio
-from connectors import ascendex
+from dispatcher.manager import ExchangeManager
+
+async def consume_snapshots(queue):
+    while True:
+        snapshot = await queue.get()
+        print(f"📥 收到数据 → {snapshot.exchange} | {snapshot.symbol} | 买一: {snapshot.best_bid} | 卖一: {snapshot.best_ask}")
+        queue.task_done()
 
 async def main():
-    # 可传入 symbols 或使用默认 config.py 中配置
-    connector = ascendex.Connector()
-    await connector.run()
+    snapshot_queue = asyncio.Queue()
+
+    manager = ExchangeManager(queue=snapshot_queue)
+    await asyncio.gather(
+        manager.run_all(),               # 并发运行所有 Connector
+        consume_snapshots(snapshot_queue)  # 消费数据
+    )
 
 if __name__ == "__main__":
     asyncio.run(main())
