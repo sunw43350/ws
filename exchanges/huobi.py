@@ -5,6 +5,13 @@ import json
 WS_URL = "wss://api.huobi.pro/ws"
 SYMBOLS = ["btcusdt", "ethusdt", "solusdt", "ltcusdt", "xrpusdt"]
 
+
+# bid, b, best_bid_price	买一价格（当前市场中最高买价）
+# bidSize, bs, best_bid_volume	买一挂单数量（买一对应挂单量）
+# ask, k, best_ask_price	卖一价格（当前市场中最低卖价）
+# askSize, ks, best_ask_volume	卖一挂单数量（卖一对应挂单量）
+
+
 def on_open(ws):
     print("✅ 已连接 Huobi WebSocket")
 
