@@ -66,8 +66,8 @@ class Connector(BaseAsyncConnector):
                         bids = data["data"].get("bids", [])
                         asks = data["data"].get("asks", [])
 
-                        bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
+                        bid1, bid_vol1 = map(float, bids[0]) if bids else (-1, -1)
+                        ask1, ask_vol1 = map(float, asks[0]) if asks else (-1, -1)
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
