@@ -24,13 +24,6 @@ echo "[`date '+%F %T'`] ▶️ 启动循环 git push ..." >> "$LOG_FILE"
 while true; do
   echo "[`date '+%F %T'`] 🔍 检查文件变更..." >> "$LOG_FILE"
 
-  # 如果有文件更改
-  echo "[`date '+%F %T'`] 🔄 检测到变更，执行 git push" >> "$LOG_FILE"
-
-  # 显示变动文件列表
-  echo "[变动文件列表]:" >> "$LOG_FILE"
-  git status --short >> "$LOG_FILE"
-
   # 添加并提交
   git add . >> "$LOG_FILE" 2>&1
   git commit -m "Auto commit: `date '+%F %T'`" >> "$LOG_FILE" 2>&1
