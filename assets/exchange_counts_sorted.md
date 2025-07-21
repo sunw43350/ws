@@ -26,7 +26,7 @@
 | coinex | 237 |b
 | cryptocom | 217 |a
 | whitebit | 209 |b
-| hyperliquid | 201 |
+| hyperliquid | 201 |b
 | coinbaseinternational | 174 |
 | coinbase | 170 |a
 | coinbaseadvanced | 170 |
