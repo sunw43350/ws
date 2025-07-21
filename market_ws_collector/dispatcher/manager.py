@@ -1,4 +1,4 @@
-from connectors import ascendex, kraken  # ✅ 添加 Kraken
+from connectors import ascendex, krakenfutures  # ✅ 添加 Kraken
 from config import DEFAULT_SYMBOLS
 import asyncio
 
@@ -7,7 +7,7 @@ class ExchangeManager:
         self.queue = queue
         self.connectors = [
             ascendex.Connector(symbols=DEFAULT_SYMBOLS["ascendex"], queue=queue),
-            kraken.Connector(symbols=DEFAULT_SYMBOLS["kraken"], queue=queue),
+            krakenfutures.Connector(symbols=DEFAULT_SYMBOLS["krakenfutures"], queue=queue),
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
