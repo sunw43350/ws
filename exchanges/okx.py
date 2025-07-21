@@ -5,12 +5,6 @@ import zlib
 WS_URL = "wss://ws.okx.com:8443/ws/v5/public"
 SYMBOLS = ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
 
-# 解压 OKX 的压缩数据
-def inflate(message):
-    inflated = zlib.decompress(message) 
-    return inflated.decode('utf-8')
-    # decompress = zlib.decompressobj(-zlib.MAX_WBITS)
-    # return decompress.decompress(data) + decompress.flush()
 
 def on_open(ws):
     print("✅ 已连接 OKX WebSocket")
@@ -25,8 +19,8 @@ def on_open(ws):
 
 def on_message(ws, message):
     try:
-        data = inflate(message).decode("utf-8")
-        msg = json.loads(data)
+        # data = inflate(message)
+        msg = json.loads(message)
 
         # 示例字段说明（ticker 数据结构）：
         # 'bidPx'   : 买一价格（Best Bid）
