@@ -48,7 +48,7 @@ class Connector(BaseAsyncConnector):
                 await self.connect()
                 for req in self.subscriptions:
                     await self.subscribe(req)
-                    await asyncio.sleep(0.2)
+                    await asyncio.sleep(0.1)
 
                 while True:
                     raw = await self.ws.recv()
@@ -77,7 +77,7 @@ class Connector(BaseAsyncConnector):
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 AscendEX 正常断开: {e}，尝试重连...")
-                await asyncio.sleep(2)
+                await asyncio.sleep(0.1)
             except Exception as e:
                 print(f"❌ AscendEX 异常: {e}")
-                await asyncio.sleep(2)
+                await asyncio.sleep(0.1)
