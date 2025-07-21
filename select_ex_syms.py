@@ -4,7 +4,7 @@ exchange_symbols = pickle.load(open('assets/exchange_symbols.pkl', 'rb'))
 symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 
 # 过滤 symbol 数量小于 100 的 exchange
-filtered_exchanges = [ex for ex, syms in exchange_symbols.items() if len(syms) >= 100]
+filtered_exchanges = [ex for ex, syms in exchange_symbols.items() if len(syms) >= 5]
 filtered_exchanges = sorted(filtered_exchanges)
 
 # 获取所有 symbol
