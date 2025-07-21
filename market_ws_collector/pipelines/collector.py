@@ -1,3 +1,5 @@
+import asyncio
+
 class CollectorPipeline:
     @staticmethod
     async def run():
