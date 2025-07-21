@@ -5,7 +5,7 @@ async def consume_snapshots(queue):
     while True:
         snapshot = await queue.get()
         print(
-            f"📥 [{snapshot.exchange}] {snapshot.symbol} | {snapshot.raw_symbol} | "
+            f"📥 [{snapshot.exchange}] {snapshot.raw_symbol} | {snapshot.symbol} | "
             f"买一: {snapshot.bid1:.2f} ({snapshot.bid_vol1:.2f}) | "
             f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
