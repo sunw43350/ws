@@ -19,6 +19,8 @@ def on_open(ws):
     print("📨 已发送订阅请求:", sub_msg)
 
 def on_message(ws, message):
+
+    print("📩 收到消息:", message)
     data = json.loads(message)
 
     # 示例字段说明（ticker 数据结构）：
