@@ -16,10 +16,16 @@ WS_ENDPOINTS = {
 
 }
 DEFAULT_SYMBOLS = {
-    "bitfinex": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
 }
 
 WS_ENDPOINTS = {
     "bitfinex": "wss://api-pub.bitfinex.com/ws/2"
 }
 
+DEFAULT_SYMBOLS.update({
+    "krakenfutures": ["BTC-USDT", "ETH-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "krakenfutures": "wss://futures.kraken.com/ws/v1"
+})
