@@ -1,13 +1,104 @@
-# bitrue.py
-from connectors.base import BaseConnector
+import asyncio
+import json
+import time
+import gzip
+import websockets
+
+from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
+from connectors.base import BaseAsyncConnector
 
-class Connector(BaseConnector):
-    def connect(self):
-        pass
+class Connector(BaseAsyncConnector):
+    def __init__(self, exchange="bitrue", symbols=None, ws_url=None, queue=None):
+        super().__init__(exchange)
+        self.queue = queue
+        self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
-    def subscribe(self, request: SubscriptionRequest):
-        pass
+        self.symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
+        self.subscriptions = [
+            SubscriptionRequest(symbol=self.format_symbol(sym), channel="depth_step0")
+            for sym in self.symbols
+        ]
 
-    def run_forever(self):
-        pass
+        self.symbol_map = {
+            self.format_symbol(sym): sym
+            for sym in self.symbols
+        }
+
+        self.ws = None
+
+    def format_symbol(self, generic_symbol: str) -> str:
+        return generic_symbol.lower()
+
+    def build_sub_msg(self, symbol: str) -> dict:
+        return {
+            "event": "sub",
+            "params": {
+                "channel": f"market_{symbol}_depth_step0",
+                "cb_id": symbol
+            }
+        }
+
+    async def connect(self):
+        self.ws = await websockets.connect(self.ws_url)
+        print(f"✅ Bitrue WebSocket 已连接 → {self.ws_url}")
+
+    async def subscribe(self):
+        for req in self.subscriptions:
+            sub_msg = self.build_sub_msg(req.symbol)
+            await self.ws.send(json.dumps(sub_msg))
+            print(f"📨 已订阅: market_{req.symbol}_depth_step0")
+            await asyncio.sleep(0.1)
+
+    async def run(self):
+        while True:
+            try:
+                await self.connect()
+                await self.subscribe()
+
+                while True:
+                    raw = await self.ws.recv()
+
+                    if isinstance(raw, bytes):
+                        try:
+                            raw = gzip.decompress(raw).decode("utf-8")
+                        except:
+                            continue
+
+                    try:
+                        data = json.loads(raw)
+                    except:
+                        continue
+
+                    if "channel" in data and "data" in data:
+                        channel = data["channel"]
+                        symbol = channel.replace("market_", "").replace("_depth_step0", "")
+                        raw_symbol = self.symbol_map.get(symbol, symbol)
+
+                        bids = data["data"].get("bids", [])
+                        asks = data["data"].get("asks", [])
+
+                        bid1, bid_vol1, ask1, ask_vol1 = self.extract_top_bid_ask(bids, asks)
+                        timestamp = int(data["data"].get("timestamp", time.time() * 1000))
+
+                        snapshot = MarketSnapshot(
+                            exchange=self.exchange_name,
+                            symbol=symbol,
+                            raw_symbol=raw_symbol,
+                            bid1=bid1,
+                            ask1=ask1,
+                            bid_vol1=bid_vol1,
+                            ask_vol1=ask_vol1,
+                            timestamp=timestamp
+                        )
+
+                        if self.queue:
+                            await self.queue.put(snapshot)
+                            # print(self.format_snapshot(snapshot))
+
+            except websockets.exceptions.ConnectionClosedOK as e:
+                print(f"🔁 Bitrue 正常断开: {e}，尝试重连...")
+                await asyncio.sleep(0.5)
+            except Exception as e:
+                print(f"❌ Bitrue 异常: {e}")
+                await asyncio.sleep(0.5)
