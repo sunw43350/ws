@@ -53,6 +53,7 @@ class Connector(BaseAsyncConnector):
 
                 while True:
                     raw = await self.ws.recv()
+                    print(raw)  # 仅打印前100个字符以避免过长输出
                     data = json.loads(raw)
 
                     if isinstance(data, dict) and "data" in data and "s" in data["data"]:
