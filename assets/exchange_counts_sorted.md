@@ -15,7 +15,7 @@
 | bitmart | 506 |
 | blofin | 497 |
 | kucoinfutures | 449 |
-| krakenfutures | 351 |
+| krakenfutures | 351 |a slow
 | oxfun | 345 |
 | myokx | 270 |
 | okx | 270 |a
