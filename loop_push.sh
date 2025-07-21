@@ -10,7 +10,7 @@ if [ -z "$REPO_DIR" ]; then
 fi
 
 # 日志文件
-LOG_FILE="$REPO_DIR/log.txt"
+LOG_FILE="$REPO_DIR/push_log.txt"
 
 # 进入仓库目录
 cd "$REPO_DIR" || {
