@@ -58,8 +58,9 @@ class Connector(BaseAsyncConnector):
                     
                     
                     channel = data.get("channel")
-                    if channel == "":
-                    data = data.data[0] if isinstance(data, dict) and "data" in data else data
+                    if channel != "ticker":
+                        continue
+                    data = data['data'][0] 
 
                     if channel == "ticker" and "symbol" in data:
                         symbol = data["symbol"]
