@@ -6,7 +6,7 @@ import time
 WS_URL = "wss://ws-api-spot.kucoin.com/"
 TOKEN = "你的token字符串"  # 请替换为你从 REST API 获取的 token
 
-T
+TOKEN = "2neAiuYvAU61ZDXANAGAsiL4-iAExhsBXZxftpOeh_55i3Ysy2q2LEsEWU64mdzUOPusi34M_wGoSf7iNyEWJ4aBZXpWhrmY9jKtqkdWoFa75w3istPvPtiYB9J6i9GjsxUuhPw3BlrzazF6ghq4L_u0MhKxG3x8TeN4aVbNiYo=.mvnekBb8DJegZIgYLs2FBQ=="
 
 # ✅ 要订阅的交易对（Spot）
 SYMBOLS = ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
