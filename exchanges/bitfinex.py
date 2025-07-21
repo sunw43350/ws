@@ -21,6 +21,7 @@ def on_open(ws):
 def on_message(ws, message):
     try:
         data = json.loads(message)
+        print(data)  # 打印原始消息以便调试
 
         # ✅ ticker 推送结构：[CHAN_ID, [BID, BID_SIZE, ASK, ASK_SIZE, ...]]
         if isinstance(data, list) and len(data) > 1 and isinstance(data[1], list):

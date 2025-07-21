@@ -34,7 +34,7 @@
 | ascendex | 119 |a
 | apex | 107 |b
 | paradex | 102 |b
-| bitfinex | 82 |
+| bitfinex | 82 |a
 | delta | 75 |
 | digifinex | 69 |
 | vertex | 60 |
