@@ -3,30 +3,29 @@ import os
 project_root = "market_ws_collector"
 
 folders = [
-    "models",
     "connectors",
+    "dispatcher",
+    "models",
+    "pipelines",
     "utils"
 ]
 
-exchange_modules = [
-    "ascendex", "binance", "bingx", "bitfinex", "bitget", "bitmart", "bitmex",
-    "bitrue", "blofin", "bybit", "coinbase", "cryptocom", "digifinex",
-    "gateio", "huobi", "krakenfutures", "lbank", "mexc", "okx", "oxfun", "phemex"
-]
+def mkdir(path):
+    os.makedirs(path, exist_ok=True)
 
-def create_structure():
-    # 根目录
-    os.makedirs(project_root, exist_ok=True)
+def write_file(path, content):
+    if not os.path.exists(path):
+        with open(path, "w") as f:
+            f.write(content)
 
-    # 子目录
+def create_async_project():
+    mkdir(project_root)
     for folder in folders:
-        os.makedirs(os.path.join(project_root, folder), exist_ok=True)
+        mkdir(os.path.join(project_root, folder))
+        write_file(os.path.join(project_root, folder, "__init__.py"), "")
 
-    # 模型文件
-    model_file = os.path.join(project_root, "models", "base.py")
-    if not os.path.exists(model_file):
-        with open(model_file, "w") as f:
-            f.write("""\
+    # models/base.py
+    write_file(os.path.join(project_root, "models", "base.py"), """\
 class SubscriptionRequest:
     def __init__(self, symbol, channel="ticker", depth_level=0):
         self.symbol = symbol
@@ -42,51 +41,94 @@ class MarketSnapshot:
         self.timestamp = timestamp
 """)
 
-    # 每个交易所模块
-    for name in exchange_modules:
-        path = os.path.join(project_root, "connectors", f"{name}.py")
-        if not os.path.exists(path):
-            with open(path, "w") as f:
-                f.write(f"""\
-# {name}.py
-from connectors.base import BaseConnector
-from models.base import SubscriptionRequest, MarketSnapshot
-
-class Connector(BaseConnector):
-    def connect(self):
-        pass
-
-    def subscribe(self, request: SubscriptionRequest):
-        pass
-
-    def run_forever(self):
-        pass
-""")
-
-    # 抽象父类
-    base_connector = os.path.join(project_root, "connectors", "base.py")
-    if not os.path.exists(base_connector):
-        with open(base_connector, "w") as f:
-            f.write("""\
+    # connectors/base.py
+    write_file(os.path.join(project_root, "connectors", "base.py"), """\
 from abc import ABC, abstractmethod
 
-class BaseConnector(ABC):
-    def __init__(self):
-        self.exchange_name = self.__class__.__name__.replace("Connector", "")
+class BaseAsyncConnector(ABC):
+    def __init__(self, exchange_name):
+        self.exchange_name = exchange_name
 
     @abstractmethod
-    def connect(self): pass
+    async def connect(self): pass
     @abstractmethod
-    def subscribe(self, request): pass
+    async def subscribe(self, request): pass
     @abstractmethod
-    def run_forever(self): pass
+    async def run(self): pass
 """)
 
-    # 日志工具
-    logger_file = os.path.join(project_root, "utils", "logger.py")
-    if not os.path.exists(logger_file):
-        with open(logger_file, "w") as f:
-            f.write("""\
+    # connectors/binance.py
+    write_file(os.path.join(project_root, "connectors", "binance.py"), """\
+import asyncio
+import websockets
+import json
+from connectors.base import BaseAsyncConnector
+from models.base import SubscriptionRequest, MarketSnapshot
+import time
+
+class Connector(BaseAsyncConnector):
+    def __init__(self):
+        super().__init__("binance")
+        self.ws = None
+
+    async def connect(self):
+        self.ws = await websockets.connect("wss://stream.binance.com:9443/ws")
+
+    async def subscribe(self, request: SubscriptionRequest):
+        msg = {
+            "method": "SUBSCRIBE",
+            "params": [f"{request.symbol.lower()}@bookTicker"],
+            "id": 1
+        }
+        await self.ws.send(json.dumps(msg))
+
+    async def run(self):
+        await self.connect()
+        await self.subscribe(SubscriptionRequest("btcusdt"))
+
+        while True:
+            raw = await self.ws.recv()
+            data = json.loads(raw)
+            if "s" in data and "b" in data and "a" in data:
+                snapshot = MarketSnapshot(
+                    exchange=self.exchange_name,
+                    symbol=data["s"],
+                    best_bid=float(data["b"]),
+                    best_ask=float(data["a"]),
+                    timestamp=time.time()
+                )
+                print(f"📊 {snapshot.symbol} | 买一: {snapshot.best_bid} | 卖一: {snapshot.best_ask}")
+""")
+
+    # dispatcher/manager.py
+    write_file(os.path.join(project_root, "dispatcher", "manager.py"), """\
+import asyncio
+from connectors import binance  # 可扩展为动态导入
+
+class ExchangeManager:
+    def __init__(self):
+        self.connectors = [
+            binance.Connector()
+            # 添加其他 Connector 实例
+        ]
+
+    async def run_all(self):
+        tasks = [asyncio.create_task(conn.run()) for conn in self.connectors]
+        await asyncio.gather(*tasks)
+""")
+
+    # pipelines/collector.py
+    write_file(os.path.join(project_root, "pipelines", "collector.py"), """\
+class CollectorPipeline:
+    @staticmethod
+    async def run():
+        while True:
+            await asyncio.sleep(5)
+            # 可连接到 DB、消息队列、策略等
+""")
+
+    # utils/logger.py
+    write_file(os.path.join(project_root, "utils", "logger.py"), """\
 import logging
 
 def get_logger(name="market_ws"):
@@ -100,27 +142,24 @@ def get_logger(name="market_ws"):
     return logger
 """)
 
-    # 主入口文件
-    main_file = os.path.join(project_root, "main.py")
-    if not os.path.exists(main_file):
-        with open(main_file, "w") as f:
-            f.write("""\
-from models.base import SubscriptionRequest
-from connectors import binance, bitmex, blofin
+    # main.py
+    write_file(os.path.join(project_root, "main.py"), """\
+import asyncio
+from dispatcher.manager import ExchangeManager
+from pipelines.collector import CollectorPipeline
 
-def main():
-    connectors = [binance.Connector(), bitmex.Connector(), blofin.Connector()]
-    for conn in connectors:
-        conn.connect()
-        req = SubscriptionRequest(symbol="BTC-USDT")
-        conn.subscribe(req)
-        conn.run_forever()
+async def main():
+    manager = ExchangeManager()
+    await asyncio.gather(
+        manager.run_all(),
+        CollectorPipeline.run()
+    )
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
 """)
 
-    print(f"✅ 成功创建项目结构于: ./{project_root}/")
+    print(f"✅ 已成功创建 asyncio 项目结构于：./{project_root}")
 
 if __name__ == "__main__":
-    create_structure()
+    create_async_project()
