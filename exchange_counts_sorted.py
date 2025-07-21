@@ -12,4 +12,4 @@ exchange_counts_sorted = sorted(exchange_counts, key=lambda x: x[1], reverse=Tru
 print("| exchange | symbol_count |")
 print("| --- | --- |")
 for ex, count in exchange_counts_sorted:
-    print(f"| {ex}
+    print(f"| {ex} | {count} |")
