@@ -89,3 +89,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "coinbase": "wss://advanced-trade-ws.coinbase.com"
 })
+
+DEFAULT_SYMBOLS.update({
+    "cryptocom": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "cryptocom": "wss://stream.crypto.com/exchange/v1/market"
+})
