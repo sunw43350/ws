@@ -33,3 +33,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bitget": "wss://ws.bitget.com/v2/ws/public"
 })
+
+DEFAULT_SYMBOLS.update({
+    "bitmart": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "LTCUSDT"]
+})
+
+WS_ENDPOINTS.update({
+    "bitmart": "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1"
+})
