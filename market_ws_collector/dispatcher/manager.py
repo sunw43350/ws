@@ -7,7 +7,6 @@ class ExchangeManager:
         self.queue = queue
         self.connectors = [
             ascendex.Connector(symbols=DEFAULT_SYMBOLS["ascendex"], queue=queue),
-            binance.Connector(symbols=DEFAULT_SYMBOLS["binance"], queue=queue),
             # 后续添加更多交易所
         ]
 
