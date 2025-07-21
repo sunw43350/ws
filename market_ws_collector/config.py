@@ -41,3 +41,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bitmart": "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1"
 })
+
+DEFAULT_SYMBOLS.update({
+    "bitmex": ["XBTUSD", "ETHUSD", "SOLUSD", "XRPUSD", "LTCUSD"]
+})
+
+WS_ENDPOINTS.update({
+    "bitmex": "wss://ws.bitmex.com/realtime"
+})

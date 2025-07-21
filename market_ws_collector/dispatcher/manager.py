@@ -1,4 +1,4 @@
-from connectors import ascendex, krakenfutures, bingx, bitfinex, bitget, bitmart
+from connectors import ascendex, krakenfutures, bingx, bitfinex, bitget, bitmart, bitmex
 from config import DEFAULT_SYMBOLS
 import asyncio
 
