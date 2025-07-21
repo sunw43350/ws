@@ -60,6 +60,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    
+
                     if data.get("type") == "ticker":
                         symbol = data.get("product_id")
                         raw_symbol = self.symbol_map.get(symbol, symbol)

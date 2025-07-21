@@ -1,4 +1,4 @@
-from connectors import ascendex, krakenfutures, bingx, bitfinex, bitget, bitmart, bitmex, bitrue, blofin, bybit
+from connectors import ascendex, krakenfutures, bingx, bitfinex, bitget, bitmart, bitmex, bitrue, blofin, bybit, coinbase
 from config import DEFAULT_SYMBOLS
 import asyncio
 
@@ -15,7 +15,8 @@ class ExchangeManager:
             # bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
             # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue
             # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
-            bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
+            # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
+            coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
