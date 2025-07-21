@@ -15,4 +15,11 @@ WS_ENDPOINTS = {
     "bingx": "wss://open-api-ws.bingx.com/market"
 
 }
+DEFAULT_SYMBOLS = {
+    "bitfinex": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+}
+
+WS_ENDPOINTS = {
+    "bitfinex": "wss://api-pub.bitfinex.com/ws/2"
+}
 
