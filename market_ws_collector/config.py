@@ -15,17 +15,12 @@ WS_ENDPOINTS = {
     "bingx": "wss://open-api-ws.bingx.com/market"
 
 }
-DEFAULT_SYMBOLS = {
-}
-
-WS_ENDPOINTS = {
-    "bitfinex": "wss://api-pub.bitfinex.com/ws/2"
-}
 
 DEFAULT_SYMBOLS.update({
-    "krakenfutures": ["BTC-USDT", "ETH-USDT"]
+    "bitfinex": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+
 })
 
 WS_ENDPOINTS.update({
-    "krakenfutures": "wss://futures.kraken.com/ws/v1"
+    "bitfinex": "wss://api-pub.bitfinex.com/ws/2"
 })
