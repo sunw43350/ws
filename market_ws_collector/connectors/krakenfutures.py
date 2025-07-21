@@ -55,8 +55,6 @@ class Connector(BaseAsyncConnector):
 
                     # print("📩 收到消息:", data)
 
-                    
-                    
                     channel = data.get("channel")
                     if channel != "ticker":
                         continue
