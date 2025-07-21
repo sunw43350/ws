@@ -5,7 +5,7 @@ __pycache__/
 
 *.log
 *.csv
-
+*log.txt
 ^requirements.txt
 
 # C extensions
