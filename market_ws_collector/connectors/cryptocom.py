@@ -64,7 +64,7 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    
+                    print(f"📩 收到消息: {data} ")
 
                     if data.get("method") == "ticker.update" and "params" in data:
                         tick = data["params"]
