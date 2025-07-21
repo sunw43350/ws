@@ -81,3 +81,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "coinbase": "wss://advanced-trade-ws.coinbase.com"
 })
+
+DEFAULT_SYMBOLS.update({
+    "coinbase": ["BTC-USD", "ETH-USD", "SOL-USD", "LTC-USD", "ADA-USD"]
+})
+
+WS_ENDPOINTS.update({
+    "coinbase": "wss://advanced-trade-ws.coinbase.com"
+})

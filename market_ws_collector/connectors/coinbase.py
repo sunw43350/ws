@@ -60,7 +60,7 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    
+                    print(f"📩 收到消息: {data} ")
 
                     if data.get("type") == "ticker":
                         symbol = data.get("product_id")
