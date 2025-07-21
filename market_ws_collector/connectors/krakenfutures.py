@@ -35,6 +35,13 @@ class Connector(BaseAsyncConnector):
 
 
     def build_sub_msg(self) -> dict:
+        sub_msg = {
+        "method": "subscribe",
+        "params": {
+            "channel": "ticker",
+            "symbol": SYMBOLS
+        }
+    }
         return {
             "event": "subscribe",
             "feeds": ["ticker"],
