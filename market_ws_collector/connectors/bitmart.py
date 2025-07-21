@@ -55,18 +55,18 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    print(data)
-
+                    # print(data)
                     if isinstance(data, dict) and "data" in data and "symbol" in data["data"]:
-                        symbol = data["data"]["symbol"]                  # 合约币对
+                        item = data["data"]
+                        symbol = item.get("symbol")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        bid1 = float(data["data"].get("bb", 0.0))   # best bid
-                        bid_vol1 = float(data["data"].get("bv", 0.0))
-                        ask1 = float(data["data"].get("ap", 0.0))   # best ask
-                        ask_vol1 = float(data["data"].get("av", 0.0))
-                        total_volume = float(data["data"].get("v", 0.0))
-                        timestamp = int(time.time() * 1000)         # BitMart 无时间戳字段
+                        bid1 = float(item.get("bid_price", 0.0))
+                        bid_vol1 = float(item.get("bid_vol", 0.0))
+                        ask1 = float(item.get("ask_price", 0.0))
+                        ask_vol1 = float(item.get("ask_vol", 0.0))
+                        total_volume = float(item.get("volume_24", 0.0))
+                        timestamp = int(time.time() * 1000)  # BitMart 无推送时间戳
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
@@ -82,8 +82,7 @@ class Connector(BaseAsyncConnector):
 
                         if self.queue:
                             await self.queue.put(snapshot)
-                            # 可选打印
-                            # print(self.format_snapshot(snapshot))
+
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 BitMart 正常断开: {e}，尝试重连...")
