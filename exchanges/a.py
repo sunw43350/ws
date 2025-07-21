@@ -540,6 +540,9 @@ if __name__ == "__main__":
         asyncio.run(subscribe_bybit_tickers())
     except KeyboardInterrupt:
         print("🚪 Exit on user interrupt")
+
+
+        # ===========================================
 import websocket
 import json
 
