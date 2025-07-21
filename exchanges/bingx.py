@@ -20,11 +20,9 @@ def on_open(ws):
 def on_message(ws, message):
     try:
         # BingX 返回 GZIP 压缩数据
-        print(message[:100])  # 打印前100个字符以检查数据
-        # inflated = zlib.decompress(message) 
-        # print(inflated[:100])  # 打印前100个字符以检查解压后的数据
         decompressed = gzip.decompress(message).decode("utf-8")
         data = json.loads(decompressed)
+        print(data)
 
         # ✅ 示例字段说明（depth 数据结构）：
         # 'bids': [ [price, quantity], ... ]  # 买一挂单列表（按价格降序）
