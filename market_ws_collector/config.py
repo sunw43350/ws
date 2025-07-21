@@ -24,3 +24,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bitfinex": "wss://api-pub.bitfinex.com/ws/2"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "bitget": ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "LTCUSDT"]
+})
+
+WS_ENDPOINTS.update({
+    "bitget": "wss://ws.bitget.com/v2/ws/public"
+})
