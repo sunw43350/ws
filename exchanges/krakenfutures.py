@@ -1,17 +1,19 @@
 import websocket
 import json
 
-WS_URL = "wss://futures.kraken.com/ws/v1"
-SYMBOLS = ["PI_XBTUSD", "PI_ETHUSD", "PI_SOLUSD", "PI_LTCUSD", "PI_XRPUSD"]
+WS_URL = "wss://ws.kraken.com/v2"
+SYMBOLS = ["BTC/USD", "ETH/USD", "SOL/USD", "XRP/USD", "LTC/USD"]
 
 def on_open(ws):
-    print("✅ 已连接 Kraken Futures WebSocket")
+    print("✅ 已连接 Kraken Spot WebSocket")
 
     # 构造订阅消息
     sub_msg = {
-        "event": "subscribe",
-        "feed": "ticker",
-        "product_ids": SYMBOLS
+        "method": "subscribe",
+        "params": {
+            "channel": "ticker",
+            "symbol": SYMBOLS
+        }
     }
     ws.send(json.dumps(sub_msg))
     print("📨 已发送订阅请求:", sub_msg)
@@ -25,11 +27,12 @@ def on_message(ws, message):
     # 'ask'       : 卖一价格（Best Ask）
     # 'askSize'   : 卖一挂单量
     # 'last'      : 最新成交价
-    # 'product_id': 合约名称（如 PI_XBTUSD）
+    # 'symbol'    : 交易对名称（如 BTC/USD）
 
-    if data.get("feed") == "ticker":
-        symbol = data.get("product_id", "unknown")
-        print(f"📊 {symbol} | 买一: {data['bid']} ({data['bidSize']}) | 卖一: {data['ask']} ({data['askSize']})")
+    if data.get("channel") == "ticker" and "data" in data:
+        ticker = data["data"]
+        symbol = data.get("symbol", "unknown")
+        print(f"📊 {symbol} | 买一: {ticker['bid']} ({ticker['bidSize']}) | 卖一: {ticker['ask']} ({ticker['askSize']})")
 
 def on_error(ws, error):
     print("❌ 错误:", error)
