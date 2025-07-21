@@ -79,7 +79,8 @@ class Connector(BaseAsyncConnector):
                             ask1=ask1,
                             bid_vol1=bid_vol1,
                             ask_vol1=ask_vol1,
-                            timestamp=int(data.get("timestamp", 0)/1000),  # ✅ 保留为毫秒整数
+                            timestamp=time.time() * 1000,  # 毫秒级时间戳
+                            # timestamp=int(data.get("timestamp", 0)/1000),  # ✅ 保留为毫秒整数
 
                         )
 
