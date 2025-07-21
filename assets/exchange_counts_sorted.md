@@ -2,7 +2,7 @@
 | --- | --- |
 | mexc | 787 |
 | xt | 766 |
-| phemex | 743 |
+| phemex | 743 |a
 | gate | 602 |
 | gateio | 602 |a
 | bybit | 598 |a
