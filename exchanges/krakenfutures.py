@@ -20,6 +20,12 @@ def on_open(ws):
             "symbol": SYMBOLS
         }
     }
+
+    sub_msg = {
+        "event": "subscribe",
+        "feeds": ["ticker"],
+        "product_ids": SYMBOLS
+    }
     ws.send(json.dumps(sub_msg))
     print("📨 已发送订阅请求:", sub_msg)
 
