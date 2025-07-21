@@ -18,7 +18,7 @@
 | krakenfutures | 351 |
 | oxfun | 345 |
 | myokx | 270 |
-| okx | 270 |
+| okx | 270 |a
 | okxus | 270 |
 | coincatch | 261 |b
 | htx | 243 |
