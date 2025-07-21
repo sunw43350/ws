@@ -1,6 +1,12 @@
 import websocket
 import json
 
+# "b": "187.08",   // 最优买价
+# "bs": "0.611",   // 最优买量
+# "k": "187.09",   // 最优卖价
+# "ks": "0.497"    // 最优卖量
+
+
 WS_URL = "wss://stream.crypto.com/exchange/v1/market"
 PRODUCTS = ["BTC_USDT", "ETH_USDT", "SOL_USDT", "XRP_USDT", "LTC_USDT"]
 
