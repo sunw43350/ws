@@ -49,3 +49,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bitmex": "wss://ws.bitmex.com/realtime"
 })
+
+DEFAULT_SYMBOLS.update({
+    "bitrue": ["btcusdt", "ethusdt", "solusdt", "xrpusdt", "ltcusdt"]
+})
+
+WS_ENDPOINTS.update({
+    "bitrue": "wss://ws.bitrue.com/kline-api/ws"
+})
