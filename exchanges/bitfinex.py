@@ -3,10 +3,10 @@ import json
 import time
 
 WS_URL = "wss://api-pub.bitfinex.com/ws/2"
-CONTRACTS = ["tBTCUSD", "tETHUSD", "tSOLUSD", "tXRPUSD", "tLTCUSD"]
+CONTRACTS = ["tBTCF0:USTF0", "tETHF0:USTF0", "tSOLF0:USTF0", "tXRPF0:USTF0", "tLTCF0:USTF0"]
 
 def on_open(ws):
-    print("✅ 已连接 Bitfinex WebSocket")
+    print("✅ 已连接 Bitfinex WebSocket（合约行情）")
 
     for symbol in CONTRACTS:
         sub_msg = {
@@ -16,12 +16,11 @@ def on_open(ws):
         }
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: ticker → {symbol}")
-        time.sleep(0.3)  # 控制订阅速率，避免触发限速
+        time.sleep(0.3)  # 控制订阅速率
 
 def on_message(ws, message):
     try:
         data = json.loads(message)
-        print(data)  # 打印原始消息以便调试
 
         # ✅ ticker 推送结构：[CHAN_ID, [BID, BID_SIZE, ASK, ASK_SIZE, ...]]
         if isinstance(data, list) and len(data) > 1 and isinstance(data[1], list):
@@ -31,11 +30,9 @@ def on_message(ws, message):
             ask = payload[2]
             print(f"📊 CHAN_ID {chan_id} | 买一: {bid} | 卖一: {ask}")
 
-        # ✅ 处理订阅确认
         elif isinstance(data, dict) and data.get("event") == "subscribed":
             print(f"✅ 订阅成功: {data.get('channel')} → {data.get('symbol')}")
 
-        # ✅ 处理错误信息
         elif isinstance(data, dict) and data.get("event") == "error":
             print(f"❌ 错误: {data.get('msg')}")
 

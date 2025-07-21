@@ -1,6 +1,3 @@
-.
-├── a.py
-├── a.txt
 ├── ascendex.py
 ├── binance.py
 ├── bingx.py
