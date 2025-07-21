@@ -1,4 +1,4 @@
-from connectors import ascendex, binance  # 添加你已实现的 Connector
+from connectors import ascendex, kraken  # ✅ 添加 Kraken
 from config import DEFAULT_SYMBOLS
 import asyncio
 
@@ -7,7 +7,8 @@ class ExchangeManager:
         self.queue = queue
         self.connectors = [
             ascendex.Connector(symbols=DEFAULT_SYMBOLS["ascendex"], queue=queue),
-            # 后续添加更多交易所
+            kraken.Connector(symbols=DEFAULT_SYMBOLS["kraken"], queue=queue),
+            # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
     async def run_all(self):
