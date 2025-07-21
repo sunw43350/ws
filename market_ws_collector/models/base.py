@@ -40,12 +40,12 @@ class MarketSnapshot:
 
     def to_iso(self, ts_ms: int) -> str:
         try:
-            return datetime.utcfromtimestamp(ts_ms / 1000).isoformat(timespec="milliseconds") + "Z"
+            return datetime.fromtimestamp(ts_ms / 1000).isoformat(timespec="milliseconds") + "Z"
         except:
             return ""
         
-    # def to_iso(self, ts_ms: int) -> str:
-    #     try:
-    #         return datetime.fromtimestamp(ts_ms / 1000).isoformat(timespec="milliseconds") + "Z"
-    #     except:
-    #         return ""
+    def to_hms(self, ts_ms: int) -> str:
+        try:
+            return datetime.fromtimestamp(ts_ms / 1000).strftime("%H:%M:%S")
+        except:
+            return ""
