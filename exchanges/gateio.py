@@ -9,12 +9,12 @@ def on_open(ws):
     print("✅ 已连接 Gate.io WebSocket")
 
     for symbol in SYMBOLS:
-        sub_msg = {
-            "time": int(time.time()),
-            "channel": "spot.order_book",
-            "event": "subscribe",
-            "payload": [symbol]
-        }
+        # sub_msg = {
+        #     "time": int(time.time()),
+        #     "channel": "spot.order_book",
+        #     "event": "subscribe",
+        #     "payload": [symbol]
+        # }
         sub_msg = {
             "time": int(time.time()),
             "channel": "spot.order_book",
