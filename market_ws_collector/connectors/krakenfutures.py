@@ -66,6 +66,7 @@ class Connector(BaseAsyncConnector):
                 while True:
                     raw = await self.ws.recv()
                     data = json.loads(raw)
+                    print(data)
 
                     if data.get("feed") == "ticker" and "symbol" in data:
                         symbol = data["symbol"]
