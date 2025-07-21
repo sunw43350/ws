@@ -1,10 +1,13 @@
 import websocket
 import json
 
-WS_URL = "wss://beta-ws.kraken.com/v2"
+# WS_URL = "wss://beta-ws.kraken.com/v2"
+
+WS_URL = "wss://www.cryptofacilities.com/ws/v1"  # Kraken Futures WebSocket URL
+
 # SYMBOLS = ["BTC/USD", "ETH/USD", "SOL/USD", "XRP/USD", "LTC/USD"]
 # SYMBOLS = ["PI_XBTUSD", "PI_ETHUSD", "PI_SOLUSD", "PI_XRPUSD", "PI_LTCUSD"]  # Kraken Futures 合约格式
-SYMBOLS = [ ["PI_XBTUSD"]  # Kraken Futures 合约格式
+SYMBOLS = [ "PI_XBTUSD"]  # Kraken Futures 合约格式
 
 def on_open(ws):
     print("✅ 已连接 Kraken Spot WebSocket")
