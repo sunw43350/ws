@@ -20,10 +20,10 @@
 | myokx | 270 |
 | okx | 270 |
 | okxus | 270 |
-| coincatch | 261 |
+| coincatch | 261 |b
 | htx | 243 |
 | huobi | 243 |a
-| coinex | 237 |c 需要循环ws
+| coinex | 237 |b
 | cryptocom | 217 |a
 | whitebit | 209 |b
 | hyperliquid | 201 |
