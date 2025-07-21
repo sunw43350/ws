@@ -23,7 +23,7 @@
 | coincatch | 261 |
 | htx | 243 |
 | huobi | 243 |a
-| coinex | 237 |c 
+| coinex | 237 |c 需要循环ws
 | cryptocom | 217 |a
 | whitebit | 209 |b
 | hyperliquid | 201 |
