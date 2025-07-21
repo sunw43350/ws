@@ -1,48 +1,45 @@
 import websocket
 import json
-import gzip
+import time
 
-# ✅ KuCoin Futures WebSocket 地址（公共频道）
-WS_URL = "wss://futures-api.ws.kucoin.com/"
+# ✅ 来自 token 响应的动态 endpoint 和 token
+WS_URL = "wss://ws-api-spot.kucoin.com/"
+TOKEN = "你的token字符串"  # 请替换为你从 REST API 获取的 token
 
-# ✅ 要订阅的合约（产品 ID）
-SYMBOLS = ["XBTUSDM", "ETHUSDM", "SOLUSDM", "LTCUSDM", "XRPUSDM"]
+T
+
+# ✅ 要订阅的交易对（Spot）
+SYMBOLS = ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
 
 def on_open(ws):
-    print("✅ 已连接 KuCoin Futures WebSocket")
+    print("✅ 已连接 KuCoin Spot WebSocket")
 
-    for i, symbol in enumerate(SYMBOLS):
-        sub_msg = {
-            "id": str(i + 1),
-            "type": "subscribe",
-            "topic": f"/contractMarket/ticker:{symbol}",
-            "privateChannel": False,
-            "response": True
-        }
-        ws.send(json.dumps(sub_msg))
-        print(f"📨 已订阅 ticker:{symbol}")
+    # 🔐 发送鉴权消息（携带 token）
+    auth_msg = {
+        "id": int(time.time() * 1000),
+        "type": "subscribe",
+        "topic": "/market/ticker:" + ",".join(SYMBOLS),
+        "privateChannel": False,
+        "response": True
+    }
+    ws.send(json.dumps(auth_msg))
+    print("📨 已发送订阅请求:", auth_msg)
 
 def on_message(ws, message):
-    try:
-        # 🔄 KuCoin Futures 返回的是 gzip 压缩数据，需先解压
-        decompressed = gzip.decompress(message).decode("utf-8")
-        data = json.loads(decompressed)
+    data = json.loads(message)
 
-        # 📊 示例字段说明（ticker 数据结构）：
-        # 'bestBidPrice' : 买一价格（Best Bid）
-        # 'bestBidSize'  : 买一挂单量
-        # 'bestAskPrice' : 卖一价格（Best Ask）
-        # 'bestAskSize'  : 卖一挂单量
-        # 'price'        : 最新成交价（Last Trade Price）
-        # 'symbol'       : 合约代码（如 XBTUSDM）
+    # 📊 示例字段说明（ticker 数据结构）：
+    # 'bestBid'     : 买一价格（Best Bid）
+    # 'bestAsk'     : 卖一价格（Best Ask）
+    # 'price'       : 最新成交价
+    # 'sequence'    : 更新序号
+    # 'time'        : 时间戳（毫秒）
+    # 'symbol'      : 交易对代码（如 BTC-USDT）
 
-        if "data" in data and "topic" in data:
-            ticker = data["data"]
-            symbol = ticker.get("symbol", "unknown")
-            print(f"📊 {symbol} | 买一: {ticker['bestBidPrice']} ({ticker['bestBidSize']}) | 卖一: {ticker['bestAskPrice']} ({ticker['bestAskSize']})")
-
-    except Exception as e:
-        print("❌ 解码失败:", e)
+    if "data" in data and "topic" in data:
+        ticker = data["data"]
+        symbol = ticker.get("symbol", "unknown")
+        print(f"📊 {symbol} | 买一: {ticker['bestBid']} | 卖一: {ticker['bestAsk']} | 最新价: {ticker['price']}")
 
 def on_error(ws, error):
     print("❌ 错误:", error)
