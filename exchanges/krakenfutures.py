@@ -1,7 +1,7 @@
 import websocket
 import json
 
-WS_URL = "wss://ws.kraken.com/v2"
+WS_URL = "wss://beta-ws.kraken.com/v2"
 SYMBOLS = ["BTC/USD", "ETH/USD", "SOL/USD", "XRP/USD", "LTC/USD"]
 
 def on_open(ws):
