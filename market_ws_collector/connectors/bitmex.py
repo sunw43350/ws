@@ -15,8 +15,7 @@ class Connector(BaseAsyncConnector):
         self.symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
 
         self.subscriptions = [
-            SubscriptionRequest(symbol=self.format_symbol(sym), channel="quote"),
-            SubscriptionRequest(symbol=self.format_symbol(sym), channel="orderBookL2_25")
+            SubscriptionRequest(symbol=self.format_symbol(sym), channel="quote")
             for sym in self.symbols
         ]
 
@@ -26,17 +25,12 @@ class Connector(BaseAsyncConnector):
         }
 
         self.ws = None
-        self.latest_quotes = {}  # symbol → {bidPrice, bidSize, askPrice, askSize}
 
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.upper()  # BitMEX uses uppercase product IDs
 
     def build_sub_msg(self):
-        args = []
-        for sym in self.symbols:
-            args.append(f"quote:{self.format_symbol(sym)}")
-            args.append(f"orderBookL2_25:{self.format_symbol(sym)}")
-
+        args = [f"quote:{req.symbol}" for req in self.subscriptions]
         return {
             "op": "subscribe",
             "args": args
@@ -61,47 +55,37 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    # 🧊 心跳包忽略
+                    # 🧊 忽略非行情信息
                     if data.get("info") or data.get("success"):
                         continue
 
-                    # 🎯 quote 通道（买一/卖一报价）
+                    # 📈 处理 quote 数据
                     if data.get("table") == "quote" and "data" in data:
                         for item in data["data"]:
                             symbol = item.get("symbol")
-                            self.latest_quotes[symbol] = {
-                                "bidPrice": float(item.get("bidPrice", 0.0)),
-                                "bidSize": float(item.get("bidSize", 0.0)),
-                                "askPrice": float(item.get("askPrice", 0.0)),
-                                "askSize": float(item.get("askSize", 0.0)),
-                            }
+                            raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                    # 📦 orderBook 通道（实际挂单）
-                    if data.get("table") == "orderBookL2_25" and "data" in data:
-                        symbol = data.get("data")[0].get("symbol")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+                            bid1 = float(item.get("bidPrice", 0.0))
+                            bid_vol1 = float(item.get("bidSize", 0.0))
+                            ask1 = float(item.get("askPrice", 0.0))
+                            ask_vol1 = float(item.get("askSize", 0.0))
+                            timestamp = int(time.time() * 1000)
 
-                        quote = self.latest_quotes.get(symbol, {})
-                        bid1 = quote.get("bidPrice", 0.0)
-                        bid_vol1 = quote.get("bidSize", 0.0)
-                        ask1 = quote.get("askPrice", 0.0)
-                        ask_vol1 = quote.get("askSize", 0.0)
-                        timestamp = int(time.time() * 1000)
+                            snapshot = MarketSnapshot(
+                                exchange=self.exchange_name,
+                                symbol=symbol,
+                                raw_symbol=raw_symbol,
+                                bid1=bid1,
+                                ask1=ask1,
+                                bid_vol1=bid_vol1,
+                                ask_vol1=ask_vol1,
+                                timestamp=timestamp
+                            )
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            timestamp=timestamp
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-                            # print(self.format_snapshot(snapshot))
+                            if self.queue:
+                                await self.queue.put(snapshot)
+                                # 可选打印日志
+                                # print(self.format_snapshot(snapshot))
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 BitMEX 正常断开: {e}，尝试重连...")
