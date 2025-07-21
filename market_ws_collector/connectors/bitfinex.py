@@ -1,6 +1,7 @@
 import asyncio
 import json
 import time
+import aiohttp
 import websockets
 
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
@@ -12,25 +13,36 @@ class Connector(BaseAsyncConnector):
         super().__init__(exchange)
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
+        self.symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
 
-        generic_symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
-        self.subscriptions = [
-            SubscriptionRequest(symbol=self.format_symbol(sym), channel="ticker")
-            for sym in generic_symbols
-        ]
-
-        self.symbol_map = {
-            self.format_symbol(sym): sym
-            for sym in generic_symbols
-        }
-
+        self.subscriptions = []             # SubscriptionRequest 列表
+        self.symbol_map = {}                # 合约代码 → 原始币种
+        self.chan_map = {}                  # chanId → 合约代码
+        self.valid_contracts = set()        # 官方支持合约列表
         self.ws = None
-        self.chan_map = {}  # chanId → symbol 映射
+
+    async def fetch_supported_contracts(self):
+        url = "https://api-pub.bitfinex.com/v2/conf/pub:list:pair:futures"
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as resp:
+                data = await resp.json()
+                self.valid_contracts = set(data[0]) if isinstance(data, list) else set()
+                print(f"✅ 拉取 Bitfinex 支持合约成功: {len(self.valid_contracts)} 条")
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # BTC-USDT → tBTCF0:USTF0（Bitfinex 永续合约）
-        base, quote = generic_symbol.upper().split("-")
-        return f"t{base}F0:{quote}F0"
+        base = generic_symbol.upper().split("-")[0]
+        return f"t{base}F0:USTF0"
+
+    async def prepare_subscriptions(self):
+        await self.fetch_supported_contracts()
+        for sym in self.symbols:
+            formatted = self.format_symbol(sym)
+            if formatted in self.valid_contracts:
+                self.subscriptions.append(SubscriptionRequest(symbol=formatted, channel="ticker"))
+                self.symbol_map[formatted] = sym
+                print(f"✅ 合约有效: {formatted}")
+            else:
+                print(f"⚠️ 跳过无效合约: {formatted}")
 
     def build_sub_msg(self, request: SubscriptionRequest) -> dict:
         return {
@@ -45,7 +57,8 @@ class Connector(BaseAsyncConnector):
 
     async def subscribe(self):
         for req in self.subscriptions:
-            await self.ws.send(json.dumps(self.build_sub_msg(req)))
+            msg = self.build_sub_msg(req)
+            await self.ws.send(json.dumps(msg))
             print(f"📨 已订阅: {req.symbol}")
             await asyncio.sleep(0.3)
 
@@ -53,60 +66,55 @@ class Connector(BaseAsyncConnector):
         while True:
             try:
                 await self.connect()
+                await self.prepare_subscriptions()
                 await self.subscribe()
 
                 while True:
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    print(f"📥 接收到数据: {data}")
-
-                    # 🎯 维护 chanId → symbol 映射
+                    # 📘 注册 chanId → symbol 映射
                     if isinstance(data, dict) and data.get("event") == "subscribed":
-                        chan_id = data["chanId"]
-                        symbol = data["symbol"]
-                        self.chan_map[chan_id] = symbol
+                        self.chan_map[data["chanId"]] = data["symbol"]
                         continue
 
-                    # 📦 处理 ticker 推送数据
+                    # 🧊 忽略心跳包
+                    if isinstance(data, list) and len(data) == 2 and data[1] == "hb":
+                        continue
+
+                    # 📈 处理 ticker 数据
                     if isinstance(data, list) and len(data) == 2:
                         chan_id, tick = data
-
-                        # 心跳包
-                        if tick == "hb":
+                        symbol = self.chan_map.get(chan_id)
+                        if not symbol or not isinstance(tick, list) or len(tick) < 10:
                             continue
 
-                        symbol = self.chan_map.get(chan_id, "unknown")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
+                        bid1 = float(tick[0])
+                        bid_vol1 = float(tick[1])
+                        ask1 = float(tick[2])
+                        ask_vol1 = float(tick[3])
+                        total_volume = float(tick[7])
+                        timestamp = int(time.time() * 1000)
 
-                        # Bitfinex ticker 数组结构参考：
-                        # [ BID, BID_SIZE, ASK, ASK_SIZE, DAILY_CHANGE, ..., VOLUME ]
-                        if isinstance(tick, list) and len(tick) >= 10:
-                            bid1 = float(tick[0])
-                            bid_vol1 = float(tick[1])
-                            ask1 = float(tick[2])
-                            ask_vol1 = float(tick[3])
-                            total_volume = float(tick[7])
-                            timestamp = int(time.time() * 1000)
+                        snapshot = MarketSnapshot(
+                            exchange=self.exchange_name,
+                            symbol=symbol,
+                            raw_symbol=raw_symbol,
+                            bid1=bid1,
+                            ask1=ask1,
+                            bid_vol1=bid_vol1,
+                            ask_vol1=ask_vol1,
+                            total_volume=total_volume,
+                            timestamp=timestamp
+                        )
 
-                            snapshot = MarketSnapshot(
-                                exchange=self.exchange_name,
-                                symbol=symbol,
-                                raw_symbol=raw_symbol,
-                                bid1=bid1,
-                                ask1=ask1,
-                                bid_vol1=bid_vol1,
-                                ask_vol1=ask_vol1,
-                                total_volume=total_volume,
-                                timestamp=timestamp
-                            )
-
-                            if self.queue:
-                                await self.queue.put(snapshot)
+                        if self.queue:
+                            await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 Bitfinex 正常断开: {e}，尝试重连...")
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(0.5)
             except Exception as e:
                 print(f"❌ Bitfinex 异常: {e}")
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(0.5)
