@@ -11,9 +11,21 @@ from connectors.base import BaseAsyncConnector
 class Connector(BaseAsyncConnector):
     def __init__(self, symbols=None, ws_url=None, queue=None):
         super().__init__()
-        self.ws_url = ws_url if ws_url is not None else WS_ENDPOINTS.get("ascendex")
+        self.ws_url = ws_url or WS_ENDPOINTS.get("ascendex")
         self.queue = queue
-        self.symbols = [self.format_symbol(sym) for sym in (symbols or DEFAULT_SYMBOLS.get("ascendex", []))]
+
+        # 标准格式 symbol 列表（如 BTC-USDT）
+        generic_symbols = symbols or DEFAULT_SYMBOLS.get("ascendex", [])
+
+        # 转换为 SubscriptionRequest 对象
+        self.subscriptions = [
+            SubscriptionRequest(
+                symbol=self.format_symbol(sym),
+                channel="depth",
+                depth_level=0
+            ) for sym in generic_symbols
+        ]
+
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
@@ -21,28 +33,28 @@ class Connector(BaseAsyncConnector):
         base = re.sub(r"-USDT$", "", generic_symbol.upper())
         return f"{base}-PERP"
 
-    def build_sub_msg(self, symbol: str) -> dict:
-        """构造订阅消息"""
+    def build_sub_msg(self, request: SubscriptionRequest) -> dict:
+        """根据订阅请求构造 AscendEX 格式的订阅消息"""
         return {
             "op": "sub",
-            "id": f"depth_{symbol}",
-            "ch": f"depth:{symbol}:0"
+            "id": f"{request.channel}_{request.symbol}",
+            "ch": f"{request.channel}:{request.symbol}:{request.depth_level}"
         }
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
         print(f"✅ AscendEX 已连接: {self.ws_url}")
 
-    async def subscribe(self, symbol: str):
-        msg = self.build_sub_msg(symbol)
+    async def subscribe(self, request: SubscriptionRequest):
+        msg = self.build_sub_msg(request)
         await self.ws.send(json.dumps(msg))
-        print(f"📨 AscendEX 订阅: {symbol}")
+        print(f"📨 订阅: {request.channel} → {request.symbol}")
 
     async def run(self):
         await self.connect()
 
-        for symbol in self.symbols:
-            await self.subscribe(symbol)
+        for req in self.subscriptions:
+            await self.subscribe(req)
             await asyncio.sleep(0.2)
 
         while True:
