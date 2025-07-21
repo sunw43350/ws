@@ -37,6 +37,8 @@ class MarketSnapshot:
         self.total_volume = total_volume    # 总成交量（可选）
         self.timestamp = timestamp          # 毫秒级时间戳
         self.timestamp_iso = self.to_iso(timestamp)  # ISO 格式时间
+        self.timestamp_hms = self.to_hms(timestamp)
+
 
     def to_iso(self, ts_ms: int) -> str:
         try:
