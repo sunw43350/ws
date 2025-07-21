@@ -1,6 +1,7 @@
 import websocket
 import json
 import gzip
+import zlib
 
 WS_URL = "wss://open-api-ws.bingx.com/market"
 SYMBOLS = ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
@@ -20,6 +21,8 @@ def on_message(ws, message):
     try:
         # BingX 返回 GZIP 压缩数据
         print(message[:100])  # 打印前100个字符以检查数据
+        inflated = zlib.decompress(message) 
+        print(inflated[:100])  # 打印前100个字符以检查解压后的数据
         decompressed = gzip.decompress(message).decode("utf-8")
         data = json.loads(decompressed)
 
