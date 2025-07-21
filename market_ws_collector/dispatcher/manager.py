@@ -2,7 +2,7 @@
 from connectors import (
     ascendex, krakenfutures, bingx, bitfinex,
     bitget, bitmart, bitmex, bitrue,
-    blofin, bybit, coinbase, cryptocom
+    blofin, bybit, coinbase, cryptocom, digifinex
 )
 
 from config import DEFAULT_SYMBOLS
@@ -23,7 +23,8 @@ class ExchangeManager:
             # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
             # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase
-            cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto.com
+            # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto.
+            digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]

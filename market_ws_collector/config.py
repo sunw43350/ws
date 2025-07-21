@@ -97,3 +97,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "cryptocom": "wss://stream.crypto.com/exchange/v1/market"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "digifinex": ["BTC-USDT", "ETH-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "digifinex": "wss://openapi.digifinex.com/swap_ws/v2/"
+})
