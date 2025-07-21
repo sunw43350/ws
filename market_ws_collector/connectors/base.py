@@ -14,4 +14,4 @@ class BaseAsyncConnector(ABC):
     async def run(self): pass
 
     @abstractmethod
-    def format_symbol(self): pass
+    def format_symbol(self, generic_symbol: str) -> str: pass
