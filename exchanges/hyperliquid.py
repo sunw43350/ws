@@ -9,7 +9,7 @@ def on_open(ws):
 
     # ✅ 正确的订阅结构，不指定 coin，订阅所有合约买一卖一行情
     sub_msg = {
-        "type": "subscribe",
+        # "type": "subscribe",
         "channel": "allMids"
     }
     ws.send(json.dumps(sub_msg))
