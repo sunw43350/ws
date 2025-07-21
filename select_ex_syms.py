@@ -26,4 +26,4 @@ print(separator)
 
 # 打印每行
 for symbol, row in zip(all_symbols, matrix):
-    print("| " + symbol + " | " + " | ".join(row)
+    print("| " + symbol + " | " + " | ".join(row) + " |")

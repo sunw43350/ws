@@ -2325,3 +2325,12 @@ To https://github.com/sunw43350/ws
 [2025-07-21 04:05:40] 🔄 检测到变更，执行 git push
 [变动文件列表]:
  M log.txt
+[main 869779e] Auto commit: 2025-07-21 04:05:40
+ 1 file changed, 8 insertions(+)
+To https://github.com/sunw43350/ws
+   11eeba5..869779e  main -> main
+[2025-07-21 04:05:47] 🔍 检查文件变更...
+[2025-07-21 04:05:47] 🔄 检测到变更，执行 git push
+[变动文件列表]:
+ M log.txt
+ M select_ex_syms.py
