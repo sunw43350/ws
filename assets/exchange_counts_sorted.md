@@ -14,7 +14,7 @@
 | lbank | 510 |
 | bitmart | 506 |
 | blofin | 497 |
-| kucoinfutures | 449 |
+| kucoinfutures | 449 |b
 | krakenfutures | 351 |a slow
 | oxfun | 345 |
 | myokx | 270 |
