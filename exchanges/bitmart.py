@@ -6,7 +6,7 @@ BITMART_WS_URL = "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1"
 
 
 # 订阅的合约交易对（示例）
-SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOL_USDT", "XRP_USDT", "LTC_USDT"]
+SYMBOLS = ["BTCUSDT", "ETHUSDT"]
 
 async def subscribe_bitmart():
     async with websockets.connect(BITMART_WS_URL) as ws:
