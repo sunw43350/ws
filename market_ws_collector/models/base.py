@@ -12,7 +12,8 @@ class MarketSnapshot:
         self.best_ask = best_ask
         self.timestamp = timestamp
 
-        
+from datetime import datetime
+
 class MarketSnapshot:
     def __init__(
         self,
@@ -24,14 +25,21 @@ class MarketSnapshot:
         bid_vol1=None,
         ask_vol1=None,
         total_volume=None,
-        raw_symbol=None    # 新增字段：原始未格式化符号
+        raw_symbol=None
     ):
-        self.exchange = exchange
-        self.symbol = symbol              # 转换后的格式（如 PI_XBTUSD）
-        self.raw_symbol = raw_symbol      # 原始符号（如 BTC-USDT）
-        self.bid1 = bid1
-        self.ask1 = ask1
-        self.bid_vol1 = bid_vol1
-        self.ask_vol1 = ask_vol1
-        self.total_volume = total_volume
-        self.timestamp = timestamp
+        self.exchange = exchange            # 交易所名称
+        self.symbol = symbol                # 合约格式，例如 PI_XBTUSD
+        self.raw_symbol = raw_symbol        # 原始币种格式，例如 BTC-USDT
+        self.bid1 = bid1                    # 买一价
+        self.ask1 = ask1                    # 卖一价
+        self.bid_vol1 = bid_vol1            # 买一量
+        self.ask_vol1 = ask_vol1            # 卖一量
+        self.total_volume = total_volume    # 总成交量（可选）
+        self.timestamp = timestamp          # 毫秒级时间戳
+        self.timestamp_iso = self.to_iso(timestamp)  # ISO 格式时间
+
+    def to_iso(self, ts_ms: int) -> str:
+        try:
+            return datetime.fromtimestamp(ts_ms / 1000).isoformat(timespec="milliseconds") + "Z"
+        except:
+            return ""
