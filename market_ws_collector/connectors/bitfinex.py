@@ -66,7 +66,7 @@ class Connector(BaseAsyncConnector):
         while True:
             try:
                 await self.connect()
-                await self.prepare_subscriptions()
+                # await self.prepare_subscriptions()
                 await self.subscribe()
 
                 while True:
