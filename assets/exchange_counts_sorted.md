@@ -35,7 +35,7 @@
 | apex | 107 |b
 | paradex | 102 |b
 | bitfinex | 82 |a
-| delta | 75 |
+| delta | 75 |b
 | digifinex | 69 |
 | vertex | 60 |
 | hitbtc | 58 |
