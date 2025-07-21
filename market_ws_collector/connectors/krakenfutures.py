@@ -55,31 +55,33 @@ class Connector(BaseAsyncConnector):
 
                     print("📩 收到消息:", data)
 
-                    if data.get("channel") == "ticker" and "symbol" in data:
-                        symbol = data["symbol"]
-                        bid1 = float(data.get("bid", 0.0))
-                        ask1 = float(data.get("ask", 0.0))
-                        bid_vol1 = float(data.get("bidSize", 0.0))
-                        ask_vol1 = float(data.get("askSize", 0.0))
-                        total_volume = float(data.get("volume", 0.0))
+                    if data.get("channel") == "ticker" and data.get("type") == "snapshot":
+                        for item in data.get("data", []):
+                            symbol = item.get("symbol")
+                            bid1 = float(item.get("bid", 0.0))
+                            ask1 = float(item.get("ask", 0.0))
+                            bid_vol1 = float(item.get("bid_qty", 0.0))      # ✅ 买一量
+                            ask_vol1 = float(item.get("ask_qty", 0.0))      # ✅ 卖一量
+                            total_volume = float(item.get("volume", 0.0))   # ✅ 成交量
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=time.time()
-                        )
+                            snapshot = MarketSnapshot(
+                                exchange=self.exchange_name,
+                                symbol=symbol,
+                                bid1=bid1,
+                                ask1=ask1,
+                                bid_vol1=bid_vol1,
+                                ask_vol1=ask_vol1,
+                                total_volume=total_volume,
+                                timestamp=time.time()
+                            )
 
-                        if self.queue:
-                            await self.queue.put(snapshot)
+                            if self.queue:
+                                await self.queue.put(snapshot)
 
-            except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 Kraken Spot 正常断开: {e}，尝试重连...")
-                await asyncio.sleep(0.1)
-            except Exception as e:
-                print(f"❌ Kraken Spot 异常: {e}")
-                await asyncio.sleep(0.1)
+
+                                except websockets.exceptions.ConnectionClosedOK as e:
+                                    print(f"🔁 Kraken Spot 正常断开: {e}，尝试重连...")
+                                    await asyncio.sleep(0.1)
+                                except Exception as e:
+                                    print(f"❌ Kraken Spot 异常: {e}")
+                                    await asyncio.sleep(0.1)
