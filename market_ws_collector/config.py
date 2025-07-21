@@ -73,3 +73,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bybit": "wss://stream.bybit.com/v5/public/linear"
 })
+
+DEFAULT_SYMBOLS.update({
+    "coinbase": ["BTC-USD", "ETH-USD", "SOL-USD", "LTC-USD", "ADA-USD"]
+})
+
+WS_ENDPOINTS.update({
+    "coinbase": "wss://advanced-trade-ws.coinbase.com"
+})

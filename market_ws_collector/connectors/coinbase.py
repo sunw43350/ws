@@ -1,13 +1,93 @@
-# coinbase.py
-from connectors.base import BaseConnector
+import asyncio
+import json
+import time
+import websockets
+
+from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
+from connectors.base import BaseAsyncConnector
 
-class Connector(BaseConnector):
-    def connect(self):
-        pass
+class Connector(BaseAsyncConnector):
+    def __init__(self, exchange="coinbase", symbols=None, ws_url=None, queue=None):
+        super().__init__(exchange)
+        self.queue = queue
+        self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
-    def subscribe(self, request: SubscriptionRequest):
-        pass
+        self.raw_symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
+        self.formatted_symbols = [self.format_symbol(sym) for sym in self.raw_symbols]
 
-    def run_forever(self):
-        pass
+        self.subscriptions = [
+            SubscriptionRequest(symbol=sym, channel="ticker")
+            for sym in self.formatted_symbols
+        ]
+
+        self.symbol_map = {
+            self.format_symbol(raw): raw
+            for raw in self.raw_symbols
+        }
+
+        self.ws = None
+
+    def format_symbol(self, generic_symbol: str) -> str:
+        return generic_symbol.upper().replace("_", "-")
+
+    def build_sub_msg(self) -> dict:
+        return {
+            "type": "subscribe",
+            "product_ids": [req.symbol for req in self.subscriptions],
+            "channel": "ticker"
+        }
+
+    async def connect(self):
+        self.ws = await websockets.connect(self.ws_url)
+        print(f"✅ Coinbase WebSocket 已连接 → {self.ws_url}")
+
+    async def subscribe(self):
+        msg = self.build_sub_msg()
+        await self.ws.send(json.dumps(msg))
+        print(f"📨 已发送订阅请求: {msg}")
+
+    async def run(self):
+        while True:
+            try:
+                await self.connect()
+                await self.subscribe()
+
+                while True:
+                    raw = await self.ws.recv()
+                    try:
+                        data = json.loads(raw)
+                    except:
+                        continue
+
+                    if data.get("type") == "ticker":
+                        symbol = data.get("product_id")
+                        raw_symbol = self.symbol_map.get(symbol, symbol)
+
+                        bid1 = float(data.get("best_bid", 0.0))
+                        ask1 = float(data.get("best_ask", 0.0))
+                        price = float(data.get("price", 0.0))
+                        bid_vol1 = float(data.get("volume_24h", 0.0))  # ticker 无买一数量字段
+                        ask_vol1 = bid_vol1  # 可暂设一致，实际需补充
+                        total_volume = bid_vol1
+                        timestamp = int(time.time() * 1000)
+
+                        snapshot = MarketSnapshot(
+                            exchange=self.exchange_name,
+                            symbol=symbol,
+                            raw_symbol=raw_symbol,
+                            bid1=bid1,
+                            ask1=ask1,
+                            bid_vol1=bid_vol1,
+                            ask_vol1=ask_vol1,
+                            total_volume=total_volume,
+                            timestamp=timestamp
+                        )
+
+                        if self.queue:
+                            await self.queue.put(snapshot)
+                            print(f"📥 {self.format_snapshot(snapshot)}")
+
+            except Exception as e:
+                print(f"❌ Coinbase 异常: {e}")
+                await asyncio.sleep(0.5)
