@@ -1,3 +1,5 @@
+# market_ws_collector/connectors/ascendex.py
+
 import asyncio
 import json
 import re
@@ -14,10 +16,7 @@ class Connector(BaseAsyncConnector):
         self.ws_url = ws_url or WS_ENDPOINTS.get("ascendex")
         self.queue = queue
 
-        # 标准格式 symbol 列表（如 BTC-USDT）
         generic_symbols = symbols or DEFAULT_SYMBOLS.get("ascendex", [])
-
-        # 转换为 SubscriptionRequest 对象
         self.subscriptions = [
             SubscriptionRequest(
                 symbol=self.format_symbol(sym),
@@ -25,16 +24,12 @@ class Connector(BaseAsyncConnector):
                 depth_level=0
             ) for sym in generic_symbols
         ]
-
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        """标准格式 BTC-USDT → AscendEX 合约格式 BTC-PERP"""
-        base = re.sub(r"-USDT$", "", generic_symbol.upper())
-        return f"{base}-PERP"
+        return re.sub(r"-USDT$", "", generic_symbol.upper()) + "-PERP"
 
     def build_sub_msg(self, request: SubscriptionRequest) -> dict:
-        """根据订阅请求构造 AscendEX 格式的订阅消息"""
         return {
             "op": "sub",
             "id": f"{request.channel}_{request.symbol}",
@@ -43,16 +38,14 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ AscendEX 已连接: {self.ws_url}")
+        print(f"✅ AscendEX WebSocket connected: {self.ws_url}")
 
     async def subscribe(self, request: SubscriptionRequest):
-        msg = self.build_sub_msg(request)
-        await self.ws.send(json.dumps(msg))
-        print(f"📨 订阅: {request.channel} → {request.symbol}")
+        await self.ws.send(json.dumps(self.build_sub_msg(request)))
+        print(f"📨 AscendEX subscribed: {request.symbol}")
 
     async def run(self):
         await self.connect()
-
         for req in self.subscriptions:
             await self.subscribe(req)
             await asyncio.sleep(0.2)
@@ -64,17 +57,19 @@ class Connector(BaseAsyncConnector):
 
                 if data.get("m") == "depth" and "symbol" in data:
                     symbol = data["symbol"]
-                    bids = data.get("data", {}).get("bids", [])
-                    asks = data.get("data", {}).get("asks", [])
+                    bids = data["data"].get("bids", [])
+                    asks = data["data"].get("asks", [])
 
-                    bid_price = float(bids[0][0]) if bids else 0.0
-                    ask_price = float(asks[0][0]) if asks else 0.0
+                    bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
+                    ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
 
                     snapshot = MarketSnapshot(
                         exchange=self.exchange_name,
                         symbol=symbol,
-                        best_bid=bid_price,
-                        best_ask=ask_price,
+                        bid1=bid1,
+                        ask1=ask1,
+                        bid_vol1=bid_vol1,
+                        ask_vol1=ask_vol1,
                         timestamp=time.time()
                     )
 
@@ -82,5 +77,5 @@ class Connector(BaseAsyncConnector):
                         await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ AscendEX 错误: {e}")
+                print(f"❌ AscendEX Error: {e}")
                 await asyncio.sleep(1)
