@@ -38,9 +38,6 @@ while true; do
 
     # 推送到远程
     git push >> "$LOG_FILE" 2>&1
-  else
-    echo "[`date '+%F %T'`] ✅ 无需 push，代码无更改" >> "$LOG_FILE"
-  fi
 
   sleep 5
 done
