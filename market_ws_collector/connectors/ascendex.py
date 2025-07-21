@@ -59,7 +59,7 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    print(f"🔄 接收到数据: {data}   ")
+                    # print(f"🔄 接收到数据: {data}   ")
 
                     if data.get("m") == "depth" and "symbol" in data:
                         symbol = data["symbol"]                         # 格式化后的 symbol，例如 BTC-PERP
@@ -79,7 +79,7 @@ class Connector(BaseAsyncConnector):
                             ask1=ask1,
                             bid_vol1=bid_vol1,
                             ask_vol1=ask_vol1,
-                            timestamp=int(data.get("timestamp", 0)),  # ✅ 保留为毫秒整数
+                            timestamp=int(data.get("timestamp", 0)/1000),  # ✅ 保留为毫秒整数
 
                         )
 
