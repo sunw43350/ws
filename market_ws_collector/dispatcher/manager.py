@@ -6,9 +6,9 @@ class ExchangeManager:
     def __init__(self, queue):
         self.queue = queue
         self.connectors = [
-            # ascendex.Connector(exchange="ascendex", queue=queue),
-            # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
-            # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
+            ascendex.Connector(exchange="ascendex", queue=queue),
+            krakenfutures.Connector(exchange="krakenfutures", queue=queue),
+            bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  # ✅ 添加 Bitfinex  fail
             bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
 
