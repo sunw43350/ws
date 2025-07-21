@@ -15,7 +15,7 @@ async def consume(queue):
 
 async def main():
     snapshot_queue = asyncio.Queue()
-    connector = ascendex.Connector(queue=snapshot_queue)
+    # connector = ascendex.Connector(queue=snapshot_queue)
     
     await asyncio.gather(
         connector.run(),
