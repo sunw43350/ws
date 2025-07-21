@@ -53,11 +53,12 @@ class Connector(BaseAsyncConnector):
 
                 while True:
                     raw = await self.ws.recv()
-                    print(raw)  # 仅打印前100个字符以避免过长输出
                     data = json.loads(raw)
 
-                    if isinstance(data, dict) and "data" in data and "s" in data["data"]:
-                        symbol = data["data"]["s"]                  # 合约币对
+                    print(data)
+
+                    if isinstance(data, dict) and "data" in data and "symbol" in data["data"]:
+                        symbol = data["data"]["symbol"]                  # 合约币对
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
                         bid1 = float(data["data"].get("bb", 0.0))   # best bid
