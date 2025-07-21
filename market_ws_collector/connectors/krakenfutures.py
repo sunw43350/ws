@@ -20,7 +20,6 @@ class Connector(BaseAsyncConnector):
             for sym in generic_symbols
         ]
 
-        # ✅ 构建格式化合约 → 原始 symbol 的映射表
         self.symbol_map = {
             self.format_symbol(sym): sym
             for sym in generic_symbols
@@ -29,7 +28,6 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # BTC-USDT → PI_XBTUSD
         symbol = generic_symbol.upper().replace("-", "")
         symbol = re.sub(r"USDT$", "USD", symbol)
         symbol = re.sub(r"^BTC", "XBT", symbol)
@@ -55,8 +53,7 @@ class Connector(BaseAsyncConnector):
             try:
                 await self.ws.send(json.dumps({"event": "ping"}))
                 await asyncio.sleep(30)
-            except Exception as e:
-                print(f"⚠️ 心跳发送失败: {e}")
+            except Exception:
                 break
 
     async def run(self):
@@ -74,18 +71,23 @@ class Connector(BaseAsyncConnector):
                         symbol = data["product_id"]
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
+                        bid1 = float(data.get("bid", 0.0))
+                        ask1 = float(data.get("ask", 0.0))
+                        bid_vol1 = float(data.get("bid_size", 0.0))
+                        ask_vol1 = float(data.get("ask_size", 0.0))
+                        total_volume = float(data.get("volume", 0.0))
+                        timestamp = int(data.get("timestamp", time.time() * 1000))
+
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
                             symbol=symbol,
                             raw_symbol=raw_symbol,
-                            bid1=float(data.get("bid", 0.0)),
-                            ask1=float(data.get("ask", 0.0)),
-                            bid_vol1=float(data.get("bid_size", 0.0)),
-                            ask_vol1=float(data.get("ask_size", 0.0)),
-                            total_volume=float(data.get("volume", 0.0)),
-                            timestamp=time.time() * 1000,  # 毫秒级时间戳
-
-                            # timestamp=int(data.get("timestamp", 0)),  # ✅ 保留为毫秒整数
+                            bid1=bid1,
+                            ask1=ask1,
+                            bid_vol1=bid_vol1,
+                            ask_vol1=ask_vol1,
+                            total_volume=total_volume,
+                            timestamp=timestamp
                         )
 
                         if self.queue:

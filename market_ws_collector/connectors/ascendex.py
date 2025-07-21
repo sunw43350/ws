@@ -20,7 +20,6 @@ class Connector(BaseAsyncConnector):
             for sym in generic_symbols
         ]
 
-        # ✅ 构建格式化符号 → 原始符号的映射表
         self.symbol_map = {
             self.format_symbol(sym): sym
             for sym in generic_symbols
@@ -29,7 +28,6 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # BTC-USDT → BTC-PERP
         return re.sub(r"-USDT$", "", generic_symbol.upper()) + "-PERP"
 
     def build_sub_msg(self, request: SubscriptionRequest) -> dict:
@@ -45,32 +43,32 @@ class Connector(BaseAsyncConnector):
 
     async def subscribe(self):
         for req in self.subscriptions:
-            await self.subscribe(req)
+            await self.ws.send(json.dumps(self.build_sub_msg(req)))
+            print(f"📨 已订阅: {req.symbol}")
             await asyncio.sleep(0.1)
-        await self.ws.send(json.dumps(self.build_sub_msg(request)))
-        print(f"📨 已订阅: {request.symbol}")
 
     async def run(self):
         while True:
             try:
                 await self.connect()
-                
+                await self.subscribe()
 
                 while True:
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    # print(f"🔄 接收到数据: {data}   ")
-
                     if data.get("m") == "depth" and "symbol" in data:
-                        symbol = data["symbol"]                         # 格式化后的 symbol，例如 BTC-PERP
-                        raw_symbol = self.symbol_map.get(symbol, symbol)  # 原始 symbol，例如 BTC-USDT
+                        symbol = data["symbol"]
+                        raw_symbol = self.symbol_map.get(symbol, symbol)
 
                         bids = data["data"].get("bids", [])
                         asks = data["data"].get("asks", [])
 
                         bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
                         ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
+
+                        # depth 数据无时间戳，使用本地时间
+                        timestamp = int(time.time() * 1000)
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
@@ -80,9 +78,7 @@ class Connector(BaseAsyncConnector):
                             ask1=ask1,
                             bid_vol1=bid_vol1,
                             ask_vol1=ask_vol1,
-                            timestamp=time.time() * 1000,  # 毫秒级时间戳
-                            # timestamp=int(data.get("timestamp", 0)/1000),  # ✅ 保留为毫秒整数
-
+                            timestamp=timestamp
                         )
 
                         if self.queue:
