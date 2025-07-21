@@ -9,31 +9,36 @@ def on_open(ws):
     print("✅ 已连接 AscendEX WebSocket")
 
     for i, symbol in enumerate(CONTRACTS):
+        # ✅ 使用 depth:{symbol}:0 频道订阅买一卖一深度
         sub_msg = {
             "op": "sub",
-            "id": f"ticker_{i}",
-            "ch": f"ticker:{symbol}"
+            "id": f"depth_{i}",
+            "ch": f"depth:{symbol}:0"
         }
         ws.send(json.dumps(sub_msg))
-        print(f"📨 已订阅: ticker → {symbol}")
-        time.sleep(0.3)  # 控制订阅速率，避免触发限速
+        print(f"📨 已订阅: depth → {symbol}")
+        time.sleep(0.3)  # ✅ 控制订阅速率，防止限速或拒绝
 
 def on_message(ws, message):
     try:
         data = json.loads(message)
-        print(data)  # 打印原始消息以便调试
 
-        # ✅ 示例字段说明（ticker 推送结构）：
-        # 'm': 'ticker'
-        # 'symbol': 合约名称，如 BTC-PERP
-        # 'bid': 买一价格
-        # 'ask': 卖一价格
+        # ✅ 推送字段结构说明（depth:...:0 推送）
+        # 'm': 'depth'
+        # 'symbol': 合约代码，如 BTC-PERP
+        # 'data': {
+        #     'bids': [ [价格, 数量], ... ],
+        #     'asks': [ [价格, 数量], ... ]
+        # }
 
-        if data.get("m") == "ticker":
-            symbol = data.get("symbol", "unknown")
-            bid = data.get("bid", "-")
-            ask = data.get("ask", "-")
-            print(f"📊 {symbol} | 买一: {bid} | 卖一: {ask}")
+        if data.get("m") == "depth" and "symbol" in data:
+            symbol = data["symbol"]
+            bids = data.get("data", {}).get("bids", [])
+            asks = data.get("data", {}).get("asks", [])
+
+            bid_price, bid_qty = bids[0] if bids else ("-", "-")
+            ask_price, ask_qty = asks[0] if asks else ("-", "-")
+            print(f"📊 {symbol} | 买一: {bid_price} ({bid_qty}) | 卖一: {ask_price} ({ask_qty})")
 
     except Exception as e:
         print(f"❌ 解码失败: {e}")
