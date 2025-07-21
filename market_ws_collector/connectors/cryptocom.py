@@ -64,6 +64,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    
+
                     if data.get("method") == "ticker.update" and "params" in data:
                         tick = data["params"]
                         channel = tick.get("channel", "")
