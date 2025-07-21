@@ -53,6 +53,8 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
+                    print("📩 收到消息:", data)
+
                     if data.get("channel") == "ticker" and "symbol" in data:
                         symbol = data["symbol"]
                         bid1 = float(data.get("bid", 0.0))
