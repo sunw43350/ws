@@ -20,8 +20,7 @@ class BaseAsyncConnector(ABC):
     def inflate(self, payload: bytes) -> bytes:
         """默认 zlib 解压实现（适用于 Bitget）"""
         try:
-            decompress = zlib.decompress()
-            return decompress.decompress(payload) + decompress.flush()
+            return zlib.decompress(payload)
         except Exception:
             return b""
 
