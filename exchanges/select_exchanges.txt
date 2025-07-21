@@ -1,0 +1,10 @@
+| cryptocom | 217 |
+| whitebit | 209 |
+| hyperliquid | 201 |
+| coinbaseinternational | 174 |
+| coinbase | 170 |
+| coinbaseadvanced | 170 |
+| bitmex | 131 |
+| ascendex | 119 |
+| apex | 107 |
+| paradex | 102 |
