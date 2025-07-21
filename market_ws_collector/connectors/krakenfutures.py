@@ -33,7 +33,7 @@ class Connector(BaseAsyncConnector):
         return {
             "event": "subscribe",
             "feeds": ["ticker"],
-            "symbols": [req.symbol for req in self.subscriptions]
+            "product_ids": [req.symbol for req in self.subscriptions]
         }
 
     async def connect(self):
