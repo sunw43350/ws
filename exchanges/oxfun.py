@@ -3,6 +3,7 @@ import json
 
 WS_URL = "wss://api.ox.fun/v2/websocket"
 CONTRACTS = ["BTC-USD-SWAP-LIN", "ETH-USD-SWAP-LIN", "SOL-USD-SWAP-LIN", "XRP-USD-SWAP-LIN", "LTC-USD-SWAP-LIN"]
+import time
 
 def on_open(ws):
     print("✅ 已连接 OX.FUN WebSocket")
@@ -14,6 +15,8 @@ def on_open(ws):
         }
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: depth → {symbol}")
+        time.sleep(0.5)  # ✅ 每次订阅之间延迟 500ms
+
 
 def on_message(ws, message):
     try:

@@ -16,7 +16,7 @@
 | blofin | 497 |a
 | kucoinfutures | 449 |b
 | krakenfutures | 351 |a slow
-| oxfun | 345 |
+| oxfun | 345 |a
 | myokx | 270 |
 | okx | 270 |a
 | okxus | 270 |
