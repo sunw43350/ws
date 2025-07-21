@@ -7,21 +7,23 @@ symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 #     print(ex, len(syms))
 
 
+# 过滤 symbol 数量小于 100 的 exchange
+filtered_exchanges = [ex for ex, syms in exchange_symbols.items() if len(syms) >= 100]
+filtered_exchanges = sorted(filtered_exchanges)
 
-# 获取所有 symbol 和 exchange 的列表
+# 获取所有 symbol
 all_symbols = sorted(symbol_exchanges.keys())
-all_exchanges = sorted(exchange_symbols.keys())
 
 # 构建矩阵：行是 symbol，列是 exchange
 matrix = []
 for symbol in all_symbols:
     row = []
-    for exchange in all_exchanges:
+    for exchange in filtered_exchanges:
         row.append(1 if symbol in exchange_symbols[exchange] else 0)
     matrix.append(row)
 
 # 打印表头
-print("symbol," + ",".join(all_exchanges))
+print("symbol," + ",".join(filtered_exchanges))
 # 打印每行
 for symbol, row in zip(all_symbols, matrix):
     print(symbol + "," + ",".join(map(str, row)))
