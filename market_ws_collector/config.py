@@ -51,7 +51,7 @@ WS_ENDPOINTS.update({
 })
 
 DEFAULT_SYMBOLS.update({
-    "bitrue": ["btcusdt", "ethusdt", "solusdt", "xrpusdt", "ltcusdt"]
+    "bitrue": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
 })
 
 WS_ENDPOINTS.update({

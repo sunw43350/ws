@@ -14,21 +14,26 @@ class Connector(BaseAsyncConnector):
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
-        self.symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
+        # 🎯 用户配置格式为 BTC-USDT 等标准形式
+        self.raw_symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
+        self.formatted_symbols = [self.format_symbol(sym) for sym in self.raw_symbols]
+
+        # channel 使用小写无连字符
         self.subscriptions = [
-            SubscriptionRequest(symbol=self.format_symbol(sym), channel="depth_step0")
-            for sym in self.symbols
+            SubscriptionRequest(symbol=sym, channel="depth_step0")
+            for sym in self.formatted_symbols
         ]
 
+        # 映射：btcusdt → BTC-USDT
         self.symbol_map = {
-            self.format_symbol(sym): sym
-            for sym in self.symbols
+            self.format_symbol(raw): raw
+            for raw in self.raw_symbols
         }
 
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        return generic_symbol.lower()
+        return generic_symbol.lower().replace("-", "")
 
     def build_sub_msg(self, symbol: str) -> dict:
         return {
@@ -73,13 +78,12 @@ class Connector(BaseAsyncConnector):
                     if "channel" in data and "tick" in data:
                         channel = data["channel"]
                         symbol = channel.replace("market_", "").replace("_depth_step0", "")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+                        raw_symbol = self.symbol_map.get(symbol, symbol.upper())
 
                         bids = data["tick"].get("buys", [])
                         asks = data["tick"].get("asks", [])
+                        bid1, bid_vol1, ask1, ask_vol1 = self.extract_top_bid_ask(bids, asks)
 
-                        bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
                         timestamp = int(data.get("ts", time.time() * 1000))
 
                         snapshot = MarketSnapshot(
@@ -95,8 +99,7 @@ class Connector(BaseAsyncConnector):
 
                         if self.queue:
                             await self.queue.put(snapshot)
-                            # 可选打印
-                            # print(self.format_snapshot(snapshot))
+                            print(f"📥 {self.format_snapshot(snapshot)}")
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 Bitrue 正常断开: {e}，尝试重连...")
