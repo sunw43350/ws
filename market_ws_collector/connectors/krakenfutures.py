@@ -1,8 +1,7 @@
-# market_ws_collector/connectors/kraken.py
-import re
 import asyncio
 import json
 import time
+import re
 import websockets
 
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
@@ -10,7 +9,7 @@ from models.base import SubscriptionRequest, MarketSnapshot
 from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
-    def __init__(self, exchange="krakenfutures", symbols=None, ws_url=None, queue=None):
+    def __init__(self, exchange="kraken", symbols=None, ws_url=None, queue=None):
         super().__init__(exchange)
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
@@ -23,16 +22,8 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # 将标准符号转换为 Kraken Futures 合约格式
-        # 例如 BTC-USDT → pi_xbtusd
-
-        symbol = generic_symbol.upper().replace("-", "")
-
-        # 特殊币种处理：BTC → XBT（Kraken 使用 XBT 表示 BTC）
-        symbol = re.sub(r"^BTC", "XBT", symbol)
-
-        return f"pi_{symbol.lower()}"
-
+        # 标准化 BTC-USDT → BTC/USD
+        return re.sub(r"-", "/", generic_symbol.upper())
 
     def build_sub_msg(self) -> dict:
         return {
@@ -42,20 +33,15 @@ class Connector(BaseAsyncConnector):
                 "symbol": [req.symbol for req in self.subscriptions]
             }
         }
-        # return {
-        #     "event": "subscribe",
-        #     "feeds": ["ticker"],
-        #     "symbols": [req.symbol for req in self.subscriptions]
-        # }
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Kraken Futures WebSocket 已连接 → {self.ws_url}")
+        print(f"✅ Kraken Spot WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         msg = self.build_sub_msg()
         await self.ws.send(json.dumps(msg))
-        print(f"📨 已订阅: {[req.symbol for req in self.subscriptions]}")
+        print(f"📨 Kraken Spot 已订阅: {[req.symbol for req in self.subscriptions]}")
 
     async def run(self):
         while True:
@@ -66,9 +52,8 @@ class Connector(BaseAsyncConnector):
                 while True:
                     raw = await self.ws.recv()
                     data = json.loads(raw)
-                    print(data)
 
-                    if data.get("feed") == "ticker" and "symbol" in data:
+                    if data.get("channel") == "ticker" and "symbol" in data:
                         symbol = data["symbol"]
                         bid1 = float(data.get("bid", 0.0))
                         ask1 = float(data.get("ask", 0.0))
@@ -91,9 +76,8 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 Kraken Futures 正常断开: {e}，尝试重连...")
+                print(f"🔁 Kraken Spot 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.1)
             except Exception as e:
-                print(f"❌ Kraken Futures 异常: {e}")
+                print(f"❌ Kraken Spot 异常: {e}")
                 await asyncio.sleep(0.1)
-
