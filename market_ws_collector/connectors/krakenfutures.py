@@ -58,12 +58,12 @@ class Connector(BaseAsyncConnector):
                     channel = data.get("channel")
                     data = data.data[0] if isinstance(data, dict) and "data" in data else data
 
-                    if channel == "ticker" and "symbol" in data.data[0]:
+                    if channel == "ticker" and "symbol" in data:
                         symbol = data["symbol"]
                         bid1 = float(data.get("bid", 0.0))
                         ask1 = float(data.get("ask", 0.0))
-                        bid_vol1 = float(data.get("bidSize", 0.0))
-                        ask_vol1 = float(data.get("askSize", 0.0))
+                        bid_vol1 = float(data.get("bid_qty", 0.0))
+                        ask_vol1 = float(data.get("ask_qty", 0.0))
                         total_volume = float(data.get("volume", 0.0))
 
                         snapshot = MarketSnapshot(
