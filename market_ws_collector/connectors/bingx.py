@@ -2,6 +2,7 @@ import asyncio
 import json
 import time
 import websockets
+import gzip
 
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
@@ -55,9 +56,10 @@ class Connector(BaseAsyncConnector):
 
                 while True:
                     raw = await self.ws.recv()
-                    print(raw)
+                    decompressed = gzip.decompress(raw).decode("utf-8")
+                    data = json.loads(decompressed)
 
-                    data = json.loads(raw)
+                    print(data)
 
 
                     if "data" in data and "bids" in data["data"] and "asks" in data["data"]:
