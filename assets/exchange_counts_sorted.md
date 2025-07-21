@@ -12,7 +12,7 @@
 | bingx | 539 |
 | binanceusdm | 530 |
 | lbank | 510 |
-| bitmart | 506 |
+| bitmart | 506 |a
 | blofin | 497 |
 | kucoinfutures | 449 |b
 | krakenfutures | 351 |a slow
