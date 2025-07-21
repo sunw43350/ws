@@ -4,7 +4,6 @@ import json
 
 BITMART_WS_URL = "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1"
 
-wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
 
 # 订阅的合约交易对（示例）
 SYMBOLS = ["BTC_USDT", "ETH_USDT", "SOL_USDT", "XRP_USDT", "LTC_USDT"]
