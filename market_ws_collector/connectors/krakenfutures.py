@@ -35,18 +35,18 @@ class Connector(BaseAsyncConnector):
 
 
     def build_sub_msg(self) -> dict:
-        sub_msg = {
-        "method": "subscribe",
-        "params": {
-            "channel": "ticker",
-            "symbol": SYMBOLS
-        }
-    }
         return {
-            "event": "subscribe",
-            "feeds": ["ticker"],
-            "symbols": [req.symbol for req in self.subscriptions]
+            "method": "subscribe",
+            "params": {
+                "channel": "ticker",
+                "symbol": [req.symbol for req in self.subscriptions]
+            }
         }
+        # return {
+        #     "event": "subscribe",
+        #     "feeds": ["ticker"],
+        #     "symbols": [req.symbol for req in self.subscriptions]
+        # }
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
