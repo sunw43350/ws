@@ -2,10 +2,10 @@ import websocket
 import json
 import gzip
 
-# KuCoin Futures WebSocket 地址（公共频道）
+# ✅ KuCoin Futures WebSocket 地址（公共频道）
 WS_URL = "wss://futures-api.ws.kucoin.com/"
 
-# 要订阅的合约（产品 ID）
+# ✅ 要订阅的合约（产品 ID）
 SYMBOLS = ["XBTUSDM", "ETHUSDM", "SOLUSDM", "LTCUSDM", "XRPUSDM"]
 
 def on_open(ws):
@@ -24,17 +24,17 @@ def on_open(ws):
 
 def on_message(ws, message):
     try:
-        # KuCoin Futures 返回 gzip 压缩数据
+        # 🔄 KuCoin Futures 返回的是 gzip 压缩数据，需先解压
         decompressed = gzip.decompress(message).decode("utf-8")
         data = json.loads(decompressed)
 
-        # 示例字段说明（ticker 数据结构）：
-        # 'bestBidPrice'   : 买一价格（Best Bid）
-        # 'bestBidSize'    : 买一挂单量
-        # 'bestAskPrice'   : 卖一价格（Best Ask）
-        # 'bestAskSize'    : 卖一挂单量
-        # 'price'          : 最新成交价
-        # 'symbol'         : 合约名称（如 XBTUSDM）
+        # 📊 示例字段说明（ticker 数据结构）：
+        # 'bestBidPrice' : 买一价格（Best Bid）
+        # 'bestBidSize'  : 买一挂单量
+        # 'bestAskPrice' : 卖一价格（Best Ask）
+        # 'bestAskSize'  : 卖一挂单量
+        # 'price'        : 最新成交价（Last Trade Price）
+        # 'symbol'       : 合约代码（如 XBTUSDM）
 
         if "data" in data and "topic" in data:
             ticker = data["data"]
