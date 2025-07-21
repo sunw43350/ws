@@ -10,9 +10,14 @@ def on_open(ws):
     print("✅ 已连接 BingX WebSocket")
 
     for i, symbol in enumerate(SYMBOLS):
+        # sub_msg = {
+        #     "id": f"depth-{i+1}",
+        #     "dataType": f"{symbol}@depth1"  # ✅ 订阅前 1 档深度数据
+        # }
         sub_msg = {
             "id": f"depth-{i+1}",
-            "dataType": f"{symbol}@depth1"  # ✅ 订阅前 1 档深度数据
+            "reqType": "sub",  # ✅ 加入这一字段
+            "dataType": f"{symbol}@depth1"
         }
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: {sub_msg['dataType']}")
