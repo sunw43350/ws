@@ -1,3 +1,5 @@
+# market_ws_collector/connectors/kraken.py
+
 import asyncio
 import json
 import re
@@ -14,23 +16,17 @@ class Connector(BaseAsyncConnector):
         self.ws_url = ws_url or WS_ENDPOINTS.get("kraken")
         self.queue = queue
 
-        # 标准格式 symbol 列表（如 BTC-USDT）
         generic_symbols = symbols or DEFAULT_SYMBOLS.get("kraken", [])
-
-        # 构建 SubscriptionRequest 对象
         self.subscriptions = [
             SubscriptionRequest(symbol=self.format_symbol(sym), channel="ticker")
             for sym in generic_symbols
         ]
-
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        """标准格式 BTC-USDT → Kraken 格式 BTC/USD"""
         return generic_symbol.replace("-", "/").upper()
 
     def build_sub_msg(self) -> dict:
-        """Kraken 支持批量订阅，构建统一订阅消息"""
         return {
             "method": "subscribe",
             "params": {
@@ -41,12 +37,11 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Kraken 已连接: {self.ws_url}")
+        print(f"✅ Kraken WebSocket connected: {self.ws_url}")
 
     async def subscribe(self):
-        msg = self.build_sub_msg()
-        await self.ws.send(json.dumps(msg))
-        print(f"📨 Kraken 订阅 ticker 合约: {[req.symbol for req in self.subscriptions]}")
+        await self.ws.send(json.dumps(self.build_sub_msg()))
+        print(f"📨 Kraken subscribed: {[req.symbol for req in self.subscriptions]}")
 
     async def run(self):
         await self.connect()
@@ -57,18 +52,24 @@ class Connector(BaseAsyncConnector):
                 raw = await self.ws.recv()
                 data = json.loads(raw)
 
-                # ticker 推送结构为 { "channel": "ticker", "symbol": "BTC/USD", "price": {...} }
                 if data.get("channel") == "ticker" and "symbol" in data:
                     symbol = data["symbol"]
                     price_data = data.get("price", {})
-                    bid = float(price_data.get("bid", 0.0))
-                    ask = float(price_data.get("ask", 0.0))
+
+                    bid1 = float(price_data.get("bid", 0.0))
+                    ask1 = float(price_data.get("ask", 0.0))
+                    bid_vol1 = float(price_data.get("bidSize", 0.0))
+                    ask_vol1 = float(price_data.get("askSize", 0.0))
+                    total_volume = float(price_data.get("volume", 0.0))
 
                     snapshot = MarketSnapshot(
                         exchange=self.exchange_name,
                         symbol=symbol,
-                        best_bid=bid,
-                        best_ask=ask,
+                        bid1=bid1,
+                        ask1=ask1,
+                        bid_vol1=bid_vol1,
+                        ask_vol1=ask_vol1,
+                        total_volume=total_volume,
                         timestamp=time.time()
                     )
 
@@ -76,5 +77,5 @@ class Connector(BaseAsyncConnector):
                         await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Kraken 异常: {e}")
+                print(f"❌ Kraken Error: {e}")
                 await asyncio.sleep(1)
