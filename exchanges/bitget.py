@@ -33,6 +33,8 @@ def on_message(ws, message):
 
         data = json.loads(message)
 
+        print(data)
+
         # ✅ 示例字段说明（depth 推送结构）：
         # 'bids': [ [价格, 数量], ... ] → 买单列表（降序）
         # 'asks': [ [价格, 数量], ... ] → 卖单列表（升序）
