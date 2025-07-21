@@ -11,15 +11,15 @@ def inflate(data):
     return decompress.decompress(data) + decompress.flush()
 
 def on_open(ws):
-    print("✅ 已连接 Bitget WebSocket")
+    print("✅ 已连接 Bitget 合约 WebSocket")
 
-    # 构造订阅消息
+    # 构造订阅消息（books5 表示前 5 档深度）
     sub_msg = {
         "op": "subscribe",
         "args": [
             {
-                "instType": "SPOT",
-                "channel": "depth",
+                "instType": "USDT-FUTURES",
+                "channel": "books5",
                 "instId": symbol
             } for symbol in SYMBOLS
         ]
@@ -30,15 +30,13 @@ def on_open(ws):
 def on_message(ws, message):
     try:
         # text = inflate(message).decode("utf-8")
-
         data = json.loads(message)
-
         print(data)
 
-        # ✅ 示例字段说明（depth 推送结构）：
+        # ✅ 示例字段说明（books5 推送结构）：
         # 'bids': [ [价格, 数量], ... ] → 买单列表（降序）
         # 'asks': [ [价格, 数量], ... ] → 卖单列表（升序）
-        # 'arg': 包含 instId（交易对名称）
+        # 'instId': 合约名称，如 BTCUSDT
 
         if "data" in data and "arg" in data:
             symbol = data["arg"].get("instId", "unknown")
