@@ -5,8 +5,8 @@
 | phemex | 743 |
 | gate | 602 |
 | gateio | 602 |
-| bybit | 598 |
-| bitget | 588 |
+| bybit | 598 |a
+| bitget | 588 |a
 | bitrue | 586 |a
 | binance | 574 |a
 | bingx | 539 |a
