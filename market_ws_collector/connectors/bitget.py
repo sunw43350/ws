@@ -77,8 +77,10 @@ class Connector(BaseAsyncConnector):
                         bids = data["data"][0].get("bids", [])
                         asks = data["data"][0].get("asks", [])
 
-                        bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
+                        # bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
+                        # ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
+                        bid1, bid_vol1, ask1, ask_vol1 = self.extract_top_bid_ask(bids, asks)
+
                         timestamp = int(time.time() * 1000)
 
                         snapshot = MarketSnapshot(
