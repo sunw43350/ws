@@ -54,8 +54,11 @@ class Connector(BaseAsyncConnector):
                     data = json.loads(raw)
 
                     print("📩 收到消息:", data)
+
+                    
                     
                     channel = data.get("channel")
+                    if channel == "":
                     data = data.data[0] if isinstance(data, dict) and "data" in data else data
 
                     if channel == "ticker" and "symbol" in data:
