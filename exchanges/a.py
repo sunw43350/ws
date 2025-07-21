@@ -1,3 +1,63 @@
+import websocket
+import json
+import time
+
+WS_URL = "wss://ascendex.com/1/api/pro/v2/stream"
+CONTRACTS = ["BTC-PERP", "ETH-PERP", "SOL-PERP", "XRP-PERP", "LTC-PERP"]
+
+def on_open(ws):
+    print("✅ 已连接 AscendEX WebSocket")
+
+    for i, symbol in enumerate(CONTRACTS):
+        # ✅ 使用 depth:{symbol}:0 频道订阅买一卖一深度
+        sub_msg = {
+            "op": "sub",
+            "id": f"depth_{i}",
+            "ch": f"depth:{symbol}:0"
+        }
+        ws.send(json.dumps(sub_msg))
+        print(f"📨 已订阅: depth → {symbol}")
+        time.sleep(0.3)  # ✅ 控制订阅速率，防止限速或拒绝
+
+def on_message(ws, message):
+    try:
+        data = json.loads(message)
+
+        # ✅ 推送字段结构说明（depth:...:0 推送）
+        # 'm': 'depth'
+        # 'symbol': 合约代码，如 BTC-PERP
+        # 'data': {
+        #     'bids': [ [价格, 数量], ... ],
+        #     'asks': [ [价格, 数量], ... ]
+        # }
+
+        if data.get("m") == "depth" and "symbol" in data:
+            symbol = data["symbol"]
+            bids = data.get("data", {}).get("bids", [])
+            asks = data.get("data", {}).get("asks", [])
+
+            bid_price, bid_qty = bids[0] if bids else ("-", "-")
+            ask_price, ask_qty = asks[0] if asks else ("-", "-")
+            print(f"📊 {symbol} | 买一: {bid_price} ({bid_qty}) | 卖一: {ask_price} ({ask_qty})")
+
+    except Exception as e:
+        print(f"❌ 解码失败: {e}")
+
+def on_error(ws, error):
+    print(f"❌ WebSocket 错误: {error}")
+
+def on_close(ws, code, reason):
+    print(f"🚪 连接关闭: {code} - {reason}")
+
+if __name__ == "__main__":
+    ws = websocket.WebSocketApp(
+        WS_URL,
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
 import asyncio
 import websockets
 import json
@@ -92,6 +152,65 @@ def on_close(ws, code, reason):
 
 if __name__ == "__main__":
     # ✅ 启动 WebSocket 客户端
+    ws = websocket.WebSocketApp(
+        WS_URL,
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
+import websocket
+import json
+import time
+
+WS_URL = "wss://api-pub.bitfinex.com/ws/2"
+CONTRACTS = ["tBTCUSD", "tETHUSD", "tSOLUSD", "tXRPUSD", "tLTCUSD"]
+
+def on_open(ws):
+    print("✅ 已连接 Bitfinex WebSocket")
+
+    for symbol in CONTRACTS:
+        sub_msg = {
+            "event": "subscribe",
+            "channel": "ticker",
+            "symbol": symbol
+        }
+        ws.send(json.dumps(sub_msg))
+        print(f"📨 已订阅: ticker → {symbol}")
+        time.sleep(0.3)  # 控制订阅速率，避免触发限速
+
+def on_message(ws, message):
+    try:
+        data = json.loads(message)
+        print(data)  # 打印原始消息以便调试
+
+        # ✅ ticker 推送结构：[CHAN_ID, [BID, BID_SIZE, ASK, ASK_SIZE, ...]]
+        if isinstance(data, list) and len(data) > 1 and isinstance(data[1], list):
+            chan_id = data[0]
+            payload = data[1]
+            bid = payload[0]
+            ask = payload[2]
+            print(f"📊 CHAN_ID {chan_id} | 买一: {bid} | 卖一: {ask}")
+
+        # ✅ 处理订阅确认
+        elif isinstance(data, dict) and data.get("event") == "subscribed":
+            print(f"✅ 订阅成功: {data.get('channel')} → {data.get('symbol')}")
+
+        # ✅ 处理错误信息
+        elif isinstance(data, dict) and data.get("event") == "error":
+            print(f"❌ 错误: {data.get('msg')}")
+
+    except Exception as e:
+        print(f"❌ 解码失败: {e}")
+
+def on_error(ws, error):
+    print(f"❌ WebSocket 错误: {error}")
+
+def on_close(ws, code, reason):
+    print(f"🚪 连接关闭: {code} - {reason}")
+
+if __name__ == "__main__":
     ws = websocket.WebSocketApp(
         WS_URL,
         on_open=on_open,
@@ -207,6 +326,55 @@ if __name__ == "__main__":
         print("🚪 用户终止连接")
 import websocket
 import json
+import time
+
+WS_URL = "wss://ws.bitmex.com/realtime"
+CONTRACTS = ["XBTUSD", "ETHUSD", "SOLUSD", "XRPUSD", "LTCUSD"]
+
+def on_open(ws):
+    print("✅ 已连接 BitMEX WebSocket")
+
+    # ✅ 订阅 quote 和 orderBookL2_25（前 25 档深度）
+    sub_msg = {
+        "op": "subscribe",
+        "args": [f"quote:{symbol}" for symbol in CONTRACTS] +
+                [f"orderBookL2_25:{symbol}" for symbol in CONTRACTS]
+    }
+    ws.send(json.dumps(sub_msg))
+    print("📨 已发送订阅请求:", sub_msg)
+
+def on_message(ws, message):
+    try:
+        data = json.loads(message)
+
+        # ✅ quote 推送结构：买一卖一价格
+        if data.get("table") == "quote" and data.get("action") == "insert":
+            for quote in data.get("data", []):
+                symbol = quote.get("symbol", "unknown")
+                bid = quote.get("bidPrice", "-")
+                ask = quote.get("askPrice", "-")
+                print(f"📊 {symbol} | 买一: {bid} | 卖一: {ask}")
+
+    except Exception as e:
+        print("❌ 解码失败:", e)
+
+def on_error(ws, error):
+    print("❌ WebSocket 错误:", error)
+
+def on_close(ws, code, reason):
+    print(f"🚪 连接关闭: {code} - {reason}")
+
+if __name__ == "__main__":
+    ws = websocket.WebSocketApp(
+        WS_URL,
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
+import websocket
+import json
 import gzip
 
 WS_URL = "wss://ws.bitrue.com/kline-api/ws"
@@ -253,6 +421,75 @@ def on_message(ws, message):
 
 def on_error(ws, error):
     print("❌ 错误:", error)
+
+def on_close(ws, code, reason):
+    print(f"🚪 连接关闭: {code} - {reason}")
+
+if __name__ == "__main__":
+    ws = websocket.WebSocketApp(
+        WS_URL,
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
+import websocket
+import json
+
+WS_URL = "wss://openapi.blofin.com/ws/public"
+CONTRACTS = ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+
+def on_open(ws):
+    print("✅ 已连接 BloFin WebSocket")
+
+    for symbol in CONTRACTS:
+        # sub_msg = {
+        #     "op": "subscribe",
+        #     "args": [
+        #         {
+        #             "channel": "ticker",
+        #             "instId": symbol
+        #         }
+        #     ]
+        # }
+        sub_msg = {
+            "op": "subscribe",
+            "args": [
+                {
+                    "channel": "tickers",
+                    "instType": "CONTRACT",
+                    "instId": symbol  # 如 "BTC-USDT"
+                }
+            ]
+        }
+
+        ws.send(json.dumps(sub_msg))
+        print(f"📨 已订阅: ticker → {symbol}")
+
+def on_message(ws, message):
+    try:
+        data = json.loads(message)
+
+        print(data)  # 打印原始消息以便调试
+
+        # ✅ 示例字段说明（ticker 推送结构）：
+        # 'bidPx': 买一价格
+        # 'askPx': 卖一价格
+        # 'instId': 合约名称，如 BTC-USDT
+
+        if data.get("arg", {}).get("channel") == "ticker" and "data" in data:
+            ticker = data["data"][0]
+            symbol = ticker.get("instId", "unknown")
+            bid = ticker.get("bidPx", "-")
+            ask = ticker.get("askPx", "-")
+            print(f"📊 {symbol} | 买一: {bid} | 卖一: {ask}")
+
+    except Exception as e:
+        print("❌ 解码失败:", e)
+
+def on_error(ws, error):
+    print("❌ WebSocket 错误:", error)
 
 def on_close(ws, code, reason):
     print(f"🚪 连接关闭: {code} - {reason}")
@@ -744,6 +981,65 @@ def on_message(ws, message):
 
 def on_error(ws, error):
     print("❌ 错误:", error)
+
+def on_close(ws, code, reason):
+    print(f"🚪 连接关闭: {code} - {reason}")
+
+if __name__ == "__main__":
+    ws = websocket.WebSocketApp(
+        WS_URL,
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
+import websocket
+import json
+
+WS_URL = "wss://api.ox.fun/v2/websocket"
+CONTRACTS = ["BTC-USD-SWAP-LIN", "ETH-USD-SWAP-LIN", "SOL-USD-SWAP-LIN", "XRP-USD-SWAP-LIN", "LTC-USD-SWAP-LIN"]
+import time
+
+def on_open(ws):
+    print("✅ 已连接 OX.FUN WebSocket")
+
+    for symbol in CONTRACTS:
+        sub_msg = {
+            "op": "subscribe",
+            "args": [f"depth:{symbol}"]
+        }
+        ws.send(json.dumps(sub_msg))
+        print(f"📨 已订阅: depth → {symbol}")
+        time.sleep(0.5)  # ✅ 每次订阅之间延迟 500ms
+
+
+def on_message(ws, message):
+    try:
+        data = json.loads(message)
+
+        print(data)  # 打印原始消息以便调试
+
+        # ✅ 示例字段说明（depth 推送结构）：
+        # 'bids': [ [价格, 数量], ... ]
+        # 'asks': [ [价格, 数量], ... ]
+        # 'instrument': 合约名称，如 BTC-USD-SWAP-LIN
+
+        if "channel" in data and data["channel"].startswith("depth") and "data" in data:
+            symbol = data.get("instrument", "unknown")
+            bids = data["data"].get("bids", [])
+            asks = data["data"].get("asks", [])
+
+            bid_price, bid_qty = bids[0] if bids else ("-", "-")
+            ask_price, ask_qty = asks[0] if asks else ("-", "-")
+
+            print(f"📊 {symbol} | 买一: {bid_price} ({bid_qty}) | 卖一: {ask_price} ({ask_qty})")
+
+    except Exception as e:
+        print("❌ 解码失败:", e)
+
+def on_error(ws, error):
+    print("❌ WebSocket 错误:", error)
 
 def on_close(ws, code, reason):
     print(f"🚪 连接关闭: {code} - {reason}")
