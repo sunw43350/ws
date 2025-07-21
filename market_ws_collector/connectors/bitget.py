@@ -30,12 +30,7 @@ class Connector(BaseAsyncConnector):
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.upper()
 
-    def inflate(self, payload: bytes) -> str:
-        try:
-            decompress = zlib.decompressobj(-zlib.MAX_WBITS)
-            return decompress.decompress(payload) + decompress.flush()
-        except:
-            return b""
+    
 
     def build_sub_msg(self) -> dict:
         return {
