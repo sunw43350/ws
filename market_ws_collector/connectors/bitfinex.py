@@ -59,6 +59,8 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
+                    print(f"📥 接收到数据: {data}")
+
                     # 🎯 维护 chanId → symbol 映射
                     if isinstance(data, dict) and data.get("event") == "subscribed":
                         chan_id = data["chanId"]
