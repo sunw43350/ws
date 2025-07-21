@@ -2,20 +2,19 @@ import websocket
 import json
 import gzip
 
-WS_URL = "wss://socket.coinex.com/v2/futures"
-SYMBOLS = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "LTCUSDT"]
+WS_URL = "wss://socket.coinex.com/v2/common"
 
 def on_open(ws):
-    print("✅ 已连接 CoinEx WebSocket")
+    print("✅ 已连接 CoinEx 公告频道 WebSocket")
 
-    for i, symbol in enumerate(SYMBOLS):
-        sub_msg = {
-            "id": i + 1,
-            "method": "state.subscribe",
-            "params": [symbol]
-        }
-        ws.send(json.dumps(sub_msg))
-        print(f"📨 已订阅 ticker.{symbol}")
+    # 订阅公告通知频道
+    sub_msg = {
+        "id": 1,
+        "method": "notice.subscribe",
+        "params": []
+    }
+    ws.send(json.dumps(sub_msg))
+    print("📨 已发送订阅请求:", sub_msg)
 
 def on_message(ws, message):
     try:
@@ -23,22 +22,16 @@ def on_message(ws, message):
         decompressed = gzip.decompress(message).decode("utf-8")
         data = json.loads(decompressed)
 
-        # 示例字段说明（ticker 数据结构）：
-        # 'ticker': {
-        #     'buy': 买一价格（Best Bid）
-        #     'buy_amount': 买一挂单量
-        #     'sell': 卖一价格（Best Ask）
-        #     'sell_amount': 卖一挂单量
-        #     'last': 最新成交价
-        #     'vol': 24h 成交量
-        #     ...
-        # }
+        # 示例字段说明：
+        # 'title'     : 公告标题
+        # 'content'   : 公告内容（可能是 HTML 格式）
+        # 'lang'      : 语言（如 'zh-CN'）
+        # 'created_at': 发布时间戳（毫秒）
+        # 'type'      : 公告类型（如 'system_announcement'）
 
-        if "ticker" in data.get("params", {}):
-            ticker = data["params"]["ticker"]
-            symbol = data["params"]["market"]
-            print(f"📊 {symbol} | 买一: {ticker['buy']} ({ticker['buy_amount']}) | 卖一: {ticker['sell']} ({ticker['sell_amount']})")
-
+        if "params" in data and "notice" in data["params"]:
+            notice = data["params"]["notice"]
+            print(f"📢 公告: {notice['title']} | 类型: {notice['type']} | 时间戳: {notice['created_at']}")
     except Exception as e:
         print("❌ 解码失败:", e)
 
