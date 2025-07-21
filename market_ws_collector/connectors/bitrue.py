@@ -70,19 +70,17 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    print(data)
-
-
-                    if "channel" in data and "data" in data:
+                    if "channel" in data and "tick" in data:
                         channel = data["channel"]
                         symbol = channel.replace("market_", "").replace("_depth_step0", "")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        bids = data["data"].get("bids", [])
-                        asks = data["data"].get("asks", [])
+                        bids = data["tick"].get("buys", [])
+                        asks = data["tick"].get("asks", [])
 
-                        bid1, bid_vol1, ask1, ask_vol1 = self.extract_top_bid_ask(bids, asks)
-                        timestamp = int(data["data"].get("timestamp", time.time() * 1000))
+                        bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
+                        ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
+                        timestamp = int(data.get("ts", time.time() * 1000))
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
@@ -97,6 +95,7 @@ class Connector(BaseAsyncConnector):
 
                         if self.queue:
                             await self.queue.put(snapshot)
+                            # 可选打印
                             # print(self.format_snapshot(snapshot))
 
             except websockets.exceptions.ConnectionClosedOK as e:
