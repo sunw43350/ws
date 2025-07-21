@@ -43,7 +43,10 @@ class Connector(BaseAsyncConnector):
         self.ws = await websockets.connect(self.ws_url)
         print(f"✅ AscendEX WebSocket 已连接 → {self.ws_url}")
 
-    async def subscribe(self, request: SubscriptionRequest):
+    async def subscribe(self):
+        for req in self.subscriptions:
+            await self.subscribe(req)
+            await asyncio.sleep(0.1)
         await self.ws.send(json.dumps(self.build_sub_msg(request)))
         print(f"📨 已订阅: {request.symbol}")
 
@@ -51,9 +54,7 @@ class Connector(BaseAsyncConnector):
         while True:
             try:
                 await self.connect()
-                for req in self.subscriptions:
-                    await self.subscribe(req)
-                    await asyncio.sleep(0.1)
+                
 
                 while True:
                     raw = await self.ws.recv()

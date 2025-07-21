@@ -8,7 +8,7 @@ class BaseAsyncConnector(ABC):
     async def connect(self): pass
 
     @abstractmethod
-    async def subscribe(self, request): pass
+    async def subscribe(self): pass
 
     @abstractmethod
     async def run(self): pass
