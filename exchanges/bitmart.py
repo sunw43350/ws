@@ -2,7 +2,8 @@ import asyncio
 import websockets
 import json
 
-BITMART_WS_URL = "wss://ws-manager-compress.bitmart.com/api?protocol=1.1"
+BITMART_WS_URL = "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1"
+
 wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
 
 # 订阅的合约交易对（示例）
