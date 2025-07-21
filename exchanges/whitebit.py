@@ -36,3 +36,4 @@ if __name__ == "__main__":
         on_close=on_close
     )
     ws.run_forever()
+
