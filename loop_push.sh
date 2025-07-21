@@ -30,7 +30,7 @@ while true; do
   # 推送到远程
   git push >> "$LOG_FILE" 2>&1
 
-  sleep 30
+  sleep 60
 done
 
 #  后台执行方式: $sh loop_push.sh &
