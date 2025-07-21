@@ -3,7 +3,9 @@ import json
 
 # WS_URL = "wss://beta-ws.kraken.com/v2"
 
-WS_URL = "wss://www.cryptofacilities.com/ws/v1"  # Kraken Futures WebSocket URL
+# WS_URL = "wss://www.cryptofacilities.com/ws/v1"  # Kraken Futures WebSocket URL
+
+WS_URL = "wss://futures.kraken.com/ws/v1"  # Kraken Futures WebSocket URL wss://futures.kraken.com/ws/v1
 
 # SYMBOLS = ["BTC/USD", "ETH/USD", "SOL/USD", "XRP/USD", "LTC/USD"]
 # SYMBOLS = ["PI_XBTUSD", "PI_ETHUSD", "PI_SOLUSD", "PI_XRPUSD", "PI_LTCUSD"]  # Kraken Futures 合约格式
@@ -13,13 +15,13 @@ def on_open(ws):
     print("✅ 已连接 Kraken Spot WebSocket")
 
     # 构造订阅消息
-    sub_msg = {
-        "method": "subscribe",
-        "params": {
-            "channel": "ticker",
-            "symbol": SYMBOLS
-        }
-    }
+    # sub_msg = {
+    #     "method": "subscribe",
+    #     "params": {
+    #         "channel": "ticker",
+    #         "symbol": SYMBOLS
+    #     }
+    # }
 
     sub_msg = {
         "event": "subscribe",
