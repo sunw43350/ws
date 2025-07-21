@@ -9,7 +9,8 @@ class ExchangeManager:
             # ascendex.Connector(exchange="ascendex", queue=queue),
             # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
-            bitfinex.Connector(exchange="bitfinex", queue=queue),  # ✅ 添加 Bitfinex
+            # bitfinex.Connector(exchange="bitfinex", queue=queue),  # ✅ 添加 Bitfinex  fail
+            
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
