@@ -5,7 +5,7 @@ import time
 import websockets
 
 from connectors.base import BaseAsyncConnector
-from models.base import SubscriptionRequest, MarketSnapshot
+from models.base import MarketSnapshot
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 
 class Connector(BaseAsyncConnector):
