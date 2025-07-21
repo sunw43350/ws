@@ -6,7 +6,8 @@ import websockets
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import MarketSnapshot
 
-class KrakenFuturesConnector:
+class Connector(BaseAsyncConnector):
+# class KrakenFuturesConnector:
     def __init__(self, exchange="krakenfutures", symbols=None, ws_url=None, queue=None):
         self.exchange = exchange
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
