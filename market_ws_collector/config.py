@@ -12,7 +12,7 @@ DEFAULT_SYMBOLS = {
 # ✅ 每个交易所的 WebSocket 接入地址
 WS_ENDPOINTS = {
     "ascendex": "wss://ascendex.com/1/api/pro/v2/stream",
-    "krakenfutures":   "wss://ws.kraken.com/v2",
+    "krakenfutures":   "wss://futures.kraken.com/ws/v1",
     "binance":  "wss://stream.binance.com:9443/ws",
     "bitmex":   "wss://www.bitmex.com/realtime"
     # 更多交易所陆续补充
