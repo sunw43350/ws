@@ -7,7 +7,7 @@
 | gateio | 602 |
 | bybit | 598 |
 | bitget | 588 |
-| bitrue | 586 |
+| bitrue | 586 |a
 | binance | 574 |a
 | bingx | 539 |a
 | binanceusdm | 530 |

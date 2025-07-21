@@ -31,15 +31,15 @@ def on_message(ws, message):
         # 'asks': [ [价格, 数量], ... ] → 卖单列表（升序）
         # 'channel': 如 'market_btcusdt_depth_step0'
 
-        if "channel" in data and "tick" in data:
-            symbol = data["channel"].split("_")[1]
-            bids = data["tick"].get("bids", [])
-            asks = data["tick"].get("asks", [])
+        # if "channel" in data and "tick" in data:
+        #     symbol = data["channel"].split("_")[1]
+        #     bids = data["tick"].get("bids", [])
+        #     asks = data["tick"].get("asks", [])
 
-            bid_price, bid_qty = bids[0] if bids else ("-", "-")
-            ask_price, ask_qty = asks[0] if asks else ("-", "-")
+        #     bid_price, bid_qty = bids[0] if bids else ("-", "-")
+        #     ask_price, ask_qty = asks[0] if asks else ("-", "-")
 
-            print(f"📊 {symbol.upper()} | 买一: {bid_price} ({bid_qty}) | 卖一: {ask_price} ({ask_qty})")
+        #     print(f"📊 {symbol.upper()} | 买一: {bid_price} ({bid_qty}) | 卖一: {ask_price} ({ask_qty})")
 
     except Exception as e:
         print("❌ 解压失败:", e)
