@@ -7,9 +7,7 @@ async def consume_snapshots(queue):
         print(
             f"📥 [{snapshot.exchange}] {snapshot.symbol} | "
             f"买一: {snapshot.bid1:.2f} ({snapshot.bid_vol1:.2f}) | "
-            f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f}) | "
-            f"成交量: {snapshot.total_volume:.2f}" if snapshot.total_volume is not None else "成交量: -"
-
+            f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
 
         queue.task_done()
