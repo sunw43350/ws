@@ -13,7 +13,7 @@
 | binanceusdm | 530 |
 | lbank | 510 |a
 | bitmart | 506 |a
-| blofin | 497 |
+| blofin | 497 |a
 | kucoinfutures | 449 |b
 | krakenfutures | 351 |a slow
 | oxfun | 345 |

@@ -8,15 +8,26 @@ def on_open(ws):
     print("✅ 已连接 BloFin WebSocket")
 
     for symbol in CONTRACTS:
+        # sub_msg = {
+        #     "op": "subscribe",
+        #     "args": [
+        #         {
+        #             "channel": "ticker",
+        #             "instId": symbol
+        #         }
+        #     ]
+        # }
         sub_msg = {
             "op": "subscribe",
             "args": [
                 {
-                    "channel": "ticker",
-                    "instId": symbol
+                    "channel": "tickers",
+                    "instType": "CONTRACT",
+                    "instId": symbol  # 如 "BTC-USDT"
                 }
             ]
         }
+
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: ticker → {symbol}")
 
