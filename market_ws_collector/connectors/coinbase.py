@@ -2,7 +2,7 @@ import asyncio
 import json
 import time
 import websockets
-
+from datetime import datetime
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
 from connectors.base import BaseAsyncConnector
@@ -29,7 +29,7 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        return generic_symbol.upper().replace("_", "-")
+        return generic_symbol.upper()
 
     def build_sub_msg(self) -> dict:
         return {
@@ -60,35 +60,46 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    print(f"📩 收到消息: {data} ")
+                    if data.get("channel") == "ticker" and "events" in data:
+                        for event in data["events"]:
+                            if event.get("type") != "update":
+                                continue
 
-                    if data.get("type") == "ticker":
-                        symbol = data.get("product_id")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+                            for ticker in event.get("tickers", []):
+                                symbol = ticker.get("product_id")
+                                raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        bid1 = float(data.get("best_bid", 0.0))
-                        ask1 = float(data.get("best_ask", 0.0))
-                        price = float(data.get("price", 0.0))
-                        bid_vol1 = float(data.get("volume_24h", 0.0))  # ticker 无买一数量字段
-                        ask_vol1 = bid_vol1  # 可暂设一致，实际需补充
-                        total_volume = bid_vol1
-                        timestamp = int(time.time() * 1000)
+                                bid1 = float(ticker.get("best_bid", 0.0))
+                                ask1 = float(ticker.get("best_ask", 0.0))
+                                bid_vol1 = float(ticker.get("best_bid_quantity", 0.0))
+                                ask_vol1 = float(ticker.get("best_ask_quantity", 0.0))
+                                total_volume = float(ticker.get("volume_24_h", 0.0))
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=timestamp
-                        )
+                                ts_iso = data.get("timestamp")
+                                if ts_iso:
+                                    try:
+                                        dt = datetime.fromisoformat(ts_iso.replace("Z", "+00:00"))
+                                        ts = int(dt.timestamp() * 1000)
+                                    except:
+                                        ts = int(time.time() * 1000)
+                                else:
+                                    ts = int(time.time() * 1000)
 
-                        if self.queue:
-                            await self.queue.put(snapshot)
-                            print(f"📥 {self.format_snapshot(snapshot)}")
+                                snapshot = MarketSnapshot(
+                                    exchange=self.exchange_name,
+                                    symbol=symbol,
+                                    raw_symbol=raw_symbol,
+                                    bid1=bid1,
+                                    ask1=ask1,
+                                    bid_vol1=bid_vol1,
+                                    ask_vol1=ask_vol1,
+                                    total_volume=total_volume,
+                                    timestamp=ts
+                                )
+
+                                if self.queue:
+                                    await self.queue.put(snapshot)
+                                    print(f"📥 {self.format_snapshot(snapshot)}")
 
             except Exception as e:
                 print(f"❌ Coinbase 异常: {e}")
