@@ -7,6 +7,3 @@ symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 
 for ex, syms in sorted(exchange_symbols.items(), key=lambda x: len(x[1])):
     print(ex, len(syms))
-    
-for ex, syms in exchange_symbols.items():
-    print(ex, len(syms))
