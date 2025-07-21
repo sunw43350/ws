@@ -11,6 +11,8 @@ class MarketSnapshot:
         self.best_bid = best_bid
         self.best_ask = best_ask
         self.timestamp = timestamp
+
+        
 class MarketSnapshot:
     def __init__(
         self,
