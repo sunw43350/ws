@@ -53,7 +53,7 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    print("📩 收到消息:", data)
+                    # print("📩 收到消息:", data)
 
                     
                     
