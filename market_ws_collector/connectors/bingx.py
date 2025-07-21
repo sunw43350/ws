@@ -55,7 +55,10 @@ class Connector(BaseAsyncConnector):
 
                 while True:
                     raw = await self.ws.recv()
+                    print(raw)
+
                     data = json.loads(raw)
+
 
                     if "data" in data and "bids" in data["data"] and "asks" in data["data"]:
                         symbol_full = data.get("dataType", "").split("@")[0]
