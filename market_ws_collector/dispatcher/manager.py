@@ -11,7 +11,9 @@ class ExchangeManager:
             # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail
             # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
-            bitmart.Connector(exchange="bitmart", queue=queue)  # ✅ 添加 BitMart
+            # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
+            bitmex.Connector(exchange="bitmex", queue=queue)  # ✅ 添加 BitMEX
+            
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
