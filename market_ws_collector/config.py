@@ -57,3 +57,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "bitrue": "wss://ws.bitrue.com/kline-api/ws"
 })
+
+DEFAULT_SYMBOLS.update({
+    "blofin": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "blofin": "wss://openapi.blofin.com/ws/public"
+})
