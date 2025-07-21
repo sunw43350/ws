@@ -5,13 +5,13 @@ class BaseAsyncConnector(ABC):
         self.exchange_name = self.__class__.__name__.replace("Connector", "")
 
     @abstractmethod
-    def connect(self): pass
+    async def connect(self): pass
 
     @abstractmethod
-    def subscribe(self, request): pass
+    async def subscribe(self, request): pass
 
     @abstractmethod
-    def run_forever(self): pass
+    async def run(self): pass
 
     @abstractmethod
     def format_symbol(self): pass
