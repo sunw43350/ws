@@ -23,16 +23,9 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
-        # 标准格式 → Kraken Futures 合约代码
-        base = generic_symbol.replace("-", "").lower()
-        mapping = {
-            "btcusdt": "pi_xbtusd",
-            "ethusdt": "pi_ethusd",
-            "solusdt": "pi_solusd",
-            "xrpusdt": "pi_xrpusd",
-            "ltcusdt": "pi_ltcusd"
-        }
-        return mapping.get(base, base)
+        return generic_symbol.replace("-", "/").upper()
+    
+
 
     def build_sub_msg(self) -> dict:
         return {
