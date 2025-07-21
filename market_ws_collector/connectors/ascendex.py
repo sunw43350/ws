@@ -19,6 +19,13 @@ class Connector(BaseAsyncConnector):
             SubscriptionRequest(symbol=self.format_symbol(sym), channel="depth", depth_level=0)
             for sym in generic_symbols
         ]
+
+        # ✅ 构建格式化符号 → 原始符号的映射表
+        self.symbol_map = {
+            self.format_symbol(sym): sym
+            for sym in generic_symbols
+        }
+
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
@@ -53,7 +60,9 @@ class Connector(BaseAsyncConnector):
                     data = json.loads(raw)
 
                     if data.get("m") == "depth" and "symbol" in data:
-                        symbol = data["symbol"]
+                        symbol = data["symbol"]                         # 格式化后的 symbol，例如 BTC-PERP
+                        raw_symbol = self.symbol_map.get(symbol, symbol)  # 原始 symbol，例如 BTC-USDT
+
                         bids = data["data"].get("bids", [])
                         asks = data["data"].get("asks", [])
 
@@ -63,6 +72,7 @@ class Connector(BaseAsyncConnector):
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
                             symbol=symbol,
+                            raw_symbol=raw_symbol,
                             bid1=bid1,
                             ask1=ask1,
                             bid_vol1=bid_vol1,
