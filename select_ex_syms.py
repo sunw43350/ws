@@ -15,7 +15,7 @@ matrix = []
 for symbol in all_symbols:
     row = []
     for exchange in filtered_exchanges:
-        row.append(str(1 if symbol in exchange_symbols[exchange] else 0))
+        row.append("1" if symbol in exchange_symbols[exchange] else "")
     matrix.append(row)
 
 # 打印 Markdown 表头
@@ -26,4 +26,4 @@ print(separator)
 
 # 打印每行
 for symbol, row in zip(all_symbols, matrix):
-    print("| " + symbol + " | " + " | ".join(row) + " |")
+    print("| " + symbol + " | " + " | ".join(row)
