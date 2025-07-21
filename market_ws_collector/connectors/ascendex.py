@@ -1,40 +1,55 @@
 import asyncio
 import json
+import re
 import time
 import websockets
 
 from connectors.base import BaseAsyncConnector
 from models.base import SubscriptionRequest, MarketSnapshot
+from config import DEFAULT_SYMBOLS
 
 class Connector(BaseAsyncConnector):
-    def __init__(self):
+    def __init__(self, symbols=None):
         super().__init__("ascendex")
+
+        # ✅ 使用注入的 symbol 或默认配置中的标准格式符号列表
+        generic_symbols = symbols if symbols is not None else DEFAULT_SYMBOLS.get("ascendex", [])
+
+        # ✅ 转换为 AscendEX 实际订阅符号
+        self.symbols = [self.format_symbol(sym) for sym in generic_symbols]
         self.ws = None
-        self.symbols = ["BTC-PERP", "ETH-PERP", "SOL-PERP", "XRP-PERP", "LTC-PERP"]
+
+    def format_symbol(self, generic):
+        """
+        将标准格式 'BTC-USDT' 转换为 AscendEX 格式 'BTC-PERP'
+        """
+        # 提取币种，替换 USDT 为 PERP 合约格式
+        base = re.sub(r"-USDT$", "", generic.upper())
+        return f"{base}-PERP"
 
     async def connect(self):
         url = "wss://ascendex.com/1/api/pro/v2/stream"
         self.ws = await websockets.connect(url)
-        print("✅ AscendEX WebSocket 已连接")
+        print(f"✅ AscendEX WebSocket 已连接 → {url}")
 
-    async def subscribe(self, request: SubscriptionRequest):
-        # AscendEX 使用 depth:{symbol}:0 频道获取买一卖一
+    async def subscribe(self, symbol):
+        """
+        使用 depth:{symbol}:0 频道订阅买一卖一行情
+        """
         sub_msg = {
             "op": "sub",
-            "id": f"depth_{request.symbol}",
-            "ch": f"depth:{request.symbol}:0"
+            "id": f"depth_{symbol}",
+            "ch": f"depth:{symbol}:0"
         }
         await self.ws.send(json.dumps(sub_msg))
-        print(f"📨 已订阅: depth → {request.symbol}")
+        print(f"📨 已订阅 AscendEX 合约: {symbol}")
 
     async def run(self):
         await self.connect()
 
-        # 批量订阅所有合约
         for symbol in self.symbols:
-            req = SubscriptionRequest(symbol=symbol, channel="depth")
-            await self.subscribe(req)
-            await asyncio.sleep(0.3)  # 控制订阅速率
+            await self.subscribe(symbol)
+            await asyncio.sleep(0.3)  # 控制订阅速率，防止限速
 
         while True:
             try:
@@ -60,5 +75,5 @@ class Connector(BaseAsyncConnector):
                     print(f"📊 {snapshot.symbol} | 买一: {snapshot.best_bid} | 卖一: {snapshot.best_ask}")
 
             except Exception as e:
-                print(f"❌ AscendEX 解码失败: {e}")
+                print(f"❌ AscendEX 解码或连接错误: {e}")
                 await asyncio.sleep(1)
