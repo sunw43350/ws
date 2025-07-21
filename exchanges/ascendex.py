@@ -21,6 +21,7 @@ def on_open(ws):
 def on_message(ws, message):
     try:
         data = json.loads(message)
+        print(data)  # 打印原始消息以便调试
 
         # ✅ 示例字段说明（ticker 推送结构）：
         # 'm': 'ticker'
