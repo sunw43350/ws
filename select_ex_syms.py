@@ -8,3 +8,4 @@ symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 
 print(exchange_symbols)
 
+print()
