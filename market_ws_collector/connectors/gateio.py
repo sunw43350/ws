@@ -63,11 +63,11 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    print(f"📥 Gate.io 推送: {data}")
+                    # print(f"📥 Gate.io 推送: {data}")
 
                     if data.get("channel") == "futures.book_ticker" and data.get("event") == "update":
                         tick = data.get("result", {})
-                        symbol = tick.get("contract")
+                        symbol = tick.get("s")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
                         bid1 = float(tick.get("b", 0.0))
