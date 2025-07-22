@@ -25,7 +25,7 @@ for symbol in all_symbols:
         if symbol in exchange_symbols[exchange]:
             present_exchanges.append(exchange)
     count = len(present_exchanges)
-    if count > 10 and count < 12:
+    if count > 10 and count < 13:
         filtered_symbol_data.append({
             "symbol": symbol,
             "count": count,
