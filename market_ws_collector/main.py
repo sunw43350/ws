@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from dispatcher.manager import ExchangeManager
 
 # Configurations
-DATA_RETENTION_MINUTES = 20
+DATA_RETENTION_MINUTES = 10
 PLOT_INTERVAL_SECONDS = 60*5
 
 # Runtime storage
