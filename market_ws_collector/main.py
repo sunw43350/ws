@@ -106,7 +106,7 @@ async def consume_snapshots(queue: asyncio.Queue):
         data['ask'].append(ask1)
 
         print(
-            f"[{exchange}] {snapshot.timestamp_hms} | {snapshot.raw_symbol} | {symbol} | "
+            f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
             f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
 
