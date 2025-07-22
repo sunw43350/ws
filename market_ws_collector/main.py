@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 from dispatcher.manager import ExchangeManager
 
 # Configuration
-DATA_RETENTION_MINUTES = 10
+DATA_RETENTION_MINUTES = 3
 PLOT_INTERVAL_SECONDS = 20
 
-# Runtime containers
+# Runtime data
 active_symbols = set()
 symbol_exchange_data = defaultdict(lambda: defaultdict(lambda: {'times': [], 'bid': [], 'ask': []}))
 
@@ -73,15 +73,14 @@ def compute_arbitrage_spread(symbol):
 
 def plot_symbol(symbol):
     exchanges = symbol_exchange_data.get(symbol, {})
-    colors = plt.cm.get_cmap('tab10')
+    colors = plt.colormaps['tab10']
     fig, (ax_price, ax_arbitrage) = plt.subplots(
-        2, 1, figsize=(16, 9), sharex=True,
-        gridspec_kw={'height_ratios': [2, 1]}  # Price plot gets 2x vertical space
+        2, 1, figsize=(12, 8), sharex=True,
+        gridspec_kw={'height_ratios': [2, 1]}  # Price:Arbitrage height ratio 2:1
     )
-
     plotted = False
 
-    # Plot bid/ask prices
+    # Price chart
     for idx, (exchange, data) in enumerate(exchanges.items()):
         times = data['times']
         bids = data['bid']
@@ -89,8 +88,8 @@ def plot_symbol(symbol):
         if not times or not is_price_valid(bids) or not is_price_valid(asks):
             continue
         color = colors(idx % 10)
-        axs[0].plot(times, asks, label=f"{exchange} Ask", color=color, linestyle='-')
-        axs[0].plot(times, bids, label=f"{exchange} Bid", color=color, linestyle='--')
+        ax_price.plot(times, asks, label=f"{exchange} Ask", color=color, linestyle='-')
+        ax_price.plot(times, bids, label=f"{exchange} Bid", color=color, linestyle='--')
         plotted = True
 
     if not plotted:
@@ -98,26 +97,25 @@ def plot_symbol(symbol):
         plt.close()
         return
 
-    axs[0].set_title(f"{symbol} Price Comparison Across Exchanges ({DATA_RETENTION_MINUTES} min)")
-    axs[0].set_ylabel("Price")
-    axs[0].grid(True)
-    axs[0].legend()
+    ax_price.set_title(f"{symbol} Price Comparison Across Exchanges ({DATA_RETENTION_MINUTES} min)")
+    ax_price.set_ylabel("Price")
+    ax_price.grid(True)
+    ax_price.legend()
 
-    # Plot arbitrage spread
+    # Arbitrage chart
     times, spreads, percents = compute_arbitrage_spread(symbol)
-    axs[1].plot(times, spreads, label="Spread (USD)", color="purple")
-    axs[1].plot(times, percents, label="Spread (%)", color="orange")
-    axs[1].set_title(f"{symbol} Arbitrage Spread (Taker-Taker)")
-    axs[1].set_ylabel("Spread / %")
-    axs[1].set_xlabel("Time")
-    axs[1].grid(True)
-    axs[1].legend()
+    ax_arbitrage.plot(times, spreads, label="Spread (USD)", color="purple")
+    ax_arbitrage.plot(times, percents, label="Spread (%)", color="orange")
+    ax_arbitrage.set_title(f"{symbol} Arbitrage Spread (Taker-Taker)")
+    ax_arbitrage.set_ylabel("Spread / %")
+    ax_arbitrage.set_xlabel("Time")
+    ax_arbitrage.grid(True)
+    ax_arbitrage.legend()
 
     plt.tight_layout()
     plt.gcf().autofmt_xdate()
-
-    timestamp_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = os.path.join("imgs", f"{symbol}_arbitrage_{timestamp_str}.png")
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = os.path.join("imgs", f"{symbol}_arbitrage_{timestamp}.png")
     plt.savefig(filename)
     plt.close()
     print(f"🟢 Saved chart: {filename}")
