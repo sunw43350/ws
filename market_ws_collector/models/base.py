@@ -1,5 +1,5 @@
-import datetime
-
+# import datetime
+from datetime import datetime
 class SubscriptionRequest:
     def __init__(self, symbol, channel="ticker", depth_level=0):
         self.symbol = symbol
