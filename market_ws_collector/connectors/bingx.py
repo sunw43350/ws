@@ -57,7 +57,6 @@ class Connector(BaseAsyncConnector):
                 while True:
                     raw = await self.ws.recv()
 
-                    print(f"📥 收到数据: {raw[:100]}...")  # 打印前100个字符
                     decompressed = gzip.decompress(raw).decode("utf-8")
                     data = json.loads(decompressed)
 
