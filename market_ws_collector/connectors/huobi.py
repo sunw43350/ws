@@ -102,4 +102,4 @@ class Connector(BaseAsyncConnector):
 
             except Exception as e:
                 print(f"❌ Huobi 异常: {e}")
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(0.1)

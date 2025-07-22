@@ -8,23 +8,23 @@ import matplotlib.pyplot as plt
 # from dispatcher.manager_pro import ExchangeManager
 from dispatcher.manager import ExchangeManager
 
-# 🔧 配置参数
+# 🔧 Configurations
 DATA_RETENTION_MINUTES = 3
-PLOT_INTERVAL_SECONDS = 20
+PLOT_INTERVAL_SECONDS = 60
 
-# 🌊 实时数据容器
+# ⏳ Runtime storage
 active_symbols = set()
 symbol_exchange_data = defaultdict(lambda: defaultdict(lambda: {'times': [], 'bid': [], 'ask': []}))
 
+
 def prepare_image_folder():
-    """准备图像保存目录（清空后重新创建）"""
     folder = 'imgs'
     if os.path.exists(folder):
         shutil.rmtree(folder)
     os.makedirs(folder)
 
+
 def prune_old_data():
-    """清理超过保留时间的数据"""
     cutoff = datetime.datetime.now() - datetime.timedelta(minutes=DATA_RETENTION_MINUTES)
     for symbol, exchanges in symbol_exchange_data.items():
         for exchange, data in exchanges.items():
@@ -34,25 +34,18 @@ def prune_old_data():
             data['bid'] = data['bid'][idx:]
             data['ask'] = data['ask'][idx:]
 
+
 def is_price_valid(prices):
-    """价格序列是否合法"""
     return all(p > 0 for p in prices)
 
-def compute_arbitrage_spread(symbol):
-    """计算套利价差（taker-taker模式）"""
-    exchanges = symbol_exchange_data.get(symbol, {})
-    timestamps, spreads, percents = [], [], []
 
-    best_point = {
-        "spread": 0,
-        "percent": 0,
-        "time": None,
-        "buy_exchange": "",
-        "sell_exchange": ""
-    }
+def compute_best_spread_sequence(symbol):
+    """只计算每个时间点最优套利组合，用于换色绘图"""
+    exchanges = symbol_exchange_data.get(symbol, {})
+    sequence = []
 
     if not exchanges:
-        return [], [], [], None
+        return []
 
     sample_count = len(next(iter(exchanges.values()))['times'])
 
@@ -78,24 +71,17 @@ def compute_arbitrage_spread(symbol):
 
         if best_bid > best_ask and time_ref:
             spread = best_bid - best_ask
-            percent = (spread / best_ask) * 100
-            timestamps.append(time_ref)
-            spreads.append(spread)
-            percents.append(percent)
+            sequence.append({
+                "time": time_ref,
+                "spread": spread,
+                "buy_ex": buy_ex,
+                "sell_ex": sell_ex
+            })
 
-            if spread > best_point["spread"]:
-                best_point.update({
-                    "spread": spread,
-                    "percent": percent,
-                    "time": time_ref,
-                    "buy_exchange": buy_ex,
-                    "sell_exchange": sell_ex
-                })
+    return sequence
 
-    return timestamps, spreads, percents, best_point if best_point["time"] else None
 
 def plot_symbol(symbol):
-    """绘制价格和套利图表"""
     exchanges = symbol_exchange_data.get(symbol, {})
     colors = plt.colormaps['tab10']
     fig, (ax_price, ax_arbitrage) = plt.subplots(
@@ -104,7 +90,7 @@ def plot_symbol(symbol):
     )
     plotted = False
 
-    # 📈 主图：Bid / Ask 曲线
+    # 📈 主图：Bid / Ask 价格
     for idx, (exchange, data) in enumerate(exchanges.items()):
         times, bids, asks = data['times'], data['bid'], data['ask']
         if not times or not is_price_valid(bids) or not is_price_valid(asks):
@@ -124,28 +110,41 @@ def plot_symbol(symbol):
     ax_price.grid(True)
     ax_price.legend()
 
-    # 💰 子图：套利价差 + 最大点标注
-    times, spreads, percents, best_point = compute_arbitrage_spread(symbol)
-    ax_arbitrage.plot(times, spreads, label="Spread (USD)", color="purple")
-    ax_arbitrage.plot(times, percents, label="Spread (%)", color="orange")
+    # 💰 子图：最优套利路线，根据交易所组合切换颜色
+    sequence = compute_best_spread_sequence(symbol)
 
-    ax_arbitrage.set_title(f"{symbol} Arbitrage Spread (Taker-Taker)")
-    ax_arbitrage.set_ylabel("Spread / %")
+    if not sequence:
+        print(f"⏭️ Skipping {symbol}: No valid arbitrage data.")
+        plt.close()
+        return
+
+    segments = []
+    prev_combo = None
+    times, spreads = [], []
+
+    for point in sequence:
+        combo = (point["buy_ex"], point["sell_ex"])
+        if combo != prev_combo and times:
+            segments.append((times, spreads, prev_combo))
+            times, spreads = [], []
+        times.append(point["time"])
+        spreads.append(point["spread"])
+        prev_combo = combo
+
+    if times:
+        segments.append((times, spreads, prev_combo))
+
+    # 画子图
+    for idx, (t_list, s_list, (buy_ex, sell_ex)) in enumerate(segments):
+        label = f"{buy_ex} → {sell_ex}"
+        color = colors(idx % 10)
+        ax_arbitrage.plot(t_list, s_list, label=label, color=color, linewidth=2)
+
+    ax_arbitrage.set_title(f"{symbol} Optimal Spread Route (Taker-Taker)")
+    ax_arbitrage.set_ylabel("Spread (USD)")
     ax_arbitrage.set_xlabel("Time")
     ax_arbitrage.grid(True)
     ax_arbitrage.legend()
-
-    if best_point:
-        ax_arbitrage.annotate(
-            f"Max Spread: {best_point['spread']:.2f} USD ({best_point['percent']:.2f}%)\n"
-            f"Buy: {best_point['buy_exchange']} | Sell: {best_point['sell_exchange']}",
-            xy=(best_point["time"], best_point["spread"]),
-            xytext=(best_point["time"], best_point["spread"] * 1.2),
-            arrowprops=dict(arrowstyle="->", color="red"),
-            fontsize=10,
-            color="darkred",
-            bbox=dict(boxstyle="round", fc="white", ec="red")
-        )
 
     plt.tight_layout()
     plt.gcf().autofmt_xdate()
@@ -156,12 +155,14 @@ def plot_symbol(symbol):
     plt.close()
     print(f"🟢 Saved chart: {filename}")
 
+
 async def periodic_plot_task():
     while True:
         await asyncio.sleep(PLOT_INTERVAL_SECONDS)
         prune_old_data()
         for symbol in active_symbols:
             plot_symbol(symbol)
+
 
 async def consume_snapshots(queue: asyncio.Queue):
     while True:
@@ -183,6 +184,7 @@ async def consume_snapshots(queue: asyncio.Queue):
         )
         queue.task_done()
 
+
 async def main():
     snapshot_queue = asyncio.Queue()
     manager = ExchangeManager(queue=snapshot_queue)
@@ -191,6 +193,7 @@ async def main():
         consume_snapshots(snapshot_queue),
         periodic_plot_task()
     )
+
 
 if __name__ == "__main__":
     prepare_image_folder()
