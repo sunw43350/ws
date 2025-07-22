@@ -75,7 +75,7 @@ class Connector(BaseAsyncConnector):
                         symbol = channel.replace("market_", "").replace("_depth_step0", "")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        print(data)
+                        # print(data)
                         bids = data["tick"].get("buys", [])
                         asks = data["tick"].get("asks", [])
 
