@@ -2,6 +2,27 @@ import requests
 import csv
 import time
 
+# 请求头，模拟正常浏览器访问
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "Accept": "application/json",
+    "Origin": "https://www.google.com",
+}
+
+# 可选代理（可接入 Clash / V2Ray 本地代理端口）
+PROXIES = {
+    "http": "http://127.0.0.1:7890",
+    "https": "http://127.0.0.1:7890",
+}
+
+# 哪些交易所使用代理（按需开启）
+USE_PROXIES_FOR = {
+    "blofin",
+    "phemex",
+    "bitget",  # 可选
+    "cryptocom"
+}
+
 REST_ENDPOINTS = {
     "ascendex": "https://ascendex.com/api/pro/v1/futures/contracts",
     "binance": "https://fapi.binance.com/fapi/v1/exchangeInfo",
@@ -13,33 +34,33 @@ REST_ENDPOINTS = {
     "bitrue": "https://openapi.bitrue.com/api/v1/contracts",
     "blofin": "https://api.blofin.com/api/v1/public/contracts",
     "bybit": "https://api.bybit.com/v5/market/instruments-info?category=linear",
-    "coinbase": "https://api.exchange.coinbase.com/products",  # ⚠️ 现货-only
+    "coinbase": "https://api.exchange.coinbase.com/products",
     "cryptocom": "https://api.crypto.com/v2/public/get-instruments",
     "digifinex": "https://openapi.digifinex.com/v3/futures/contracts",
-    "gateio": "https://api.gateio/ws/api/v4/futures/usdt/contracts",
+    "gateio": "https://api.gateio/api/v4/futures/usdt/contracts",
     "huobi": "https://api.hbdm.com/api/v1/contract_contract_info",
     "krakenfutures": "https://futures.kraken.com/derivatives/api/v3/instruments",
     "lbank": "https://api.lbank.info/v2/contract/getAllContracts.do",
     "mexc": "https://contract.mexc.com/api/v1/contract/detail",
     "okx": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
-    "oxfun": "https://api.ox.fun/api/v1/public/contracts",  # ⛔ 接口失效
-    "phemex": "https://api.phemex.com/exchange/public/contracts",  # ⛔ 需认证
+    "oxfun": "https://api.ox.fun/api/v1/public/contracts",
+    "phemex": "https://api.phemex.com/exchange/public/contracts",
 }
 
 SPOT_ONLY = {"coinbase"}
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
 
-
-def safe_get(url, retries=3, headers=None, verify_ssl=True):
+def safe_get(url, exchange=None, retries=3):
     for attempt in range(retries):
         try:
-            return requests.get(url, headers=headers, timeout=10, verify=verify_ssl)
+            proxies = PROXIES if exchange in USE_PROXIES_FOR else None
+            verify = False if exchange == "gateio" else True  # 证书不可信时关闭验证
+            response = requests.get(url, headers=HEADERS, timeout=10, proxies=proxies, verify=verify)
+            response.raise_for_status()
+            return response
         except Exception as e:
-            print(f"⚠️ 请求失败（第{attempt + 1}次）：{e}")
-            time.sleep(1)
+            print(f"⚠️ 请求失败（第{attempt + 1}次）[{exchange}]: {e}")
+            time.sleep(2)
     return None
 
 
@@ -53,13 +74,10 @@ def fetch_and_store_all(filename="contracts.csv", error_log="contracts_errors.lo
         for name, url in REST_ENDPOINTS.items():
             print(f"📡 获取 {name} 合约列表...")
 
-            verify_ssl = not name.startswith("gateio")  # gateio证书问题
-            response = safe_get(url, headers=HEADERS, verify_ssl=verify_ssl)
-
-            if not response or response.status_code != 200:
-                msg = f"{name} 请求失败：{response.status_code if response else '无响应'}\n"
-                print("❌ " + msg.strip())
-                err_file.write(msg)
+            response = safe_get(url, exchange=name)
+            if not response:
+                err_file.write(f"{name} 请求失败：无响应\n")
+                print(f"❌ {name} 请求失败：无响应")
                 continue
 
             try:
@@ -69,9 +87,8 @@ def fetch_and_store_all(filename="contracts.csv", error_log="contracts_errors.lo
                 for symbol in symbols:
                     writer.writerow([name, symbol, "spot" if name in SPOT_ONLY else "future"])
             except Exception as e:
-                msg = f"{name} 解析失败：{e}\n"
-                print("❌ " + msg.strip())
-                err_file.write(msg)
+                err_file.write(f"{name} 解析失败：{e}\n")
+                print(f"❌ {name} 解析失败：{e}")
 
 
 def parse_contracts(exchange, data):
