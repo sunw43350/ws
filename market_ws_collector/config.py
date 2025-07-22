@@ -29,7 +29,7 @@ WS_ENDPOINTS = {
     "ascendex":      "wss://ascendex.com/1/api/pro/v2/stream",
     "krakenfutures": "wss://futures.kraken.com/ws/v1",
     # "bingx":         "wss://open-api-ws.bingx.com/market", 
-    "bingx":         "wss://ws-uswap.we-api.com/market", 
+    "bingx":         "wss://ws-uswap.we-api.com/market?platformid=30&device_id=68af8aa4b71c445e842c20933699d291&channel=official&device_brand=Windows%2010_Chrome_138.0.0.0&traceId=e20b7673-12ab-4b34-9035-bf67d444e1d5", 
     
     "bitfinex":      "wss://api-pub.bitfinex.com/ws/2",
     "bitget":        "wss://ws.bitget.com/v2/ws/public",
