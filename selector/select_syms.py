@@ -2,7 +2,8 @@ import pickle
 import csv
 from config import SELECT_EXCHANGES
 
-basedir = '../assets/'
+basedir = '../assets/'  # ✅ 统一指定存储目录
+
 # 加载数据
 exchange_symbols = pickle.load(open(f'{basedir}/exchange_symbols.pkl', 'rb'))
 symbol_exchanges = pickle.load(open(f'{basedir}/symbol_exchanges.pkl', 'rb'))
@@ -37,17 +38,27 @@ with open("symbols_with_count_gt10.csv", "w", newline="", encoding="utf-8") as f
     for symbol, count, exchanges in filtered_symbol_data:
         writer.writerow([symbol, count, ", ".join(exchanges)])
 
-# 写入每个交易所支持的热门 symbol 统计
+# 写入每个交易所支持的热门 symbol 数量
 with open("exchange_contract_counts.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["exchange", "supported_contracts_count"])
     for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
         writer.writerow([ex, exchange_contract_counter[ex]])
 
-# ✅ 写入每个交易所支持的 symbol 具体内容
+# ✅ 写入每个交易所支持的 symbol 具体内容，并生成 pickle 数据
+exchange_symbols_gt50 = {}
+
 with open("exchange_contract_counts_with_symbols.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["exchange", "supported_contracts_count", "symbols"])
     for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
         symbols = exchange_contract_symbols[ex]
         writer.writerow([ex, exchange_contract_counter[ex], ", ".join(symbols)])
+        if exchange_contract_counter[ex] > 50:
+            exchange_symbols_gt50[ex] = symbols
+
+# ✅ 保存符合条件的交易所 + symbols 到 assets 路径
+with open(f"{basedir}/filtered_exchange_symbols_gt50.pkl", "wb") as f:
+    pickle.dump(exchange_symbols_gt50, f)
+
+print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.pkl")
