@@ -2,7 +2,10 @@ import websocket
 import json
 import gzip
 
-WS_URL = "wss://ws.bitrue.com/kline-api/ws"
+# WS_URL = "wss://ws.bitrue.com/kline-api/ws" ## error
+WS_URL = "wss://fapiws.bitrue.com"
+
+	
 SYMBOLS = ["btcusdt", "ethusdt", "solusdt", "xrpusdt", "ltcusdt"]
 
 def on_open(ws):
