@@ -1,5 +1,5 @@
 import pickle
-import csv
+import json
 from config import SELECT_EXCHANGES
 
 basedir = '../assets/'  # ✅ 统一指定存储目录
@@ -26,39 +26,46 @@ for symbol in all_symbols:
             present_exchanges.append(exchange)
     count = len(present_exchanges)
     if count > 10:
-        filtered_symbol_data.append((symbol, count, present_exchanges))
+        filtered_symbol_data.append({
+            "symbol": symbol,
+            "count": count,
+            "exchanges": present_exchanges
+        })
         for ex in present_exchanges:
             exchange_contract_counter[ex] += 1
             exchange_contract_symbols[ex].append(symbol)
 
-# 写入 count > 10 的 symbol 列表
-with open("symbols_with_count_gt10.csv", "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow(["symbol", "count", "exchanges"])
-    for symbol, count, exchanges in filtered_symbol_data:
-        writer.writerow([symbol, count, ", ".join(exchanges)])
+# ✅ 写入 count > 10 的 symbol 列表到 JSON
+with open("symbols_with_count_gt10.json", "w", encoding="utf-8") as f:
+    json.dump(filtered_symbol_data, f, ensure_ascii=False, indent=2)
 
-# 写入每个交易所支持的热门 symbol 数量
-with open("exchange_contract_counts.csv", "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow(["exchange", "supported_contracts_count"])
-    for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
-        writer.writerow([ex, exchange_contract_counter[ex]])
+# ✅ 写入每个交易所支持的 symbol 数量到 JSON
+exchange_counts_json = [
+    {"exchange": ex, "supported_contracts_count": exchange_contract_counter[ex]}
+    for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True)
+]
+with open("exchange_contract_counts.json", "w", encoding="utf-8") as f:
+    json.dump(exchange_counts_json, f, ensure_ascii=False, indent=2)
 
-# ✅ 写入每个交易所支持的 symbol 具体内容，并生成 pickle 数据
+# ✅ 写入每个交易所支持的 symbol 详细数据
+exchange_contract_details = []
 exchange_symbols_gt50 = {}
 
-with open("exchange_contract_counts_with_symbols.csv", "w", newline="", encoding="utf-8") as f:
-    writer = csv.writer(f)
-    writer.writerow(["exchange", "supported_contracts_count", "symbols"])
-    for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
-        symbols = exchange_contract_symbols[ex]
-        writer.writerow([ex, exchange_contract_counter[ex], ", ".join(symbols)])
-        if exchange_contract_counter[ex] > 50:
-            exchange_symbols_gt50[ex] = symbols
+for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
+    symbol_list = exchange_contract_symbols[ex]
+    exchange_contract_details.append({
+        "exchange": ex,
+        "supported_contracts_count": exchange_contract_counter[ex],
+        "symbols": symbol_list
+    })
+    if exchange_contract_counter[ex] > 50:
+        exchange_symbols_gt50[ex] = symbol_list
+
+with open("exchange_contract_counts_with_symbols.json", "w", encoding="utf-8") as f:
+    json.dump(exchange_contract_details, f, ensure_ascii=False, indent=2)
 
 # ✅ 保存符合条件的交易所 + symbols 到 assets 路径
-with open(f"{basedir}/filtered_exchange_symbols_gt50.pkl", "wb") as f:
-    pickle.dump(exchange_symbols_gt50, f)
+with open(f"{basedir}/filtered_exchange_symbols_gt50.json", "w", encoding="utf-8") as f:
+    json.dump(exchange_symbols_gt50, f, ensure_ascii=False, indent=2)
 
-print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.pkl")
+print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.json")
