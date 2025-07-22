@@ -68,6 +68,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(data)
+
                     if "arg" in data and "data" in data:
                         arg = data["arg"]
                         symbol = arg.get("instId", "unknown")

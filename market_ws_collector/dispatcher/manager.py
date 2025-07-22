@@ -59,7 +59,7 @@ class ExchangeManager:
         print(data.keys())  # 显示所有的交易所名
 
 
-        skip_exchanges = ["blofin", "bybit"]
+        skip_exchanges = ["blofin"]
         
 
         for exchange in data.keys():
