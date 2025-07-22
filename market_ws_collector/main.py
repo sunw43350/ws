@@ -56,7 +56,7 @@ async def consume_snapshots(queue: asyncio.Queue):
         note = f"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and ask1 == 0 else ""
 
         print(
-            f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {sna} | "
+            f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {snapshot.symbol} | "
             f"Bid: {bid1:.5f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.5f} ({snapshot.ask_vol1:.2f}) | {note}"
         )
 
