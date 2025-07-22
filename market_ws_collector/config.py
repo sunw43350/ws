@@ -149,3 +149,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "okx": "wss://ws.okx.com:8443/ws/v5/public"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "oxfun": ["BTC-USD-SWAP-LIN", "ETH-USD-SWAP-LIN", "SOL-USD-SWAP-LIN", "XRP-USD-SWAP-LIN", "LTC-USD-SWAP-LIN"]
+})
+
+WS_ENDPOINTS.update({
+    "oxfun": "wss://api.ox.fun/v2/websocket"
+})
