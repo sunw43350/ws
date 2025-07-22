@@ -10,7 +10,7 @@ from dispatcher.manager import ExchangeManager
 
 # 🔧 Parameters
 DATA_RETENTION_MINUTES = 1
-PLOT_INTERVAL_SECONDS = 10
+PLOT_INTERVAL_SECONDS = 30
 
 # ⏳ Runtime collections
 active_symbols = set()
@@ -123,4 +123,5 @@ async def main():
     )
 
 if __name__ == "__main__":
+    prepare_image_folder()
     asyncio.run(main())
