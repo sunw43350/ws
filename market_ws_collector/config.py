@@ -166,16 +166,3 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "phemex": "wss://ws.phemex.com"
 })
-
-
-# ============================================================================
-
-REST_ENDPOINTS = {
-    "binance": "https://fapi.binance.com/fapi/v1/exchangeInfo",
-    "bitget": "https://api.bitget.com/api/mix/v1/market/contracts",
-    "okx": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
-    "bybit": "https://api.bybit.com/v5/market/instruments-info?category=linear",
-    "mexc": "https://contract.mexc.com/api/v1/contract/detail",
-    "oxfun": "https://api.ox.fun/api/v1/public/contracts",
-    "phemex": "https://api.phemex.com/exchange/public/contracts",
-}
