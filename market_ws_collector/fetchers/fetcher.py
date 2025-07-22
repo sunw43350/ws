@@ -73,3 +73,6 @@ def parse_contracts(exchange, data):
         print(f"⚠️ 未定义 {exchange} 的解析逻辑")
         return []
 
+
+if __name__ == "__main__":
+    fetch_and_store_all()
