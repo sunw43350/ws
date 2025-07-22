@@ -27,6 +27,10 @@ class Connector(BaseAsyncConnector):
     def format_symbol(self, generic_symbol: str) -> str:
         # BTC-USDT → btcusdt
         return generic_symbol.lower().replace("-", "")
+    
+    async def subscribe(self):
+        print(f"📡 Binance Connector 使用组合流，不发送订阅消息。")
+
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
