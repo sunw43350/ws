@@ -4,7 +4,7 @@ from connectors import (
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, coinbase, cryptocom, digifinex,
     gateio, huobi, lbank, 
-    # mexc, okx, oxfun, phemex
+    mexc, #okx, oxfun, phemex
 )
 
 from config import DEFAULT_SYMBOLS
@@ -29,7 +29,8 @@ class ExchangeManager:
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
             # huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
-            lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank
+            # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank
+            mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC
 
 
             # 你可以继续添加 binance、bybit 等其他交易所
