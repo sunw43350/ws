@@ -70,12 +70,9 @@ class ExchangeManager:
             #     print(f"❌ 无法导入模块: exchanges.{exchange}")
 
 
-            try:
-                self.connectors.append(
-                globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
+            self.connectors.append(
+                globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=self.queue)
             )
-            except Exception as e:
-                print(f"❌ 无法导入模块: {exchange}")
 
             time.sleep(0.5)
             
