@@ -158,3 +158,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "oxfun": "wss://api.ox.fun/v2/websocket"
 })
+
+DEFAULT_SYMBOLS.update({
+    "phemex": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "phemex": "wss://ws.phemex.com"
+})

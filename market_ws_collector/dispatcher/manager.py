@@ -4,7 +4,7 @@ from connectors import (
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, coinbase, cryptocom, digifinex,
     gateio, huobi, lbank, 
-    mexc, okx, oxfun, #phemex
+    mexc, okx, oxfun, phemex
 )
 
 from config import DEFAULT_SYMBOLS
