@@ -10,7 +10,7 @@ from dispatcher.manager import ExchangeManager
 
 # Configurations
 DATA_RETENTION_MINUTES = 20
-PLOT_INTERVAL_SECONDS = 60*10
+PLOT_INTERVAL_SECONDS = 60*5
 
 # Runtime storage
 active_symbols = set()
