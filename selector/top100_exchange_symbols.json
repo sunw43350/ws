@@ -2,74 +2,171 @@
   "bingx": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "bitget": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "bitmart": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "binance": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "bitrue": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "blofin": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "bybit": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "gateio": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "huobi": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT"
   ],
   "lbank": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "mexc": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "okx": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "phemex": [
     "1INCH-USDT",
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ACH-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AERGO-USDT",
+    "AERO-USDT",
+    "AEVO-USDT"
   ],
   "bitmex": [
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AEVO-USDT"
   ],
   "digifinex": [
     "A-USDT",
-    "AAVE-USDT"
+    "AAVE-USDT",
+    "ACE-USDT",
+    "ADA-USDT"
+  ],
+  "ascendex": [
+    "AAVE-USDT",
+    "ACT-USDT",
+    "ADA-USDT",
+    "AEVO-USDT"
   ]
 }
