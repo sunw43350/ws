@@ -10,7 +10,7 @@ from dispatcher.manager import ExchangeManager
 
 # 🔧 配置参数
 DATA_RETENTION_MINUTES = 3
-PLOT_INTERVAL_SECONDS = 60
+PLOT_INTERVAL_SECONDS = 20
 
 # 🌊 实时数据容器
 active_symbols = set()
