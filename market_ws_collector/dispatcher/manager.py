@@ -63,7 +63,7 @@ class ExchangeManager:
         
 
         for exchange in data.keys():
-            if exchange in skip_exchanges:
+            if exchange  in skip_exchanges:
                 continue
             if exchange not in globals():
                 print(f"⚠️ exchange 模块未导入: {exchange}")
