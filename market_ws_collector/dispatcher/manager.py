@@ -13,7 +13,7 @@ from config import DEFAULT_SYMBOLS
 import asyncio
 
 import json
-
+import time
 import importlib
 
 
@@ -40,7 +40,7 @@ class ExchangeManager:
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
             # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
-            # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
+            phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
             ####### invalid exchanges
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
@@ -72,9 +72,8 @@ class ExchangeManager:
             except Exception as e:
                 print(f"❌ 无法导入模块: {exchange}")
 
+            time.sleep(0.5)
             
-            
-
 
 
     def load_connectors(self):
