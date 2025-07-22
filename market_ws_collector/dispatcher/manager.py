@@ -40,7 +40,7 @@ class ExchangeManager:
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
             # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
-            phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
+            # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
             ####### invalid exchanges
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
@@ -74,7 +74,7 @@ class ExchangeManager:
                 globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=self.queue)
             )
 
-            time.sleep(0.5)
+            # time.sleep(0.5)
             
 
     async def run_all(self):
