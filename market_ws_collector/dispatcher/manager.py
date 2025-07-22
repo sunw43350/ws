@@ -12,13 +12,23 @@ from connectors import (
 from config import DEFAULT_SYMBOLS
 import asyncio
 
+import json
+
+with open("top100_exchange_symbols.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
+
+# 现在 data 就是一个 Python dict
+print(type(data))  # <class 'dict'>
+print(data.keys())  # 显示所有的交易所名
+
+
 class ExchangeManager:
     def __init__(self, queue):
         self.queue = queue
         self.connectors = [
             # ascendex.Connector(exchange="ascendex", queue=queue),
             # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
-            binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
+            # binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
             # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
             # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
