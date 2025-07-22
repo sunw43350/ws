@@ -6,15 +6,16 @@ from config import SELECT_EXCHANGES
 exchange_symbols = pickle.load(open('assets/exchange_symbols.pkl', 'rb'))
 symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
 
-# 筛选在 SELECT_EXCHANGES 中的交易所
+# 筛选要统计的交易所
 filtered_exchanges = [ex for ex in SELECT_EXCHANGES if ex in exchange_symbols]
 
 # 所有 symbol
 all_symbols = sorted(symbol_exchanges.keys())
 
-# 统计每个 symbol 在哪些交易所出现，并计算 count
-filtered_symbol_data = []  # 用于后续写入 CSV
-exchange_contract_counter = {ex: 0 for ex in filtered_exchanges}  # 每个交易所支持的合约数
+# 保存 count > 10 的 symbol 数据
+filtered_symbol_data = []
+exchange_contract_counter = {ex: 0 for ex in filtered_exchanges}
+exchange_contract_symbols = {ex: [] for ex in filtered_exchanges}
 
 for symbol in all_symbols:
     present_exchanges = []
@@ -26,17 +27,26 @@ for symbol in all_symbols:
         filtered_symbol_data.append((symbol, count, present_exchanges))
         for ex in present_exchanges:
             exchange_contract_counter[ex] += 1
+            exchange_contract_symbols[ex].append(symbol)
 
-# 写入 count > 10 的 symbol 数据
+# 写入 count > 10 的 symbol 列表
 with open("symbols_with_count_gt10.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["symbol", "count", "exchanges"])
     for symbol, count, exchanges in filtered_symbol_data:
         writer.writerow([symbol, count, ", ".join(exchanges)])
 
-# 写入交易所支持的合约数统计
+# 写入每个交易所支持的热门 symbol 统计
 with open("exchange_contract_counts.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
     writer.writerow(["exchange", "supported_contracts_count"])
-    for ex, cnt in sorted(exchange_contract_counter.items(), key=lambda x: x[1], reverse=True):
-        writer.writerow([ex, cnt])
+    for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
+        writer.writerow([ex, exchange_contract_counter[ex]])
+
+# ✅ 写入每个交易所支持的 symbol 具体内容
+with open("exchange_contract_counts_with_symbols.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["exchange", "supported_contracts_count", "symbols"])
+    for ex in sorted(filtered_exchanges, key=lambda x: exchange_contract_counter[x], reverse=True):
+        symbols = exchange_contract_symbols[ex]
+        writer.writerow([ex, exchange_contract_counter[ex], ", ".join(symbols)])
