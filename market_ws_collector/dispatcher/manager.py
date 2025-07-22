@@ -14,7 +14,7 @@ import asyncio
 
 import json
 
-
+import importlib
 
 
 
@@ -53,7 +53,18 @@ class ExchangeManager:
 
         print(data.keys())  # 显示所有的交易所名
 
+        
+
         for exchange in data.keys():
+            try:
+                module = importlib.import_module(f"exchanges.{exchange}")
+                self.connectors.append(
+                    module.Connector(exchange=exchange, symbols=data[exchange], queue=queue)
+                )
+            except ImportError:
+                print(f"❌ 无法导入模块: exchanges.{exchange}")
+
+                
             self.connectors.append(
                 globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
             )
