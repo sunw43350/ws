@@ -10,8 +10,8 @@ from dispatcher.manager import ExchangeManager  # 调度器管理多个交易所
 
 
 # 配置参数
-DATA_RETENTION_MINUTES = 2    # 保留10分钟数据
-PLOT_INTERVAL_MINUTES = 2     # 每10分钟画一次图
+DATA_RETENTION_MINUTES = 1    # 保留10分钟数据
+PLOT_INTERVAL_MINUTES = 1     # 每10分钟画一次图
 PLOT_SYMBOLS = ['AAVE-USDT', '1INCH-USDT']  # 要画图的合约列表
 
 # 数据结构：{symbol: {exchange: {'times': [], 'bid': [], 'ask': []}}}
