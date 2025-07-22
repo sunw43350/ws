@@ -152,7 +152,7 @@ WS_ENDPOINTS.update({
 
 
 DEFAULT_SYMBOLS.update({
-    "oxfun": ["BTC-USD-SWAP-LIN", "ETH-USD-SWAP-LIN", "SOL-USD-SWAP-LIN", "XRP-USD-SWAP-LIN", "LTC-USD-SWAP-LIN"]
+    "oxfun": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
 })
 
 WS_ENDPOINTS.update({
