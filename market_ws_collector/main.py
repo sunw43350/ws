@@ -57,7 +57,7 @@ async def consume_snapshots(queue: asyncio.Queue):
 
         print(
             f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
-            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f}) | {note}"
+            f"Bid: {bid1:.5f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.5f} ({snapshot.ask_vol1:.2f}) | {note}"
         )
 
         queue.task_done()
