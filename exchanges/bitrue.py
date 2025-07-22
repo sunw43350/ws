@@ -13,19 +13,19 @@ def on_open(ws):
 
     for symbol in SYMBOLS:
         sub_msg = {
-        "event": "sub",
-        "params": {
-            "channel": "market_$symbol_depth_step0",
-            "cb_id": ""
-        }
-}
-        sub_msg = {
             "event": "sub",
             "params": {
-                "channel": f"market_{symbol}_depth_step0",  # ✅ 订阅 1档深度数据
-                "cb_id": symbol
+                "channel": f"market_{symbol}_depth_step0",
+                "cb_id": ""
             }
         }
+        # sub_msg = {
+        #     "event": "sub",
+        #     "params": {
+        #         "channel": f"market_{symbol}_depth_step0",  # ✅ 订阅 1档深度数据
+        #         "cb_id": symbol
+        #     }
+        # }
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: market_{symbol}_depth_step0")
 
