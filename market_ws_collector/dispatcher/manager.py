@@ -28,6 +28,7 @@ class ExchangeManager:
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             gateio.Connector(exchange="gateio", queue=queue)  # ✅ 添加 Gate.io
 
+
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
