@@ -1,11 +1,12 @@
 from connectors import (
-    ascendex, krakenfutures, bingx, bitfinex,
+    ascendex, krakenfutures, bingx, 
     bitget, bitmart, bitmex, bitrue,
-    blofin, bybit, coinbase, cryptocom, digifinex,
+    blofin, bybit, cryptocom, digifinex,
     gateio, huobi, lbank, 
     mexc, okx, oxfun, phemex,
 
-    
+# bitfinex,coinbase  # 这些交易所暂时不添加
+
 )
 
 from config import DEFAULT_SYMBOLS
