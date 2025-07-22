@@ -23,7 +23,6 @@ class ExchangeManager:
             # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue
             # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
-            # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase
             # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto.
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
@@ -34,7 +33,10 @@ class ExchangeManager:
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
-            bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
+            
+            # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
+            # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase spot only 
+
 
 
 
