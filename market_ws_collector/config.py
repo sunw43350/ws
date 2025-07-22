@@ -115,3 +115,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "gateio": "wss://fx-ws.gateio.ws/v4/ws/usdt"
 })
+
+DEFAULT_SYMBOLS.update({
+    "huobi": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "LTC-USDT", "XRP-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "huobi": "wss://api.huobi.pro/ws"
+})
