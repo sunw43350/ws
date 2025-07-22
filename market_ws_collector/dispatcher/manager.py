@@ -59,10 +59,12 @@ class ExchangeManager:
         print(data.keys())  # 显示所有的交易所名
 
 
-        filtered_exchanges = ["blofin", "bybit"]
+        skip_exchanges = ["blofin", "bybit"]
         
 
         for exchange in data.keys():
+            if exchange in skip_exchanges:
+                continue
             if exchange not in globals():
                 print(f"⚠️ exchange 模块未导入: {exchange}")
                 continue
