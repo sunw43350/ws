@@ -63,6 +63,7 @@ class Connector(BaseAsyncConnector):
 
                     print(data)
 
+# {'topic': 'tickers.AEVOUSDT', 'type': 'delta', 'data': {'symbol': 'AEVOUSDT', 'bid1Price': '0.1191', 'bid1Size': '23259.8'}, 'cs': 102008471096, 'ts': 1753198195576}
                     if "data" in data and "topic" in data:
                         topic = data["topic"]
                         symbol = topic.split(".")[-1]  # e.g., BTCUSDT
