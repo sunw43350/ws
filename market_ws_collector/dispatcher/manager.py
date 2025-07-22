@@ -17,7 +17,7 @@ class ExchangeManager:
             ascendex.Connector(exchange="ascendex", queue=queue),
             krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
-            bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
+            # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
             bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
             bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
             bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
