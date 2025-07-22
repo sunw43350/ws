@@ -3,9 +3,9 @@ import json
 import gzip
 
 # WS_URL = "wss://ws.bitrue.com/kline-api/ws" ## error
-# WS_URL = "wss://fmarket-ws.bitrue.com/kline-api/ws"
+WS_URL = "wss://fmarket-ws.bitrue.com/kline-api/ws"
 
-WS_URL = "wss://futuresws.bitrue.com/kline-api/ws"
+# WS_URL = "wss://futuresws.bitrue.com/kline-api/ws"
 
 	
 SYMBOLS = ["btcusdt", "ethusdt", "solusdt", "xrpusdt", "ltcusdt"]
