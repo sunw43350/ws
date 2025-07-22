@@ -69,8 +69,10 @@ class ExchangeManager:
                 self.connectors.append(
                 globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
             )
-            except ImportError:
-                print(f"❌ 无法导入模块: exchanges.{exchange}")
+            except Exception as e:
+                print(f"❌ 无法导入模块: {exchange}")
+
+            
             
 
 
