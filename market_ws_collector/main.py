@@ -9,7 +9,7 @@ from dispatcher.manager import ExchangeManager         # 默认连接器
 
 # 🔧 配置参数
 DATA_RETENTION_MINUTES = 1        # 数据保留时间（单位：分钟）
-PLOT_INTERVAL_SECONDS = 30        # 每隔多少秒画一次图（可自行修改）
+PLOT_INTERVAL_SECONDS = 10        # 每隔多少秒画一次图（可自行修改）
 
 # 🧠 实时活跃合约symbol集合
 active_symbols = set()
