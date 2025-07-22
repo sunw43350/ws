@@ -56,18 +56,22 @@ class ExchangeManager:
         
 
         for exchange in data.keys():
+            # try:
+            #     module = importlib.import_module(f"{exchange}")
+            #     self.connectors.append(
+            #         module.Connector(exchange=exchange, symbols=data[exchange], queue=queue)
+            #     )
+            # except ImportError:
+            #     print(f"❌ 无法导入模块: exchanges.{exchange}")
+
+
             try:
-                module = importlib.import_module(f"exchanges.{exchange}")
                 self.connectors.append(
-                    module.Connector(exchange=exchange, symbols=data[exchange], queue=queue)
-                )
+                globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
+            )
             except ImportError:
                 print(f"❌ 无法导入模块: exchanges.{exchange}")
-
-
-            # self.connectors.append(
-            #     globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
-            # )
+            
 
 
 
