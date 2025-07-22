@@ -65,7 +65,7 @@ with open("exchange_contract_counts_with_symbols.json", "w", encoding="utf-8") a
     json.dump(exchange_contract_details, f, ensure_ascii=False, indent=2)
 
 # ✅ 保存符合条件的交易所 + symbols 到 assets 路径
-with open(f"{basedir}/filtered_exchange_symbols_gt50.json", "w", encoding="utf-8") as f:
+with open(f"filtered_exchange_symbols_gt50.json", "w", encoding="utf-8") as f:
     json.dump(exchange_symbols_gt50, f, ensure_ascii=False, indent=2)
 
 print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.json")
