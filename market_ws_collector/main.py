@@ -10,7 +10,7 @@ from dispatcher.manager import ExchangeManager
 
 # Configurations
 DATA_RETENTION_MINUTES = 10
-PLOT_INTERVAL_SECONDS = 60*5
+PLOT_INTERVAL_SECONDS = 60 * 5
 
 # Runtime storage
 active_symbols = set()
@@ -35,12 +35,17 @@ def prune_old_data():
 def is_price_valid(prices):
     return all(p > 0 for p in prices)
 
-def compute_best_percent_spread_sequence(symbol):
+def compute_best_percent_spread_sequence(symbol, cutoff):
     exchanges = symbol_exchange_data.get(symbol, {})
     sequence = []
 
     if not exchanges:
         return []
+
+    for data in exchanges.values():
+        data['times'], data['bid'], data['ask'] = zip(*[
+            (t, b, a) for t, b, a in zip(data['times'], data['bid'], data['ask']) if t >= cutoff
+        ])
 
     sample_count = len(next(iter(exchanges.values()))['times'])
 
@@ -75,7 +80,7 @@ def compute_best_percent_spread_sequence(symbol):
 
     return sequence
 
-def plot_symbol(symbol):
+def plot_symbol(symbol, cutoff):
     exchanges = symbol_exchange_data.get(symbol, {})
     colors = plt.colormaps['tab10']
     fig, (ax_price, ax_arbitrage) = plt.subplots(
@@ -86,7 +91,9 @@ def plot_symbol(symbol):
 
     # Price plot
     for idx, (exchange, data) in enumerate(exchanges.items()):
-        times, bids, asks = data['times'], data['bid'], data['ask']
+        times, bids, asks = zip(*[
+            (t, b, a) for t, b, a in zip(data['times'], data['bid'], data['ask']) if t >= cutoff
+        ])
         if not times or not is_price_valid(bids) or not is_price_valid(asks):
             continue
         color = colors(idx % 10)
@@ -99,13 +106,13 @@ def plot_symbol(symbol):
         plt.close()
         return
 
-    ax_price.set_title(f"{symbol} Price Comparison Across Exchanges ({DATA_RETENTION_MINUTES} min)")
+    ax_price.set_title(f"{symbol} Price Comparison Across Exchanges (last {PLOT_INTERVAL_SECONDS // 60} min)")
     ax_price.set_ylabel("Price")
     ax_price.grid(True)
     ax_price.legend()
 
     # Arbitrage percentage subplot
-    sequence = compute_best_percent_spread_sequence(symbol)
+    sequence = compute_best_percent_spread_sequence(symbol, cutoff)
     if not sequence:
         print(f"⏭️ Skipping {symbol}: No valid arbitrage data.")
         plt.close()
@@ -149,9 +156,10 @@ def plot_symbol(symbol):
 async def periodic_plot_task():
     while True:
         await asyncio.sleep(PLOT_INTERVAL_SECONDS)
+        cutoff = datetime.datetime.now() - datetime.timedelta(seconds=PLOT_INTERVAL_SECONDS)
         prune_old_data()
         for symbol in active_symbols:
-            plot_symbol(symbol)
+            plot_symbol(symbol, cutoff)
 
 async def consume_snapshots(queue: asyncio.Queue):
     while True:
@@ -169,7 +177,7 @@ async def consume_snapshots(queue: asyncio.Queue):
         data['bid'].append(bid1)
         data['ask'].append(ask1)
 
-        note = f"!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and  ask1 == 0 else ""
+        note = f"!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and ask1 == 0 else ""
 
         print(
             f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
