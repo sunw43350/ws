@@ -65,33 +65,34 @@ class Connector(BaseAsyncConnector):
 
                     print(data)
 
-                    if data.get("method") == "ticker.update" and "param" in data:
-                        tick = data["param"]
-                        symbol = tick.get("symbol")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+                    if data.get("channel") == "push.ticker" and "data" in data:
+    tick = data["data"]
+    symbol = tick.get("symbol")
+    raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        bid1 = float(tick.get("bid1", 0.0))
-                        ask1 = float(tick.get("ask1", 0.0))
-                        bid_vol1 = float(tick.get("bidSize", 0.0))
-                        ask_vol1 = float(tick.get("askSize", 0.0))
-                        total_volume = float(tick.get("volume", 0.0))
-                        timestamp = int(tick.get("ts", time.time() * 1000))
+    bid1 = float(tick.get("bid1", 0.0))
+    ask1 = float(tick.get("ask1", 0.0))
+    bid_vol1 = float(tick.get("holdVol", 0.0))  # 可用挂单量或持仓
+    ask_vol1 = bid_vol1  # 如无细分挂单量字段可复用
+    total_volume = float(tick.get("volume24", 0.0))
+    timestamp = int(tick.get("timestamp", time.time() * 1000))
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=timestamp
-                        )
+    snapshot = MarketSnapshot(
+        exchange=self.exchange_name,
+        symbol=symbol,
+        raw_symbol=raw_symbol,
+        bid1=bid1,
+        ask1=ask1,
+        bid_vol1=bid_vol1,
+        ask_vol1=ask_vol1,
+        total_volume=total_volume,
+        timestamp=timestamp
+    )
 
-                        if self.queue:
-                            await self.queue.put(snapshot)
-                            print(f"📥 {self.format_snapshot(snapshot)}")
+    if self.queue:
+        await self.queue.put(snapshot)
+        print(f"📥 {self.format_snapshot(snapshot)}")
+
 
             except Exception as e:
                 print(f"❌ MEXC 异常: {e}")
