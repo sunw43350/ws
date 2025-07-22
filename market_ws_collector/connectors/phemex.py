@@ -65,16 +65,17 @@ class Connector(BaseAsyncConnector):
 
                     print(f"📥 收到数据: {data}")
 
-                    if "depth" in data and "type" in data and data["type"] == "snapshot":
-                        tick = data.get("depth", {})
-                        symbol = data.get("symbol", "")
+                    if "type" in data and data["type"] == "snapshot" and "book" in data:
+                        symbol = data.get("symbol")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
+                        tick = data["book"]
 
                         bids = tick.get("bids", [])
                         asks = tick.get("asks", [])
-                        bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
-                        timestamp = int(time.time() * 1000)
+
+                        bid1, bid_vol1 = map(lambda x: x / 1e4, bids[0]) if bids else (0.0, 0.0)
+                        ask1, ask_vol1 = map(lambda x: x / 1e4, asks[0]) if asks else (0.0, 0.0)
+                        timestamp = int(data.get("timestamp", time.time_ns()) / 1e6)  # 转毫秒
 
                         snapshot = MarketSnapshot(
                             exchange=self.exchange_name,
@@ -89,7 +90,9 @@ class Connector(BaseAsyncConnector):
 
                         if self.queue:
                             await self.queue.put(snapshot)
-                            print(f"📥 {self.format_snapshot(snapshot)}")
+                            # print(f"📥 {self.format_snapshot(snapshot)}")
+
+
 
             except Exception as e:
                 print(f"❌ Phemex 异常: {e}")
