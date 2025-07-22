@@ -2,9 +2,10 @@ import pickle
 import csv
 from config import SELECT_EXCHANGES
 
+basedir = '../assets/'
 # 加载数据
-exchange_symbols = pickle.load(open('assets/exchange_symbols.pkl', 'rb'))
-symbol_exchanges = pickle.load(open('assets/symbol_exchanges.pkl', 'rb'))
+exchange_symbols = pickle.load(open(f'{basedir}/exchange_symbols.pkl', 'rb'))
+symbol_exchanges = pickle.load(open(f'{basedir}/symbol_exchanges.pkl', 'rb'))
 
 # 筛选要统计的交易所
 filtered_exchanges = [ex for ex in SELECT_EXCHANGES if ex in exchange_symbols]
