@@ -14,12 +14,8 @@ import asyncio
 
 import json
 
-with open("top100_exchange_symbols.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
 
-# 现在 data 就是一个 Python dict
-print(type(data))  # <class 'dict'>
-print(data.keys())  # 显示所有的交易所名
+
 
 
 class ExchangeManager:
@@ -52,6 +48,12 @@ class ExchangeManager:
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
+        with open("top100_exchange_symbols.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        print(data.keys())  # 显示所有的交易所名
+
+        
 
     def load_connectors(self):
         pass
