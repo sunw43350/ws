@@ -98,7 +98,7 @@ to_delete = []
 for ex in top_100_exchange_symbols:
     num = len(top_100_exchange_symbols[ex])
     print(f"交易所 {ex} 支持的前 100 个 symbol 数量: {num}")
-    if num < 5:
+    if num < 2:
         to_delete.append(ex)
         print(f"⚠️ 警告: 交易所 {ex} 支持的前 100 个 symbol 数量少于 5 个！")
 
