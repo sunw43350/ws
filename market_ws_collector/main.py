@@ -176,7 +176,7 @@ async def consume_snapshots(queue: asyncio.Queue):
             print(f"❌ 数据错误: 预期为字典(dict)，但实际类型为 {type(data)}")
             continue
 
-        warn = f"⚠️⚠️⚠️⚠️⚠️⚠️ {exchange}" if bid1 == 0 and ask1 == 0 else ""
+        warn = f"👉👉👉👉👉👉👉👉👉👉👉👉👉⚠️⚠️⚠️⚠️⚠️⚠️ {exchange}" if bid1 == 0 and ask1 == 0 else ""
 
         print(
             f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
