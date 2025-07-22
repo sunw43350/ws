@@ -63,6 +63,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(f"📥 收到数据: {data}")
+
                     if "depth" in data and "type" in data and data["type"] == "snapshot":
                         tick = data.get("depth", {})
                         symbol = data.get("symbol", "")

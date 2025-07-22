@@ -32,7 +32,8 @@ class ExchangeManager:
             # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
             # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
-            oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
+            # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
+            phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
 
             # 你可以继续添加 binance、bybit 等其他交易所
