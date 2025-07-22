@@ -60,21 +60,21 @@ class ExchangeManager:
 
         
 
-        for exchange in data.keys():
-            # try:
-            #     module = importlib.import_module(f"{exchange}")
-            #     self.connectors.append(
-            #         module.Connector(exchange=exchange, symbols=data[exchange], queue=queue)
-            #     )
-            # except ImportError:
-            #     print(f"❌ 无法导入模块: exchanges.{exchange}")
+         for exchange in data.keys():
+            if exchange not in globals():
+                print(f"⚠️ exchange 模块未导入: {exchange}")
+                continue
 
-
-            self.connectors.append(
-                globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=self.queue)
-            )
-
-            # time.sleep(0.5)
+            try:
+                connector = globals()[exchange].Connector(
+                    exchange=exchange,
+                    symbols=data[exchange],
+                    queue=self.queue
+                )
+                self.connectors.append(connector)
+                print(f"✅ 成功添加交易所: {exchange}（symbol 数量: {len(data[exchange])}）")
+            except Exception as e:
+                print(f"❌ 构建 {exchange}.Connector 时出错: {e}")
             
 
     async def run_all(self):
