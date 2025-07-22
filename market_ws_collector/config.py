@@ -123,3 +123,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "huobi": "wss://api.huobi.pro/ws"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "lbank": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "LTC-USDT", "XRP-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "lbank": "wss://www.lbkex.net/ws/V2/"
+})
