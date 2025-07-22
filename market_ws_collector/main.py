@@ -169,11 +169,11 @@ async def consume_snapshots(queue: asyncio.Queue):
         data['bid'].append(bid1)
         data['ask'].append(ask1)
 
-        note = "!!!!!!!!!!!!!!!" if bid1 == 0 and  ask1 == 0 else "Ask"
+        note = f"!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and  ask1 == 0 else ""
 
         print(
             f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
-            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f})"
+            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f}) | {note}"
         )
 
         queue.task_done()
