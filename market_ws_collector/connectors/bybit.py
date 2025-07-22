@@ -61,6 +61,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(data)
+
                     if "data" in data and "topic" in data:
                         topic = data["topic"]
                         symbol = topic.split(".")[-1]  # e.g., BTCUSDT
@@ -91,4 +93,4 @@ class Connector(BaseAsyncConnector):
 
             except Exception as e:
                 print(f"❌ Bybit 异常: {e}")
-                await asyncio.sleep(0.5)
+                await asyncio.sleep(0.1)
