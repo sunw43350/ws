@@ -9,7 +9,16 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "bitget": [
     "1INCH-USDT",
@@ -21,7 +30,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "bitmart": [
     "1INCH-USDT",
@@ -33,7 +52,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "binance": [
     "1INCH-USDT",
@@ -45,7 +74,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "bitrue": [
     "1INCH-USDT",
@@ -57,7 +96,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "blofin": [
     "1INCH-USDT",
@@ -69,7 +118,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "bybit": [
     "1INCH-USDT",
@@ -81,7 +140,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "gateio": [
     "1INCH-USDT",
@@ -93,7 +162,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "huobi": [
     "1INCH-USDT",
@@ -102,7 +181,14 @@
     "ACT-USDT",
     "ADA-USDT",
     "AERGO-USDT",
-    "AERO-USDT"
+    "AERO-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ANIME-USDT"
   ],
   "lbank": [
     "1INCH-USDT",
@@ -113,7 +199,14 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ANIME-USDT"
   ],
   "mexc": [
     "1INCH-USDT",
@@ -125,7 +218,17 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "okx": [
     "1INCH-USDT",
@@ -136,7 +239,13 @@
     "ACT-USDT",
     "ADA-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AI16Z-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ANIME-USDT"
   ],
   "phemex": [
     "1INCH-USDT",
@@ -148,25 +257,41 @@
     "ADA-USDT",
     "AERGO-USDT",
     "AERO-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AGLD-USDT",
+    "AGT-USDT",
+    "AI-USDT",
+    "AI16Z-USDT",
+    "AIN-USDT",
+    "AIXBT-USDT",
+    "ALCH-USDT",
+    "ALGO-USDT",
+    "ALT-USDT",
+    "ANIME-USDT"
   ],
   "bitmex": [
     "A-USDT",
     "AAVE-USDT",
     "ACT-USDT",
     "ADA-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AI16Z-USDT",
+    "AIXBT-USDT"
   ],
   "digifinex": [
     "A-USDT",
     "AAVE-USDT",
     "ACE-USDT",
-    "ADA-USDT"
+    "ADA-USDT",
+    "ALGO-USDT"
   ],
   "ascendex": [
     "AAVE-USDT",
     "ACT-USDT",
     "ADA-USDT",
-    "AEVO-USDT"
+    "AEVO-USDT",
+    "AI16Z-USDT",
+    "ALGO-USDT",
+    "ALT-USDT"
   ]
 }
