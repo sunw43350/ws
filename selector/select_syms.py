@@ -69,3 +69,21 @@ with open(f"filtered_exchange_symbols_gt50.json", "w", encoding="utf-8") as f:
     json.dump(exchange_symbols_gt50, f, ensure_ascii=False, indent=2)
 
 print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.json")
+
+
+
+# ✅ 选取 filtered_symbol_data 中前 100 个 symbol，构建 {exchange: [symbols]} 格式
+top_100_symbols = filtered_symbol_data[:100]
+top_100_exchange_symbols = {}
+
+for entry in top_100_symbols:
+    symbol = entry["symbol"]
+    for ex in entry["exchanges"]:
+        top_100_exchange_symbols.setdefault(ex, []).append(symbol)
+
+# ✅ 保存到 JSON 文件
+with open("top100_exchange_symbols.json", "w", encoding="utf-8") as f:
+    json.dump(top_100_exchange_symbols, f, ensure_ascii=False, indent=2)
+
+print(f"✅ 已保存前 100 个 symbol 的交易所分布到 top100_exchange_symbols.json")
+
