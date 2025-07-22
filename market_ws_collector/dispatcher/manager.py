@@ -1,4 +1,3 @@
-# from connectors import ascendex, krakenfutures, bingx, bitfinex, bitget, bitmart, bitmex, bitrue, blofin, bybit, coinbase,cryptocom
 from connectors import (
     ascendex, krakenfutures, bingx, bitfinex,
     bitget, bitmart, bitmex, bitrue,
@@ -33,7 +32,7 @@ class ExchangeManager:
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
-            
+            ####### invalid exchanges
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
             # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase spot only 
 
