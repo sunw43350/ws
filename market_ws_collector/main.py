@@ -1,25 +1,26 @@
 import asyncio
 import datetime
+import os
 from collections import defaultdict
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# from dispatcher.manager_pro import ExchangeManager  # 如果你使用高级连接器版本
-from dispatcher.manager import ExchangeManager         # 默认连接器
+# from dispatcher.manager_pro import ExchangeManager
+from dispatcher.manager import ExchangeManager
 
-# 🔧 配置参数
-DATA_RETENTION_MINUTES = 1        # 数据保留时间（单位：分钟）
-PLOT_INTERVAL_SECONDS = 10        # 每隔多少秒画一次图（可自行修改）
+# 🔧 Parameters
+DATA_RETENTION_MINUTES = 1
+PLOT_INTERVAL_SECONDS = 10
 
-# 🧠 实时活跃合约symbol集合
+# ⏳ Runtime collections
 active_symbols = set()
-
-# 📊 数据结构：{symbol: {exchange: {'times': [], 'bid': [], 'ask': []}}}
 symbol_exchange_data = defaultdict(lambda: defaultdict(lambda: {'times': [], 'bid': [], 'ask': []}))
 
+# 📁 Ensure 'imgs/' directory exists
+os.makedirs('imgs', exist_ok=True)
 
 def prune_old_data():
-    """⏳ 清理超过保留时间的数据"""
+    """Remove data older than retention threshold"""
     cutoff = datetime.datetime.now() - datetime.timedelta(minutes=DATA_RETENTION_MINUTES)
     for symbol, exchanges in symbol_exchange_data.items():
         for exchange, data in exchanges.items():
@@ -29,87 +30,91 @@ def prune_old_data():
             data['bid'] = data['bid'][idx:]
             data['ask'] = data['ask'][idx:]
 
+def is_price_valid(prices):
+    """Check if price series contains non-zero values"""
+    return all(p > 0 for p in prices)
 
 def plot_symbol(symbol):
-    """📈 绘制某个symbol的价格图"""
+    """Generate and save price plot for a symbol"""
     plt.figure(figsize=(12, 6))
     exchanges = symbol_exchange_data.get(symbol, {})
     colors = plt.cm.get_cmap('tab10')
+    plotted = False
 
     for idx, (exchange, data) in enumerate(exchanges.items()):
         times = data['times']
         bids = data['bid']
         asks = data['ask']
 
-        if not times:
+        if not times or not is_price_valid(bids) or not is_price_valid(asks):
             continue
 
         color = colors(idx % 10)
-        plt.plot(times, asks, label=f"{exchange} ask", color=color, linestyle='-')
-        plt.plot(times, bids, label=f"{exchange} bid", color=color, linestyle='--')
+        plt.plot(times, asks, label=f"{exchange} Ask", color=color, linestyle='-')
+        plt.plot(times, bids, label=f"{exchange} Bid", color=color, linestyle='--')
+        plotted = True
 
-    plt.title(f"{symbol} 不同交易所买卖价格走势（最近 {DATA_RETENTION_MINUTES} 分钟）")
-    plt.xlabel("时间")
-    plt.ylabel("价格")
+    if not plotted:
+        print(f"⏭️ Skipping {symbol}: No valid data")
+        plt.close()
+        return
+
+    plt.title(f"{symbol} Price Comparison Across Exchanges ({DATA_RETENTION_MINUTES} min)")
+    plt.xlabel("Time")
+    plt.ylabel("Price")
     plt.legend()
     plt.grid(True)
     plt.gcf().autofmt_xdate()
     plt.tight_layout()
 
     timestamp_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = f"{symbol}_prices_{timestamp_str}.png"
+    filename = os.path.join("imgs", f"{symbol}_prices_{timestamp_str}.png")
     plt.savefig(filename)
     plt.close()
-    print(f"✅ 图表已保存: {filename}")
-
+    print(f"✅ Saved plot: {filename}")
 
 async def periodic_plot_task():
-    """⏱️ 定时绘图任务，每 PLOT_INTERVAL_SECONDS 秒执行一次"""
+    """Plot prices every PLOT_INTERVAL_SECONDS"""
     while True:
         await asyncio.sleep(PLOT_INTERVAL_SECONDS)
         prune_old_data()
         for symbol in active_symbols:
             plot_symbol(symbol)
 
-
 async def consume_snapshots(queue: asyncio.Queue):
-    """📥 处理实时快照数据"""
+    """Process incoming market snapshots"""
     while True:
         snapshot = await queue.get()
-
         symbol = snapshot.symbol
         exchange = snapshot.exchange
         bid1 = snapshot.bid1
         ask1 = snapshot.ask1
         timestamp = datetime.datetime.now()
 
-        # ✨ 记录活跃symbol
+        # 👁️ Track active symbols
         active_symbols.add(symbol)
 
-        # ✍️ 记录行情数据
         data = symbol_exchange_data[symbol][exchange]
         data['times'].append(timestamp)
         data['bid'].append(bid1)
         data['ask'].append(ask1)
 
         print(
-            f"📦 [{exchange}] {snapshot.timestamp_hms} | {snapshot.raw_symbol} | {symbol} | "
-            f"买一: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | 卖一: {ask1:.2f} ({snapshot.ask_vol1:.2f})"
+            f"[{exchange}] {snapshot.timestamp_hms} | {snapshot.raw_symbol} | {symbol} | "
+            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
 
         queue.task_done()
-
 
 async def main():
     snapshot_queue = asyncio.Queue()
     manager = ExchangeManager(queue=snapshot_queue)
 
     await asyncio.gather(
-        manager.run_all(),                  # 连接并运行所有交易所
-        consume_snapshots(snapshot_queue),  # 实时处理快照数据
-        periodic_plot_task()                # 定期画图任务
+        manager.run_all(),
+        consume_snapshots(snapshot_queue),
+        periodic_plot_task()
     )
-
 
 if __name__ == "__main__":
     asyncio.run(main())
