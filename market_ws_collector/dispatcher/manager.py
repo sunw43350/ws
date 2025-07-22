@@ -48,12 +48,17 @@ class ExchangeManager:
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
-        with open("top100_exchange_symbols.json", "r", encoding="utf-8") as f:
+        with open("../selector/top100_exchange_symbols.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
         print(data.keys())  # 显示所有的交易所名
 
-        
+        for exchange in data.keys():
+            self.connectors.append(
+                globals()[exchange].Connector(exchange=exchange, queue=queue)
+            )
+
+
 
     def load_connectors(self):
         pass
