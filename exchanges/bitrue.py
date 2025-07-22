@@ -1,6 +1,9 @@
 import websocket
 import json
 import gzip
+import asyncio
+import json
+import websockets
 
 # WS_URL = "wss://ws.bitrue.com/kline-api/ws" ## error
 # WS_URL = "wss://fmarket-ws.bitrue.com/kline-api/ws"
@@ -88,7 +91,7 @@ async def consume(ws):
                 print(f"📈 {channel} | 买一: {bids[0]} | 卖一: {asks[0]}")
 
 async def main():
-    async with websockets.connect(WS_FUTURES) as ws:
+    async with websockets.connect(WS_URL) as ws:
         print("✅ 已连接 Bitrue WebSocket")
         for symbol in SYMBOLS:
             await subscribe(ws, symbol)
