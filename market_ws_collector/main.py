@@ -9,8 +9,8 @@ import matplotlib.dates as mdates
 from dispatcher.manager import ExchangeManager
 
 # 🔧 Parameters
-DATA_RETENTION_MINUTES = 1
-PLOT_INTERVAL_SECONDS = 30
+DATA_RETENTION_MINUTES = 3
+PLOT_INTERVAL_SECONDS = 60
 
 # ⏳ Runtime collections
 active_symbols = set()
