@@ -42,6 +42,10 @@ class ExchangeManager:
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
+            ##### debug
+            bingx.Connector(exchange="bingx",  queue=queue),  # ✅ 添加 BingX
+
+
             ####### invalid exchanges
             # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  添加 Bitfinex  fail slow
             # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase spot only 
@@ -49,7 +53,7 @@ class ExchangeManager:
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
-        self.load_connectors() # 加载所有交易所连接器
+        # self.load_connectors() # 加载所有交易所连接器
 
     def load_connectors(self):
     
