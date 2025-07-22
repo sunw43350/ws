@@ -40,7 +40,7 @@ class Connector(BaseAsyncConnector):
         while True:
             try:
                 await self.connect()
-                print("📨 已订阅 Binance ticker 合约:")
+                print("✅  已订阅 Binance ticker 合约:")
                 for sym in self.formatted_symbols:
                     print(f"🔔 {sym} @ticker")
 
