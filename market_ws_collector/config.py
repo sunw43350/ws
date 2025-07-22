@@ -47,3 +47,12 @@ WS_ENDPOINTS = {
     "oxfun":         "wss://api.ox.fun/v2/websocket",
     "phemex":        "wss://ws.phemex.com",
 }
+
+
+DEFAULT_SYMBOLS.update({
+    "binance": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "BNB-USDT", "ADA-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "binance": "wss://stream.binance.com:9443"
+})

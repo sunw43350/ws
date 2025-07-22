@@ -1,5 +1,5 @@
 from connectors import (
-    ascendex, krakenfutures, bingx, 
+    ascendex, krakenfutures, bingx, binance,
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, cryptocom, digifinex,
     gateio, huobi, lbank, 
@@ -17,7 +17,8 @@ class ExchangeManager:
         self.queue = queue
         self.connectors = [
             # ascendex.Connector(exchange="ascendex", queue=queue),
-            krakenfutures.Connector(exchange="krakenfutures", queue=queue),
+            # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
+            binance.Connector(exchange="binance", symbols=DEFAULT_SYMBOLS["binance"], queue=queue),  # ✅ 添加 Binance
             # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
             # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
