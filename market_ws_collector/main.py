@@ -91,7 +91,7 @@ async def consume_snapshots(queue: asyncio.Queue):
     """Process incoming market snapshots"""
     while True:
         snapshot = await queue.get()
-        symbol = snapshot.symbol
+        symbol = snapshot
         exchange = snapshot.exchange
         bid1 = snapshot.bid1
         ask1 = snapshot.ask1
