@@ -72,7 +72,6 @@ class Connector(BaseAsyncConnector):
 
                         if self.queue:
                             await self.queue.put(snapshot)
-                            print(f"📥 {self.format_snapshot(snapshot)}")
 
             except websockets.exceptions.ConnectionClosedOK as e:
                 print(f"🔁 Binance 正常断开: {e}，尝试重连...")
