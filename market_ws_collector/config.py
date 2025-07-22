@@ -132,3 +132,11 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "lbank": "wss://www.lbkex.net/ws/V2/"
 })
+
+DEFAULT_SYMBOLS.update({
+    "mexc": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "mexc": "wss://contract.mexc.com/edge"
+})
