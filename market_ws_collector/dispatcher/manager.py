@@ -29,7 +29,7 @@ class ExchangeManager:
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
             # huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
-            # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank
+            # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
             mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC
 
 

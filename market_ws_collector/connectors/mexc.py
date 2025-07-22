@@ -63,6 +63,8 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
+                    print(data)
+
                     if data.get("method") == "ticker.update" and "param" in data:
                         tick = data["param"]
                         symbol = tick.get("symbol")
