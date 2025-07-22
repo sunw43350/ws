@@ -72,6 +72,9 @@ print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/fil
 
 
 ######################################## ✅ 选取前 100 个交易所支持的 symbol
+# ✅ 选取 filtered_symbol_data 中前 100 个 symbol，构建 {exchange: [symbols]} 格式
+top_100_symbols = filtered_symbol_data[:20]
+top_100_exchange_symbols = {}
 
 def normalize_symbol(symbol: str) -> str:
     """将原始合约格式统一为 'BASE-QUOTE'，如 BTC/USDT:USDT → BTC-USDT"""
@@ -83,12 +86,9 @@ def normalize_symbol(symbol: str) -> str:
         print(f"❌ symbol 格式异常: {symbol} → {e}")
         return symbol  # fallback: 返回原始 symbol
 
-# ✅ 选取 filtered_symbol_data 中前 100 个 symbol，构建 {exchange: [symbols]} 格式
-top_100_symbols = filtered_symbol_data[:100]
-top_100_exchange_symbols = {}
-
 for entry in top_100_symbols:
-    symbol = entry["symbol"]
+    raw_symbol = entry["symbol"]
+    symbol = normalize_symbol(raw_symbol)  # ✅ 格式标准化
     for ex in entry["exchanges"]:
         top_100_exchange_symbols.setdefault(ex, []).append(symbol)
 
@@ -100,12 +100,11 @@ for ex in top_100_exchange_symbols:
     print(f"交易所 {ex} 支持的前 100 个 symbol 数量: {num}")
     if num < 5:
         to_delete.append(ex)
-        print(f"⚠️ 警告: 交易所 {ex} 支持的前 100 个 symbol 数量少于 10 个！")
+        print(f"⚠️ 警告: 交易所 {ex} 支持的前 100 个 symbol 数量少于 5 个！")
 
 # ✅ 统一删除
 for ex in to_delete:
     del top_100_exchange_symbols[ex]
-
 
 # ✅ 保存到 JSON 文件
 with open("top100_exchange_symbols.json", "w", encoding="utf-8") as f:
