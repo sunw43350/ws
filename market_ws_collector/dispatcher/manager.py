@@ -4,7 +4,7 @@ from connectors import (
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, coinbase, cryptocom, digifinex,
     gateio, huobi, lbank, 
-    mexc, #okx, oxfun, phemex
+    mexc, okx, #oxfun, phemex
 )
 
 from config import DEFAULT_SYMBOLS
@@ -30,7 +30,8 @@ class ExchangeManager:
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
             # huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
             # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
-            mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
+            # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
+            okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
 
 
             # 你可以继续添加 binance、bybit 等其他交易所
