@@ -1,41 +1,5 @@
 [
   {
-    "symbol": "1INCH/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ACE/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "AERGO/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -49,98 +13,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "AERO/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "AEVO/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "AIXBT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ALCH/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ANIME/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -196,24 +68,6 @@
     ]
   },
   {
-    "symbol": "ATH/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "AUCTION/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -261,25 +115,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "BABY/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -352,25 +187,6 @@
     ]
   },
   {
-    "symbol": "BERA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "BIO/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -405,25 +221,6 @@
     ]
   },
   {
-    "symbol": "BOME/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "BRETT/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -435,24 +232,6 @@
       "bybit",
       "gateio",
       "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "BTC/USD:BTC",
-    "count": 12,
-    "exchanges": [
-      "krakenfutures",
-      "bingx",
-      "bitget",
-      "bitmex",
-      "bitrue",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
       "mexc",
       "okx",
       "phemex"
@@ -476,60 +255,6 @@
     ]
   },
   {
-    "symbol": "CAKE/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CATI/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CELO/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "CETUS/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -540,62 +265,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CFX/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CHILLGUY/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CHZ/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -616,43 +285,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "COOKIE/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "CORE/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -759,81 +391,6 @@
     ]
   },
   {
-    "symbol": "DOOD/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "EGLD/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "EIGEN/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ENA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "ENJ/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -864,24 +421,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ETHFI/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -937,24 +476,6 @@
     ]
   },
   {
-    "symbol": "FLOW/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "FORM/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -968,43 +489,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "GMT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "GMX/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -1043,25 +527,6 @@
     ]
   },
   {
-    "symbol": "GRASS/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "GRIFFAIN/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -1072,25 +537,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "GRT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -1111,136 +557,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "H/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HAEDAL/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HBAR/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HMSTR/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HOME/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HUMA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "HYPE/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -1279,119 +595,9 @@
     ]
   },
   {
-    "symbol": "ID/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "IMX/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "INIT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "IO/USDT:USDT",
     "count": 11,
     "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "IOST/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "IP/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "JASMY/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
       "bingx",
       "bitget",
       "bitmart",
@@ -1411,43 +617,6 @@
     "exchanges": [
       "bitmart",
       "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "JST/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "JTO/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
       "bitrue",
       "blofin",
       "bybit",
@@ -1494,98 +663,6 @@
     ]
   },
   {
-    "symbol": "KAVA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "KMNO/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "KSM/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "LA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "LAUNCHCOIN/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "LAYER/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -1596,42 +673,6 @@
       "blofin",
       "gateio",
       "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "LPT/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "LRC/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
       "lbank",
       "mexc",
       "okx",
@@ -1656,43 +697,6 @@
     ]
   },
   {
-    "symbol": "MAGIC/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MANA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "MANTA/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -1704,42 +708,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ME/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MELANIA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "phemex"
@@ -1763,98 +731,6 @@
     ]
   },
   {
-    "symbol": "MERL/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MEW/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MINA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MKR/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MOODENG/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "MORPHO/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -1865,44 +741,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MOVE/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "MUBARAK/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -1923,24 +761,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "NEIROETH/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -1979,44 +799,6 @@
     ]
   },
   {
-    "symbol": "NIL/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "NXPC/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "OBOL/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2051,43 +833,6 @@
     ]
   },
   {
-    "symbol": "OM/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ONE/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "ONT/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2098,43 +843,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ORDI/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "PARTI/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -2159,42 +867,6 @@
     ]
   },
   {
-    "symbol": "PI/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx"
-    ]
-  },
-  {
-    "symbol": "PIPPIN/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "PIXEL/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2212,62 +884,6 @@
     ]
   },
   {
-    "symbol": "PLUME/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "POL/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "POPCAT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "PORTAL/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2281,61 +897,6 @@
       "gateio",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "PROMPT/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "PUMP/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "gateio",
-      "huobi",
-      "lbank",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "PYTH/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -2374,43 +935,6 @@
     ]
   },
   {
-    "symbol": "RENDER/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "RESOLV/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "RSR/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2421,81 +945,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "RVN/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "S/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SAGA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SAHARA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -2520,24 +969,6 @@
     ]
   },
   {
-    "symbol": "SEI/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "SFP/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2551,44 +982,6 @@
       "gateio",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SHELL/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SIGN/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -2627,61 +1020,6 @@
     ]
   },
   {
-    "symbol": "SNX/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SOLV/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SONIC/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "SOON/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2699,79 +1037,6 @@
     ]
   },
   {
-    "symbol": "SOPH/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SPK/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SPX/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SSV/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "STORJ/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2782,118 +1047,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "STRK/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "STX/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SUSHI/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SWARMS/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SXT/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "SYRUP/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -2935,24 +1088,6 @@
     ]
   },
   {
-    "symbol": "TAO/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "THE/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -2966,79 +1101,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "THETA/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "TON/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "TRB/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "TRUMP/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -3060,24 +1122,6 @@
     ]
   },
   {
-    "symbol": "TUT/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "UMA/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -3089,24 +1133,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "USTC/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
       "mexc",
       "okx",
       "phemex"
@@ -3126,44 +1152,6 @@
       "huobi",
       "lbank",
       "mexc",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "UXLINK/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "VANA/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
       "phemex"
     ]
   },
@@ -3219,42 +1207,6 @@
     ]
   },
   {
-    "symbol": "VINE/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "VIRTUAL/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "VVV/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -3289,25 +1241,6 @@
     ]
   },
   {
-    "symbol": "WCT/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
     "symbol": "XTZ/USDT:USDT",
     "count": 11,
     "exchanges": [
@@ -3318,42 +1251,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "YGG/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
-      "lbank",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ZEREBRO/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "huobi",
       "lbank",
       "mexc",
       "okx",
@@ -3389,43 +1286,6 @@
       "blofin",
       "bybit",
       "gateio",
-      "mexc",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ZK/USDT:USDT",
-    "count": 13,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitmex",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "digifinex",
-      "gateio",
-      "huobi",
-      "okx",
-      "phemex"
-    ]
-  },
-  {
-    "symbol": "ZRX/USDT:USDT",
-    "count": 12,
-    "exchanges": [
-      "ascendex",
-      "bingx",
-      "bitget",
-      "bitmart",
-      "bitrue",
-      "blofin",
-      "bybit",
-      "gateio",
-      "lbank",
       "mexc",
       "okx",
       "phemex"

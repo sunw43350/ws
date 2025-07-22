@@ -1,67 +1,67 @@
 [
   {
-    "exchange": "gateio",
-    "supported_contracts_count": 192
-  },
-  {
-    "exchange": "bitget",
-    "supported_contracts_count": 191
-  },
-  {
     "exchange": "bitmart",
-    "supported_contracts_count": 191
+    "supported_contracts_count": 76
   },
   {
-    "exchange": "bitrue",
-    "supported_contracts_count": 191
+    "exchange": "gateio",
+    "supported_contracts_count": 76
   },
   {
     "exchange": "phemex",
-    "supported_contracts_count": 191
+    "supported_contracts_count": 76
+  },
+  {
+    "exchange": "bitget",
+    "supported_contracts_count": 75
+  },
+  {
+    "exchange": "bitrue",
+    "supported_contracts_count": 75
   },
   {
     "exchange": "blofin",
-    "supported_contracts_count": 189
-  },
-  {
-    "exchange": "bingx",
-    "supported_contracts_count": 188
-  },
-  {
-    "exchange": "bybit",
-    "supported_contracts_count": 186
+    "supported_contracts_count": 75
   },
   {
     "exchange": "mexc",
-    "supported_contracts_count": 186
+    "supported_contracts_count": 74
+  },
+  {
+    "exchange": "bingx",
+    "supported_contracts_count": 73
+  },
+  {
+    "exchange": "bybit",
+    "supported_contracts_count": 72
   },
   {
     "exchange": "lbank",
-    "supported_contracts_count": 181
-  },
-  {
-    "exchange": "okx",
-    "supported_contracts_count": 143
+    "supported_contracts_count": 68
   },
   {
     "exchange": "huobi",
-    "supported_contracts_count": 140
+    "supported_contracts_count": 41
+  },
+  {
+    "exchange": "okx",
+    "supported_contracts_count": 38
   },
   {
     "exchange": "ascendex",
-    "supported_contracts_count": 48
+    "supported_contracts_count": 9
   },
   {
     "exchange": "bitmex",
-    "supported_contracts_count": 42
+    "supported_contracts_count": 6
   },
   {
     "exchange": "digifinex",
-    "supported_contracts_count": 20
+    "supported_contracts_count": 2
   },
   {
     "exchange": "krakenfutures",
-    "supported_contracts_count": 1
+    "supported_contracts_count": 0
   },
   {
     "exchange": "cryptocom",
