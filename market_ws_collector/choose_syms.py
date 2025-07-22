@@ -27,7 +27,7 @@ for ex, symbols in exchange_symbols_gt50.items():
 symbol_counts = [(sym, len(exchanges)) for sym, exchanges in symbol_exchange_map.items()]
 
 # 排序并获取前 100 个 symbol（按被支持的交易所数目降序）
-top_100_symbols = sorted(symbol_counts, key=lambda x: x[1], reverse=True)[:100]
+top_100_symbols = sorted(symbol_counts, key=lambda x: x[1], reverse=True)[:50]
 
 # 构建矩阵数据
 matrix_data = []
