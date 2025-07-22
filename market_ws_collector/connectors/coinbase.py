@@ -99,7 +99,6 @@ class Connector(BaseAsyncConnector):
 
                                 if self.queue:
                                     await self.queue.put(snapshot)
-                                    print(f"📥 {self.format_snapshot(snapshot)}")
 
             except Exception as e:
                 print(f"❌ Coinbase 异常: {e}")
