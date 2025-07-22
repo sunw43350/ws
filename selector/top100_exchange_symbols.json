@@ -268,5 +268,30 @@
     "ALGO/USDT:USDT",
     "ALT/USDT:USDT",
     "ANIME/USDT:USDT"
+  ],
+  "bitmex": [
+    "A/USDT:USDT",
+    "AAVE/USDT:USDT",
+    "ACT/USDT:USDT",
+    "ADA/USDT:USDT",
+    "AEVO/USDT:USDT",
+    "AI16Z/USDT:USDT",
+    "AIXBT/USDT:USDT"
+  ],
+  "digifinex": [
+    "A/USDT:USDT",
+    "AAVE/USDT:USDT",
+    "ACE/USDT:USDT",
+    "ADA/USDT:USDT",
+    "ALGO/USDT:USDT"
+  ],
+  "ascendex": [
+    "AAVE/USDT:USDT",
+    "ACT/USDT:USDT",
+    "ADA/USDT:USDT",
+    "AEVO/USDT:USDT",
+    "AI16Z/USDT:USDT",
+    "ALGO/USDT:USDT",
+    "ALT/USDT:USDT"
   ]
 }
