@@ -29,6 +29,7 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
+        return symbol.replace("-", "_").replace("_LIN", "")
         return generic_symbol.upper().replace("-", "_")
 
     def build_sub_msg(self, symbol: str) -> dict:
