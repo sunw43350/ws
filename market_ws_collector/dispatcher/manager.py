@@ -55,7 +55,7 @@ class ExchangeManager:
 
         for exchange in data.keys():
             self.connectors.append(
-                globals()[exchange].Connector(exchange=exchange, queue=queue)
+                globals()[exchange].Connector(exchange=exchange, symbols=data[exchange], queue=queue)
             )
 
 
