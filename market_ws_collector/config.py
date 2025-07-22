@@ -106,3 +106,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "digifinex": "wss://openapi.digifinex.com/swap_ws/v2/"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "gateio": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "gateio": "wss://fx-ws.gateio.ws/v4/ws/usdt"
+})
