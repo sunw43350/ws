@@ -1,67 +1,67 @@
 [
   {
-    "exchange": "bitmart",
-    "supported_contracts_count": 76
-  },
-  {
     "exchange": "gateio",
-    "supported_contracts_count": 76
-  },
-  {
-    "exchange": "phemex",
-    "supported_contracts_count": 76
+    "supported_contracts_count": 249
   },
   {
     "exchange": "bitget",
-    "supported_contracts_count": 75
+    "supported_contracts_count": 248
+  },
+  {
+    "exchange": "bitmart",
+    "supported_contracts_count": 248
   },
   {
     "exchange": "bitrue",
-    "supported_contracts_count": 75
+    "supported_contracts_count": 248
+  },
+  {
+    "exchange": "phemex",
+    "supported_contracts_count": 248
   },
   {
     "exchange": "blofin",
-    "supported_contracts_count": 75
-  },
-  {
-    "exchange": "mexc",
-    "supported_contracts_count": 74
+    "supported_contracts_count": 246
   },
   {
     "exchange": "bingx",
-    "supported_contracts_count": 73
+    "supported_contracts_count": 245
   },
   {
     "exchange": "bybit",
-    "supported_contracts_count": 72
+    "supported_contracts_count": 243
+  },
+  {
+    "exchange": "mexc",
+    "supported_contracts_count": 242
   },
   {
     "exchange": "lbank",
-    "supported_contracts_count": 68
-  },
-  {
-    "exchange": "huobi",
-    "supported_contracts_count": 41
+    "supported_contracts_count": 238
   },
   {
     "exchange": "okx",
-    "supported_contracts_count": 38
+    "supported_contracts_count": 200
+  },
+  {
+    "exchange": "huobi",
+    "supported_contracts_count": 197
   },
   {
     "exchange": "ascendex",
-    "supported_contracts_count": 9
+    "supported_contracts_count": 104
   },
   {
     "exchange": "bitmex",
-    "supported_contracts_count": 6
+    "supported_contracts_count": 85
   },
   {
     "exchange": "digifinex",
-    "supported_contracts_count": 2
+    "supported_contracts_count": 58
   },
   {
     "exchange": "krakenfutures",
-    "supported_contracts_count": 0
+    "supported_contracts_count": 1
   },
   {
     "exchange": "cryptocom",
