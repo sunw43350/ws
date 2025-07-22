@@ -12,6 +12,13 @@ def on_open(ws):
     print("✅ 已连接 Bitrue WebSocket")
 
     for symbol in SYMBOLS:
+        {
+        "event": "sub",
+        "params": {
+            "channel": "market_$symbol_depth_step0",
+            "cb_id": ""
+        }
+}
         sub_msg = {
             "event": "sub",
             "params": {
