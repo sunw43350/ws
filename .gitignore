@@ -8,9 +8,9 @@ __pycache__/
 *log.txt
 ^requirements.txt
 
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
 
 
 # C extensions
