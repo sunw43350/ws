@@ -28,7 +28,7 @@
 | whitebit | 209 |b
 | hyperliquid | 201 |b
 | coinbaseinternational | 174 |
-| coinbase | 170 |a
+| coinbase | 170 |a spot only
 | coinbaseadvanced | 170 |
 | bitmex | 131 |a
 | ascendex | 119 |a
