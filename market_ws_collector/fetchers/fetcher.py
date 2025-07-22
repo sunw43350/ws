@@ -4,14 +4,29 @@ import requests
 import csv
 
 REST_ENDPOINTS = {
+    "ascendex": "https://ascendex.com/api/pro/v1/futures/contracts",
     "binance": "https://fapi.binance.com/fapi/v1/exchangeInfo",
+    "bingx": "https://open-api.bingx.com/openApi/swap/v2/quote/contracts",
+    "bitfinex": "https://api.bitfinex.com/v2/conf/pub:list:pair:exchange",
     "bitget": "https://api.bitget.com/api/mix/v1/market/contracts",
-    "okx": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
+    "bitmart": "https://api-cloud.bitmart.com/futures/v2/contracts",
+    "bitmex": "https://www.bitmex.com/api/v1/instrument/active",
+    "bitrue": "https://openapi.bitrue.com/api/v1/contracts",
+    "blofin": "https://api.blofin.com/api/v1/public/contracts",
     "bybit": "https://api.bybit.com/v5/market/instruments-info?category=linear",
+    "coinbase": "https://api.exchange.coinbase.com/products",  # 注意：Coinbase 不支持合约，但此为现货产品列表
+    "cryptocom": "https://api.crypto.com/v2/public/get-instruments",
+    "digifinex": "https://openapi.digifinex.com/v3/futures/contracts",
+    "gateio": "https://api.gate.io/api/v4/futures/usdt/contracts",
+    "huobi": "https://api.hbdm.com/api/v1/contract_contract_info",
+    "krakenfutures": "https://futures.kraken.com/derivatives/api/v3/instruments",
+    "lbank": "https://api.lbkex.com/v2/futuresInfo.do",
     "mexc": "https://contract.mexc.com/api/v1/contract/detail",
-    "oxfun": "https://api.ox.fun/api/v1/public/contracts",
-    "phemex": "https://api.phemex.com/exchange/public/contracts",
+    "okx": "https://www.okx.com/api/v5/public/instruments?instType=SWAP",
+    "oxfun": "https://api.ox.fun/api/v1/public/contracts",  # ⚠️ 当前可能不可用或已废弃
+    "phemex": "https://api.phemex.com/exchange/public/contracts",  # ⚠️ 可能需要身份认证
 }
+
 
 def fetch_and_store_all(filename="contracts.csv"):
     # 初始化 CSV 文件（含表头）
