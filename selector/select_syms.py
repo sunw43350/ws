@@ -71,9 +71,10 @@ with open(f"filtered_exchange_symbols_gt50.json", "w", encoding="utf-8") as f:
 print(f"✅ 已保存 {len(exchange_symbols_gt50)} 个交易所到 {basedir}/filtered_exchange_symbols_gt50.json")
 
 
+######################################## ✅ 选取前 100 个交易所支持的 symbol
 
 # ✅ 选取 filtered_symbol_data 中前 100 个 symbol，构建 {exchange: [symbols]} 格式
-top_100_symbols = filtered_symbol_data[:20]
+top_100_symbols = filtered_symbol_data[:100]
 top_100_exchange_symbols = {}
 
 for entry in top_100_symbols:
