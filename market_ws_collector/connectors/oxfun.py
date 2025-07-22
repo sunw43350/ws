@@ -56,6 +56,8 @@ class Connector(BaseAsyncConnector):
 
                 while True:
                     raw = await self.ws.recv()
+
+                    print(raw)  # 打印原始消息以便调试
                     try:
                         data = json.loads(raw)
                     except:
