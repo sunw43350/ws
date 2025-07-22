@@ -81,12 +81,20 @@ for entry in top_100_symbols:
     for ex in entry["exchanges"]:
         top_100_exchange_symbols.setdefault(ex, []).append(symbol)
 
+# ✅ 收集要删除的交易所
+to_delete = []
+
 for ex in top_100_exchange_symbols:
     num = len(top_100_exchange_symbols[ex])
     print(f"交易所 {ex} 支持的前 100 个 symbol 数量: {num}")
     if num < 10:
-        top_100_exchange_symbols.remove(ex)
+        to_delete.append(ex)
         print(f"⚠️ 警告: 交易所 {ex} 支持的前 100 个 symbol 数量少于 10 个！")
+
+# ✅ 统一删除
+for ex in to_delete:
+    del top_100_exchange_symbols[ex]
+
 
 # ✅ 保存到 JSON 文件
 with open("top100_exchange_symbols.json", "w", encoding="utf-8") as f:

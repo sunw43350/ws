@@ -1312,8 +1312,5 @@
     "EGLD/USDT:USDT",
     "EIGEN/USDT:USDT",
     "ENA/USDT:USDT"
-  ],
-  "krakenfutures": [
-    "BTC/USD:BTC"
   ]
 }
