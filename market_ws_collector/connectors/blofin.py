@@ -76,8 +76,8 @@ class Connector(BaseAsyncConnector):
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
                         item = data["data"][0]
-                        bid1 = float(item.get("bidPx", 0.0))
-                        ask1 = float(item.get("askPx", 0.0))
+                        bid1 = float(item.get("bidPrice", 0.0))
+                        ask1 = float(item.get("askPrice", 0.0))
                         bid_vol1 = float(item.get("bidSz", 0.0))
                         ask_vol1 = float(item.get("askSz", 0.0))
                         ts = int(item.get("ts", time.time() * 1000))
