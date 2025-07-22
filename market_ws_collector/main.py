@@ -42,11 +42,6 @@ def compute_best_percent_spread_sequence(symbol, cutoff):
     if not exchanges:
         return []
 
-    for data in exchanges.values():
-        data['times'], data['bid'], data['ask'] = zip(*[
-            (t, b, a) for t, b, a in zip(data['times'], data['bid'], data['ask']) if t >= cutoff
-        ])
-
     sample_count = len(next(iter(exchanges.values()))['times'])
 
     for i in range(sample_count):
@@ -55,7 +50,7 @@ def compute_best_percent_spread_sequence(symbol, cutoff):
         time_ref, buy_ex, sell_ex = None, "", ""
 
         for ex_name, data in exchanges.items():
-            if i >= len(data['times']):
+            if i >= len(data['times']) or data['times'][i] < cutoff:
                 continue
             bid = data['bid'][i]
             ask = data['ask'][i]
@@ -173,15 +168,19 @@ async def consume_snapshots(queue: asyncio.Queue):
         active_symbols.add(symbol)
 
         data = symbol_exchange_data[symbol][exchange]
-        data['times'].append(timestamp)
-        data['bid'].append(bid1)
-        data['ask'].append(ask1)
+        if isinstance(data, dict):
+            data['times'].append(timestamp)
+            data['bid'].append(bid1)
+            data['ask'].append(ask1)
+        else:
+            print(f"❌ 数据错误: 预期为字典(dict)，但实际类型为 {type(data)}")
+            continue
 
-        warn = f"⚠️⚠️⚠️⚠️⚠️⚠️ {exchange}" if bid1 == 0 and ask1 == 0 else ""
+        note = f"!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and ask1 == 0 else ""
 
         print(
             f"{snapshot.timestamp_hms} | [{exchange}] | {snapshot.raw_symbol} | {symbol} | "
-            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f}) | {warn}"
+            f"Bid: {bid1:.2f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.2f} ({snapshot.ask_vol1:.2f}) | {note}"
         )
 
         queue.task_done()
