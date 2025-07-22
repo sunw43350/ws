@@ -43,7 +43,7 @@ class ExchangeManager:
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
             ##### debug
-            bingx.Connector(exchange="bingx",symbols=[""],  queue=queue),  # ✅ 添加 BingX
+            bingx.Connector(exchange="bingx",symbols=["ANIME-USDT"],  queue=queue),  # ✅ 添加 BingX
 
 
             ####### invalid exchanges
