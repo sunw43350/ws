@@ -16,8 +16,14 @@ PLOT_INTERVAL_SECONDS = 10
 active_symbols = set()
 symbol_exchange_data = defaultdict(lambda: defaultdict(lambda: {'times': [], 'bid': [], 'ask': []}))
 
-# 📁 Ensure 'imgs/' directory exists
-os.makedirs('imgs', exist_ok=True)
+import shutil
+
+def prepare_image_folder():
+    img_folder = 'imgs'
+    if os.path.exists(img_folder):
+        shutil.rmtree(img_folder)  # 🧹 删除整个文件夹及其内容
+    os.makedirs(img_folder)        # 🆕 重新创建空文件夹
+
 
 def prune_old_data():
     """Remove data older than retention threshold"""
