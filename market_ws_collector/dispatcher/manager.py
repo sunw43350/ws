@@ -48,6 +48,11 @@ class ExchangeManager:
 
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
+
+        self.load_connectors() # 加载所有交易所连接器
+
+    def load_connectors(self):
+    
         with open("../selector/top100_exchange_symbols.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
@@ -74,10 +79,6 @@ class ExchangeManager:
 
             time.sleep(0.5)
             
-
-
-    def load_connectors(self):
-        pass
 
     async def run_all(self):
         tasks = [asyncio.create_task(conn.run()) for conn in self.connectors]
