@@ -46,7 +46,7 @@ class Connector(BaseAsyncConnector):
             msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(msg))
             print(f"📨 已订阅: depth → {req.symbol}")
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.1)  
 
     async def run(self):
         while True:
