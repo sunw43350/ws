@@ -3,7 +3,7 @@ from connectors import (
     ascendex, krakenfutures, bingx, bitfinex,
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, coinbase, cryptocom, digifinex,
-    gateio
+    gateio, huobi
 )
 
 from config import DEFAULT_SYMBOLS
@@ -26,7 +26,8 @@ class ExchangeManager:
             # coinbase.Connector(exchange="coinbase", queue=queue),  # ✅ 添加 Coinbase
             # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto.
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
-            gateio.Connector(exchange="gateio", queue=queue)  # ✅ 添加 Gate.io
+            # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
+            huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
 
 
             # 你可以继续添加 binance、bybit 等其他交易所
