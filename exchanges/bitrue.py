@@ -16,7 +16,7 @@ def on_open(ws):
             "event": "sub",
             "params": {
                 # "channel": f"market_{symbol}_depth_step0",
-                market_{symbol}_ticker
+                "channel": f"market_{symbol}_ticker",
                 "cb_id": ""
             }
         }
