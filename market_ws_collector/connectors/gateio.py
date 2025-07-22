@@ -70,10 +70,14 @@ class Connector(BaseAsyncConnector):
                         symbol = tick.get("s")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
+                       tick = data.get("result", {})
+                        symbol = tick.get("s")
+                        raw_symbol = self.symbol_map.get(symbol, symbol)
+
                         bid1 = float(tick.get("b", 0.0))
+                        bid_vol1 = float(tick.get("B", 0.0))
                         ask1 = float(tick.get("a", 0.0))
-                        bid_vol1 = float(tick.get("bv", 0.0))
-                        ask_vol1 = float(tick.get("av", 0.0))
+                        ask_vol1 = float(tick.get("A", 0.0))
                         timestamp = int(tick.get("t", time.time() * 1000))
 
                         snapshot = MarketSnapshot(
@@ -86,6 +90,7 @@ class Connector(BaseAsyncConnector):
                             ask_vol1=ask_vol1,
                             timestamp=timestamp
                         )
+
 
                         if self.queue:
                             await self.queue.put(snapshot)
