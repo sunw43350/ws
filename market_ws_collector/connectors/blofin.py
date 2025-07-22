@@ -68,7 +68,7 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    print(data)
+                    # print(data)
 
                     if "arg" in data and "data" in data:
                         arg = data["arg"]
@@ -78,8 +78,8 @@ class Connector(BaseAsyncConnector):
                         item = data["data"][0]
                         bid1 = float(item.get("bidPrice", 0.0))
                         ask1 = float(item.get("askPrice", 0.0))
-                        bid_vol1 = float(item.get("bidSz", 0.0))
-                        ask_vol1 = float(item.get("askSz", 0.0))
+                        bid_vol1 = float(item.get("bidSize", 0.0))
+                        ask_vol1 = float(item.get("askSize", 0.0))
                         ts = int(item.get("ts", time.time() * 1000))
                         total_volume = float(item.get("vol24h", 0.0))
 
