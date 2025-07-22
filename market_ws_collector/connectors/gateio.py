@@ -70,10 +70,6 @@ class Connector(BaseAsyncConnector):
                         symbol = tick.get("s")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                       tick = data.get("result", {})
-                        symbol = tick.get("s")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
-
                         bid1 = float(tick.get("b", 0.0))
                         bid_vol1 = float(tick.get("B", 0.0))
                         ask1 = float(tick.get("a", 0.0))
