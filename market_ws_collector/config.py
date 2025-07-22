@@ -28,8 +28,9 @@ DEFAULT_SYMBOLS = {
 WS_ENDPOINTS = {
     "ascendex":      "wss://ascendex.com/1/api/pro/v2/stream",
     "krakenfutures": "wss://futures.kraken.com/ws/v1",
-    "bingx":         "wss://open-api-ws.bingx.com/market", 
-    wss://ws-uswap.we-api.com/market
+    # "bingx":         "wss://open-api-ws.bingx.com/market", 
+    "bingx":         "wss://ws-uswap.we-api.com/market", 
+    
     "bitfinex":      "wss://api-pub.bitfinex.com/ws/2",
     "bitget":        "wss://ws.bitget.com/v2/ws/public",
     "bitmart":       "wss://openapi-ws-v2.bitmart.com/api?protocol=1.1",
