@@ -74,7 +74,11 @@ def compute_arbitrage_spread(symbol):
 def plot_symbol(symbol):
     exchanges = symbol_exchange_data.get(symbol, {})
     colors = plt.cm.get_cmap('tab10')
-    fig, axs = plt.subplots(2, 1, figsize=(12, 8), sharex=True)
+    fig, (ax_price, ax_arbitrage) = plt.subplots(
+        2, 1, figsize=(16, 9), sharex=True,
+        gridspec_kw={'height_ratios': [2, 1]}  # Price plot gets 2x vertical space
+    )
+
     plotted = False
 
     # Plot bid/ask prices
