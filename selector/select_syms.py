@@ -81,6 +81,10 @@ for entry in top_100_symbols:
     for ex in entry["exchanges"]:
         top_100_exchange_symbols.setdefault(ex, []).append(symbol)
 
+for ex in top_100_exchange_symbols:
+    num = len(top_100_exchange_symbols[ex])
+    print(f"交易所 {ex} 支持的前 100 个 symbol 数量: {num}")
+
 # ✅ 保存到 JSON 文件
 with open("top100_exchange_symbols.json", "w", encoding="utf-8") as f:
     json.dump(top_100_exchange_symbols, f, ensure_ascii=False, indent=2)
