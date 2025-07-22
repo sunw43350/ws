@@ -1,6 +1,6 @@
 import asyncio
-# from dispatcher.manager import ExchangeManager  # 调度器管理多个交易所连接器
-from dispatcher.manager_pro import ExchangeManager  # 调度器管理多个交易所连接器
+# from dispatcher.manager_pro import ExchangeManager  # 调度器管理多个交易所连接器
+from dispatcher.manager import ExchangeManager  # 调度器管理多个交易所连接器
 
 
 async def consume_snapshots(queue):
