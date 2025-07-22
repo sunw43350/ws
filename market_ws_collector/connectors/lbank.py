@@ -7,9 +7,6 @@ from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import MarketSnapshot, SubscriptionRequest
 from connectors.base import BaseAsyncConnector
 
-from connectors.base import BaseAsyncConnector
-
-
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="lbank", symbols=None, ws_url=None, queue=None):
         super().__init__(exchange)

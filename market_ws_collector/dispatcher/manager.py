@@ -3,7 +3,8 @@ from connectors import (
     ascendex, krakenfutures, bingx, bitfinex,
     bitget, bitmart, bitmex, bitrue,
     blofin, bybit, coinbase, cryptocom, digifinex,
-    gateio, huobi, lbank, mexc, okx, oxfun, phemex
+    gateio, huobi, lbank, 
+    # mexc, okx, oxfun, phemex
 )
 
 from config import DEFAULT_SYMBOLS
