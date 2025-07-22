@@ -140,3 +140,12 @@ DEFAULT_SYMBOLS.update({
 WS_ENDPOINTS.update({
     "mexc": "wss://contract.mexc.com/edge"
 })
+
+
+DEFAULT_SYMBOLS.update({
+    "okx": ["BTC-USDT", "ETH-USDT", "SOL-USDT", "XRP-USDT", "LTC-USDT"]
+})
+
+WS_ENDPOINTS.update({
+    "okx": "wss://ws.okx.com:8443/ws/v5/public"
+})
