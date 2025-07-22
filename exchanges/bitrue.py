@@ -35,12 +35,18 @@ def on_open(ws):
         ws.send(json.dumps(sub_msg))
         print(f"📨 已订阅: market_{symbol}_depth_step0")
 
-def on_message(ws, message):
+async def on_message(ws, message):
     try:
         decompressed = gzip.decompress(message).decode("utf-8")
         data = json.loads(decompressed)
 
         print(data)
+
+        if "ping" in data:
+            pong = {"pong": data["ping"]}
+            await ws.send(json.dumps(pong))
+            print(f"🔁 pong sent: {pong['pong']}")
+            continue
 
         # ✅ 示例字段说明：
         # 'bids': [ [价格, 数量], ... ] → 买单列表（降序）
