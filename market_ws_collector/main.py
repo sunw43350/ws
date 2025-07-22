@@ -79,7 +79,7 @@ def plot_symbol(symbol):
     exchanges = symbol_exchange_data.get(symbol, {})
     colors = plt.colormaps['tab10']
     fig, (ax_price, ax_arbitrage) = plt.subplots(
-        2, 1, figsize=(12, 8), sharex=True,
+        2, 1, figsize=(36, 8), sharex=True,
         gridspec_kw={'height_ratios': [2, 1]}
     )
     plotted = False
