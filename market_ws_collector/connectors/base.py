@@ -9,6 +9,25 @@ from abc import ABC, abstractmethod
 
 log_filename = f"log/log_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 
+import os
+
+log_dir = "./log"  # log 目录路径
+
+def clean_log_dir(log_dir: str = "./log"):
+    # 如果 log 目录不存在，创建它
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+        print(f"✅ 创建 log 目录：{log_dir}")
+        return
+
+    for filename in os.listdir(log_dir):
+        filepath = os.path.join(log_dir, filename)
+        if os.path.isfile(filepath):
+            os.remove(filepath)
+            print(f"🗑️ 已删除文件：{filepath}")
+
+clean_log_dir(log_dir)
+
 class BaseAsyncConnector(ABC):
     def __init__(
         self,
