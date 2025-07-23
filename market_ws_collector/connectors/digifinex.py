@@ -9,7 +9,14 @@ from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="digifinex", symbols=None, ws_url=None, queue=None):
-        super().__init__(exchange, compression="zlib")
+        super().__init__(
+            exchange=exchange,
+            compression="zlib",
+            ping_interval=30,
+            ping_payload={"id": 999, "event": "server.ping"},
+            pong_keywords=["pong"]
+        )
+        # super().__init__(exchange, compression="zlib")
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 

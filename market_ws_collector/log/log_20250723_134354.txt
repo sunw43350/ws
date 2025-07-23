@@ -1,0 +1,26 @@
+2025-07-23 13:43:54,739 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 13:43:54,739 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 13:43:54,739 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 13:43:54,841 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 13:43:54,942 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 13:43:55,044 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 13:43:55,145 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+2025-07-23 13:44:05,593 | INFO | [cryptocom] 🔁 收到 heartbeat
+2025-07-23 13:44:35,594 | INFO | [cryptocom] 🔁 收到 heartbeat
+2025-07-23 13:45:08,922 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 13:45:08,922 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 13:45:08,922 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 13:45:09,024 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 13:45:09,124 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 13:45:09,225 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 13:45:09,327 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+2025-07-23 13:45:19,382 | INFO | [cryptocom] 🔁 收到 heartbeat
+2025-07-23 13:45:49,381 | INFO | [cryptocom] 🔁 收到 heartbeat
+2025-07-23 13:46:22,835 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 13:46:22,835 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 13:46:22,837 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 13:46:22,938 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 13:46:23,039 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 13:46:23,140 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 13:46:23,241 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+2025-07-23 13:46:35,585 | INFO | [cryptocom] 🔁 收到 heartbeat

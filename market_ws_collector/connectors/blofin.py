@@ -9,7 +9,12 @@ from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="blofin", symbols=None, ws_url=None, queue=None):
-        super().__init__(exchange)
+        super().__init__(
+            exchange=exchange,
+            ping_interval=0,   # 或 None，表示不主动发 ping
+            ping_payload=None,
+            pong_keywords=["pong"]
+        )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 

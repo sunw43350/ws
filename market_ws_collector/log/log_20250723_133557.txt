@@ -1,0 +1,17 @@
+2025-07-23 13:35:57,421 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 13:35:57,421 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 13:35:57,421 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 13:35:57,522 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 13:35:57,624 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 13:35:57,725 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 13:35:57,826 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+2025-07-23 13:36:25,705 | INFO | [cryptocom] 🔁 收到 pong
+2025-07-23 13:36:55,705 | INFO | [cryptocom] 🔁 收到 pong
+2025-07-23 13:37:29,029 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 13:37:29,029 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 13:37:29,029 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 13:37:29,130 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 13:37:29,231 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 13:37:29,332 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 13:37:29,433 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+                        self.log(data, level="DEBUG")

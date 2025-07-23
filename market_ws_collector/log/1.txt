@@ -1,0 +1,142 @@
+2025-07-23 11:54:16,246 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:54:16,246 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:57:39,957 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 11:57:39,958 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:57:41,134 | ERROR | [binance] 接收循环异常: received 1008 (policy violation) Pong timeout; then sent 1008 (policy violation) Pong timeout
+2025-07-23 11:57:41,134 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-23 11:57:41,222 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 11:57:41,222 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:57:41,281 | ERROR | [binance] 异常: received 1008 (policy violation) Pong timeout; then sent 1008 (policy violation) Pong timeout
+2025-07-23 11:57:41,281 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-23 11:57:41,282 | ERROR | [blofin] 接收循环异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-23 11:57:41,301 | ERROR | [blofin] 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-23 11:58:42,528 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:58:42,528 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:59:43,777 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:59:43,777 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:59:53,329 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 11:59:53,329 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:00:45,127 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:00:45,127 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:01:15,162 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:01:15,162 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:01:46,405 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:01:46,405 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:02:23,323 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:02:23,324 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:02:47,739 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:02:47,739 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:03:49,009 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:03:49,010 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:04:50,287 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:04:50,288 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:04:52,335 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:04:52,336 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:05:51,656 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:05:51,656 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:05:52,657 | ERROR | [digifinex] 超过最大重连次数, 终止
+2025-07-23 12:07:21,606 | ERROR | [cryptocom] 超过最大重连次数, 终止
+2025-07-23 12:07:22,794 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:07:22,795 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:09:16,253 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:09:16,253 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:09:47,678 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:09:47,678 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:12:02,286 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:12:02,287 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:14:22,798 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:14:22,798 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:16:52,334 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:16:52,334 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:17:17,529 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:17:17,529 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:19:22,324 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 12:19:22,324 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 12:19:23,325 | ERROR | [bitget] 超过最大重连次数, 终止
+2025-07-23 12:25:18,616 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:25:18,616 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:33:19,699 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:33:19,699 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:41:20,936 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:41:20,936 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:46:43,536 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-23 12:46:43,536 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-23 12:49:22,229 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-23 12:49:22,231 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-23 12:49:58,967 | ERROR | [blofin] 超过最大重连次数, 终止
+
+
+@sunw43350 ➜ /workspaces/ws/market_ws_collector/log (main) $ cat log_20250723_115314.txt | grep digifinex
+
+
+2025-07-23 11:53:15,294 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:53:15,294 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:53:15,294 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:53:15,334 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 11:54:16,246 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:54:16,246 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:54:16,246 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 11:54:17,455 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:54:17,455 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:54:17,456 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:54:17,494 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 11:57:39,958 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:57:41,222 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:57:41,222 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 11:57:42,478 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:57:42,478 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:57:42,478 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:57:42,519 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 11:58:42,528 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:58:42,528 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:58:42,528 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 11:58:43,731 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:58:43,731 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:58:43,732 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:58:43,771 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 11:59:43,777 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 11:59:43,777 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 11:59:43,777 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 11:59:45,052 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:59:45,052 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:59:45,052 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:59:45,111 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:00:45,127 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:00:45,127 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:00:45,127 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:00:46,356 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 12:00:46,356 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 12:00:46,356 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 12:00:46,404 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:01:46,405 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:01:46,405 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:01:46,405 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:01:47,681 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 12:01:47,682 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 12:01:47,683 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 12:01:47,729 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:02:47,739 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:02:47,739 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:02:47,739 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:02:48,958 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 12:02:48,958 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 12:02:48,958 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 12:02:49,004 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:03:49,009 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:03:49,010 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:03:49,010 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:03:50,237 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 12:03:50,238 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 12:03:50,238 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 12:03:50,277 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:04:50,287 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:04:50,288 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:04:50,288 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:04:51,544 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 12:04:51,544 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 12:04:51,545 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 12:04:51,614 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 12:05:51,656 | ERROR | [digifinex] 接收循环异常: no close frame received or sent
+2025-07-23 12:05:51,656 | ERROR | [digifinex] 异常: no close frame received or sent
+2025-07-23 12:05:51,656 | INFO | [digifinex] WebSocket 已断开
+2025-07-23 12:05:52,657 | ERROR | [digifinex] 超过最大重连次数, 终止

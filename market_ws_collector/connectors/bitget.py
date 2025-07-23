@@ -12,7 +12,10 @@ class Connector(BaseAsyncConnector):
     def __init__(self, exchange="bitget", symbols=None, ws_url=None, queue=None):
         super().__init__(
             exchange=exchange,
-            compression="zlib"  # ✅ 启用 zlib 解压支持
+            compression="zlib",  # ✅ 启用 zlib 解压支持
+            ping_interval=10,
+            ping_payload={"op": "ping"},
+            pong_keywords=["pong"]
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)

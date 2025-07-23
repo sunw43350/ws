@@ -1,0 +1,32 @@
+2025-07-23 13:06:43,062 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 13:06:43,062 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 13:06:43,062 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 13:06:43,063 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:06:43,111 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:06:43,111 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:07:13,064 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:07:13,104 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:07:43,092 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:07:43,145 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:08:13,092 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:08:13,130 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:08:43,203 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:08:43,245 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:09:13,204 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:09:13,240 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:09:43,322 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:09:43,360 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:10:13,323 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:10:13,393 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:10:43,418 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:10:43,454 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:11:13,419 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:11:13,455 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:11:43,515 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:11:43,550 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:12:13,516 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:12:13,559 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:12:43,635 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:12:43,674 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 13:13:13,636 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 13:13:13,672 | INFO | [digifinex] 🔁 收到 pong

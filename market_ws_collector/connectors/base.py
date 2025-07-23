@@ -23,7 +23,7 @@ class BaseAsyncConnector(ABC):
         self.compression = compression
         self.ping_interval = ping_interval
         self.ping_payload = ping_payload
-        self.pong_keywords = pong_keywords or ["pong"]
+        self.pong_keywords = pong_keywords
         self.ws = None
         self._stop = False
         self._ws_alive = True
@@ -69,6 +69,7 @@ class BaseAsyncConnector(ABC):
                         else self.ping_payload
                     )
                     await self.ws.send(payload)
+                    self.log(f"🔁 发送心跳: {payload}")
                 await asyncio.sleep(self.ping_interval)
             except Exception as e:
                 self._ws_alive = False
@@ -83,10 +84,15 @@ class BaseAsyncConnector(ABC):
                         raw = self._decompress(raw)
                     data = json.loads(raw)
 
-                    if any(key in str(data).lower() for key in self.pong_keywords):
-                        self.log("🔁 收到 pong")
+                    # if any(key in str(data).lower() for key in self.pong_keywords):
+                    #     self.log(f"🔁 收到 {key}")
+                    #     continue
+                    matched_key = next((key for key in self.pong_keywords if key in str(data).lower()), None)
+                    if matched_key:
+                        self.log(f"🔁 收到 {matched_key}")
+                        if self.ping_payload is None:  # 需要回复server的心跳
+                            await self.handle_message(data)
                         continue
-
                     try:
                         await self.handle_message(data)
                     except Exception as e:
