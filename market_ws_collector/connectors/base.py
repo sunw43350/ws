@@ -3,6 +3,7 @@ import zlib
 import datetime
 
 datetime = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+filename = "../log/" + datetime + '.log'
 
 
 class BaseAsyncConnector(ABC):
@@ -49,11 +50,6 @@ class BaseAsyncConnector(ABC):
         )
 
     def log(self, message: str):
-        """
-        错误日志输出
-        """
-        # print(f"❌ {self.exchange_name} 错误: {message}")
-        filename = "../log/" + datetime + '.log'
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write(f"❌ {now} | {self.exchange_name} 错误: {message}\n")
+            f.write(f"{now} | {self.exchange_name} : {message}\n")
