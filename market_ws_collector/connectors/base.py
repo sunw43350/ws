@@ -43,3 +43,11 @@ class BaseAsyncConnector(ABC):
             f"买一: {snapshot.bid1:.2f} ({snapshot.bid_vol1:.2f}) | "
             f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
+
+    def log_error(self, message: str):
+        """
+        错误日志输出
+        """
+        # print(f"❌ {self.exchange_name} 错误: {message}")
+        with open('../log/example.txt', 'a', encoding='utf-8') as f:
+            f.write('追加一行\n')
