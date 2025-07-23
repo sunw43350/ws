@@ -1,0 +1,30 @@
+2025-07-23 11:37:40,254 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-23 11:37:40,254 | INFO | [bitrue] WebSocket 已连接
+2025-07-23 11:37:40,254 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-23 11:37:40,355 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-23 11:37:40,456 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-23 11:37:40,557 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-23 11:37:40,659 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-23 11:37:40,760 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:40,761 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:41,384 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:41,394 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:41,405 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:41,406 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:42,460 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:42,461 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:42,465 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:43,472 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:43,485 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:43,496 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:43,510 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 11:37:44,522 | WARNING | [bitrue] 消息解析失败: Expecting value: line 1 column 1 (char 0)

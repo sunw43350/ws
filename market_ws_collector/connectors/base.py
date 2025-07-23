@@ -1,19 +1,48 @@
-from abc import ABC, abstractmethod
-import zlib
+import asyncio
 import datetime
+import json
+import gzip
+import zlib
+import logging
+from abc import ABC, abstractmethod
 
-import os
-import shutil
-
-log_dir = "./log"
-os.makedirs(log_dir, exist_ok=True)  # 若目录已存在不会报错
-
-filename = "./log/" + datetime.datetime.now().strftime('%Y%m%d_%H%M%S') + '.log'
-
+log_filename = f"log/log_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 
 class BaseAsyncConnector(ABC):
-    def __init__(self, exchange: str):
+    def __init__(
+        self,
+        exchange: str,
+        compression: str = None,  # None / "gzip" / "zlib"
+        ping_interval: int = 20,
+        ping_payload=None,        # dict / str / bytes
+        pong_keywords=None,
+        log_filename=log_filename,
+        max_retries: int = 10
+    ):
         self.exchange_name = exchange
+        self.compression = compression
+        self.ping_interval = ping_interval
+        self.ping_payload = ping_payload
+        self.pong_keywords = pong_keywords or ["pong"]
+        self.ws = None
+        self._stop = False
+        self._ws_alive = True
+        self.retries = 0
+        self.max_retries = max_retries
+
+        # 设置日志系统
+        self.logger = logging.getLogger(exchange)
+        self.logger.setLevel(logging.INFO)
+        formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
+
+        if log_filename:
+            fh = logging.FileHandler(log_filename)
+            fh.setFormatter(formatter)
+            self.logger.addHandler(fh)
+        else:
+            sh = logging.StreamHandler()
+            sh.setFormatter(formatter)
+            self.logger.addHandler(sh)
 
     @abstractmethod
     async def connect(self): pass
@@ -22,40 +51,107 @@ class BaseAsyncConnector(ABC):
     async def subscribe(self): pass
 
     @abstractmethod
-    async def run(self): pass
-
-    @abstractmethod
     def format_symbol(self, generic_symbol: str): pass
 
-    def inflate(self, payload: bytes) -> bytes:
-        """默认 zlib 解压实现（适用于 Bitget）"""
+    @abstractmethod
+    async def handle_message(self, data): pass
+
+    async def keep_alive(self):
+        if not self.ping_payload:
+            return
+
+        while not self._stop:
+            try:
+                if self.ws:
+                    payload = (
+                        json.dumps(self.ping_payload)
+                        if isinstance(self.ping_payload, dict)
+                        else self.ping_payload
+                    )
+                    await self.ws.send(payload)
+                await asyncio.sleep(self.ping_interval)
+            except Exception as e:
+                self._ws_alive = False
+                self.log(f"⚠️ 心跳发送失败: {e}", level="WARNING")
+                break
+
+    async def receive_loop(self):
         try:
-            return zlib.decompress(payload)
+            async for raw in self.ws:
+                try:
+                    if isinstance(raw, bytes):
+                        raw = self._decompress(raw)
+                    data = json.loads(raw)
+
+                    if any(key in str(data).lower() for key in self.pong_keywords):
+                        self.log("🔁 收到 pong")
+                        continue
+
+                    try:
+                        await self.handle_message(data)
+                    except Exception as e:
+                        self.log(f"消息处理异常: {e}", level="WARNING")
+                except Exception as e:
+                    self.log(f"消息解析失败: {e}", level="WARNING")
+        except Exception as e:
+            self.log(f"接收循环异常: {e}", level="ERROR")
+            raise
+
+    def _decompress(self, raw: bytes) -> str:
+        try:
+            if self.compression == "gzip":
+                return gzip.decompress(raw).decode("utf-8")
+            elif self.compression == "zlib":
+                return zlib.decompress(raw).decode("utf-8")
+            return raw.decode("utf-8")
         except Exception:
-            return b""
+            return ""
 
-    def extract_top_bid_ask(self, bids, asks):
-        """
-        提取买一 / 卖一价格和数量
-        输入格式应为：[[price, qty], ...]
-        """
-        bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
-        ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
-        return bid1, bid_vol1, ask1, ask_vol1
+    def log(self, message: str, level="INFO"):
+        print(f"[{self.exchange_name}] {message}")
+        if level == "INFO":
+            self.logger.info(f"[{self.exchange_name}] {message}")
+        elif level == "WARNING":
+            self.logger.warning(f"[{self.exchange_name}] {message}")
+        elif level == "ERROR":
+            self.logger.error(f"[{self.exchange_name}] {message}")
+        else:
+            self.logger.debug(f"[{self.exchange_name}] {message}")
 
-    def format_snapshot(self, snapshot) -> str:
-        """
-        快照日志格式化输出（依赖 snapshot 的属性结构）
-        """
-        return (
-            f"[{self.exchange_name}] {snapshot.timestamp_hms} | "
-            f"{snapshot.raw_symbol} | {snapshot.symbol} | "
-            f"买一: {snapshot.bid1:.2f} ({snapshot.bid_vol1:.2f}) | "
-            f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f})"
+    def stop(self):
+        self._stop = True
+        if self.ws:
+            asyncio.create_task(self.ws.close())
+
+    async def on_connected(self):
+        self.log("WebSocket 已连接")
+
+    async def on_disconnected(self):
+        self.log("WebSocket 已断开")
+
+    async def run_forever(self):
+        while not self._stop:
+            try:
+                self.retries += 1
+                if self.retries > self.max_retries:
+                    self.log("超过最大重连次数, 终止", level="ERROR")
+                    break
+
+                await self._run_once()
+            except Exception as e:
+                self.log(f"异常: {e}", level="ERROR")
+                await self.on_disconnected()
+                await asyncio.sleep(1)
+
+    async def _run_once(self):
+        await self.connect()
+        await self.on_connected()
+        await self.subscribe()
+
+        await asyncio.gather(
+            self.receive_loop(),
+            self.keep_alive()
         )
 
-    def log(self, message: str, msg_more: str = ""):
-        print(message)
-        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        with open(filename, 'a', encoding='utf-8') as f:
-            f.write(f"{now} | {self.exchange_name}: {message} {msg_more}\n")
+    async def run(self):
+        await self.run_forever()

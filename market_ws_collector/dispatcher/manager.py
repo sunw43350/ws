@@ -22,13 +22,13 @@ class ExchangeManager:
     def __init__(self, queue):
         self.queue = queue
         self.connectors = [
-            # ascendex.Connector(exchange="ascendex", queue=queue),
-            # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
-            # binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
-            # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
-            # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
-            # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
-            # bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
+            ascendex.Connector(exchange="ascendex", queue=queue),
+            binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
+            # bitfinex.Connector(exchange="bitfinex", queue=queue),  #  invalid exchange
+            bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
+            bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
+            bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
+            bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
             # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue
             # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
@@ -36,6 +36,7 @@ class ExchangeManager:
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
             # huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
+            # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
             # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
@@ -44,6 +45,8 @@ class ExchangeManager:
 
             ##### debug
             # bitrue.Connector(exchange="bitrue",symbols=["ANIME-USDT"],  queue=queue),  # 
+            # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
+
 
 
 
@@ -54,7 +57,7 @@ class ExchangeManager:
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
-        self.load_connectors() # 加载所有交易所连接器
+        # self.load_connectors() # 加载所有交易所连接器
 
     def load_connectors(self):
     

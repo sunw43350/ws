@@ -1,0 +1,3 @@
+2025-07-23 11:34:53,911 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-23 11:34:53,912 | INFO | [bitmart] WebSocket 已连接
+2025-07-23 11:34:53,912 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}

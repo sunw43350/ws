@@ -1,0 +1,38 @@
+2025-07-23 11:26:14,116 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:14,117 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:14,117 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:14,117 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:14,117 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:14,173 | INFO | [binance] ✅ Binance WebSocket 已连接 → wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/ethusdt@ticker/solusdt@ticker/bnbusdt@ticker/adausdt@ticker
+2025-07-23 11:26:14,173 | INFO | [binance] WebSocket 已连接
+2025-07-23 11:26:14,173 | INFO | [binance] 📡 Binance 使用组合流，不需要发送订阅消息。
+2025-07-23 11:26:15,191 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:15,191 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:15,191 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:15,191 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:15,191 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:16,280 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:16,280 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:16,280 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:16,281 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:16,281 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:17,378 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:17,378 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:17,378 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:17,379 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:17,379 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:18,464 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:18,465 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:18,465 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:18,465 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:18,465 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:19,539 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:19,540 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:19,540 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:19,540 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:19,540 | INFO | [bingx] WebSocket 已断开
+2025-07-23 11:26:20,601 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:26:20,601 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:26:20,602 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:26:20,602 | ERROR | [bingx] 异常: name 'asyncio' is not defined
+2025-07-23 11:26:20,602 | INFO | [bingx] WebSocket 已断开
