@@ -1,0 +1,31 @@
+2025-07-23 11:50:04,975 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:04,975 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:04,975 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:05,977 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:05,977 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:05,977 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:06,978 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:06,979 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:06,979 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:07,980 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:07,980 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:07,980 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:08,981 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:08,981 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:08,981 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:09,983 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:09,984 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:09,984 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:10,985 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:10,985 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:10,986 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:11,987 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:11,987 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:11,987 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:12,988 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:12,989 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:12,989 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:13,990 | INFO | [gateio] WebSocket 已连接
+2025-07-23 11:50:13,990 | ERROR | [gateio] 异常: 'NoneType' object has no attribute 'send'
+2025-07-23 11:50:13,990 | INFO | [gateio] WebSocket 已断开
+2025-07-23 11:50:14,992 | ERROR | [gateio] 超过最大重连次数, 终止

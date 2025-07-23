@@ -50,3 +50,21 @@
 2025-07-23 11:40:37,561 | INFO | [ascendex] 🔁 收到 pong
 2025-07-23 11:40:52,582 | INFO | [ascendex] 🔁 收到 pong
 2025-07-23 11:40:52,748 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:07,603 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:14,663 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:22,621 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:34,653 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:37,648 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:52,660 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:41:54,653 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:42:07,681 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:42:15,690 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:42:22,703 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:42:33,645 | ERROR | [bitget] 接收循环异常: no close frame received or sent
+2025-07-23 11:42:33,645 | ERROR | [bitget] 异常: no close frame received or sent
+2025-07-23 11:42:33,645 | INFO | [bitget] WebSocket 已断开
+2025-07-23 11:42:35,028 | INFO | [bitget] ✅ Bitget WebSocket 已连接 → wss://ws.bitget.com/v2/ws/public
+2025-07-23 11:42:35,028 | INFO | [bitget] WebSocket 已连接
+2025-07-23 11:42:35,028 | INFO | [bitget] 📨 已发送订阅请求: {'op': 'subscribe', 'args': [{'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'BTCUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'ETHUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'SOLUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'XRPUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'LTCUSDT'}]}
+2025-07-23 11:42:35,679 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:42:37,721 | INFO | [ascendex] 🔁 收到 pong

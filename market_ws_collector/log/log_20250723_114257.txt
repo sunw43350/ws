@@ -1,0 +1,7 @@
+2025-07-23 11:42:58,117 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-23 11:42:58,117 | INFO | [bitrue] WebSocket 已连接
+2025-07-23 11:42:58,117 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-23 11:42:58,218 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-23 11:42:58,320 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-23 11:42:58,421 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-23 11:42:58,523 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0

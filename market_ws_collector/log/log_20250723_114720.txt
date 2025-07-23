@@ -1,0 +1,14 @@
+2025-07-23 11:47:20,825 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 11:47:20,825 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 11:47:20,826 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 1, 'method': 'subscribe', 'params': {'channels': ['ticker.BTC_USDT']}}
+2025-07-23 11:47:20,927 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 2, 'method': 'subscribe', 'params': {'channels': ['ticker.ETH_USDT']}}
+2025-07-23 11:47:21,028 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 3, 'method': 'subscribe', 'params': {'channels': ['ticker.SOL_USDT']}}
+2025-07-23 11:47:21,129 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 4, 'method': 'subscribe', 'params': {'channels': ['ticker.XRP_USDT']}}
+2025-07-23 11:47:21,230 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 5, 'method': 'subscribe', 'params': {'channels': ['ticker.LTC_USDT']}}
+2025-07-23 11:48:44,682 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 11:48:44,682 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 11:48:44,683 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 1, 'method': 'subscribe', 'params': {'channels': ['ticker.BTC_USDT']}}
+2025-07-23 11:48:44,784 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 2, 'method': 'subscribe', 'params': {'channels': ['ticker.ETH_USDT']}}
+2025-07-23 11:48:44,885 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 3, 'method': 'subscribe', 'params': {'channels': ['ticker.SOL_USDT']}}
+2025-07-23 11:48:44,986 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 4, 'method': 'subscribe', 'params': {'channels': ['ticker.XRP_USDT']}}
+2025-07-23 11:48:45,087 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 5, 'method': 'subscribe', 'params': {'channels': ['ticker.LTC_USDT']}}

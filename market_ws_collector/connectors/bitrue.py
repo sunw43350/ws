@@ -10,7 +10,13 @@ from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="bitrue", symbols=None, ws_url=None, queue=None):
-        super().__init__(exchange)
+        super().__init__(
+            exchange=exchange,
+            compression="gzip",
+            ping_interval=20,
+            ping_payload={"event": "ping"},
+            pong_keywords=["pong"]
+        )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
@@ -24,8 +30,6 @@ class Connector(BaseAsyncConnector):
             self.format_symbol(sym): sym
             for sym in self.symbols
         }
-
-        self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.lower().replace("-", "")
@@ -50,58 +54,31 @@ class Connector(BaseAsyncConnector):
             self.log(f"📨 已订阅: market_{req.symbol}_depth_step0")
             await asyncio.sleep(0.1)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        if "channel" in data and "tick" in data:
+            channel = data["channel"]
+            symbol = channel.replace("market_", "").replace("_depth_step0", "")
+            raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                while True:
-                    raw = await self.ws.recv()
+            bids = data["tick"].get("buys", [])
+            asks = data["tick"].get("asks", [])
 
-                    if isinstance(raw, bytes):
-                        try:
-                            raw = gzip.decompress(raw).decode("utf-8")
-                        except:
-                            continue
+            bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
+            ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
+            timestamp = int(data.get("ts", time.time() * 1000))
 
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+            snapshot = MarketSnapshot(
+                exchange=self.exchange_name,
+                symbol=symbol,
+                raw_symbol=raw_symbol,
+                bid1=bid1,
+                ask1=ask1,
+                bid_vol1=bid_vol1,
+                ask_vol1=ask_vol1,
+                timestamp=timestamp
+            )
 
-                    if "channel" in data and "tick" in data:
-                        channel = data["channel"]
-                        symbol = channel.replace("market_", "").replace("_depth_step0", "")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+            if self.queue:
+                await self.queue.put(snapshot)
 
-                        # self.log(data)
-                        bids = data["tick"].get("buys", [])
-                        asks = data["tick"].get("asks", [])
-
-                        bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
-                        timestamp = int(data.get("ts", time.time() * 1000))
-
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            timestamp=timestamp
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-                            # 可选打印
-                            # self.log(self.format_snapshot(snapshot))
-
-            except websockets.exceptions.ConnectionClosedOK as e:
-                self.log(f"🔁 Bitrue 正常断开: {e}，尝试重连...")
-                await asyncio.sleep(0.5)
-            except Exception as e:
-                self.log(f"❌ Bitrue 异常: {e}")
-                await asyncio.sleep(0.5)
+    # run由基类统一管理，不再重写

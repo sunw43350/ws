@@ -1,0 +1,4 @@
+2025-07-23 11:52:01,223 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:52:01,223 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:52:01,224 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:52:01,270 | INFO | [digifinex] 🔁 收到 pong

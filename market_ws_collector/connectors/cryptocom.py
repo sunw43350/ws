@@ -22,77 +22,64 @@ class Connector(BaseAsyncConnector):
         ]
 
         self.symbol_map = {
-            self.format_symbol(raw): raw
-            for raw in self.raw_symbols
+            sym: raw for sym, raw in zip(self.formatted_symbols, self.raw_symbols)
         }
-
-        self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.replace("-", "_").upper()
 
-    def build_sub_msg(self, symbol: str, req_id: int) -> dict:
-        return {
-            "id": req_id,
-            "method": "subscribe",
-            "params": {
-                "channels": [f"ticker.{symbol}"]
+    def build_sub_msg(self) -> list:
+        # Crypto.com 每个订阅都得单独发送请求，这里准备消息列表
+        msgs = []
+        for i, req in enumerate(self.subscriptions, 1):
+            msg = {
+                "id": i,
+                "method": "subscribe",
+                "params": {
+                    "channels": [f"ticker.{req.symbol}"]
+                }
             }
-        }
+            msgs.append(msg)
+        return msgs
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
         self.log(f"✅ Crypto.com WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
-        for i, req in enumerate(self.subscriptions):
-            msg = self.build_sub_msg(req.symbol, i + 1)
+        # Crypto.com 订阅要逐条发送
+        for msg in self.build_sub_msg():
             await self.ws.send(json.dumps(msg))
-            self.log(f"📨 已订阅 ticker.{req.symbol}")
+            self.log(f"📨 已发送订阅请求: {msg}")
             await asyncio.sleep(0.1)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        # 处理订阅确认和行情消息
+        if data.get("method") == "subscribe" and "result" in data:
+            result = data["result"]
+            raw_symbol = result.get("instrument_name")
+            tick_data = result.get("data", [{}])[0]
 
-                while True:
-                    raw = await self.ws.recv()
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+            symbol = tick_data.get("i", raw_symbol)
 
-                    # self.log(f"📩 收到消息: {data} ")
-                    if data.get("method") == "subscribe" and "result" in data:
-                        result = data["result"]
-                        raw_symbol = result.get("instrument_name")
-                        symbol = result.get("data", [{}])[0].get("i", raw_symbol)
-                        tick = result.get("data", [{}])[0]
+            bid1 = float(tick_data.get("b", 0.0))
+            bid_vol1 = float(tick_data.get("bs", 0.0))
+            ask1 = float(tick_data.get("k", 0.0))
+            ask_vol1 = float(tick_data.get("ks", 0.0))
+            total_volume = float(tick_data.get("vv", tick_data.get("v", 0.0)))
+            timestamp = int(tick_data.get("t", time.time() * 1000))
 
-                        bid1 = float(tick.get("b", 0.0))
-                        bid_vol1 = float(tick.get("bs", 0.0))
-                        ask1 = float(tick.get("k", 0.0))
-                        ask_vol1 = float(tick.get("ks", 0.0))
-                        total_volume = float(tick.get("vv", tick.get("v", 0.0)))
-                        timestamp = int(tick.get("t", time.time() * 1000))
+            snapshot = MarketSnapshot(
+                exchange=self.exchange_name,
+                symbol=symbol,
+                raw_symbol=raw_symbol,
+                bid1=bid1,
+                ask1=ask1,
+                bid_vol1=bid_vol1,
+                ask_vol1=ask_vol1,
+                total_volume=total_volume,
+                timestamp=timestamp
+            )
 
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=timestamp
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-
-            except Exception as e:
-                self.log(f"❌ Crypto.com 异常: {e}")
-                await asyncio.sleep(0.5)
+            if self.queue:
+                await self.queue.put(snapshot)

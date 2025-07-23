@@ -1,0 +1,7 @@
+2025-07-23 11:44:02,979 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-23 11:44:02,979 | INFO | [blofin] WebSocket 已连接
+2025-07-23 11:44:02,980 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-23 11:44:03,080 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-23 11:44:03,181 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-23 11:44:03,283 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-23 11:44:03,385 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT

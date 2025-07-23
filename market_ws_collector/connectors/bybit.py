@@ -22,11 +22,8 @@ class Connector(BaseAsyncConnector):
         ]
 
         self.symbol_map = {
-            self.format_symbol(raw): raw
-            for raw in self.raw_symbols
+            sym: raw for sym, raw in zip(self.formatted_symbols, self.raw_symbols)
         }
-
-        self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.replace("-", "").upper()
@@ -48,47 +45,31 @@ class Connector(BaseAsyncConnector):
         self.log(f"📨 已发送订阅: {msg}")
         await asyncio.sleep(0.1)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        if "data" in data and "topic" in data:
+            topic = data["topic"]
+            symbol = topic.split(".")[-1]  # e.g., BTCUSDT
+            raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                while True:
-                    raw = await self.ws.recv()
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+            item = data["data"]
+            bid1 = float(item.get("bid1Price", 0.0))
+            bid_vol1 = float(item.get("bid1Size", 0.0))
+            ask1 = float(item.get("ask1Price", 0.0))
+            ask_vol1 = float(item.get("ask1Size", 0.0))
+            total_volume = float(item.get("turnover24h", 0.0))
+            ts = int(item.get("ts", time.time() * 1000))
 
-                    if "data" in data and "topic" in data:
-                        topic = data["topic"]
-                        symbol = topic.split(".")[-1]  # e.g., BTCUSDT
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+            snapshot = MarketSnapshot(
+                exchange=self.exchange_name,
+                symbol=symbol,
+                raw_symbol=raw_symbol,
+                bid1=bid1,
+                ask1=ask1,
+                bid_vol1=bid_vol1,
+                ask_vol1=ask_vol1,
+                total_volume=total_volume,
+                timestamp=ts
+            )
 
-                        item = data["data"]
-                        bid1 = float(item.get("bid1Price", 0.0))
-                        bid_vol1 = float(item.get("bid1Size", 0.0))
-                        ask1 = float(item.get("ask1Price", 0.0))
-                        ask_vol1 = float(item.get("ask1Size", 0.0))
-                        total_volume = float(item.get("turnover24h", 0.0))
-                        ts = int(item.get("ts", time.time() * 1000))
-
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            total_volume=total_volume,
-                            timestamp=ts
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-
-            except Exception as e:
-                self.log(f"❌ Bybit 异常: {e}")
-                await asyncio.sleep(0.1)
+            if self.queue:
+                await self.queue.put(snapshot)
