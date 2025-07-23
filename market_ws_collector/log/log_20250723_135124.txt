@@ -1,8 +1,0 @@
-2025-07-23 13:51:24,795 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
-2025-07-23 13:51:24,795 | INFO | [cryptocom] WebSocket 已连接
-2025-07-23 13:51:24,795 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
-2025-07-23 13:51:24,896 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
-2025-07-23 13:51:24,997 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
-2025-07-23 13:51:25,097 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
-2025-07-23 13:51:25,201 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
-2025-07-23 13:51:33,706 | INFO | [cryptocom] 🔁 收到 heartbeat

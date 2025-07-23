@@ -9,7 +9,13 @@ from connectors.base import BaseAsyncConnector
 
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="lbank", symbols=None, ws_url=None, queue=None):
-        super().__init__(exchange)
+        super().__init__(
+            exchange,
+            ping_interval=20,
+            ping_payload=None,     # 每 20 秒发一次 "ping"
+            pong_keywords=[]         # 不处理返回 pong（LBank 没响应也没关系）
+        )
+
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
@@ -25,8 +31,6 @@ class Connector(BaseAsyncConnector):
             self.format_symbol(raw): raw
             for raw in self.raw_symbols
         }
-
-        self.ws = None
 
     def format_symbol(self, generic_symbol: str) -> str:
         return generic_symbol.lower().replace("-", "_")
@@ -50,45 +54,40 @@ class Connector(BaseAsyncConnector):
             self.log(f"📨 已订阅 depth:{req.symbol}")
             await asyncio.sleep(0.1)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        if "ping" in data:  #  {'ping': '1753282382760', 'action': 'ping'}
+            pong_msg = {
+                "action": "pong",
+                "pong": data["ping"]
+            }
+            await self.ws.send(json.dumps(pong_msg))
+            self.log(f"🔁 收到 ping，回复 pong: {pong_msg}")
+            return
+    
+        if "depth" in data and "pair" in data:
+            tick = data["depth"]
+            symbol = data["pair"]
+            raw_symbol = self.symbol_map.get(symbol, symbol.upper())
 
-                while True:
-                    raw = await self.ws.recv()
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+            bids = tick.get("bids", [])
+            asks = tick.get("asks", [])
 
-                    if "depth" in data and "pair" in data:
-                        tick = data["depth"]
-                        symbol = data["pair"]
-                        raw_symbol = self.symbol_map.get(symbol, symbol.upper())
+            bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
+            ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
+            timestamp = int(time.time() * 1000)
 
-                        bids = tick.get("bids", [])
-                        asks = tick.get("asks", [])
+            snapshot = MarketSnapshot(
+                exchange=self.exchange_name,
+                symbol=symbol,
+                raw_symbol=raw_symbol,
+                bid1=bid1,
+                ask1=ask1,
+                bid_vol1=bid_vol1,
+                ask_vol1=ask_vol1,
+                timestamp=timestamp
+            )
 
-                        bid1, bid_vol1 = map(float, bids[0][:2]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0][:2]) if asks else (0.0, 0.0)
-                        timestamp = int(time.time() * 1000)
-
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            timestamp=timestamp
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-
-            except Exception as e:
-                self.log(f"❌ LBank 异常: {e}")
-                await asyncio.sleep(0.5)
+            if self.queue:
+                await self.queue.put(snapshot)
+        else:
+            self.log(f"❗️ 未处理的消息: {data}", level="DEBUG")

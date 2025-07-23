@@ -14,7 +14,7 @@ class Connector(BaseAsyncConnector):
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
-        # 入口使用 BTC-USDT，内部转换为 BTC-USD-SWAP-LIN
+        # 输入 symbol 示例: BTC-USDT，格式化为 BTC-USD-SWAP-LIN
         self.raw_symbols = symbols or DEFAULT_SYMBOLS.get(exchange, [])
         self.formatted_symbols = [self.format_symbol(s) for s in self.raw_symbols]
 
@@ -23,7 +23,6 @@ class Connector(BaseAsyncConnector):
             for sym in self.formatted_symbols
         ]
 
-        # 构建映射关系：推送 symbol → 原始 symbol
         self.symbol_map = {
             self.format_symbol(s): s
             for s in self.raw_symbols
@@ -32,7 +31,7 @@ class Connector(BaseAsyncConnector):
         self.ws = None
 
     def format_symbol(self, symbol: str) -> str:
-        # BTC-USDT → BTC-USD-SWAP-LIN（标准推送结构）
+        # BTC-USDT → BTC-USD-SWAP-LIN
         base, _ = symbol.upper().split("-")
         return f"{base}-USD-SWAP-LIN"
 
@@ -43,7 +42,7 @@ class Connector(BaseAsyncConnector):
         }
 
     async def connect(self):
-        self.ws = await websockets.connect(self.ws_url)
+        self.ws = await websockets.connect(self.ws_url, ping_interval=None)
         self.log(f"✅ OX.FUN WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
@@ -51,48 +50,33 @@ class Connector(BaseAsyncConnector):
             msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(msg))
             self.log(f"📨 已订阅: depth → {req.symbol}")
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.2)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        if data.get("table") == "depth" and "data" in data:
+            tick = data["data"]
+            symbol = tick.get("marketCode")
+            raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                while True:
-                    raw = await self.ws.recv()
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+            bids = tick.get("bids", [])
+            asks = tick.get("asks", [])
 
-                    # ✅ 正式推送数据结构
-                    if data.get("table") == "depth" and "data" in data:
-                        tick = data["data"]
-                        symbol = tick.get("marketCode")
-                        raw_symbol = self.symbol_map.get(symbol, symbol)
+            bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
+            ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
+            timestamp = int(tick.get("timestamp", time.time() * 1000))
 
-                        bids = tick.get("bids", [])
-                        asks = tick.get("asks", [])
+            snapshot = MarketSnapshot(
+                exchange=self.exchange_name,
+                symbol=symbol,
+                raw_symbol=raw_symbol,
+                bid1=bid1,
+                ask1=ask1,
+                bid_vol1=bid_vol1,
+                ask_vol1=ask_vol1,
+                timestamp=timestamp
+            )
 
-                        bid1, bid_vol1 = map(float, bids[0]) if bids else (0.0, 0.0)
-                        ask1, ask_vol1 = map(float, asks[0]) if asks else (0.0, 0.0)
-                        timestamp = int(tick.get("timestamp", time.time() * 1000))
-
-                        snapshot = MarketSnapshot(
-                            exchange=self.exchange_name,
-                            symbol=symbol,
-                            raw_symbol=raw_symbol,
-                            bid1=bid1,
-                            ask1=ask1,
-                            bid_vol1=bid_vol1,
-                            ask_vol1=ask_vol1,
-                            timestamp=timestamp
-                        )
-
-                        if self.queue:
-                            await self.queue.put(snapshot)
-
-            except Exception as e:
-                self.log(f"❌ OX.FUN 异常: {e}")
-                await asyncio.sleep(0.5)
+            if self.queue:
+                await self.queue.put(snapshot)
+        else:
+            self.log(f"❗️ 未处理的消息: {data}", level="DEBUG")

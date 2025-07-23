@@ -30,7 +30,7 @@ class ExchangeManager:
             # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
             # bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
             # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue 1s
-            blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
+            # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
             # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto.
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
@@ -39,7 +39,7 @@ class ExchangeManager:
             # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
-            # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
+            okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 

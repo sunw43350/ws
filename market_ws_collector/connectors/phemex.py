@@ -7,9 +7,10 @@ from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
 from connectors.base import BaseAsyncConnector
 
+
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="phemex", symbols=None, ws_url=None, queue=None):
-        super().__init__(exchange)
+        super().__init__(exchange, ping_interval=30, ping_payload=None)
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 
@@ -22,12 +23,9 @@ class Connector(BaseAsyncConnector):
         ]
 
         self.symbol_map = {
-            self.format_symbol(s): s
-            for s in self.raw_symbols
+            self.format_symbol(sym): sym
+            for sym in self.raw_symbols
         }
-
-        self.ws = None
-        self.orderbooks = {}  # 缓存 orderbook 全量状态（可选扩展）
 
     def format_symbol(self, symbol: str) -> str:
         # BTC-USDT → BTCUSD
@@ -52,53 +50,41 @@ class Connector(BaseAsyncConnector):
             self.log(f"📨 已订阅: orderbook.subscribe → {req.symbol}")
             await asyncio.sleep(0.2)
 
-    async def run(self):
-        while True:
-            try:
-                await self.connect()
-                await self.subscribe()
+    async def handle_message(self, data):
+        # 忽略非行情推送
+        if "symbol" not in data or "book" not in data:
+            self.log(f"❗️ 未处理的消息: {data}", level="DEBUG")
+            return
 
-                while True:
-                    raw = await self.ws.recv()
-                    try:
-                        data = json.loads(raw)
-                    except:
-                        continue
+        symbol = data.get("symbol")
+        raw_symbol = self.symbol_map.get(symbol, symbol)
+        timestamp = int(data.get("timestamp", time.time_ns()) / 1e6)
 
-                    symbol = data.get("symbol")
-                    if not symbol or symbol not in self.symbol_map:
-                        continue
+        bids = data.get("book", {}).get("bids", [])
+        asks = data.get("book", {}).get("asks", [])
 
-                    raw_symbol = self.symbol_map[symbol]
-                    timestamp = int(data.get("timestamp", time.time_ns()) / 1e6)
+        # self.log(f"📊 {self.exchange_name} {raw_symbol} 行情数据: {data}", level="DEBUG")
 
-                    bids = data.get("book", {}).get("bids", [])
-                    asks = data.get("book", {}).get("asks", [])
+        bid1, bid_vol1 = (0.0, 0.0)
+        ask1, ask_vol1 = (0.0, 0.0)
 
-                    bid1, bid_vol1 = (0.0, 0.0)
-                    ask1, ask_vol1 = (0.0, 0.0)
+        if bids:
+            bid1 = bids[0][0] 
+            bid_vol1 = bids[0][1] 
+        if asks:
+            ask1 = asks[0][0]
+            ask_vol1 = asks[0][1]
 
-                    if bids:
-                        bid1 = bids[0][0] / 1e4
-                        bid_vol1 = bids[0][1] / 1e4
-                    if asks:
-                        ask1 = asks[0][0] / 1e4
-                        ask_vol1 = asks[0][1] / 1e4
+        snapshot = MarketSnapshot(
+            exchange=self.exchange_name,
+            symbol=symbol,
+            raw_symbol=raw_symbol,
+            bid1=bid1,
+            ask1=ask1,
+            bid_vol1=bid_vol1,
+            ask_vol1=ask_vol1,
+            timestamp=timestamp
+        )
 
-                    snapshot = MarketSnapshot(
-                        exchange=self.exchange_name,
-                        symbol=symbol,
-                        raw_symbol=raw_symbol,
-                        bid1=bid1,
-                        ask1=ask1,
-                        bid_vol1=bid_vol1,
-                        ask_vol1=ask_vol1,
-                        timestamp=timestamp
-                    )
-
-                    if self.queue:
-                        await self.queue.put(snapshot)
-
-            except Exception as e:
-                self.log(f"❌ Phemex 异常: {e}")
-                await asyncio.sleep(0.5)
+        if self.queue:
+            await self.queue.put(snapshot)
