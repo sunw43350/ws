@@ -2,6 +2,11 @@ from abc import ABC, abstractmethod
 import zlib
 import datetime
 
+import os
+import shutil
+
+os.crea
+
 filename = "./log/" + datetime.datetime.now().strftime('%Y%m%d_%H%M%S') + '.log'
 
 
