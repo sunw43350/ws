@@ -49,5 +49,7 @@ class BaseAsyncConnector(ABC):
         错误日志输出
         """
         # print(f"❌ {self.exchange_name} 错误: {message}")
+        datetime = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+        fi
         with open('../log/example.txt', 'a', encoding='utf-8') as f:
             f.write('追加一行\n')
