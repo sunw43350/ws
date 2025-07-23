@@ -53,7 +53,7 @@ class Connector(BaseAsyncConnector):
             pong_msg = {"pong": data["ping"]}
             await self.ws.send(json.dumps(pong_msg))
             
-            self.log(f"🔁 收到 ping → 已发送 pong: {pong_msg['pong']}")
+            self.log(f"🔁 收到 ping → 已发送 pong: {pong_msg}")
             return
 
         # ticker 数据处理

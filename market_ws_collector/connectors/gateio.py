@@ -43,6 +43,17 @@ class Connector(BaseAsyncConnector):
             "payload": [symbol]
         }
 
+    async def keep_alive(self):
+        self.log("🔄 启动 Gate.io 心跳任务")
+        while True:
+            ping_msg = {
+                "time": int(time.time()),
+                "channel": "futures.ping"
+            }
+            await self.ws.send(json.dumps(ping_msg))
+            self.log(f"Sent Gate.io ping: {ping_msg}")
+            await asyncio.sleep(10)
+
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
         self.log(f"✅ Gate.io WebSocket 已连接 → {self.ws_url}")

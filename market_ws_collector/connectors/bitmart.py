@@ -12,7 +12,10 @@ class Connector(BaseAsyncConnector):
     def __init__(self, exchange="bitmart", symbols=None, ws_url=None, queue=None):
         super().__init__(
             exchange=exchange,
-            compression=None  # 明确无压缩
+            compression=None,  # 明确无压缩
+            ping_interval=8,  # BitMart 使用 ping/pong 机制
+            ping_payload="ping",  # 发送的 ping 消息内容
+            pong_keywords=["pong"]  # 检测到 pong 日志打印即可
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)

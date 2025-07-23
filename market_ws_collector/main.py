@@ -42,16 +42,16 @@ async def consume_snapshots(queue: asyncio.Queue):
         ask1 = snapshot.ask1
         timestamp = datetime.datetime.now()
 
-        active_symbols.add(symbol)
+        # active_symbols.add(symbol)
 
-        data = symbol_exchange_data[symbol][exchange]
-        if isinstance(data, dict):
-            data['times'].append(timestamp)
-            data['bid'].append(bid1)
-            data['ask'].append(ask1)
-        else:
-            print(f"❌ 数据错误: 预期为字典(dict)，但实际类型为 {type(data)}")
-            continue
+        # data = symbol_exchange_data[symbol][exchange]
+        # if isinstance(data, dict):
+        #     data['times'].append(timestamp)
+        #     data['bid'].append(bid1)
+        #     data['ask'].append(ask1)
+        # else:
+        #     print(f"❌ 数据错误: 预期为字典(dict)，但实际类型为 {type(data)}")
+        #     continue
 
         note = f"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! {exchange}" if bid1 == 0 and ask1 == 0 else ""
 
@@ -68,7 +68,7 @@ async def main():
     await asyncio.gather(
         manager.run_all(),
         consume_snapshots(snapshot_queue),
-        periodic_plot_task()
+        # periodic_plot_task()
     )
 
 if __name__ == "__main__":

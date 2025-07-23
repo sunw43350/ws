@@ -11,7 +11,13 @@ from connectors.base import BaseAsyncConnector
 class Connector(BaseAsyncConnector):
     def __init__(self, exchange="krakenfutures", symbols=None, ws_url=None, queue=None):
         # 传入心跳参数，ping_payload 为 {"event": "ping"}, 每30秒发一次
-        super().__init__(exchange, ping_interval=30, ping_payload=None)
+        # super().__init__(exchange, ping_interval=30, ping_payload=None)
+        super().__init__(
+            exchange=exchange,
+            compression=None,  # 明确无压缩
+            ping_interval=30,  # Kraken Futures 使用 ping/pong 机制
+            ping_payload={"channel": "heartbeat"},  # 发送的 ping 消息内容
+        )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
 

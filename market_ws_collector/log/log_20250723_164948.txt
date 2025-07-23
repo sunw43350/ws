@@ -1,0 +1,179 @@
+2025-07-23 16:49:48,893 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 16:49:48,893 | INFO | [bingx] WebSocket 已连接
+2025-07-23 16:49:48,893 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 16:49:48,898 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-23 16:49:48,898 | INFO | [bitrue] WebSocket 已连接
+2025-07-23 16:49:48,898 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-23 16:49:48,944 | INFO | [bingx] 📨 已订阅: ETH-USDT@depth20
+2025-07-23 16:49:49,124 | INFO | [bingx] 📨 已订阅: SOL-USDT@depth20
+2025-07-23 16:49:49,124 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-23 16:49:49,125 | INFO | [binance] ✅ Binance WebSocket 已连接 → wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/ethusdt@ticker/solusdt@ticker/bnbusdt@ticker/adausdt@ticker
+2025-07-23 16:49:49,125 | INFO | [binance] WebSocket 已连接
+2025-07-23 16:49:49,125 | INFO | [binance] 📡 Binance 使用组合流，不需要发送订阅消息。
+2025-07-23 16:49:49,357 | INFO | [bingx] 📨 已订阅: XRP-USDT@depth20
+2025-07-23 16:49:49,357 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-23 16:49:49,399 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 16:49:49,399 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 16:49:49,400 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 16:49:49,400 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-23 16:49:49,401 | INFO | [phemex] ✅ Phemex WebSocket 已连接 → wss://ws.phemex.com
+2025-07-23 16:49:49,401 | INFO | [phemex] WebSocket 已连接
+2025-07-23 16:49:49,401 | INFO | [phemex] 📨 已订阅: orderbook.subscribe → BTCUSD
+2025-07-23 16:49:49,408 | INFO | [bingx] 📨 已订阅: LTC-USDT@depth20
+2025-07-23 16:49:49,408 | INFO | [bybit] ✅ Bybit WebSocket 已连接 → wss://stream.bybit.com/v5/public/linear
+2025-07-23 16:49:49,408 | INFO | [bybit] WebSocket 已连接
+2025-07-23 16:49:49,408 | INFO | [bybit] 📨 已发送订阅: {'op': 'subscribe', 'args': ['tickers.BTCUSDT', 'tickers.ETHUSDT', 'tickers.SOLUSDT', 'tickers.LINKUSDT', 'tickers.ADAUSDT']}
+2025-07-23 16:49:49,433 | INFO | [ascendex] ✅ AscendEX WebSocket 已连接 → wss://ascendex.com/1/api/pro/v2/stream
+2025-07-23 16:49:49,433 | INFO | [ascendex] WebSocket 已连接
+2025-07-23 16:49:49,434 | INFO | [ascendex] 📨 已订阅: BTC-PERP
+2025-07-23 16:49:49,459 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-23 16:49:49,487 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-23 16:49:49,487 | INFO | [blofin] WebSocket 已连接
+2025-07-23 16:49:49,487 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-23 16:49:49,487 | INFO | [mexc] ✅ MEXC WebSocket 已连接 → wss://contract.mexc.com/edge
+2025-07-23 16:49:49,487 | INFO | [mexc] WebSocket 已连接
+2025-07-23 16:49:49,487 | INFO | [mexc] 📨 已订阅: sub.ticker → BTC_USDT
+2025-07-23 16:49:49,490 | INFO | [gateio] ✅ Gate.io WebSocket 已连接 → wss://fx-ws.gateio.ws/v4/ws/usdt
+2025-07-23 16:49:49,490 | INFO | [gateio] WebSocket 已连接
+2025-07-23 16:49:49,490 | INFO | [gateio] 📨 已订阅: futures.book_ticker → BTC_USDT
+2025-07-23 16:49:49,526 | INFO | [okx] ✅ OKX WebSocket 已连接 → wss://ws.okx.com:8443/ws/v5/public
+2025-07-23 16:49:49,526 | INFO | [okx] WebSocket 已连接
+2025-07-23 16:49:49,526 | INFO | [okx] 📨 已订阅: ['BTC-USDT', 'ETH-USDT', 'SOL-USDT', 'XRP-USDT', 'LTC-USDT']
+2025-07-23 16:49:49,535 | INFO | [ascendex] 📨 已订阅: ETH-PERP
+2025-07-23 16:49:49,538 | INFO | [mexc] 📨 已订阅: sub.ticker → ETH_USDT
+2025-07-23 16:49:49,559 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-23 16:49:49,588 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-23 16:49:49,589 | INFO | [mexc] 📨 已订阅: sub.ticker → SOL_USDT
+2025-07-23 16:49:49,590 | INFO | [lbank] ✅ LBank WebSocket 已连接 → wss://www.lbkex.net/ws/V2/
+2025-07-23 16:49:49,590 | INFO | [lbank] WebSocket 已连接
+2025-07-23 16:49:49,590 | INFO | [lbank] 📨 已订阅 depth:btc_usdt
+2025-07-23 16:49:49,591 | INFO | [gateio] 📨 已订阅: futures.book_ticker → ETH_USDT
+2025-07-23 16:49:49,601 | INFO | [phemex] 📨 已订阅: orderbook.subscribe → ETHUSD
+2025-07-23 16:49:49,635 | INFO | [ascendex] 📨 已订阅: SOL-PERP
+2025-07-23 16:49:49,640 | INFO | [mexc] 📨 已订阅: sub.ticker → XRP_USDT
+2025-07-23 16:49:49,647 | INFO | [huobi] ✅ Huobi WebSocket 已连接 → wss://api.huobi.pro/ws
+2025-07-23 16:49:49,647 | INFO | [huobi] WebSocket 已连接
+2025-07-23 16:49:49,647 | INFO | [huobi] 📨 已订阅: market.btcusdt.ticker
+2025-07-23 16:49:49,664 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-23 16:49:49,688 | INFO | [bitget] ✅ Bitget WebSocket 已连接 → wss://ws.bitget.com/v2/ws/public
+2025-07-23 16:49:49,688 | INFO | [bitget] WebSocket 已连接
+2025-07-23 16:49:49,688 | INFO | [bitget] 📨 已发送订阅请求: {'op': 'subscribe', 'args': [{'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'BTCUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'ETHUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'SOLUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'XRPUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'LTCUSDT'}]}
+2025-07-23 16:49:49,688 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-23 16:49:49,689 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-23 16:49:49,691 | INFO | [lbank] 📨 已订阅 depth:eth_usdt
+2025-07-23 16:49:49,691 | INFO | [mexc] 📨 已订阅: sub.ticker → LTC_USDT
+2025-07-23 16:49:49,691 | INFO | [gateio] 📨 已订阅: futures.book_ticker → SOL_USDT
+2025-07-23 16:49:49,697 | INFO | [huobi] 📨 已订阅: market.ethusdt.ticker
+2025-07-23 16:49:49,706 | INFO | [oxfun] ✅ OX.FUN WebSocket 已连接 → wss://api.ox.fun/v2/websocket
+2025-07-23 16:49:49,706 | INFO | [oxfun] WebSocket 已连接
+2025-07-23 16:49:49,707 | INFO | [oxfun] 📨 已订阅: depth → BTC-USD-SWAP-LIN
+2025-07-23 16:49:49,727 | DEBUG | [okx] ❗️ 未处理的消息: {'event': 'subscribe', 'arg': {'channel': 'tickers', 'instId': 'BTC-USDT'}, 'connId': '12a134dc'}
+2025-07-23 16:49:49,728 | DEBUG | [okx] ❗️ 未处理的消息: {'event': 'subscribe', 'arg': {'channel': 'tickers', 'instId': 'ETH-USDT'}, 'connId': '12a134dc'}
+2025-07-23 16:49:49,728 | DEBUG | [okx] ❗️ 未处理的消息: {'event': 'subscribe', 'arg': {'channel': 'tickers', 'instId': 'SOL-USDT'}, 'connId': '12a134dc'}
+2025-07-23 16:49:49,728 | DEBUG | [okx] ❗️ 未处理的消息: {'event': 'subscribe', 'arg': {'channel': 'tickers', 'instId': 'XRP-USDT'}, 'connId': '12a134dc'}
+2025-07-23 16:49:49,728 | DEBUG | [okx] ❗️ 未处理的消息: {'event': 'subscribe', 'arg': {'channel': 'tickers', 'instId': 'LTC-USDT'}, 'connId': '12a134dc'}
+2025-07-23 16:49:49,736 | INFO | [ascendex] 📨 已订阅: XRP-PERP
+2025-07-23 16:49:49,742 | INFO | [mexc] 🔁 发送心跳: {"method": "ping"}
+2025-07-23 16:49:49,748 | INFO | [huobi] 📨 已订阅: market.solusdt.ticker
+2025-07-23 16:49:49,749 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-23 16:49:49,749 | INFO | [bitmart] WebSocket 已连接
+2025-07-23 16:49:49,750 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-23 16:49:49,751 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-23 16:49:49,760 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 16:49:49,790 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-23 16:49:49,791 | INFO | [lbank] 📨 已订阅 depth:sol_usdt
+2025-07-23 16:49:49,793 | INFO | [gateio] 📨 已订阅: futures.book_ticker → XRP_USDT
+2025-07-23 16:49:49,799 | INFO | [huobi] 📨 已订阅: market.ltcusdt.ticker
+2025-07-23 16:49:49,802 | INFO | [phemex] 📨 已订阅: orderbook.subscribe → SOLUSD
+2025-07-23 16:49:49,814 | INFO | [mexc] 🔁 收到 pong 心跳回复
+2025-07-23 16:49:49,820 | INFO | [krakenfutures] ✅ krakenfutures WebSocket 已连接 → wss://futures.kraken.com/ws/v1
+2025-07-23 16:49:49,820 | INFO | [krakenfutures] WebSocket 已连接
+2025-07-23 16:49:49,821 | INFO | [krakenfutures] 📨 Kraken Futures 已订阅: ['PI_XBTUSD', 'PI_ETHUSD', 'PI_SOLUSD', 'PI_XRPUSD', 'PI_LTCUSD']
+2025-07-23 16:49:49,821 | INFO | [krakenfutures] 🔁 发送心跳: {"channel": "heartbeat"}
+2025-07-23 16:49:49,830 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'info', 'version': 1}
+2025-07-23 16:49:49,837 | INFO | [ascendex] 📨 已订阅: LTC-PERP
+2025-07-23 16:49:49,849 | INFO | [huobi] 📨 已订阅: market.xrpusdt.ticker
+2025-07-23 16:49:49,890 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT
+2025-07-23 16:49:49,892 | INFO | [lbank] 📨 已订阅 depth:ltc_usdt
+2025-07-23 16:49:49,894 | INFO | [gateio] 📨 已订阅: futures.book_ticker → LTC_USDT
+2025-07-23 16:49:49,900 | DEBUG | [huobi] ❗️ 未处理的消息: {'id': 'btcusdt', 'status': 'ok', 'subbed': 'market.btcusdt.ticker', 'ts': 1753289389968}
+2025-07-23 16:49:49,900 | DEBUG | [huobi] ❗️ 未处理的消息: {'id': 'ethusdt', 'status': 'ok', 'subbed': 'market.ethusdt.ticker', 'ts': 1753289390018}
+2025-07-23 16:49:49,901 | DEBUG | [huobi] ❗️ 未处理的消息: {'id': 'solusdt', 'status': 'ok', 'subbed': 'market.solusdt.ticker', 'ts': 1753289390069}
+2025-07-23 16:49:49,901 | DEBUG | [huobi] ❗️ 未处理的消息: {'id': 'ltcusdt', 'status': 'ok', 'subbed': 'market.ltcusdt.ticker', 'ts': 1753289390120}
+2025-07-23 16:49:49,906 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 16:49:49,906 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 16:49:49,906 | INFO | [cryptocom] 📨 已订阅 ticker.BTC_USDT
+2025-07-23 16:49:49,908 | INFO | [oxfun] 📨 已订阅: depth → ETH-USD-SWAP-LIN
+2025-07-23 16:49:49,908 | INFO | [bitmex] ✅ BitMEX WebSocket 已连接 → wss://ws.bitmex.com/realtime
+2025-07-23 16:49:49,908 | INFO | [bitmex] WebSocket 已连接
+2025-07-23 16:49:49,908 | INFO | [bitmex] 📨 已发送订阅请求: {'op': 'subscribe', 'args': ['quote:XBTUSD', 'quote:ETHUSD', 'quote:SOLUSD', 'quote:XRPUSD', 'quote:LTCUSD']}
+2025-07-23 16:49:49,928 | DEBUG | [huobi] ❗️ 未处理的消息: {'id': 'xrpusdt', 'status': 'ok', 'subbed': 'market.xrpusdt.ticker', 'ts': 1753289390178}
+2025-07-23 16:49:49,939 | INFO | [ascendex] 🔁 发送心跳: {"op": "ping"}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'subscribed', 'feed': 'ticker', 'product_ids': ['PI_XBTUSD']}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'subscribed', 'feed': 'ticker', 'product_ids': ['PI_ETHUSD']}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'subscribed', 'feed': 'ticker', 'product_ids': ['PI_SOLUSD']}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'subscribed', 'feed': 'ticker', 'product_ids': ['PI_XRPUSD']}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'subscribed', 'feed': 'ticker', 'product_ids': ['PI_LTCUSD']}
+2025-07-23 16:49:49,989 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'alert', 'message': 'Bad websocket message'}
+2025-07-23 16:49:49,993 | INFO | [lbank] 📨 已订阅 depth:xrp_usdt
+2025-07-23 16:49:49,994 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289389, 'time_ms': 1753289389824, 'conn_id': '6ed124f134396178', 'trace_id': '51bc60617a26319c954e42948d893a11', 'channel': 'futures.book_ticker', 'event': 'subscribe', 'payload': ['BTC_USDT'], 'result': {'status': 'success'}}
+2025-07-23 16:49:49,994 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289389, 'time_ms': 1753289389914, 'conn_id': '6ed124f134396178', 'trace_id': '51bc60617a26319c954e42948d893a11', 'channel': 'futures.book_ticker', 'event': 'subscribe', 'payload': ['ETH_USDT'], 'result': {'status': 'success'}}
+2025-07-23 16:49:49,995 | INFO | [gateio] 🔄 启动 Gate.io 心跳任务
+2025-07-23 16:49:49,995 | INFO | [gateio] Sent Gate.io ping: {'time': 1753289389, 'channel': 'futures.ping'}
+2025-07-23 16:49:49,996 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289390, 'time_ms': 1753289390019, 'conn_id': '6ed124f134396178', 'trace_id': '51bc60617a26319c954e42948d893a11', 'channel': 'futures.book_ticker', 'event': 'subscribe', 'payload': ['SOL_USDT'], 'result': {'status': 'success'}}
+2025-07-23 16:49:49,997 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289390, 'time_ms': 1753289390118, 'conn_id': '6ed124f134396178', 'trace_id': '51bc60617a26319c954e42948d893a11', 'channel': 'futures.book_ticker', 'event': 'subscribe', 'payload': ['XRP_USDT'], 'result': {'status': 'success'}}
+2025-07-23 16:49:49,997 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289390, 'time_ms': 1753289390219, 'conn_id': '6ed124f134396178', 'trace_id': '51bc60617a26319c954e42948d893a11', 'channel': 'futures.book_ticker', 'event': 'subscribe', 'payload': ['LTC_USDT'], 'result': {'status': 'success'}}
+2025-07-23 16:49:50,003 | INFO | [phemex] 📨 已订阅: orderbook.subscribe → XRPUSD
+2025-07-23 16:49:50,008 | INFO | [cryptocom] 📨 已订阅 ticker.ETH_USDT
+2025-07-23 16:49:50,015 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-23 16:49:50,070 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289390, 'time_ms': 1753289390320, 'conn_id': '6ed124f134396178', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-23 16:49:50,109 | INFO | [cryptocom] 📨 已订阅 ticker.SOL_USDT
+2025-07-23 16:49:50,109 | INFO | [oxfun] 📨 已订阅: depth → SOL-USD-SWAP-LIN
+2025-07-23 16:49:50,203 | INFO | [phemex] 📨 已订阅: orderbook.subscribe → LTCUSD
+2025-07-23 16:49:50,210 | INFO | [cryptocom] 📨 已订阅 ticker.XRP_USDT
+2025-07-23 16:49:50,310 | INFO | [oxfun] 📨 已订阅: depth → XRP-USD-SWAP-LIN
+2025-07-23 16:49:50,310 | INFO | [cryptocom] 📨 已订阅 ticker.LTC_USDT
+2025-07-23 16:49:50,332 | DEBUG | [huobi] {'ping': 1753289390580}
+2025-07-23 16:49:50,332 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289390580}
+2025-07-23 16:49:50,405 | DEBUG | [phemex] ❗️ 未处理的消息: {'error': None, 'id': 1, 'result': {'status': 'success'}}
+2025-07-23 16:49:50,405 | DEBUG | [phemex] ❗️ 未处理的消息: {'error': None, 'id': 2, 'result': {'status': 'success'}}
+2025-07-23 16:49:50,405 | DEBUG | [phemex] ❗️ 未处理的消息: {'error': None, 'id': 3, 'result': {'status': 'success'}}
+2025-07-23 16:49:50,406 | DEBUG | [phemex] ❗️ 未处理的消息: {'error': None, 'id': 4, 'result': {'status': 'success'}}
+2025-07-23 16:49:50,406 | DEBUG | [phemex] ❗️ 未处理的消息: {'error': None, 'id': 5, 'result': {'status': 'success'}}
+2025-07-23 16:49:50,511 | INFO | [oxfun] 📨 已订阅: depth → LTC-USD-SWAP-LIN
+2025-07-23 16:49:50,712 | DEBUG | [oxfun] ❗️ 未处理的消息: {'event': 'Welcome', 'nonce': '12dea675', 'timestamp': '1753289389951'}
+2025-07-23 16:49:50,712 | DEBUG | [oxfun] ❗️ 未处理的消息: {'success': True, 'event': 'subscribe', 'channel': 'depth:BTC-USD-SWAP-LIN', 'timestamp': '1753289390031'}
+2025-07-23 16:49:50,712 | DEBUG | [oxfun] ❗️ 未处理的消息: {'success': True, 'event': 'subscribe', 'channel': 'depth:ETH-USD-SWAP-LIN', 'timestamp': '1753289390237'}
+2025-07-23 16:49:50,713 | DEBUG | [oxfun] ❗️ 未处理的消息: {'success': True, 'event': 'subscribe', 'channel': 'depth:SOL-USD-SWAP-LIN', 'timestamp': '1753289390438'}
+2025-07-23 16:49:50,713 | DEBUG | [oxfun] ❗️ 未处理的消息: {'success': True, 'event': 'subscribe', 'channel': 'depth:XRP-USD-SWAP-LIN', 'timestamp': '1753289390633'}
+2025-07-23 16:49:50,715 | DEBUG | [oxfun] ❗️ 未处理的消息: {'success': True, 'event': 'subscribe', 'channel': 'depth:LTC-USD-SWAP-LIN', 'timestamp': '1753289390834'}
+2025-07-23 16:49:55,412 | DEBUG | [huobi] {'ping': 1753289395660}
+2025-07-23 16:49:55,413 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289395660}
+2025-07-23 16:49:57,751 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-23 16:49:59,689 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-23 16:49:59,759 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 16:49:59,996 | INFO | [gateio] Sent Gate.io ping: {'time': 1753289399, 'channel': 'futures.ping'}
+2025-07-23 16:50:00,068 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289400, 'time_ms': 1753289400318, 'conn_id': '6ed124f134396178', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-23 16:50:00,479 | DEBUG | [huobi] {'ping': 1753289400726}
+2025-07-23 16:50:00,479 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289400726}
+2025-07-23 16:50:00,709 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-23 16:50:05,548 | DEBUG | [huobi] {'ping': 1753289405795}
+2025-07-23 16:50:05,548 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289405795}
+2025-07-23 16:50:05,752 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-23 16:50:09,665 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-23 16:50:09,690 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-23 16:50:09,742 | INFO | [mexc] 🔁 发送心跳: {"method": "ping"}
+2025-07-23 16:50:09,760 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-23 16:50:09,820 | INFO | [mexc] 🔁 收到 pong 心跳回复
+2025-07-23 16:50:09,939 | INFO | [ascendex] 🔁 发送心跳: {"op": "ping"}
+2025-07-23 16:50:09,997 | INFO | [gateio] Sent Gate.io ping: {'time': 1753289409, 'channel': 'futures.ping'}
+2025-07-23 16:50:10,015 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-23 16:50:10,082 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753289410, 'time_ms': 1753289410332, 'conn_id': '6ed124f134396178', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-23 16:50:10,633 | DEBUG | [huobi] {'ping': 1753289410880}
+2025-07-23 16:50:10,633 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289410880}
+2025-07-23 16:50:13,754 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-23 16:50:15,682 | DEBUG | [huobi] {'ping': 1753289415930}
+2025-07-23 16:50:15,683 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753289415930}
+2025-07-23 16:50:15,724 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-23 16:50:16,497 | INFO | [cryptocom] 🔁 收到 heartbeat, {'id': 1753289416738, 'method': 'public/heartbeat', 'code': 0}
+2025-07-23 16:50:16,498 | INFO | [cryptocom] 🔁 回复 heartbeat id=1753289416738

@@ -23,7 +23,7 @@ class ExchangeManager:
         self.queue = queue
         self.connectors = [
             ascendex.Connector(exchange="ascendex", queue=queue),
-            # binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
+            binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
             bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
             bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart

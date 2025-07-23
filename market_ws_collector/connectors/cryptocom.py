@@ -14,7 +14,6 @@ class Connector(BaseAsyncConnector):
             compression=None,              # Crypto.com 不压缩
             ping_interval=0,               # 不发送 ping
             ping_payload=None,             # 不发送 ping
-            pong_keywords=["heartbeat"],   # 收到 heartbeat 主动响应
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)

@@ -14,7 +14,7 @@ class Connector(BaseAsyncConnector):
             exchange=exchange,
             compression="zlib",  # ✅ 启用 zlib 解压支持
             ping_interval=10,
-            ping_payload={"op": "ping"},
+            ping_payload="ping",
             pong_keywords=["pong"]
         )
         self.queue = queue

@@ -26,7 +26,7 @@ def clean_log_dir(log_dir: str = "./log"):
             os.remove(filepath)
             print(f"🗑️ 已删除文件：{filepath}")
 
-clean_log_dir(log_dir)
+# clean_log_dir(log_dir)
 
 class BaseAsyncConnector(ABC):
     def __init__(
