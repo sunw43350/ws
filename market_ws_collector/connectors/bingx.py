@@ -90,8 +90,8 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 BingX 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 BingX 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.1)
             except Exception as e:
-                print(f"❌ BingX 异常: {e}")
+                self.log(f"❌ BingX 异常: {e}")
                 await asyncio.sleep(0.1)
