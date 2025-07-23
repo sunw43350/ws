@@ -2,8 +2,7 @@ from abc import ABC, abstractmethod
 import zlib
 import datetime
 
-datetime = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-filename = "../log/" + datetime + '.log'
+filename = "../log/" + datetime.datetime.now().strftime('%Y%m%d_%H%M%S') + '.log'
 
 
 class BaseAsyncConnector(ABC):
