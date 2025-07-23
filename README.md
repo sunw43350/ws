@@ -19,7 +19,7 @@ https://copilot.microsoft.com/shares/pages/aQuCZFx28gK2DeebcYwDQ
 
 colab
 
-https://colab.research.google.com/drive/1QJ9G81XmxcAOydTDqP_qpeTbJqmASfJy#scrollTo=XiVuHtqG-1PD
+https://colab.research.google.com/drive
 
 deepnote
 
