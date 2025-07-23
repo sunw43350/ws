@@ -52,4 +52,4 @@ class BaseAsyncConnector(ABC):
     def log(self, message: str):
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write(f"{now} | {self.exchange_name} : {message}\n")
+            f.write(f"{now} | {self.exchange_name}: {message}\n")
