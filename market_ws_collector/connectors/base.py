@@ -5,7 +5,8 @@ import datetime
 import os
 import shutil
 
-os.crea
+log_dir = "./log"
+os.makedirs(log_dir, exist_ok=True)  # 若目录已存在不会报错
 
 filename = "./log/" + datetime.datetime.now().strftime('%Y%m%d_%H%M%S') + '.log'
 
