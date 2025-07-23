@@ -53,6 +53,6 @@ class BaseAsyncConnector(ABC):
         错误日志输出
         """
         # print(f"❌ {self.exchange_name} 错误: {message}")
-        filename = "" + datetime + '.log'
-        with open('../log/example.txt', 'a', encoding='utf-8') as f:
-            f.write('追加一行\n')
+        filename = "../log/" + datetime + '.log'
+        with open(filename, 'a', encoding='utf-8') as f:
+            f.write(f"❌ {self.exchange_name} 错误: {message}\n")
