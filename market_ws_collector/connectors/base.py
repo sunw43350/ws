@@ -48,11 +48,12 @@ class BaseAsyncConnector(ABC):
             f"卖一: {snapshot.ask1:.2f} ({snapshot.ask_vol1:.2f})"
         )
 
-    def log_error(self, message: str):
+    def log(self, message: str):
         """
         错误日志输出
         """
         # print(f"❌ {self.exchange_name} 错误: {message}")
         filename = "../log/" + datetime + '.log'
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write(f"❌ {self.exchange_name} 错误: {message}\n")
+            f.write(f"❌ {now} | {self.exchange_name} 错误: {message}\n")
