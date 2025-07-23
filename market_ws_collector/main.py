@@ -3,7 +3,7 @@ import datetime
 import os
 from collections import defaultdict
 from utils.data_utils import prune_old_data
-from utils.plot_utils import plot_symbol
+from utils.plot_utils import plot_symbol_interactive
 
 import shutil
 
@@ -31,7 +31,7 @@ async def periodic_plot_task():
         cutoff = datetime.datetime.now() - datetime.timedelta(seconds=PLOT_INTERVAL_SECONDS)
         for symbol in active_symbols:
             exchanges = symbol_exchange_data[symbol]
-            plot_symbol(symbol, exchanges, cutoff)
+            plot_symbol_interactive(symbol, exchanges, cutoff)
 
 async def consume_snapshots(queue: asyncio.Queue):
     while True:
