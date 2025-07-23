@@ -60,8 +60,6 @@ class Connector(BaseAsyncConnector):
                     decompressed = gzip.decompress(raw).decode("utf-8")
                     data = json.loads(decompressed)
 
-                    print(data)
-
                     # print(data)
 
 
