@@ -14,3 +14,23 @@ https://copilot.microsoft.com/shares/pages/phZKkFNu81BA11KaJx1Rz
 
 https://copilot.microsoft.com/shares/pages/aQuCZFx28gK2DeebcYwDQ
 
+
+### notebook platform
+
+colab
+
+https://colab.research.google.com/drive/1QJ9G81XmxcAOydTDqP_qpeTbJqmASfJy#scrollTo=XiVuHtqG-1PD
+
+deepnote
+
+https://deepnote.com/workspace
+
+databricks
+
+https://dbc-9c9fdc8a-35e5.cloud.databricks.com/?o=345351867831733
+
+
+modelscope
+
+https://modelscope.cn/my/mynotebook
+
