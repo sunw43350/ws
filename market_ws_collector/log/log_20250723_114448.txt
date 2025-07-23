@@ -1,3 +1,0 @@
-2025-07-23 11:44:49,031 | INFO | [bybit] ✅ Bybit WebSocket 已连接 → wss://stream.bybit.com/v5/public/linear
-2025-07-23 11:44:49,031 | INFO | [bybit] WebSocket 已连接
-2025-07-23 11:44:49,031 | INFO | [bybit] 📨 已发送订阅: {'op': 'subscribe', 'args': ['tickers.BTCUSDT', 'tickers.ETHUSDT', 'tickers.SOLUSDT', 'tickers.LINKUSDT', 'tickers.ADAUSDT']}

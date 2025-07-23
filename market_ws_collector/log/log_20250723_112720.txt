@@ -1,7 +1,0 @@
-2025-07-23 11:27:20,990 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
-2025-07-23 11:27:20,991 | INFO | [bingx] WebSocket 已连接
-2025-07-23 11:27:20,991 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
-2025-07-23 11:27:21,042 | INFO | [bingx] 📨 已订阅: ETH-USDT@depth20
-2025-07-23 11:27:21,093 | INFO | [bingx] 📨 已订阅: SOL-USDT@depth20
-2025-07-23 11:27:21,144 | INFO | [bingx] 📨 已订阅: XRP-USDT@depth20
-2025-07-23 11:27:21,195 | INFO | [bingx] 📨 已订阅: LTC-USDT@depth20

@@ -1,3 +1,0 @@
-2025-07-23 11:36:37,961 | INFO | [bitmex] ✅ BitMEX WebSocket 已连接 → wss://ws.bitmex.com/realtime
-2025-07-23 11:36:37,961 | INFO | [bitmex] WebSocket 已连接
-2025-07-23 11:36:37,962 | INFO | [bitmex] 📨 已发送订阅请求: {'op': 'subscribe', 'args': ['quote:XBTUSD', 'quote:ETHUSD', 'quote:SOLUSD', 'quote:XRPUSD', 'quote:LTCUSD']}

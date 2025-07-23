@@ -1,3 +1,0 @@
-2025-07-23 11:23:14,156 | INFO | [binance] ✅ Binance WebSocket 已连接 → wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/ethusdt@ticker/solusdt@ticker/bnbusdt@ticker/adausdt@ticker
-2025-07-23 11:23:14,156 | INFO | [binance] WebSocket 已连接
-2025-07-23 11:23:14,156 | INFO | [binance] 📡 Binance 使用组合流，不需要发送订阅消息。

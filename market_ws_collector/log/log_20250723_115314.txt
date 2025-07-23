@@ -1,0 +1,58 @@
+2025-07-23 11:53:15,073 | INFO | [bingx] ✅ BingX WebSocket 已连接 → wss://open-api-ws.bingx.com/market
+2025-07-23 11:53:15,073 | INFO | [bingx] WebSocket 已连接
+2025-07-23 11:53:15,074 | INFO | [bingx] 📨 已订阅: BTC-USDT@depth20
+2025-07-23 11:53:15,161 | INFO | [bingx] 📨 已订阅: ETH-USDT@depth20
+2025-07-23 11:53:15,221 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-23 11:53:15,221 | INFO | [bitrue] WebSocket 已连接
+2025-07-23 11:53:15,221 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-23 11:53:15,221 | INFO | [bingx] 📨 已订阅: SOL-USDT@depth20
+2025-07-23 11:53:15,228 | INFO | [bybit] ✅ Bybit WebSocket 已连接 → wss://stream.bybit.com/v5/public/linear
+2025-07-23 11:53:15,228 | INFO | [bybit] WebSocket 已连接
+2025-07-23 11:53:15,228 | INFO | [bybit] 📨 已发送订阅: {'op': 'subscribe', 'args': ['tickers.BTCUSDT', 'tickers.ETHUSDT', 'tickers.SOLUSDT', 'tickers.LINKUSDT', 'tickers.ADAUSDT']}
+2025-07-23 11:53:15,272 | INFO | [bingx] 📨 已订阅: XRP-USDT@depth20
+2025-07-23 11:53:15,294 | INFO | [digifinex] ✅ Digifinex WebSocket 已连接 → wss://openapi.digifinex.com/swap_ws/v2/
+2025-07-23 11:53:15,294 | INFO | [digifinex] WebSocket 已连接
+2025-07-23 11:53:15,294 | INFO | [digifinex] 📨 已发送订阅请求: {'event': 'ticker.subscribe', 'id': 1, 'instrument_ids': ['BTCUSDTPERP', 'ETHUSDTPERP']}
+2025-07-23 11:53:15,322 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-23 11:53:15,323 | INFO | [bingx] 📨 已订阅: LTC-USDT@depth20
+2025-07-23 11:53:15,334 | INFO | [digifinex] 🔁 收到 pong
+2025-07-23 11:53:15,362 | INFO | [bitget] ✅ Bitget WebSocket 已连接 → wss://ws.bitget.com/v2/ws/public
+2025-07-23 11:53:15,362 | INFO | [bitget] WebSocket 已连接
+2025-07-23 11:53:15,363 | INFO | [bitget] 📨 已发送订阅请求: {'op': 'subscribe', 'args': [{'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'BTCUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'ETHUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'SOLUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'XRPUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'LTCUSDT'}]}
+2025-07-23 11:53:15,423 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-23 11:53:15,435 | INFO | [binance] ✅ Binance WebSocket 已连接 → wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/ethusdt@ticker/solusdt@ticker/bnbusdt@ticker/adausdt@ticker
+2025-07-23 11:53:15,435 | INFO | [binance] WebSocket 已连接
+2025-07-23 11:53:15,435 | INFO | [binance] 📡 Binance 使用组合流，不需要发送订阅消息。
+2025-07-23 11:53:15,478 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-23 11:53:15,478 | INFO | [blofin] WebSocket 已连接
+2025-07-23 11:53:15,478 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-23 11:53:15,487 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-23 11:53:15,487 | INFO | [bitmart] WebSocket 已连接
+2025-07-23 11:53:15,488 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-23 11:53:15,524 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-23 11:53:15,551 | INFO | [ascendex] ✅ AscendEX WebSocket 已连接 → wss://ascendex.com/1/api/pro/v2/stream
+2025-07-23 11:53:15,551 | INFO | [ascendex] WebSocket 已连接
+2025-07-23 11:53:15,551 | INFO | [ascendex] 📨 已订阅: BTC-PERP
+2025-07-23 11:53:15,580 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-23 11:53:15,624 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-23 11:53:15,652 | INFO | [ascendex] 📨 已订阅: ETH-PERP
+2025-07-23 11:53:15,661 | INFO | [cryptocom] ✅ Crypto.com WebSocket 已连接 → wss://stream.crypto.com/exchange/v1/market
+2025-07-23 11:53:15,661 | INFO | [cryptocom] WebSocket 已连接
+2025-07-23 11:53:15,661 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 1, 'method': 'subscribe', 'params': {'channels': ['ticker.BTC_USDT']}}
+2025-07-23 11:53:15,682 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-23 11:53:15,691 | INFO | [bitmex] ✅ BitMEX WebSocket 已连接 → wss://ws.bitmex.com/realtime
+2025-07-23 11:53:15,691 | INFO | [bitmex] WebSocket 已连接
+2025-07-23 11:53:15,691 | INFO | [bitmex] 📨 已发送订阅请求: {'op': 'subscribe', 'args': ['quote:XBTUSD', 'quote:ETHUSD', 'quote:SOLUSD', 'quote:XRPUSD', 'quote:LTCUSD']}
+2025-07-23 11:53:15,753 | INFO | [ascendex] 📨 已订阅: SOL-PERP
+2025-07-23 11:53:15,762 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 2, 'method': 'subscribe', 'params': {'channels': ['ticker.ETH_USDT']}}
+2025-07-23 11:53:15,783 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-23 11:53:15,854 | INFO | [ascendex] 📨 已订阅: XRP-PERP
+2025-07-23 11:53:15,863 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 3, 'method': 'subscribe', 'params': {'channels': ['ticker.SOL_USDT']}}
+2025-07-23 11:53:15,884 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT
+2025-07-23 11:53:15,955 | INFO | [ascendex] 📨 已订阅: LTC-PERP
+2025-07-23 11:53:15,965 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 4, 'method': 'subscribe', 'params': {'channels': ['ticker.XRP_USDT']}}
+2025-07-23 11:53:16,066 | INFO | [cryptocom] 📨 已发送订阅请求: {'id': 5, 'method': 'subscribe', 'params': {'channels': ['ticker.LTC_USDT']}}
+2025-07-23 11:53:16,132 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:53:23,678 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:53:36,133 | INFO | [ascendex] 🔁 收到 pong
+2025-07-23 11:53:38,698 | INFO | [ascendex] 🔁 收到 pong

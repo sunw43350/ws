@@ -1,3 +1,0 @@
-2025-07-23 11:33:22,729 | INFO | [bitget] ✅ Bitget WebSocket 已连接 → wss://ws.bitget.com/v2/ws/public
-2025-07-23 11:33:22,730 | INFO | [bitget] WebSocket 已连接
-2025-07-23 11:33:22,732 | INFO | [bitget] 📨 已发送订阅请求: {'op': 'subscribe', 'args': [{'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'BTCUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'ETHUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'SOLUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'XRPUSDT'}, {'instType': 'USDT-FUTURES', 'channel': 'books5', 'instId': 'LTCUSDT'}]}
