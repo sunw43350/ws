@@ -2,8 +2,8 @@ import asyncio
 import datetime
 import os
 from collections import defaultdict
-from data_utils import prune_old_data
-from plot_utils import plot_symbol
+from utils.data_utils import prune_old_data
+from utils.plot_utils import plot_symbol
 
 import shutil
 

@@ -43,8 +43,8 @@ class ExchangeManager:
             # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
             ##### debug
-            # bingx.Connector(exchange="bingx",symbols=["ANIME-USDT"],  queue=queue),  # ✅ 添加 BingX  data index 不同
-            bitrue.Connector(exchange="bitrue",symbols=["ANIME-USDT"],  queue=queue),  # 
+            bingx.Connector(exchange="bingx",symbols=["ANIME-USDT"],  queue=queue),  # ✅ 添加 BingX  data index 不同
+            # bitrue.Connector(exchange="bitrue",symbols=["ANIME-USDT"],  queue=queue),  # 
 
 
 
