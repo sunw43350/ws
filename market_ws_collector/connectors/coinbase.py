@@ -40,12 +40,12 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Coinbase WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Coinbase WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         msg = self.build_sub_msg()
         await self.ws.send(json.dumps(msg))
-        print(f"📨 已发送订阅请求: {msg}")
+        self.log(f"📨 已发送订阅请求: {msg}")
 
     async def run(self):
         while True:
@@ -101,5 +101,5 @@ class Connector(BaseAsyncConnector):
                                     await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Coinbase 异常: {e}")
+                self.log(f"❌ Coinbase 异常: {e}")
                 await asyncio.sleep(0.5)

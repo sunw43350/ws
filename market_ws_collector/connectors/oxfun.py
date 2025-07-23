@@ -44,13 +44,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ OX.FUN WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ OX.FUN WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for req in self.subscriptions:
             msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅: depth → {req.symbol}")
+            self.log(f"📨 已订阅: depth → {req.symbol}")
             await asyncio.sleep(0.5)
 
     async def run(self):
@@ -94,5 +94,5 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ OX.FUN 异常: {e}")
+                self.log(f"❌ OX.FUN 异常: {e}")
                 await asyncio.sleep(0.5)

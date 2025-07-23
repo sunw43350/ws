@@ -41,13 +41,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Bitrue WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Bitrue WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for req in self.subscriptions:
             sub_msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(sub_msg))
-            print(f"📨 已订阅: market_{req.symbol}_depth_step0")
+            self.log(f"📨 已订阅: market_{req.symbol}_depth_step0")
             await asyncio.sleep(0.1)
 
     async def run(self):
@@ -75,7 +75,7 @@ class Connector(BaseAsyncConnector):
                         symbol = channel.replace("market_", "").replace("_depth_step0", "")
                         raw_symbol = self.symbol_map.get(symbol, symbol)
 
-                        # print(data)
+                        # self.log(data)
                         bids = data["tick"].get("buys", [])
                         asks = data["tick"].get("asks", [])
 
@@ -97,11 +97,11 @@ class Connector(BaseAsyncConnector):
                         if self.queue:
                             await self.queue.put(snapshot)
                             # 可选打印
-                            # print(self.format_snapshot(snapshot))
+                            # self.log(self.format_snapshot(snapshot))
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 Bitrue 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 Bitrue 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.5)
             except Exception as e:
-                print(f"❌ Bitrue 异常: {e}")
+                self.log(f"❌ Bitrue 异常: {e}")
                 await asyncio.sleep(0.5)

@@ -42,11 +42,11 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url, ping_interval=None)
-        print(f"✅ Kraken Futures WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Kraken Futures WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         await self.ws.send(json.dumps(self.build_sub_msg()))
-        print(f"📨 Kraken Futures 已订阅: {[req.symbol for req in self.subscriptions]}")
+        self.log(f"📨 Kraken Futures 已订阅: {[req.symbol for req in self.subscriptions]}")
 
     async def send_heartbeat(self):
         while True:
@@ -94,8 +94,8 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 Kraken Futures 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 Kraken Futures 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.1)
             except Exception as e:
-                print(f"❌ Kraken Futures 异常: {e}")
+                self.log(f"❌ Kraken Futures 异常: {e}")
                 await asyncio.sleep(0.1)

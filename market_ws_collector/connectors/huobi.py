@@ -40,13 +40,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Huobi WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Huobi WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for req in self.subscriptions:
             msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅: market.{req.symbol}.ticker")
+            self.log(f"📨 已订阅: market.{req.symbol}.ticker")
             await asyncio.sleep(0.1)
 
     async def run(self):
@@ -101,5 +101,5 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Huobi 异常: {e}")
+                self.log(f"❌ Huobi 异常: {e}")
                 await asyncio.sleep(0.1)

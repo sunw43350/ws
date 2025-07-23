@@ -29,20 +29,20 @@ class Connector(BaseAsyncConnector):
         return generic_symbol.lower().replace("-", "")
     
     async def subscribe(self):
-        print(f"📡 Binance Connector 使用组合流，不发送订阅消息。")
+        self.log(f"📡 Binance Connector 使用组合流，不发送订阅消息。")
 
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Binance WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Binance WebSocket 已连接 → {self.ws_url}")
 
     async def run(self):
         while True:
             try:
                 await self.connect()
-                print("✅  已订阅 Binance ticker 合约:")
+                self.log("✅  已订阅 Binance ticker 合约:")
                 for sym in self.formatted_symbols:
-                    print(f"✅  {sym} @ticker")
+                    self.log(f"✅  {sym} @ticker")
 
                 while True:
                     raw = await self.ws.recv()

@@ -42,13 +42,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Crypto.com WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Crypto.com WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for i, req in enumerate(self.subscriptions):
             msg = self.build_sub_msg(req.symbol, i + 1)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅 ticker.{req.symbol}")
+            self.log(f"📨 已订阅 ticker.{req.symbol}")
             await asyncio.sleep(0.1)
 
     async def run(self):
@@ -64,7 +64,7 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    # print(f"📩 收到消息: {data} ")
+                    # self.log(f"📩 收到消息: {data} ")
                     if data.get("method") == "subscribe" and "result" in data:
                         result = data["result"]
                         raw_symbol = result.get("instrument_name")
@@ -94,5 +94,5 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Crypto.com 异常: {e}")
+                self.log(f"❌ Crypto.com 异常: {e}")
                 await asyncio.sleep(0.5)

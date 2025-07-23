@@ -39,13 +39,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ BingX WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ BingX WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for i, req in enumerate(self.subscriptions):
             sub_msg = self.build_sub_msg(req, i)
             await self.ws.send(json.dumps(sub_msg))
-            print(f"📨 已订阅: {sub_msg['dataType']}")
+            self.log(f"📨 已订阅: {sub_msg['dataType']}")
             await asyncio.sleep(0.1)
 
     async def run(self):
@@ -60,7 +60,7 @@ class Connector(BaseAsyncConnector):
                     decompressed = gzip.decompress(raw).decode("utf-8")
                     data = json.loads(decompressed)
 
-                    # print(data)
+                    # self.log(data)
 
 
                     if "data" in data and "bids" in data["data"] and "asks" in data["data"]:

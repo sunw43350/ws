@@ -49,13 +49,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Digifinex WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Digifinex WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         msg = self.build_sub_msg()
         await self.ws.send(json.dumps(msg))
         await self.ws.send(json.dumps({"id": 99, "event": "server.ping"}))
-        print(f"📨 已发送订阅: {msg}")
+        self.log(f"📨 已发送订阅: {msg}")
         await asyncio.sleep(0.2)
 
     async def run(self):
@@ -103,5 +103,5 @@ class Connector(BaseAsyncConnector):
 
 
             except Exception as e:
-                print(f"❌ Digifinex 异常: {e}")
+                self.log(f"❌ Digifinex 异常: {e}")
                 await asyncio.sleep(0.5)

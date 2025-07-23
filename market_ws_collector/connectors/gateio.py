@@ -41,13 +41,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Gate.io WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Gate.io WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for req in self.subscriptions:
             msg = self.build_sub_msg(req.symbol)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅: futures.book_ticker → {req.symbol}")
+            self.log(f"📨 已订阅: futures.book_ticker → {req.symbol}")
             await asyncio.sleep(0.1)
 
     async def run(self):
@@ -63,7 +63,7 @@ class Connector(BaseAsyncConnector):
                     except:
                         continue
 
-                    # print(f"📥 Gate.io 推送: {data}")
+                    # self.log(f"📥 Gate.io 推送: {data}")
 
                     if data.get("channel") == "futures.book_ticker" and data.get("event") == "update":
                         tick = data.get("result", {})
@@ -92,5 +92,5 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Gate.io 异常: {e}")
+                self.log(f"❌ Gate.io 异常: {e}")
                 await asyncio.sleep(0.5)

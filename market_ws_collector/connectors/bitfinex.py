@@ -27,7 +27,7 @@ class Connector(BaseAsyncConnector):
             async with session.get(url) as resp:
                 data = await resp.json()
                 self.valid_contracts = set(data[0]) if isinstance(data, list) else set()
-                print(f"✅ 拉取 Bitfinex 支持合约成功: {len(self.valid_contracts)} 条")
+                self.log(f"✅ 拉取 Bitfinex 支持合约成功: {len(self.valid_contracts)} 条")
 
     def format_symbol(self, generic_symbol: str) -> str:
         base = generic_symbol.upper().split("-")[0]
@@ -40,9 +40,9 @@ class Connector(BaseAsyncConnector):
             if formatted in self.valid_contracts:
                 self.subscriptions.append(SubscriptionRequest(symbol=formatted, channel="ticker"))
                 self.symbol_map[formatted] = sym
-                print(f"✅ 合约有效: {formatted}")
+                self.log(f"✅ 合约有效: {formatted}")
             else:
-                print(f"⚠️ 跳过无效合约: {formatted}")
+                self.log(f"⚠️ 跳过无效合约: {formatted}")
 
     def build_sub_msg(self, request: SubscriptionRequest) -> dict:
         return {
@@ -53,13 +53,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Bitfinex WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Bitfinex WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for req in self.subscriptions:
             msg = self.build_sub_msg(req)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅: {req.symbol}")
+            self.log(f"📨 已订阅: {req.symbol}")
             await asyncio.sleep(0.3)
 
     async def run(self):
@@ -113,8 +113,8 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 Bitfinex 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 Bitfinex 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.5)
             except Exception as e:
-                print(f"❌ Bitfinex 异常: {e}")
+                self.log(f"❌ Bitfinex 异常: {e}")
                 await asyncio.sleep(0.5)

@@ -38,12 +38,12 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ BitMEX WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ BitMEX WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         msg = self.build_sub_msg()
         await self.ws.send(json.dumps(msg))
-        print(f"📨 已发送订阅请求: {msg}")
+        self.log(f"📨 已发送订阅请求: {msg}")
 
     async def run(self):
         while True:
@@ -85,11 +85,11 @@ class Connector(BaseAsyncConnector):
                             if self.queue:
                                 await self.queue.put(snapshot)
                                 # 可选打印日志
-                                # print(self.format_snapshot(snapshot))
+                                # self.log(self.format_snapshot(snapshot))
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 BitMEX 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 BitMEX 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.5)
             except Exception as e:
-                print(f"❌ BitMEX 异常: {e}")
+                self.log(f"❌ BitMEX 异常: {e}")
                 await asyncio.sleep(0.5)

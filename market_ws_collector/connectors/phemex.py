@@ -43,13 +43,13 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ Phemex WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ Phemex WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         for i, req in enumerate(self.subscriptions):
             msg = self.build_sub_msg(req.symbol, i + 1)
             await self.ws.send(json.dumps(msg))
-            print(f"📨 已订阅: orderbook.subscribe → {req.symbol}")
+            self.log(f"📨 已订阅: orderbook.subscribe → {req.symbol}")
             await asyncio.sleep(0.2)
 
     async def run(self):
@@ -100,5 +100,5 @@ class Connector(BaseAsyncConnector):
                         await self.queue.put(snapshot)
 
             except Exception as e:
-                print(f"❌ Phemex 异常: {e}")
+                self.log(f"❌ Phemex 异常: {e}")
                 await asyncio.sleep(0.5)

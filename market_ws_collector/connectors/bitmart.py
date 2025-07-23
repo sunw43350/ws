@@ -38,12 +38,12 @@ class Connector(BaseAsyncConnector):
 
     async def connect(self):
         self.ws = await websockets.connect(self.ws_url)
-        print(f"✅ BitMart WebSocket 已连接 → {self.ws_url}")
+        self.log(f"✅ BitMart WebSocket 已连接 → {self.ws_url}")
 
     async def subscribe(self):
         sub_msg = self.build_sub_msg()
         await self.ws.send(json.dumps(sub_msg))
-        print(f"📨 已发送订阅请求: {sub_msg}")
+        self.log(f"📨 已发送订阅请求: {sub_msg}")
 
     async def run(self):
         while True:
@@ -55,7 +55,7 @@ class Connector(BaseAsyncConnector):
                     raw = await self.ws.recv()
                     data = json.loads(raw)
 
-                    # print(data)
+                    # self.log(data)
                     if isinstance(data, dict) and "data" in data and "symbol" in data["data"]:
                         item = data["data"]
                         symbol = item.get("symbol")
@@ -85,8 +85,8 @@ class Connector(BaseAsyncConnector):
 
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 BitMart 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 BitMart 正常断开: {e}，尝试重连...")
                 await asyncio.sleep(0.5)
             except Exception as e:
-                print(f"❌ BitMart 异常: {e}")
+                self.log(f"❌ BitMart 异常: {e}")
                 await asyncio.sleep(0.5)
