@@ -85,12 +85,10 @@ class Connector(BaseAsyncConnector):
                             await self.queue.put(snapshot)
 
             except websockets.exceptions.ConnectionClosedOK as e:
-                print(f"🔁 AscendEX 正常断开: {e}，尝试重连...")
-                self.log(f"🔁 正常断开: {e}，尝试重连...")
+                self.log(f"🔁 AscendEX 正常断开: {e}，尝试重连...")
 
                 await asyncio.sleep(0.1)
             except Exception as e:
-                print(f"❌ AscendEX 异常: {e}")
-                self.log(f"❌ 异常: {e}")
+                self.log(f"❌ AscendEX 异常: {e}")
 
                 await asyncio.sleep(0.1)
