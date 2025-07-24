@@ -30,6 +30,8 @@ def clean_log_dir(log_dir: str = "./log"):
             print(f"🗑️ 已删除文件：{filepath}")
 
 clean_log_dir(log_dir)
+clean_log_dir("snapshots")  # 清理 snapshots 目录
+
 
 class BaseAsyncConnector(ABC):
     def __init__(
