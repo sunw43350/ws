@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "hdg.live-solarized",       // Solarized 主题（官方推荐）
+    "ms-python.python",         // Python 支持
+    "ms-toolsai.jupyter",       // Jupyter Notebook
+    "esbenp.prettier-vscode"    // Prettier 格式化器（可选）
+  ]
+}

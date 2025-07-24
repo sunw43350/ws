@@ -13,7 +13,6 @@ class Connector(BaseAsyncConnector):
             exchange,
             ping_interval=20,
             ping_payload=None,     # 每 20 秒发一次 "ping"
-            pong_keywords=[]         # 不处理返回 pong（LBank 没响应也没关系）
         )
 
         self.queue = queue
@@ -55,6 +54,7 @@ class Connector(BaseAsyncConnector):
             await asyncio.sleep(0.1)
 
     async def handle_message(self, data):
+        # ping { "action":"ping", "ping":"0ca8f854-7ba7-4341-9d86-d3327e52804e" }
         if "ping" in data:  #  {'ping': '1753282382760', 'action': 'ping'}
             pong_msg = {
                 "action": "pong",

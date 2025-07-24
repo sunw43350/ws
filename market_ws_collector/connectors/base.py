@@ -4,10 +4,13 @@ import json
 import gzip
 import zlib
 import logging
-import websockets
+
 from abc import ABC, abstractmethod
 
-log_filename = f"log/log_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+# log_filename = f"log/log_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+log_prefix = f"log/log"
+log_dt = f"{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
 
 import os
 
@@ -36,7 +39,7 @@ class BaseAsyncConnector(ABC):
         ping_interval: int = 20,
         ping_payload=None,        # dict / str / bytes
         pong_keywords=None,
-        log_filename=log_filename,
+        log_filename=None,
         max_retries: int = 10
     ):
         self.exchange_name = exchange
@@ -54,6 +57,8 @@ class BaseAsyncConnector(ABC):
         self.logger = logging.getLogger(exchange)
         self.logger.setLevel(logging.DEBUG)
         formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
+
+        log_filename = f"{log_prefix}_{exchange}_{log_dt}.txt"
 
         if log_filename:
             fh = logging.FileHandler(log_filename)

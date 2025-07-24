@@ -13,9 +13,7 @@ class Connector(BaseAsyncConnector):
         super().__init__(
             exchange=exchange,
             compression="gzip",
-            ping_interval=20,
-            ping_payload={"event": "ping"},
-            pong_keywords=["pong"]
+            ping_payload=None,
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
@@ -55,6 +53,14 @@ class Connector(BaseAsyncConnector):
             await asyncio.sleep(0.1)
 
     async def handle_message(self, data):
+        if "ping" in data:
+            self.log(data, level="DEBUG")
+            pong_msg = {"pong": data["ping"]}
+            await self.ws.send(json.dumps(pong_msg))
+            
+            self.log(f"🔁 收到 ping → 已发送 pong: {pong_msg}")
+            return
+        
         if "channel" in data and "tick" in data:
             channel = data["channel"]
             symbol = channel.replace("market_", "").replace("_depth_step0", "")
@@ -80,5 +86,7 @@ class Connector(BaseAsyncConnector):
 
             if self.queue:
                 await self.queue.put(snapshot)
+        else:
+            self.log(f"未知消息格式: {data}", level="DEBUG")
 
     # run由基类统一管理，不再重写

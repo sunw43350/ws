@@ -12,7 +12,7 @@ class Connector(BaseAsyncConnector):
         super().__init__(
             exchange=exchange,
             ping_interval=0,   # 或 None，表示不主动发 ping
-            ping_payload=None,
+            ping_payload="ping",
             pong_keywords=["pong"]
         )
         self.queue = queue
