@@ -15,8 +15,11 @@ class Connector(BaseAsyncConnector):
         super().__init__(
             exchange=exchange,
             compression=None,  # 明确无压缩
-            ping_interval=30,  # Kraken Futures 使用 ping/pong 机制
-            ping_payload={"channel": "heartbeat"},  # 发送的 ping 消息内容
+            ping_interval=10,  # Kraken Futures 使用 ping/pong 机制
+            ping_payload={
+            "event": "subscribe",
+            "feed": "heartbeat"
+            },  # 发送的 ping 消息内容
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)

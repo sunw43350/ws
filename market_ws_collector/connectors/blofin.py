@@ -11,7 +11,7 @@ class Connector(BaseAsyncConnector):
     def __init__(self, exchange="blofin", symbols=None, ws_url=None, queue=None):
         super().__init__(
             exchange=exchange,
-            ping_interval=0,   # 或 None，表示不主动发 ping
+            ping_interval=10,   # 或 None，表示不主动发 ping
             ping_payload="ping",
             pong_keywords=["pong"]
         )

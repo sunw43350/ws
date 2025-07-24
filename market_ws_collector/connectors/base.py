@@ -29,7 +29,7 @@ def clean_log_dir(log_dir: str = "./log"):
             os.remove(filepath)
             print(f"🗑️ 已删除文件：{filepath}")
 
-# clean_log_dir(log_dir)
+clean_log_dir(log_dir)
 
 class BaseAsyncConnector(ABC):
     def __init__(
@@ -111,7 +111,8 @@ class BaseAsyncConnector(ABC):
                     await self.handle_message(data)
                     
                 except Exception as e:
-                    self.log(f"消息解析失败: {e}", level="WARNING")
+                    self.log(f"消息解析失败: {e} | raw: {raw}", level="WARNING")
+                    
         except Exception as e:
             self.log(f"接收循环异常: {e}", level="ERROR")
             raise
