@@ -1,0 +1,22 @@
+exchange,status,count,note
+ascendex,ok,119,
+binance,ok,535,
+bingx,ok,514,
+bitfinex,ok,294,
+bitget,fail,0,no response
+bitmart,fail,0,no response
+bitmex,ok,175,
+bitrue,fail,0,no response
+blofin,fail,0,no response
+bybit,ok,500,
+coinbase,ok,705,
+cryptocom,fail,0,no response
+digifinex,ok,0,
+gateio,fail,0,no response
+huobi,ok,8,
+krakenfutures,ok,371,
+lbank,fail,0,no response
+mexc,ok,786,
+okx,ok,267,
+oxfun,fail,0,no response
+phemex,fail,0,no response
