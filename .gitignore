@@ -12,7 +12,7 @@ __pycache__/
 # *.jpg
 # *.jpeg
 
-*log_*.txt
+*/log_*.txt
 
 
 # C extensions
