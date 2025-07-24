@@ -1,0 +1,27 @@
+{
+  // 设置浅色主题
+  "workbench.colorTheme": "Solarized Light",
+
+  // 字体配置
+  "editor.fontSize": 16,
+  "editor.lineHeight": 26,
+  "editor.tabSize": 4,
+  "editor.renderWhitespace": "all",
+
+  // 自动保存
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  // 资源管理器缩进
+  "workbench.tree.indent": 36,
+  "workbench.tree.renderIndentGuides": "always",
+
+  // UI 缩放（适配高分屏）
+  "window.zoomLevel": 1.2,
+
+  // 终端字体更清晰
+  "terminal.integrated.fontSize": 14,
+
+  // 美化光标行为
+  "editor.cursorBlinking": "smooth"
+}
