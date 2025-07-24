@@ -2,6 +2,7 @@ import asyncio
 import json
 import time
 import websockets
+import re
 
 from config import DEFAULT_SYMBOLS, WS_ENDPOINTS
 from models.base import SubscriptionRequest, MarketSnapshot
@@ -26,7 +27,9 @@ class Connector(BaseAsyncConnector):
         }
 
     def format_symbol(self, generic_symbol: str) -> str:
-        return generic_symbol.upper()  # BitMEX uses uppercase, e.g., XBTUSDT
+        symbol = generic_symbol.replace("-", "").upper()
+        symbol = re.sub(r"USDT$", "USD", symbol)
+        return symbol
 
     def build_sub_msg(self) -> dict:
         args = [f"quote:{req.symbol}" for req in self.subscriptions]
