@@ -1242,3 +1242,86 @@
 2025-07-24 03:22:46,298 | DEBUG | [huobi] {'ping': 1753327366272}
 2025-07-24 03:22:46,298 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327366272}
 2025-07-24 03:22:47,447 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:22:49,426 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:22:49,428 | INFO | [mexc] 🔁 发送心跳: {"method": "ping"}
+2025-07-24 03:22:49,450 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327369, 'channel': 'futures.ping'}
+2025-07-24 03:22:49,450 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:22:49,499 | INFO | [mexc] 🔁 收到 pong 心跳回复
+2025-07-24 03:22:49,524 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327369, 'time_ms': 1753327369494, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:22:49,539 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-24 03:22:50,497 | INFO | [ascendex] 🔁 发送心跳: {"op": "ping"}
+2025-07-24 03:22:50,581 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:22:51,351 | DEBUG | [huobi] {'ping': 1753327371325}
+2025-07-24 03:22:51,351 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327371325}
+2025-07-24 03:22:53,038 | INFO | [lbank] 🔁 收到 ping，回复 pong: {'action': 'pong', 'pong': '1753327372859'}
+2025-07-24 03:22:54,420 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:22:55,448 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:22:55,737 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:22:56,431 | DEBUG | [huobi] {'ping': 1753327376403}
+2025-07-24 03:22:56,431 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327376403}
+2025-07-24 03:22:59,422 | INFO | [krakenfutures] 🔁 发送心跳: {"channel": "heartbeat"}
+2025-07-24 03:22:59,422 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-24 03:22:59,451 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327379, 'channel': 'futures.ping'}
+2025-07-24 03:22:59,451 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:22:59,521 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327379, 'time_ms': 1753327379495, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:22:59,524 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-24 03:22:59,589 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'alert', 'message': 'Bad websocket message'}
+2025-07-24 03:23:01,504 | DEBUG | [huobi] {'ping': 1753327381476}
+2025-07-24 03:23:01,505 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327381476}
+2025-07-24 03:23:03,449 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:23:04,607 | INFO | [cryptocom] 🔁 收到 heartbeat, {'id': 1753327384575, 'method': 'public/heartbeat', 'code': 0}
+2025-07-24 03:23:04,607 | INFO | [cryptocom] 🔁 回复 heartbeat id=1753327384575
+2025-07-24 03:23:06,571 | DEBUG | [huobi] {'ping': 1753327386543}
+2025-07-24 03:23:06,571 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327386543}
+2025-07-24 03:23:09,427 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:23:09,429 | INFO | [mexc] 🔁 发送心跳: {"method": "ping"}
+2025-07-24 03:23:09,441 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:09,451 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327389, 'channel': 'futures.ping'}
+2025-07-24 03:23:09,452 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:23:09,500 | INFO | [mexc] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:09,522 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327389, 'time_ms': 1753327389496, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:23:09,531 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-24 03:23:10,498 | INFO | [ascendex] 🔁 发送心跳: {"op": "ping"}
+2025-07-24 03:23:10,580 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:11,450 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:23:11,665 | DEBUG | [huobi] {'ping': 1753327391637}
+2025-07-24 03:23:11,666 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327391637}
+2025-07-24 03:23:15,739 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:23:16,700 | DEBUG | [huobi] {'ping': 1753327396671}
+2025-07-24 03:23:16,700 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327396671}
+2025-07-24 03:23:19,451 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:23:19,452 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327399, 'channel': 'futures.ping'}
+2025-07-24 03:23:19,453 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:23:19,523 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327399, 'time_ms': 1753327399497, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:23:19,525 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-24 03:23:21,795 | DEBUG | [huobi] {'ping': 1753327401766}
+2025-07-24 03:23:21,795 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327401766}
+2025-07-24 03:23:24,460 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:26,902 | DEBUG | [huobi] {'ping': 1753327406873}
+2025-07-24 03:23:26,902 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327406873}
+2025-07-24 03:23:27,452 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:23:29,423 | INFO | [krakenfutures] 🔁 发送心跳: {"channel": "heartbeat"}
+2025-07-24 03:23:29,423 | INFO | [digifinex] 🔁 发送心跳: {"id": 999, "event": "server.ping"}
+2025-07-24 03:23:29,428 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:23:29,430 | INFO | [mexc] 🔁 发送心跳: {"method": "ping"}
+2025-07-24 03:23:29,453 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327409, 'channel': 'futures.ping'}
+2025-07-24 03:23:29,454 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:23:29,498 | INFO | [mexc] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:29,523 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327409, 'time_ms': 1753327409498, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:23:29,526 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)
+2025-07-24 03:23:29,592 | DEBUG | [krakenfutures] ❗️ 未处理的消息: {'event': 'alert', 'message': 'Bad websocket message'}
+2025-07-24 03:23:30,499 | INFO | [ascendex] 🔁 发送心跳: {"op": "ping"}
+2025-07-24 03:23:30,582 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:32,893 | DEBUG | [huobi] {'ping': 1753327412865}
+2025-07-24 03:23:32,894 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327412865}
+2025-07-24 03:23:34,605 | INFO | [cryptocom] 🔁 收到 heartbeat, {'id': 1753327414575, 'method': 'public/heartbeat', 'code': 0}
+2025-07-24 03:23:34,605 | INFO | [cryptocom] 🔁 回复 heartbeat id=1753327414575
+2025-07-24 03:23:35,453 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 03:23:35,739 | INFO | [bitrue] 🔁 发送心跳: {"event": "ping"}
+2025-07-24 03:23:38,315 | DEBUG | [huobi] {'ping': 1753327418287}
+2025-07-24 03:23:38,316 | INFO | [huobi] 🔁 收到 ping → 已发送 pong: {'pong': 1753327418287}
+2025-07-24 03:23:39,454 | INFO | [gateio] Sent Gate.io ping: {'time': 1753327419, 'channel': 'futures.ping'}
+2025-07-24 03:23:39,454 | INFO | [bitget] 🔁 发送心跳: ping
+2025-07-24 03:23:39,480 | INFO | [ascendex] 🔁 收到 pong 心跳回复
+2025-07-24 03:23:39,525 | DEBUG | [gateio] ❗️ 未处理的消息: {'time': 1753327419, 'time_ms': 1753327419499, 'conn_id': '8d8e63b9be4452a6', 'channel': 'futures.pong', 'event': '', 'result': None}
+2025-07-24 03:23:39,527 | WARNING | [bitget] 消息解析失败: Expecting value: line 1 column 1 (char 0)

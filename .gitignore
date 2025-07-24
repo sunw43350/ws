@@ -12,6 +12,8 @@ __pycache__/
 # *.jpg
 # *.jpeg
 
+*log_*.txt
+
 
 # C extensions
 *.so
