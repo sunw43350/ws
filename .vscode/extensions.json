@@ -2,5 +2,7 @@
   "recommendations": [
     "hdg.live-solarized",       // Solarized 主题（官方推荐）
     "ms-python.python",         // Python 支持
+    "ms-toolsai.jupyter",       // Jupyter 支持
+    "ms-toolsai.vscode-jupyter",// Jupyter Notebook 支持
   ]
 }

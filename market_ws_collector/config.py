@@ -43,7 +43,9 @@ WS_ENDPOINTS = {
     "digifinex":     "wss://openapi.digifinex.com/swap_ws/v2/",
     "gateio":        "wss://fx-ws.gateio.ws/v4/ws/usdt",
     "huobi":         "wss://api.huobi.pro/ws",
-    "lbank":         "wss://www.lbkex.net/ws/V2/",
+    # "lbank":         "wss://www.lbkex.net/ws/V2/",  
+    "lbank":         "wss://ccws.rerrkvifj.com/ws/V3/",  # from page: lbank.com/trade/BTC_USDT
+    
     "mexc":          "wss://contract.mexc.com/edge",
     "okx":           "wss://ws.okx.com:8443/ws/v5/public",
     "oxfun":         "wss://api.ox.fun/v2/websocket",

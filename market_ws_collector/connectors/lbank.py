@@ -1,4 +1,5 @@
 import asyncio
+import datetime
 import json
 import time
 import websockets
@@ -57,11 +58,18 @@ class Connector(BaseAsyncConnector):
         # ping { "action":"ping", "ping":"0ca8f854-7ba7-4341-9d86-d3327e52804e" }
         if "ping" in data:  #  {'ping': '1753282382760', 'action': 'ping'}
             pong_msg = {
-                "action": "pong",
-                "pong": data["ping"]
+                "pong": data["ping"],
+                "action": "pong"
             }
             await self.ws.send(json.dumps(pong_msg))
-            self.log(f"🔁 收到 ping，回复 pong: {pong_msg}")
+            self.log(f"🔁 收到 ping: {data}，回复 pong: {pong_msg}")
+
+            ping_msg = {
+                "ping": f"{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}",
+                "action": "ping"
+            }
+            await self.ws.send(json.dumps(ping_msg))
+            self.log(f"🔁 主动发送心跳: {ping_msg}")
             return
     
         if "depth" in data and "pair" in data:

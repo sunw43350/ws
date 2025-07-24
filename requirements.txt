@@ -1,2 +1,14 @@
 websockets
 
+# Jupyter Notebook 支持
+jupyter
+ipykernel
+notebook
+
+# 如果你需要更好的交互体验（可选）
+matplotlib
+pandas
+numpy
+plotly
+
+

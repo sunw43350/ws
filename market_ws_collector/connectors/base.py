@@ -9,7 +9,7 @@ from abc import ABC, abstractmethod
 
 # log_filename = f"log/log_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 log_prefix = f"log/log"
-log_dt = f"{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}"
+log_dt = f"{datetime.datetime.now().strftime('%m%d_%H%M%S')}"
 
 
 import os
