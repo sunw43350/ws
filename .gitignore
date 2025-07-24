@@ -7,6 +7,7 @@ __pycache__/
 *.csv
 *log.txt
 ^requirements.txt
+^.devcontainer/
 
 # *.png
 # *.jpg
