@@ -6,7 +6,6 @@
   "editor.fontSize": 16,
   "editor.lineHeight": 26,
   "editor.tabSize": 4,
-  "editor.renderWhitespace": "all",
 
   // 自动保存
   "files.autoSave": "afterDelay",
@@ -22,6 +21,14 @@
   // 终端字体更清晰
   "terminal.integrated.fontSize": 14,
 
+  // "editor.guides.indentation": false,
+  "editor.renderWhitespace": "none",
   // 美化光标行为
-  "editor.cursorBlinking": "smooth"
+  "editor.cursorBlinking": "smooth",
+
+  // "python.defaultInterpreterPath": "/home/codespace/.python/current/bin/python",
+  // "python.analysis.extraPaths": [
+  //   "/usr/local/python/3.12.1/lib/python3.12/site-packages"
+  // ],
+  // "python.languageServer": "Pylance",
 }
