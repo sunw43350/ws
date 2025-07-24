@@ -1,0 +1,164 @@
+2025-07-24 06:13:26,164 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-24 06:13:26,164 | INFO | [bitmart] WebSocket 已连接
+2025-07-24 06:13:26,165 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-24 06:13:26,170 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:13:34,171 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:13:42,172 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:13:50,173 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:13:58,190 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:06,192 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:14,193 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:23,314 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:31,315 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:39,315 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:47,316 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:14:55,325 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:03,326 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:11,327 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:19,327 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:27,328 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:35,329 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:43,330 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:51,330 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:15:59,331 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:07,332 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:15,333 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:23,334 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:31,335 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:39,336 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:16:47,337 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:19:56,965 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-24 06:20:01,167 | WARNING | [bitmart] ⚠️ 心跳发送失败: no close frame received or sent
+2025-07-24 06:20:08,849 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-24 06:20:08,850 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 06:20:15,940 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-24 06:20:15,940 | INFO | [bitmart] WebSocket 已连接
+2025-07-24 06:20:15,940 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-24 06:20:15,957 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:20:23,958 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:20:31,959 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:20:39,961 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:20:47,962 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:20:55,963 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:03,964 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:11,964 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:19,965 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:27,966 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:35,966 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:21:52,159 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:24:48,060 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-24 06:24:49,507 | WARNING | [bitmart] ⚠️ 心跳发送失败: no close frame received or sent
+2025-07-24 06:24:50,853 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-24 06:24:50,854 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 06:24:54,974 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-24 06:24:54,974 | INFO | [bitmart] WebSocket 已连接
+2025-07-24 06:24:54,974 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-24 06:24:54,997 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:02,998 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:10,999 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:19,000 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:27,001 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:35,002 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:43,004 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:51,005 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:25:59,006 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:07,007 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:15,008 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:23,009 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:31,010 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:39,010 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:47,011 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:26:55,012 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:03,013 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:11,014 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:19,016 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:27,018 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:35,020 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:43,020 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:51,021 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:27:59,025 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:07,025 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:15,026 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:23,027 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:31,028 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:39,029 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:47,030 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:28:55,031 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:03,032 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:11,034 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:19,036 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:27,036 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:35,037 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:43,038 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:51,039 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:29:59,040 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:07,041 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:15,042 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:23,043 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:31,044 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:39,045 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:47,045 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:30:55,047 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:03,048 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:11,050 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:19,051 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:27,051 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:35,053 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:43,053 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:51,055 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:31:59,056 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:07,057 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:15,057 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:23,059 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:31,060 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:39,062 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:47,063 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:32:55,064 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:03,065 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:11,066 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:19,067 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:27,068 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:35,070 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:43,071 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:51,071 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:33:59,072 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:07,074 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:15,075 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:23,075 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:31,077 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:39,077 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:47,078 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:34:55,079 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:03,080 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:11,080 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:19,082 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:27,082 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:35,083 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:43,084 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:35:51,085 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 06:55:52,608 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-24 07:11:52,424 | WARNING | [bitmart] ⚠️ 心跳发送失败: no close frame received or sent
+2025-07-24 07:27:52,447 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-24 07:27:52,447 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 07:59:52,080 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 07:59:52,080 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 08:01:52,046 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 08:01:52,046 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 08:01:53,701 | INFO | [bitmart] ✅ BitMart WebSocket 已连接 → wss://openapi-ws-v2.bitmart.com/api?protocol=1.1
+2025-07-24 08:01:53,701 | INFO | [bitmart] WebSocket 已连接
+2025-07-24 08:01:53,701 | INFO | [bitmart] 📨 已发送订阅请求: {'action': 'subscribe', 'args': ['futures/ticker:BTCUSDT', 'futures/ticker:ETHUSDT', 'futures/ticker:SOLUSDT', 'futures/ticker:XRPUSDT', 'futures/ticker:LTCUSDT']}
+2025-07-24 08:01:53,701 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 08:02:52,516 | INFO | [bitmart] 🔁 发送心跳: ping
+2025-07-24 08:48:52,452 | ERROR | [bitmart] 接收循环异常: no close frame received or sent
+2025-07-24 09:00:52,345 | WARNING | [bitmart] ⚠️ 心跳发送失败: no close frame received or sent
+2025-07-24 09:11:52,273 | ERROR | [bitmart] 异常: no close frame received or sent
+2025-07-24 09:11:52,273 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 09:23:52,122 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 09:23:52,122 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 09:25:52,093 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 09:25:52,093 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 09:27:52,111 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 09:27:52,111 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 09:29:52,133 | ERROR | [bitmart] 异常: timed out during opening handshake
+2025-07-24 09:29:52,133 | INFO | [bitmart] WebSocket 已断开
+2025-07-24 09:30:52,125 | ERROR | [bitmart] 超过最大重连次数, 终止

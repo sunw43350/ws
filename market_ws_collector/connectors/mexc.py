@@ -16,7 +16,7 @@ class Connector(BaseAsyncConnector):
             compression=None,                 # MEXC数据不压缩
             ping_interval=20,
             ping_payload={"method": "ping"},
-            pong_keywords=["pong", "ping"],
+            pong_keywords=["pong"],
         )
         self.queue = queue
         self.ws_url = ws_url or WS_ENDPOINTS.get(exchange)
@@ -81,9 +81,5 @@ class Connector(BaseAsyncConnector):
             if self.queue:
                 await self.queue.put(snapshot)
 
-        elif any(k in str(data).lower() for k in self.pong_keywords):
-            self.log("🔁 收到 pong 心跳回复")
-
         else:
-            # 其他消息忽略或打印
-            pass
+            self.log(f"未知消息格式: {data}", level="WARNING")

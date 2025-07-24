@@ -45,40 +45,37 @@ class Connector(BaseAsyncConnector):
         self.log(f"📨 已发送订阅请求: {msg}")
 
     async def handle_message(self, data):
-        # 跳过非行情数据（如欢迎信息、订阅确认）
-        if isinstance(data, dict):
-            if data.get("info") or data.get("success"):
-                return
+        if data.get("table") == "quote" and "data" in data:
+            for item in data["data"]:
+                symbol = item.get("symbol")
+                raw_symbol = self.symbol_map.get(symbol, symbol)
 
-            if data.get("table") == "quote" and "data" in data:
-                for item in data["data"]:
-                    symbol = item.get("symbol")
-                    raw_symbol = self.symbol_map.get(symbol, symbol)
+                try:
+                    bid1 = float(item.get("bidPrice", 0.0))
+                    bid_vol1 = float(item.get("bidSize", 0.0))
+                    ask1 = float(item.get("askPrice", 0.0))
+                    ask_vol1 = float(item.get("askSize", 0.0))
+                except Exception as e:
+                    self.log(f"⚠️ 数据解析失败: {e}", level="WARNING")
+                    continue
 
-                    try:
-                        bid1 = float(item.get("bidPrice", 0.0))
-                        bid_vol1 = float(item.get("bidSize", 0.0))
-                        ask1 = float(item.get("askPrice", 0.0))
-                        ask_vol1 = float(item.get("askSize", 0.0))
-                    except Exception as e:
-                        self.log(f"⚠️ 数据解析失败: {e}", level="WARNING")
-                        continue
+                timestamp = int(time.time() * 1000)
 
-                    timestamp = int(time.time() * 1000)
+                snapshot = MarketSnapshot(
+                    exchange=self.exchange_name,
+                    symbol=symbol,
+                    raw_symbol=raw_symbol,
+                    bid1=bid1,
+                    ask1=ask1,
+                    bid_vol1=bid_vol1,
+                    ask_vol1=ask_vol1,
+                    timestamp=timestamp
+                )
 
-                    snapshot = MarketSnapshot(
-                        exchange=self.exchange_name,
-                        symbol=symbol,
-                        raw_symbol=raw_symbol,
-                        bid1=bid1,
-                        ask1=ask1,
-                        bid_vol1=bid_vol1,
-                        ask_vol1=ask_vol1,
-                        timestamp=timestamp
-                    )
-
-                    if self.queue:
-                        await self.queue.put(snapshot)
+                if self.queue:
+                    await self.queue.put(snapshot)
+        else:
+            self.log(f"未知消息格式: {data}", level="WARNING")
 
     async def run(self):
         await self.run_forever()

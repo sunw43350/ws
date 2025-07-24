@@ -1,0 +1,225 @@
+2025-07-24 06:13:25,609 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-24 06:13:25,609 | INFO | [bitrue] WebSocket 已连接
+2025-07-24 06:13:25,610 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-24 06:13:25,812 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-24 06:13:26,159 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-24 06:13:26,263 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-24 06:13:26,363 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-24 06:13:26,464 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_btcusdt_depth_step0', 'cb_id': 'btcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753337605669}
+2025-07-24 06:13:26,465 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ethusdt_depth_step0', 'cb_id': 'ethusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753337605871}
+2025-07-24 06:13:26,465 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_solusdt_depth_step0', 'cb_id': 'solusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753337606218}
+2025-07-24 06:13:26,465 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_xrpusdt_depth_step0', 'cb_id': 'xrpusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753337606321}
+2025-07-24 06:13:26,467 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ltcusdt_depth_step0', 'cb_id': 'ltcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753337606422}
+2025-07-24 06:13:32,513 | DEBUG | [bitrue] {'ping': 1753337612565}
+2025-07-24 06:13:32,514 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337612565}
+2025-07-24 06:13:47,519 | DEBUG | [bitrue] {'ping': 1753337627565}
+2025-07-24 06:13:47,520 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337627565}
+2025-07-24 06:14:02,513 | DEBUG | [bitrue] {'ping': 1753337642565}
+2025-07-24 06:14:02,513 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337642565}
+2025-07-24 06:14:17,512 | DEBUG | [bitrue] {'ping': 1753337657565}
+2025-07-24 06:14:17,512 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337657565}
+2025-07-24 06:14:32,515 | DEBUG | [bitrue] {'ping': 1753337672566}
+2025-07-24 06:14:32,515 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337672566}
+2025-07-24 06:14:47,511 | DEBUG | [bitrue] {'ping': 1753337687565}
+2025-07-24 06:14:47,511 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337687565}
+2025-07-24 06:15:02,569 | DEBUG | [bitrue] {'ping': 1753337702622}
+2025-07-24 06:15:02,570 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337702622}
+2025-07-24 06:15:17,512 | DEBUG | [bitrue] {'ping': 1753337717566}
+2025-07-24 06:15:17,512 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337717566}
+2025-07-24 06:15:32,511 | DEBUG | [bitrue] {'ping': 1753337732565}
+2025-07-24 06:15:32,512 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337732565}
+2025-07-24 06:15:47,511 | DEBUG | [bitrue] {'ping': 1753337747566}
+2025-07-24 06:15:47,511 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337747566}
+2025-07-24 06:16:02,514 | DEBUG | [bitrue] {'ping': 1753337762567}
+2025-07-24 06:16:02,514 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337762567}
+2025-07-24 06:16:17,513 | DEBUG | [bitrue] {'ping': 1753337777567}
+2025-07-24 06:16:17,514 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337777567}
+2025-07-24 06:16:32,511 | DEBUG | [bitrue] {'ping': 1753337792566}
+2025-07-24 06:16:32,512 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337792566}
+2025-07-24 06:16:47,512 | DEBUG | [bitrue] {'ping': 1753337807566}
+2025-07-24 06:16:47,512 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337807566}
+2025-07-24 06:17:52,483 | DEBUG | [bitrue] {'ping': 1753337822702}
+2025-07-24 06:17:52,483 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337822702}
+2025-07-24 06:19:53,866 | DEBUG | [bitrue] {'ping': 1753337837566}
+2025-07-24 06:19:53,867 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337837566}
+2025-07-24 06:20:00,959 | DEBUG | [bitrue] {'ping': 1753337852565}
+2025-07-24 06:20:00,959 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753337852565}
+2025-07-24 06:20:13,909 | ERROR | [bitrue] 接收循环异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 06:20:14,311 | ERROR | [bitrue] 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 06:20:14,311 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 06:20:17,974 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-24 06:20:17,974 | INFO | [bitrue] WebSocket 已连接
+2025-07-24 06:20:17,975 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-24 06:20:18,531 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-24 06:20:19,113 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-24 06:20:19,515 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-24 06:20:19,617 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-24 06:20:19,719 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_btcusdt_depth_step0', 'cb_id': 'btcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338018035}
+2025-07-24 06:20:19,721 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ethusdt_depth_step0', 'cb_id': 'ethusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338018599}
+2025-07-24 06:20:19,724 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_solusdt_depth_step0', 'cb_id': 'solusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338019173}
+2025-07-24 06:20:19,726 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_xrpusdt_depth_step0', 'cb_id': 'xrpusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338019578}
+2025-07-24 06:20:19,728 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ltcusdt_depth_step0', 'cb_id': 'ltcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338019677}
+2025-07-24 06:20:27,650 | DEBUG | [bitrue] {'ping': 1753338027706}
+2025-07-24 06:20:27,651 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338027706}
+2025-07-24 06:20:42,654 | DEBUG | [bitrue] {'ping': 1753338042705}
+2025-07-24 06:20:42,654 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338042705}
+2025-07-24 06:20:57,650 | DEBUG | [bitrue] {'ping': 1753338057706}
+2025-07-24 06:20:57,650 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338057706}
+2025-07-24 06:21:12,652 | DEBUG | [bitrue] {'ping': 1753338072704}
+2025-07-24 06:21:12,652 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338072704}
+2025-07-24 06:21:27,651 | DEBUG | [bitrue] {'ping': 1753338087705}
+2025-07-24 06:21:27,652 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338087705}
+2025-07-24 06:21:52,151 | DEBUG | [bitrue] {'ping': 1753338102705}
+2025-07-24 06:21:52,152 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338102705}
+2025-07-24 06:24:38,602 | DEBUG | [bitrue] {'ping': 1753338117711}
+2025-07-24 06:24:38,602 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338117711}
+2025-07-24 06:24:48,012 | DEBUG | [bitrue] {'ping': 1753338132704}
+2025-07-24 06:24:48,013 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338132704}
+2025-07-24 06:24:50,857 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-24 06:24:52,585 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-24 06:24:52,585 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 06:24:55,823 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-24 06:24:55,823 | INFO | [bitrue] WebSocket 已连接
+2025-07-24 06:24:55,824 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-24 06:24:56,360 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-24 06:24:56,784 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-24 06:24:57,159 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-24 06:24:57,261 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-24 06:24:57,362 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_btcusdt_depth_step0', 'cb_id': 'btcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338295885}
+2025-07-24 06:24:57,362 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ethusdt_depth_step0', 'cb_id': 'ethusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338296422}
+2025-07-24 06:24:57,363 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_solusdt_depth_step0', 'cb_id': 'solusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338296846}
+2025-07-24 06:24:57,364 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_xrpusdt_depth_step0', 'cb_id': 'xrpusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338297221}
+2025-07-24 06:24:57,364 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ltcusdt_depth_step0', 'cb_id': 'ltcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753338297322}
+2025-07-24 06:25:04,075 | DEBUG | [bitrue] {'ping': 1753338304133}
+2025-07-24 06:25:04,076 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338304133}
+2025-07-24 06:25:19,075 | DEBUG | [bitrue] {'ping': 1753338319132}
+2025-07-24 06:25:19,076 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338319132}
+2025-07-24 06:25:34,073 | DEBUG | [bitrue] {'ping': 1753338334131}
+2025-07-24 06:25:34,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338334131}
+2025-07-24 06:25:49,074 | DEBUG | [bitrue] {'ping': 1753338349132}
+2025-07-24 06:25:49,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338349132}
+2025-07-24 06:26:04,073 | DEBUG | [bitrue] {'ping': 1753338364131}
+2025-07-24 06:26:04,073 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338364131}
+2025-07-24 06:26:19,074 | DEBUG | [bitrue] {'ping': 1753338379130}
+2025-07-24 06:26:19,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338379130}
+2025-07-24 06:26:34,076 | DEBUG | [bitrue] {'ping': 1753338394131}
+2025-07-24 06:26:34,077 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338394131}
+2025-07-24 06:26:49,072 | DEBUG | [bitrue] {'ping': 1753338409130}
+2025-07-24 06:26:49,072 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338409130}
+2025-07-24 06:27:04,077 | DEBUG | [bitrue] {'ping': 1753338424132}
+2025-07-24 06:27:04,077 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338424132}
+2025-07-24 06:27:19,082 | DEBUG | [bitrue] {'ping': 1753338439137}
+2025-07-24 06:27:19,082 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338439137}
+2025-07-24 06:27:34,078 | DEBUG | [bitrue] {'ping': 1753338454132}
+2025-07-24 06:27:34,078 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338454132}
+2025-07-24 06:27:49,075 | DEBUG | [bitrue] {'ping': 1753338469131}
+2025-07-24 06:27:49,075 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338469131}
+2025-07-24 06:28:04,074 | DEBUG | [bitrue] {'ping': 1753338484131}
+2025-07-24 06:28:04,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338484131}
+2025-07-24 06:28:19,078 | DEBUG | [bitrue] {'ping': 1753338499134}
+2025-07-24 06:28:19,079 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338499134}
+2025-07-24 06:28:34,073 | DEBUG | [bitrue] {'ping': 1753338514131}
+2025-07-24 06:28:34,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338514131}
+2025-07-24 06:28:49,072 | DEBUG | [bitrue] {'ping': 1753338529130}
+2025-07-24 06:28:49,072 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338529130}
+2025-07-24 06:29:04,073 | DEBUG | [bitrue] {'ping': 1753338544131}
+2025-07-24 06:29:04,073 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338544131}
+2025-07-24 06:29:19,072 | DEBUG | [bitrue] {'ping': 1753338559131}
+2025-07-24 06:29:19,073 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338559131}
+2025-07-24 06:29:34,069 | DEBUG | [bitrue] {'ping': 1753338574127}
+2025-07-24 06:29:34,069 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338574127}
+2025-07-24 06:29:49,073 | DEBUG | [bitrue] {'ping': 1753338589132}
+2025-07-24 06:29:49,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338589132}
+2025-07-24 06:30:04,071 | DEBUG | [bitrue] {'ping': 1753338604130}
+2025-07-24 06:30:04,072 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338604130}
+2025-07-24 06:30:19,072 | DEBUG | [bitrue] {'ping': 1753338619130}
+2025-07-24 06:30:19,073 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338619130}
+2025-07-24 06:30:34,071 | DEBUG | [bitrue] {'ping': 1753338634130}
+2025-07-24 06:30:34,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338634130}
+2025-07-24 06:30:49,071 | DEBUG | [bitrue] {'ping': 1753338649130}
+2025-07-24 06:30:49,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338649130}
+2025-07-24 06:31:04,072 | DEBUG | [bitrue] {'ping': 1753338664131}
+2025-07-24 06:31:04,073 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338664131}
+2025-07-24 06:31:19,073 | DEBUG | [bitrue] {'ping': 1753338679132}
+2025-07-24 06:31:19,074 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338679132}
+2025-07-24 06:31:34,072 | DEBUG | [bitrue] {'ping': 1753338694130}
+2025-07-24 06:31:34,072 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338694130}
+2025-07-24 06:31:49,071 | DEBUG | [bitrue] {'ping': 1753338709130}
+2025-07-24 06:31:49,072 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338709130}
+2025-07-24 06:32:04,070 | DEBUG | [bitrue] {'ping': 1753338724130}
+2025-07-24 06:32:04,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338724130}
+2025-07-24 06:32:19,070 | DEBUG | [bitrue] {'ping': 1753338739129}
+2025-07-24 06:32:19,070 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338739129}
+2025-07-24 06:32:34,070 | DEBUG | [bitrue] {'ping': 1753338754130}
+2025-07-24 06:32:34,070 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338754130}
+2025-07-24 06:32:49,155 | DEBUG | [bitrue] {'ping': 1753338769215}
+2025-07-24 06:32:49,155 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338769215}
+2025-07-24 06:33:04,070 | DEBUG | [bitrue] {'ping': 1753338784130}
+2025-07-24 06:33:04,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338784130}
+2025-07-24 06:33:19,071 | DEBUG | [bitrue] {'ping': 1753338799130}
+2025-07-24 06:33:19,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338799130}
+2025-07-24 06:33:34,070 | DEBUG | [bitrue] {'ping': 1753338814130}
+2025-07-24 06:33:34,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338814130}
+2025-07-24 06:33:49,069 | DEBUG | [bitrue] {'ping': 1753338829129}
+2025-07-24 06:33:49,069 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338829129}
+2025-07-24 06:34:04,067 | DEBUG | [bitrue] {'ping': 1753338844127}
+2025-07-24 06:34:04,067 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338844127}
+2025-07-24 06:34:19,069 | DEBUG | [bitrue] {'ping': 1753338859129}
+2025-07-24 06:34:19,070 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338859129}
+2025-07-24 06:34:34,069 | DEBUG | [bitrue] {'ping': 1753338874129}
+2025-07-24 06:34:34,069 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338874129}
+2025-07-24 06:34:49,069 | DEBUG | [bitrue] {'ping': 1753338889129}
+2025-07-24 06:34:49,069 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338889129}
+2025-07-24 06:35:04,076 | DEBUG | [bitrue] {'ping': 1753338904132}
+2025-07-24 06:35:04,077 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338904132}
+2025-07-24 06:35:19,069 | DEBUG | [bitrue] {'ping': 1753338919130}
+2025-07-24 06:35:19,070 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338919130}
+2025-07-24 06:35:34,070 | DEBUG | [bitrue] {'ping': 1753338934131}
+2025-07-24 06:35:34,071 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338934131}
+2025-07-24 06:35:49,070 | DEBUG | [bitrue] {'ping': 1753338949130}
+2025-07-24 06:35:49,070 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338949130}
+2025-07-24 06:51:52,171 | DEBUG | [bitrue] {'ping': 1753338964130}
+2025-07-24 06:51:52,171 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338964130}
+2025-07-24 07:11:52,332 | DEBUG | [bitrue] {'ping': 1753338979130}
+2025-07-24 07:11:52,332 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753338979130}
+2025-07-24 07:59:52,050 | ERROR | [bitrue] 接收循环异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 07:59:52,111 | ERROR | [bitrue] 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 07:59:52,111 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 08:01:52,046 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 08:01:52,046 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 08:01:53,402 | INFO | [bitrue] ✅ Bitrue WebSocket 已连接 → wss://ws.bitrue.com/kline-api/ws
+2025-07-24 08:01:53,402 | INFO | [bitrue] WebSocket 已连接
+2025-07-24 08:01:53,402 | INFO | [bitrue] 📨 已订阅: market_btcusdt_depth_step0
+2025-07-24 08:01:53,503 | INFO | [bitrue] 📨 已订阅: market_ethusdt_depth_step0
+2025-07-24 08:01:53,604 | INFO | [bitrue] 📨 已订阅: market_solusdt_depth_step0
+2025-07-24 08:01:53,704 | INFO | [bitrue] 📨 已订阅: market_xrpusdt_depth_step0
+2025-07-24 08:01:53,805 | INFO | [bitrue] 📨 已订阅: market_ltcusdt_depth_step0
+2025-07-24 08:01:53,905 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_btcusdt_depth_step0', 'cb_id': 'btcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753344113492}
+2025-07-24 08:01:53,906 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ethusdt_depth_step0', 'cb_id': 'ethusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753344113593}
+2025-07-24 08:01:53,906 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_solusdt_depth_step0', 'cb_id': 'solusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753344113694}
+2025-07-24 08:01:53,907 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_xrpusdt_depth_step0', 'cb_id': 'xrpusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753344113794}
+2025-07-24 08:01:53,908 | DEBUG | [bitrue] 未知消息格式: {'channel': 'market_ltcusdt_depth_step0', 'cb_id': 'ltcusdt', 'event_rep': 'subed', 'status': 'ok', 'ts': 1753344113895}
+2025-07-24 08:02:52,502 | DEBUG | [bitrue] {'ping': 1753344124130}
+2025-07-24 08:02:52,503 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753344124130}
+2025-07-24 08:10:52,315 | DEBUG | [bitrue] {'ping': 1753344139130}
+2025-07-24 08:10:52,315 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753344139130}
+2025-07-24 08:10:52,324 | DEBUG | [bitrue] {'ping': 1753344154131}
+2025-07-24 08:10:52,325 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753344154131}
+2025-07-24 08:16:52,338 | DEBUG | [bitrue] {'ping': 1753344169129}
+2025-07-24 08:16:52,339 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753344169129}
+2025-07-24 08:34:52,330 | DEBUG | [bitrue] {'ping': 1753344184130}
+2025-07-24 08:34:52,330 | INFO | [bitrue] 🔁 收到 ping → 已发送 pong: {'pong': 1753344184130}
+2025-07-24 09:00:52,344 | ERROR | [bitrue] 接收循环异常: no close frame received or sent
+2025-07-24 09:22:52,088 | ERROR | [bitrue] 异常: no close frame received or sent
+2025-07-24 09:22:52,089 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:24:52,101 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 09:24:52,101 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:26:52,110 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 09:26:52,110 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:28:52,117 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 09:28:52,117 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:30:52,099 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 09:30:52,099 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:32:52,085 | ERROR | [bitrue] 异常: timed out during opening handshake
+2025-07-24 09:32:52,085 | INFO | [bitrue] WebSocket 已断开
+2025-07-24 09:33:52,124 | ERROR | [bitrue] 超过最大重连次数, 终止

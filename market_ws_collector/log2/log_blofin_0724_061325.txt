@@ -1,0 +1,246 @@
+2025-07-24 06:13:26,237 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-24 06:13:26,237 | INFO | [blofin] WebSocket 已连接
+2025-07-24 06:13:26,239 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-24 06:13:26,341 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-24 06:13:26,442 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-24 06:13:26,542 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-24 06:13:26,643 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT
+2025-07-24 06:13:26,745 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:13:26,835 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:13:36,745 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:13:36,831 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:13:46,746 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:13:46,831 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:13:56,748 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:13:56,847 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:06,765 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:06,860 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:16,766 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:16,852 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:26,766 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:26,851 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:36,767 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:36,857 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:46,768 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:46,853 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:14:56,769 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:14:56,872 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:06,770 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:06,854 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:16,771 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:16,856 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:26,771 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:26,868 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:36,772 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:36,858 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:46,773 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:46,861 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:15:56,774 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:15:56,861 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:16:06,775 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:16:06,860 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:16:16,776 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:16:16,874 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:16:26,777 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:16:26,862 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:16:36,778 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:16:36,870 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:16:46,778 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:16:46,863 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:17:52,520 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:19:56,738 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:01,167 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:12,541 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:13,377 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:13,931 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:23,377 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:23,461 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:33,378 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:33,468 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:43,379 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:43,471 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:20:53,380 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:20:53,467 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:21:03,380 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:21:03,466 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:21:13,381 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:21:13,467 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:21:23,383 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:21:23,468 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:21:33,384 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:21:33,470 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:21:52,158 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:24:38,538 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:24:50,857 | ERROR | [blofin] 接收循环异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 06:24:52,135 | WARNING | [blofin] ⚠️ 心跳发送失败: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 06:24:52,585 | ERROR | [blofin] 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-07-24 06:24:52,585 | INFO | [blofin] WebSocket 已断开
+2025-07-24 06:24:56,273 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-24 06:24:56,273 | INFO | [blofin] WebSocket 已连接
+2025-07-24 06:24:56,275 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-24 06:24:56,784 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-24 06:24:57,159 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-24 06:24:57,260 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-24 06:24:57,361 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT
+2025-07-24 06:24:57,605 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:24:57,698 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:07,606 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:07,691 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:17,608 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:17,712 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:27,609 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:27,692 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:37,609 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:37,693 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:47,610 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:47,702 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:25:57,611 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:25:57,694 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:07,612 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:07,694 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:17,613 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:17,696 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:27,614 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:27,700 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:37,615 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:37,698 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:47,616 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:47,706 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:26:57,617 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:26:57,700 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:07,618 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:07,700 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:17,618 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:17,701 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:27,619 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:27,702 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:37,620 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:37,705 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:47,621 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:47,703 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:27:57,622 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:27:57,708 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:07,622 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:07,705 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:17,623 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:17,720 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:27,624 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:27,707 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:37,625 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:37,727 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:47,626 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:47,712 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:28:57,627 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:28:57,711 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:07,628 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:07,715 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:17,630 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:17,713 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:27,632 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:27,716 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:37,632 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:37,715 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:47,634 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:47,719 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:29:57,635 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:29:57,718 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:07,635 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:07,719 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:17,636 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:17,718 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:27,637 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:27,719 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:37,637 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:37,730 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:47,638 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:47,741 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:30:57,639 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:30:57,726 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:07,640 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:07,765 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:17,642 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:17,724 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:27,643 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:27,725 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:37,644 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:37,726 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:47,646 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:47,729 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:31:57,646 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:31:57,731 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:07,648 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:07,731 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:17,649 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:17,731 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:27,650 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:27,732 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:37,652 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:37,734 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:47,653 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:47,742 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:32:57,654 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:32:57,744 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:07,655 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:07,737 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:17,656 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:17,738 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:27,656 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:27,741 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:37,657 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:37,740 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:47,658 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:47,744 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:33:57,659 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:33:57,747 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:07,659 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:07,743 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:17,660 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:17,743 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:27,661 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:27,744 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:37,662 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:37,746 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:47,664 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:47,748 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:34:57,666 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:34:57,795 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:35:07,667 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:35:07,750 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:35:17,668 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:35:17,750 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:35:27,669 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:35:27,751 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:35:37,670 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:35:37,753 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:35:47,671 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:35:47,754 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 06:36:52,619 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 06:55:52,358 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 07:27:52,448 | WARNING | [blofin] ⚠️ 心跳发送失败: received 1000 (OK); then sent 1000 (OK)
+2025-07-24 07:59:52,049 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 07:59:52,049 | INFO | [blofin] WebSocket 已断开
+2025-07-24 08:01:52,049 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 08:01:52,051 | INFO | [blofin] WebSocket 已断开
+2025-07-24 08:01:53,598 | INFO | [blofin] ✅ BloFin WebSocket 已连接 → wss://openapi.blofin.com/ws/public
+2025-07-24 08:01:53,599 | INFO | [blofin] WebSocket 已连接
+2025-07-24 08:01:53,599 | INFO | [blofin] 📨 已订阅: tickers → BTC-USDT
+2025-07-24 08:01:53,699 | INFO | [blofin] 📨 已订阅: tickers → ETH-USDT
+2025-07-24 08:01:53,801 | INFO | [blofin] 📨 已订阅: tickers → SOL-USDT
+2025-07-24 08:01:53,902 | INFO | [blofin] 📨 已订阅: tickers → XRP-USDT
+2025-07-24 08:01:54,003 | INFO | [blofin] 📨 已订阅: tickers → LTC-USDT
+2025-07-24 08:01:54,104 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 08:01:54,186 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 08:02:52,517 | INFO | [blofin] 🔁 发送心跳: ping
+2025-07-24 08:16:52,373 | WARNING | [blofin] 消息解析失败: Expecting value: line 1 column 1 (char 0) | raw: pong
+2025-07-24 08:34:52,380 | WARNING | [blofin] ⚠️ 心跳发送失败: received 1000 (OK); then sent 1000 (OK)
+2025-07-24 09:22:52,090 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 09:22:52,090 | INFO | [blofin] WebSocket 已断开
+2025-07-24 09:24:52,126 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 09:24:52,127 | INFO | [blofin] WebSocket 已断开
+2025-07-24 09:26:52,138 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 09:26:52,138 | INFO | [blofin] WebSocket 已断开
+2025-07-24 09:28:52,144 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 09:28:52,144 | INFO | [blofin] WebSocket 已断开
+2025-07-24 09:30:52,098 | ERROR | [blofin] 异常: timed out during opening handshake
+2025-07-24 09:30:52,098 | INFO | [blofin] WebSocket 已断开
+2025-07-24 09:31:52,193 | ERROR | [blofin] 超过最大重连次数, 终止

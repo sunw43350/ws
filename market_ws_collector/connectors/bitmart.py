@@ -81,6 +81,8 @@ class Connector(BaseAsyncConnector):
 
             if self.queue:
                 await self.queue.put(snapshot)
+        else:
+            self.log(f"⚠️ 无效数据格式: {data}", level="WARNING")
 
     async def run(self):
         await self.run_forever()
