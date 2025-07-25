@@ -38,10 +38,10 @@ async def consume_snapshots(snapshot_queue: asyncio.Queue, write_queue: asyncio.
             continue
 
         note = f"⚠️ 异常快照" if bid1 == 0 and ask1 == 0 else ""
-        print(
-            f"{snapshot.timestamp_hms} | [{exchange}] | {symbol} | "
-            f"Bid: {bid1:.5f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.5f} ({snapshot.ask_vol1:.2f}) | {note}"
-        )
+        # print(
+        #     f"{snapshot.timestamp_hms} | [{exchange}] | {symbol} | "
+        #     f"Bid: {bid1:.5f} ({snapshot.bid_vol1:.2f}) | Ask: {ask1:.5f} ({snapshot.ask_vol1:.2f}) | {note}"
+        # )
 
         await write_queue.put(WriteTask("exchange", exchange, [
             timestamp.isoformat(), symbol, bid1, ask1, snapshot.bid_vol1, snapshot.ask_vol1
