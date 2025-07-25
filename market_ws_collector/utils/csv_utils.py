@@ -3,6 +3,7 @@
 import os
 import csv
 import asyncio
+import time
 
 class CSVManager:
     def __init__(self, output_root: str):
@@ -44,6 +45,11 @@ class CSVManager:
         writer = self._get_writer(category, key, headers)
         writer.writerow(row)
 
+    def flush_all(self):
+        for category_files in self.files.values():
+            for f in category_files.values():
+                f.flush()
+
     def close_all(self):
         for category_files in self.files.values():
             for f in category_files.values():
@@ -57,8 +63,19 @@ class WriteTask:
         self.row = row
 
 
-async def writer_worker(write_queue: asyncio.Queue, csv_manager: CSVManager):
+async def writer_worker(write_queue: asyncio.Queue, csv_manager: CSVManager, flush_interval: int = 5):
+    last_flush = time.time()
+
     while True:
-        task = await write_queue.get()
-        csv_manager.write(task.category, task.key, task.row)
-        write_queue.task_done()
+        try:
+            task = await asyncio.wait_for(write_queue.get(), timeout=flush_interval)
+            csv_manager.write(task.category, task.key, task.row)
+            write_queue.task_done()
+        except asyncio.TimeoutError:
+            pass  # 超时无新任务，也要检查是否需要 flush
+
+        # 定时刷新逻辑
+        if time.time() - last_flush >= flush_interval:
+            csv_manager.flush_all()
+            last_flush = time.time()
+            print(f"🧃 CSV flushed at {time.strftime('%H:%M:%S')}")

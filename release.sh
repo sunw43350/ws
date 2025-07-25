@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG="v1.2.2"
+TAG="v1.2.3"
 TITLE=$TAG"-alpha"
 NOTES="整理框架，增加图像保存功能，和csv保存功能"
 gh release create "$TAG" --title "$TITLE" --notes "$NOTES"
