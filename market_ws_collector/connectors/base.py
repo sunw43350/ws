@@ -63,7 +63,7 @@ class BaseAsyncConnector(ABC):
         log_filename = f"{log_prefix}_{exchange}_{log_dt}.txt"
 
         if log_filename:
-            fh = logging.FileHandler(log_filename)
+            fh = logging.FileHandler(log_filename, encoding='utf-8')
             fh.setFormatter(formatter)
             self.logger.addHandler(fh)
         else:
