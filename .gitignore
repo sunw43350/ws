@@ -9,7 +9,7 @@ __pycache__/
 ^requirements.txt
 ^.devcontainer/
 
-snapshots/*
+*/snapshots/*
 
 # *.png
 # *.jpg
