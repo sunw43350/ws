@@ -1,7 +1,7 @@
 #!/bin/bash
-TAG="v1.2.4"
+TAG="v1.2.5"
 TITLE=$TAG"-alpha"
-NOTES="整理框架，增加图像保存功能，和csv保存功能"
+NOTES="update"
 gh release create "$TAG" --title "$TITLE" --notes "$NOTES"
 REPO_URL=$(gh repo view --json nameWithOwner -q '.nameWithOwner')
 echo "Source ZIP:"

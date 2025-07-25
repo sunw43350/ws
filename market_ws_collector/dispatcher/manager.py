@@ -26,10 +26,10 @@ class ExchangeManager:
             # binance.Connector(exchange="binance", queue=queue),  # ✅ 添加 Binance
             # bingx.Connector(exchange="bingx", queue=queue),  # ✅ 添加 BingX
             # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
-            bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
-            bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
-            bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue 1s  @
-            blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin @
+            # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
+            # bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
+            # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue 1s  @
+            # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin @
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
             # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto. @
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
@@ -58,7 +58,7 @@ class ExchangeManager:
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
-        # self.load_connectors() # 加载所有交易所连接器
+        self.load_connectors() # 加载所有交易所连接器
 
     def load_connectors(self):
     
