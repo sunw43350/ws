@@ -28,19 +28,19 @@ class ExchangeManager:
             # bitget.Connector(exchange="bitget", queue=queue),  # ✅ 添加 Bitget
             # bitmart.Connector(exchange="bitmart", queue=queue),  # ✅ 添加 BitMart
             # bitmex.Connector(exchange="bitmex", queue=queue),  # ✅ 添加 BitMEX
-            bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue 1s  @
+            # bitrue.Connector(exchange="bitrue", queue=queue),  # ✅ 添加 Bitrue 1s  @
             # blofin.Connector(exchange="blofin", queue=queue),  # ✅ 添加 BloFin @
             # bybit.Connector(exchange="bybit", queue=queue),  # ✅ 添加 Bybit
             # cryptocom.Connector(exchange="cryptocom", queue=queue),  # ✅ 添加 Crypto. @
             # digifinex.Connector(exchange="digifinex", queue=queue),  # ✅ 添加 Digifinex
             # gateio.Connector(exchange="gateio", queue=queue),  # ✅ 添加 Gate.io
-            huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
+            # huobi.Connector(exchange="huobi", queue=queue),  # ✅ 添加 Huobi
             # krakenfutures.Connector(exchange="krakenfutures", queue=queue),
             # lbank.Connector(exchange="lbank", queue=queue),  # ✅ 添加 LBank @  LBank 异常: sent 1011 (internal error) keepalive ping timeout; no close frame received
             # mexc.Connector(exchange="mexc", queue=queue),  # ✅ 添加 MEXC slow update/1 second
             # okx.Connector(exchange="okx", queue=queue),  # ✅ 添加 OKX
             # oxfun.Connector(exchange="oxfun", queue=queue),  # ✅ 添加 OX.FUN
-            phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
+            # phemex.Connector(exchange="phemex", queue=queue),  # ✅ 添加 Phemex
 
             ##### debug
             # bitrue.Connector(exchange="bitrue",symbols=["ANIME-USDT"],  queue=queue),  # 
@@ -58,7 +58,7 @@ class ExchangeManager:
             # 你可以继续添加 binance、bybit 等其他交易所
         ]
 
-        # self.load_connectors() # 加载所有交易所连接器
+        self.load_connectors() # 加载所有交易所连接器
 
     def load_connectors(self):
     
