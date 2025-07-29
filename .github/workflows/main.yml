@@ -43,7 +43,7 @@ jobs:
           files: |
             release/csv_orderbooks_exchange.zip
             release/csv_orderbooks_symbol.zip
-          repo: sunw43350/target
+          repository: sunw43350/target
           tag_name: auto-${{ github.run_id }}
           name: Auto Release ${{ github.run_id }}
           body: |
