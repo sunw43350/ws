@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone external repo - swujing822/simple-ccxt
+      - name: Record start time
+        id: record_start
+        run: echo "start_time=$(date -u +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Clone swujing822/simple-ccxt
         run: |
           git clone https://github.com/swujing822/simple-ccxt.git source-repo
 
@@ -23,12 +27,22 @@ jobs:
         working-directory: source-repo
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt || echo "⚠️ 没有 requirements.txt，跳过"
+          pip install -r requirements.txt || echo "⚠️ requirements.txt 不存在，跳过"
 
       - name: Run watch_orderbooks.py
         working-directory: source-repo/src
         run: |
           python watch_orderbooks.py
+
+      - name: Record end time
+        id: record_end
+        run: echo "end_time=$(date -u +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Create release tag from start~end time
+        id: set_tag
+        run: |
+          TAG="auto-${{ steps.record_start.outputs.start_time }}_${{ steps.record_end.outputs.end_time }}"
+          echo "tag_name=$TAG" >> $GITHUB_OUTPUT
 
       - name: Zip output folders
         working-directory: source-repo
@@ -40,14 +54,15 @@ jobs:
       - name: Upload to swujing822/target Release
         uses: softprops/action-gh-release@v2
         with:
+          repository: swujing822/target
+          tag_name: ${{ steps.set_tag.outputs.tag_name }}
+          name: Release ${{ steps.set_tag.outputs.tag_name }}
+          body: |
+            自动执行时间范围：  
+            开始：${{ steps.record_start.outputs.start_time }}  
+            结束：${{ steps.record_end.outputs.end_time }}
           files: |
             release/csv_orderbooks_exchange.zip
             release/csv_orderbooks_symbol.zip
-          repository: swujing822/target
-          tag_name: auto-${{ github.run_id }}
-          name: Auto Release ${{ github.run_id }}
-          body: |
-            每 4 小时从 swujing822/simple-ccxt 执行 watch_orderbooks.py 自动生成。
-            构建时间：${{ github.event.schedule || github.event_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.TARGET_REPO_TOKEN }}
