@@ -1,0 +1,54 @@
+name: Auto Release csv_orderbooks (every 4 hours)
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # 每 4 小时 UTC 时间执行一次
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone external repo - swujing822/simple-ccxt
+        run: |
+          git clone https://github.com/swujing822/simple-ccxt.git source-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        working-directory: source-repo
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || echo "⚠️ 没有 requirements.txt，跳过"
+
+      - name: Run watch_orderbooks.py
+        working-directory: source-repo
+        run: |
+          cd src
+          python watch_orderbooks.py
+
+      - name: Zip output folders
+        run: |
+          mkdir -p release
+          zip -r ../release/csv_orderbooks_exchange.zip csv_orderbooks_exchange || echo "csv_orderbooks_exchange 不存在"
+          zip -r ../release/csv_orderbooks_symbol.zip csv_orderbooks_symbol || echo "csv_orderbooks_symbol 不存在"
+          cd ..
+
+      - name: Upload to sunw43350/target Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/csv_orderbooks_exchange.zip
+            release/csv_orderbooks_symbol.zip
+          repo: sunw43350/target
+          tag_name: auto-${{ github.run_id }}
+          name: Auto Release ${{ github.run_id }}
+          body: |
+            每 4 小时从 swujing822/simple-ccxt 执行 watch_orderbooks.py 自动生成。
+            构建时间：${{ github.event.schedule || github.event_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TARGET_REPO_TOKEN }}
