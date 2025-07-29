@@ -38,13 +38,13 @@ jobs:
           zip -r ../release/csv_orderbooks_symbol.zip csv_orderbooks_symbol || echo "csv_orderbooks_symbol 不存在"
           cd ..
 
-      - name: Upload to sunw43350/target Release
+      - name: Upload to swujing822/target Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
             release/csv_orderbooks_exchange.zip
             release/csv_orderbooks_symbol.zip
-          repo: sunw43350/target
+          repo: swujing822/target
           tag_name: auto-${{ github.run_id }}
           name: Auto Release ${{ github.run_id }}
           body: |
